@@ -3,6 +3,3 @@ __pycache__/
 .DS_Store
 .env
 .streamlit/secrets.toml
-faiss_db/
-reddit_discgolf_data.json
-discgolf_knowledge.txt
