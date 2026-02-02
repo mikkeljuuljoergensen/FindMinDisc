@@ -74,7 +74,7 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
         with st.spinner("Søger anmeldelser..."):
             
             # 1. Single optimized search query
-            search_query = f"best {disc_type} disc golf {flight_pref} {prompt} review recommendation plastic"
+            search_query = f"best {disc_type} disc golf {flight_pref} {prompt} review recommendation"
             
             try:
                 search_results = search.run(search_query)
@@ -82,22 +82,41 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
             except:
                 search_results = "Ingen søgeresultater fundet."
             
+            # Map disc types to speed ranges
+            speed_ranges = {
+                "Putter": "speed 1-3",
+                "Midrange": "speed 4-6",
+                "Fairway driver": "speed 7-9",
+                "Distance driver": "speed 10-14"
+            }
+            speed_hint = speed_ranges.get(disc_type, "")
+            
             # 2. Ask LLM for recommendations
-            ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, søger {disc_type}, ønsker {flight_pref}.
-Ekstra info: "{prompt}"
+            ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, ønsker {flight_pref}.
 
-Anbefalinger fra nettet:
+VIGTIG: Brugeren søger specifikt en **{disc_type}** ({speed_hint}).
+Anbefal KUN discs der er {disc_type}s - IKKE andre disc-typer!
+- Putter = speed 1-3 (f.eks. Aviar, P2, Luna, Envy)
+- Midrange = speed 4-6 (f.eks. Buzzz, Roc, Mako3)
+- Fairway driver = speed 7-9 (f.eks. Leopard, Teebird, River)
+- Distance driver = speed 10+ (f.eks. Destroyer, Wraith, Zeus)
+
+Ekstra info fra bruger: "{prompt}"
+
+Søgeresultater:
 {search_results}
 
-Giv 3 disc-anbefalinger på dansk. VIGTIGT formatering - skriv discnavn i bold sådan: **Buzzz**
+Giv 3 {disc_type.lower()}-anbefalinger på dansk. Formatér discnavn i bold: **DiscNavn**
 
 For hver disc:
 1. **[Disc navn]** af [Mærke]
 2. Flight numbers (speed/glide/turn/fade)
 3. Fordele
 4. Ulemper
-5. Anbefalet plastik - HUSK at nævne hvordan plastikken påvirker stabiliteten:
-   - Premium plastik (ESP, Star, Champion, Neutron) = mere overstabil, holder formen længere
+5. Anbefalet plastik og hvordan det påvirker stabiliteten:
+   - Premium (ESP, Star, Champion, Neutron) = mere overstabil
+   - Base (DX, Pro-D, Prime) = bliver understabil hurtigere
+   - Gummi (Gstar, Glow) = bedre greb i koldt vejr
    - Base plastik (DX, Pro-D, Prime) = bliver understabil hurtigere, bedre greb
    - Gummiagtigt (Gstar, Glow) = bedre greb i koldt vejr
 
