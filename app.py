@@ -72,54 +72,34 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Søger anmeldelser fra hele nettet..."):
+        with st.spinner("Søger anmeldelser..."):
             
-            # 1. Search multiple disc golf sites
-            search_sites = [
-                "site:reddit.com/r/discgolf",
-                "site:infinitediscs.com",
-                "site:flightcharts.dgputtheads.com",
-                "site:discgolfmentor.com",
-            ]
+            # 1. Single optimized search query
+            search_query = f"best {disc_type} disc golf {flight_pref} {prompt} review recommendation"
             
-            all_search_results = []
-            base_query = f"best {disc_type} disc golf {flight_pref} {prompt}"
-            
-            for site in search_sites:
-                try:
-                    result = search.run(f"{base_query} {site}")
-                    all_search_results.append(result)
-                except:
-                    pass
-            
-            combined_results = "\n\n---\n\n".join(all_search_results)
+            try:
+                search_results = search.run(search_query)
+                # Truncate to avoid token limits
+                search_results = search_results[:3000]
+            except:
+                search_results = "Ingen søgeresultater fundet."
             
             # 2. Ask Gemini
-            ai_prompt = f"""
-            Brugerprofil:
-            - Niveau: {skill_level}
-            - Kaster ca. {max_dist}m
-            - Søger: {disc_type}
-            - Ønsket flyvning: {flight_pref}
-            - Ekstra info: "{prompt}"
-            
-            Anmeldelser og anbefalinger fra nettet:
-            {combined_results}
-            
-            Giv et kort, venligt svar på dansk:
-            1. Anbefal ÉN {disc_type.lower()} der passer perfekt.
-            2. Forklar kort hvorfor (nævn flight numbers: speed/glide/turn/fade).
-            3. Skriv discens navn ALENE på første linje (kun navnet, ingen ekstra tekst).
-            
-            Hold tonen afslappet som en ven der hjælper i en disc golf butik.
-            """
+            ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, søger {disc_type}, ønsker {flight_pref}.
+Ekstra: "{prompt}"
+
+Anbefalinger fra nettet:
+{search_results}
+
+Anbefal ÉN {disc_type.lower()} på dansk. Nævn flight numbers. Skriv KUN discens navn på første linje.
+Kort og venligt svar."""
             
             try:
                 ai_response = llm.invoke(ai_prompt).content
                 
                 # Parse the response
                 lines = ai_response.split('\n')
-                suggested_disc = lines[0].replace("*", "").replace(":", "").strip()
+                suggested_disc = lines[0].replace("*", "").replace(":", "").replace("#", "").strip()
                 explanation = "\n".join(lines[1:])
                 
                 # 3. Check Stock
@@ -137,7 +117,11 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
 * {stock_nd}
 """
             except Exception as e:
-                final_reply = f"⚠️ Ups, noget gik galt: {e}"
+                error_msg = str(e)
+                if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                    final_reply = "⏳ Gemini har brug for en pause. Vent 1 minut og prøv igen."
+                else:
+                    final_reply = f"⚠️ Ups, noget gik galt: {e}"
             
             st.markdown(final_reply)
             st.session_state.messages.append({"role": "assistant", "content": final_reply})
