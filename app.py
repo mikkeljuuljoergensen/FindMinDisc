@@ -900,6 +900,38 @@ with st.sidebar:
     with st.expander("📖 Hvad betyder flight numbers?"):
         st.markdown(FLIGHT_NUMBER_GUIDE)
     
+    # TechDisc-style calculator
+    with st.expander("🎯 TechDisc Beregner"):
+        st.caption("Baseret på discgolf.digital")
+        
+        throw_speed = st.slider("Kasthastighed (km/h):", 50, 130, 95, 5)
+        nose_angle = st.slider("Nose angle (°):", -5, 5, -3, 1)
+        spin_rate = st.slider("Spin (RPM):", 600, 1800, 1200, 100)
+        
+        # Calculate disc speed from throw speed
+        # Formula: disc_speed = 0.185 * throw_mph
+        throw_mph = throw_speed / 1.61
+        ideal_disc_speed = round(0.185 * throw_mph, 1)
+        
+        # Calculate stability adjustment
+        # Nose angle: -5° = +1.6, +5° = -1.6
+        nose_stability = -0.32 * nose_angle
+        # Spin: 800=+2.5, 1200=+0.9, 1600=-1.7 → approx -0.005 * (spin - 1200)
+        spin_stability = -0.00525 * (spin_rate - 1200)
+        total_stability = round(nose_stability + spin_stability, 1)
+        
+        st.metric("Anbefalet disc speed", f"{ideal_disc_speed}")
+        
+        if total_stability > 1:
+            st.metric("Stabilitets-justering", f"Overstabil (+{total_stability})")
+            st.info(f"Ved denne teknik bør du vælge discs med fade {int(total_stability)+1}+ eller turn 0/+1")
+        elif total_stability < -1:
+            st.metric("Stabilitets-justering", f"Understabil ({total_stability})")
+            st.info(f"Ved denne teknik bør du vælge understabile discs med turn -{int(abs(total_stability))} eller lavere")
+        else:
+            st.metric("Stabilitets-justering", f"Neutral ({total_stability:+.1f})")
+            st.info("Din teknik er neutral - vælg discs efter flight numbers")
+    
     st.divider()
     st.caption("Drevet af den bedste AI Mikkel har råd til")
     st.caption(f"Database: {len(DISC_DATABASE)} discs")
