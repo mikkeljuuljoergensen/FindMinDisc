@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_groq import ChatGroq
-from retailers import check_stock_disctree, check_stock_newdisc
+from retailers import check_stock_disctree, check_stock_newdisc, check_stock_discimport, check_stock_gbaseshop
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -132,23 +132,25 @@ Formatér pænt med ### overskrifter og bullet points."""
                 # Find bold disc names like **Buzzz** or **Mako3**
                 bold_names = re.findall(r'\*\*([A-Za-z0-9]+)\*\*', ai_response)
                 # Filter to likely disc names (not common words)
-                skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 'disc', 'discs', 'found', 'check', 'view'}
+                skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 'disc', 'discs', 'found', 'check', 'view', 'speed', 'glide', 'turn', 'fade', 'premium', 'base'}
                 disc_names = [name for name in bold_names if name.lower() not in skip_words][:3]
                 
-                # Build stock info
+                # Build stock info with links to Danish retailers
                 stock_info = ""
                 for disc in disc_names:
                     disc_clean = disc.strip()
                     if disc_clean and len(disc_clean) > 2:
-                        stock_dt = check_stock_disctree(disc_clean)
-                        stock_nd = check_stock_newdisc(disc_clean)
-                        stock_info += f"**{disc_clean}:**\n* {stock_dt}\n* {stock_nd}\n\n"
+                        stock_info += f"**{disc_clean}:**\n"
+                        stock_info += f"  * {check_stock_disctree(disc_clean)}\n"
+                        stock_info += f"  * {check_stock_newdisc(disc_clean)}\n"
+                        stock_info += f"  * {check_stock_discimport(disc_clean)}\n"
+                        stock_info += f"  * {check_stock_gbaseshop(disc_clean)}\n\n"
                 
                 final_reply = f"""{ai_response}
 
 ---
-## 🇩🇰 På lager i Danmark:
-{stock_info if stock_info else "Kunne ikke tjekke lager for disse discs."}
+## 🇩🇰 Find dem i Danmark:
+{stock_info if stock_info else "Kunne ikke finde disc-navne."}
 """
             except Exception as e:
                 error_msg = str(e)
