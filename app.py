@@ -1,22 +1,22 @@
 import streamlit as st
 import re
 from langchain_community.tools import DuckDuckGoSearchRun
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from retailers import check_stock_disctree, check_stock_newdisc
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
 # --- API KEY HANDLING ---
-if "GROQ_API_KEY" in st.secrets:
-    api_key = st.secrets["GROQ_API_KEY"]
+if "OPENAI_API_KEY" in st.secrets:
+    api_key = st.secrets["OPENAI_API_KEY"]
 else:
-    st.error("Mangler GROQ_API_KEY. Tilføj den til Streamlit Secrets.")
+    st.error("Mangler OPENAI_API_KEY. Tilføj den til Streamlit Secrets.")
     st.stop()
 
 # --- AI SETUP ---
-llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
     api_key=api_key,
     temperature=0.7
 )
