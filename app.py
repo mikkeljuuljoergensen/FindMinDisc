@@ -207,6 +207,35 @@ def fix_flight_numbers_in_response(response, database):
     return '\n'.join(result_lines)
 
 
+def fix_manufacturer_names_in_response(response, database):
+    """
+    Post-process AI response to fix any incorrect manufacturer names.
+    The AI sometimes hallucinates wrong manufacturers (e.g. "Dynamic Discs Diamond" 
+    when Diamond is actually by Latitude 64).
+    """
+    result = response
+    
+    # Find all disc names mentioned in the response
+    for disc_name in sorted(database.keys(), key=len, reverse=True):
+        if disc_name in database:
+            correct_manufacturer = database[disc_name].get('manufacturer', '')
+            if not correct_manufacturer:
+                continue
+            
+            # Pattern 1: Fix "### **WrongManufacturer DiscName** af WrongManufacturer"
+            # This handles the full line with both wrong prefix and suffix
+            pattern1 = rf'(###\s*\*\*)[^*\n]*?{re.escape(disc_name)}\s*\*\*(\s+af\s+)[A-Za-z0-9\s]+?(?=\n|$|-)'
+            if re.search(pattern1, result, re.IGNORECASE):
+                result = re.sub(pattern1, rf'\g<1>{disc_name}**\g<2>{correct_manufacturer}', result, flags=re.IGNORECASE)
+            
+            # Pattern 2: Fix just "**DiscName** af WrongManufacturer" (no prefix issue)
+            pattern2 = rf'(\*\*{re.escape(disc_name)}\*\*\s+af\s+)[A-Za-z0-9\s]+?(?=\n|$|-)'
+            if re.search(pattern2, result, re.IGNORECASE):
+                result = re.sub(pattern2, rf'\g<1>{correct_manufacturer}', result, flags=re.IGNORECASE)
+    
+    return result
+
+
 def handle_free_form_question(prompt, user_prefs=None):
     """
     Handle any free-form disc golf question using AI + web search.
@@ -483,6 +512,9 @@ Afslut med at spørge om brugeren vil vide mere, sammenligne discs, eller se hvo
         
         # POST-PROCESS: Fix any incorrect flight numbers in the response
         response = fix_flight_numbers_in_response(response, DISC_DATABASE)
+        
+        # POST-PROCESS: Fix any incorrect manufacturer names in the response
+        response = fix_manufacturer_names_in_response(response, DISC_DATABASE)
         
         # POST-PROCESS: Remove disc recommendations outside the requested speed range
         if custom_speed_range:
@@ -1495,6 +1527,9 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     # POST-PROCESS: Fix any incorrect flight numbers
                     ai_response = fix_flight_numbers_in_response(ai_response, DISC_DATABASE)
                     
+                    # POST-PROCESS: Fix any incorrect manufacturer names
+                    ai_response = fix_manufacturer_names_in_response(ai_response, DISC_DATABASE)
+                    
                     # Find disc names - look for **Name** pattern
                     bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', ai_response)
                     disc_names = []
@@ -1683,6 +1718,8 @@ REGLER:
                             reply = llm.invoke(general_prompt).content
                             # Fix any incorrect flight numbers
                             reply = fix_flight_numbers_in_response(reply, DISC_DATABASE)
+                            # Fix any incorrect manufacturer names
+                            reply = fix_manufacturer_names_in_response(reply, DISC_DATABASE)
                         except Exception as e:
                             reply = f"Beklager, noget gik galt: {e}"
                         
@@ -1792,6 +1829,9 @@ Hvis du giver nye anbefalinger (KUN hvis brugeren beder om det), brug dette form
                             
                             # Fix any incorrect flight numbers
                             reply = fix_flight_numbers_in_response(reply, DISC_DATABASE)
+                            
+                            # Fix any incorrect manufacturer names
+                            reply = fix_manufacturer_names_in_response(reply, DISC_DATABASE)
                             
                             # Extract disc names for stock links
                             bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', reply)
