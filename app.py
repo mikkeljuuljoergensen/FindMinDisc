@@ -203,11 +203,11 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
         response = llm.invoke(ai_prompt).content
         
         # Extract recommended disc names for potential flight chart
-        # ONLY match disc names that appear in **bold** format (AI recommendation format)
-        # This avoids false positives like "Glide" in "god glide" or "Balance" in "god balance"
+        # First try bold text patterns, then fall back to searching full response
         disc_names = []
+        response_lower = response.lower()
         
-        # Find all bold text patterns
+        # Find all bold text patterns first
         bold_matches = re.findall(r'\*\*([^*]+)\*\*', response)
         
         for bold_text in bold_matches:
@@ -220,6 +220,19 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
                     break
             if len(disc_names) >= 4:
                 break
+        
+        # If we didn't find enough, also search for disc names mentioned without bold
+        # But only if they appear at start of line (like "Innova P2" or "P2")
+        if len(disc_names) < 4:
+            for db_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
+                if db_name in disc_names:
+                    continue
+                # Check for disc name at start of line or after manufacturer name
+                pattern = r'(?:^|\n)(?:[A-Za-z]+\s+)?(' + re.escape(db_name) + r')\b'
+                if re.search(pattern, response, re.IGNORECASE):
+                    disc_names.append(db_name)
+                if len(disc_names) >= 4:
+                    break
         
         return {
             'response': response,
@@ -985,7 +998,7 @@ if prompt := st.chat_input("Skriv dit svar..."):
                     
                     # Add buy links for recommended discs
                     for disc in disc_names:
-                        if disc and len(disc) > 2:
+                        if disc and len(disc) >= 2:
                             links = get_product_links(disc)
                             buy_link_parts = []
                             if 'Disc Tree' in links:
@@ -1228,7 +1241,7 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     # Build buy links for each disc and inject into response
                     modified_response = ai_response
                     for disc in disc_names:
-                        if disc and len(disc) > 2:
+                        if disc and len(disc) >= 2:
                             # Get product links from stores
                             links = get_product_links(disc)
                             
@@ -1448,7 +1461,7 @@ Hvis du giver nye anbefalinger, brug dette format:
                             # Add buy links after plastic lines
                             modified_reply = reply
                             for disc in disc_names:
-                                if disc and len(disc) > 2:
+                                if disc and len(disc) >= 2:
                                     links = get_product_links(disc)
                                     
                                     buy_link_parts = []
