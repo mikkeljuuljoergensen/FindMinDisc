@@ -15,14 +15,14 @@ def parse_flight_chart_request(prompt):
     Parse natural language requests for flight charts.
     
     Examples:
-    - "Vis mig flight charts for Destroyer, Mamba, Juggernaut og Zone SS, hvis min maks kastelængde er 137 meter"
-    - "Sammenlign Buzzz og Roc3 ved 70m kast"
+    - "Vis mig flight charts for Destroyer, Mamba og Zone SS"
+    - "Sammenlign Buzzz og Roc3"
     - "Flight chart for Firebird"
     - "Destroyer vs Wraith"
     - "Tilføj Wraith" (adds to existing)
-    - "Også Firebird" (adds to existing)
+    - "Begynder arm speed" / "Pro arm speed" (changes speed)
     
-    Returns dict with 'discs' list and 'distance' (or None if not a flight chart request)
+    Returns dict with 'discs' list and 'arm_speed'
     """
     prompt_lower = prompt.lower()
     
@@ -31,145 +31,70 @@ def parse_flight_chart_request(prompt):
     is_chart_request = any(kw in prompt_lower for kw in flight_keywords)
     
     # Check if this is an "add to existing" request
-    add_keywords = ['tilføj', 'også', 'add', 'inkluder', 'med', 'plus', 'og også', 'hvad med']
+    add_keywords = ['tilføj', 'også', 'add', 'inkluder', 'plus', 'og også', 'hvad med']
     is_add_request = any(kw in prompt_lower for kw in add_keywords)
     
-    # Find disc names - use word boundary matching to avoid partial matches
-    # Sort by length (longest first) to prefer "Zone SS" over "Zone"
+    # Check for arm speed change
+    arm_speed = None
+    if 'begynder' in prompt_lower or 'slow' in prompt_lower or 'langsom' in prompt_lower:
+        arm_speed = 'slow'
+    elif 'pro' in prompt_lower or 'fast' in prompt_lower or 'hurtig' in prompt_lower:
+        arm_speed = 'fast'
+    elif 'øvet' in prompt_lower or 'normal' in prompt_lower or 'mellem' in prompt_lower:
+        arm_speed = 'normal'
+    
+    # Find disc names
     disc_names_sorted = sorted(DISC_DATABASE.keys(), key=len, reverse=True)
     
     disc_names_found = []
-    prompt_remaining = prompt_lower  # Track what's left to match
+    prompt_remaining = prompt_lower
     
     for disc_name in disc_names_sorted:
         disc_lower = disc_name.lower()
-        # Use word boundary matching to avoid "Ra" matching in "Wraith"
         pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(disc_lower) + r'(?:[^a-zæøå0-9]|$)'
         if re.search(pattern, prompt_remaining):
             disc_names_found.append(disc_name)
             prompt_remaining = re.sub(pattern, ' ', prompt_remaining, count=1)
     
-    # If multiple discs mentioned, or add request with disc, or chart request with disc
-    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found):
-        # Extract distance
-        distance = None
-        
-        # Match "137 meter", "137m", "kaster 137", "kastelængde 137"
-        dist_patterns = [
-            r'(\d+)\s*(?:meter|m\b)',
-            r'kastelængde[^\d]*(\d+)',
-            r'kaster[^\d]*(\d+)',
-            r'distance[^\d]*(\d+)',
-            r'(\d+)\s*(?:ft|feet|fod)',  # feet
-        ]
-        
-        for pattern in dist_patterns:
-            match = re.search(pattern, prompt_lower)
-            if match:
-                distance = int(match.group(1))
-                # Convert feet to meters if needed
-                if 'ft' in prompt_lower or 'feet' in prompt_lower or 'fod' in prompt_lower:
-                    distance = int(distance * 0.3048)
-                # Sanity check - if > 200, probably feet
-                if distance > 200:
-                    distance = int(distance * 0.3048)
-                break
-        
+    # If discs found or arm speed change requested
+    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found) or arm_speed:
         return {
             'discs': disc_names_found,
-            'distance': distance,  # None means use last_distance
+            'arm_speed': arm_speed,
             'is_chart_request': True,
-            'is_add_request': is_add_request
+            'is_add_request': is_add_request,
+            'is_speed_change': arm_speed is not None and not disc_names_found
         }
     
     return {'is_chart_request': False}
 
 
-def interpolate_flight_path(path_slow, path_normal, path_fast, arm_factor, user_distance_m):
+def render_flight_chart_comparison(disc_names, arm_speed='normal'):
     """
-    Interpolate between slow/normal/fast flight paths based on arm_factor.
+    Render a flight chart comparison using actual flight paths from database.
     
-    arm_factor: 0.0 = slow, 0.5 = normal, 1.0 = fast
-    
-    Then scale to user's actual throwing distance.
+    arm_speed: 'slow' (Begynder), 'normal' (Øvet), 'fast' (Pro)
     """
-    # Determine which paths to interpolate between
-    if arm_factor <= 0.5:
-        # Between slow and normal
-        t = arm_factor * 2  # 0 to 1
-        path_a, path_b = path_slow, path_normal
-    else:
-        # Between normal and fast
-        t = (arm_factor - 0.5) * 2  # 0 to 1
-        path_a, path_b = path_normal, path_fast
-    
-    # Get max distances from paths
-    max_dist_a = path_a[-1]['y'] if path_a else 400
-    max_dist_b = path_b[-1]['y'] if path_b else 400
-    
-    # Interpolate max distance
-    interpolated_max_dist = max_dist_a + t * (max_dist_b - max_dist_a)
-    
-    # Scale factor to match user's distance
-    user_distance_ft = user_distance_m / 0.3048
-    scale = user_distance_ft / interpolated_max_dist if interpolated_max_dist > 0 else 1.0
-    
-    # Interpolate points and scale to user distance
-    result = []
-    for i in range(min(len(path_a), len(path_b))):
-        x_a, y_a = path_a[i]['x'], path_a[i]['y']
-        x_b, y_b = path_b[i]['x'], path_b[i]['y']
-        
-        # Interpolate x (turn/fade) based on arm factor
-        x = x_a + t * (x_b - x_a)
-        # Scale y to user's distance
-        y = (y_a + t * (y_b - y_a)) * scale
-        
-        result.append({'x': x, 'y': y})
-    
-    return result
-
-
-def calculate_power_percentage(user_distance_m, speed, glide):
-    """
-    Calculate power percentage: how well user's distance matches disc requirements.
-    
-    Uses the practical "speed × 10" rule that disc golfers commonly use:
-    - Speed 4 putter: needs ~40m arm
-    - Speed 7 fairway: needs ~70m arm
-    - Speed 12 driver: needs ~120m arm
-    
-    Glide adds a small bonus (~2m per glide point).
-    
-    Returns percentage where 100% = you can throw this disc properly.
-    """
-    # Practical expected distance: speed * 10 + glide * 2
-    # This matches what disc golfers actually experience
-    expected_m = speed * 10 + glide * 2
-    
-    # Power percentage
-    power_pct = (user_distance_m / expected_m) * 100
-    
-    return {
-        'power_pct': power_pct,
-        'expected_m': expected_m,
-        'ratio': user_distance_m / expected_m
-    }
-
-
-def render_flight_chart_comparison(disc_names, throwing_distance):
-    """Render a flight chart comparison for specified discs using actual database paths."""
     import pandas as pd
     
+    # Map arm speed to Danish labels and path keys
+    arm_speed_info = {
+        'slow': {'label': 'Begynder', 'path_key': 'flight_path_bh_slow'},
+        'normal': {'label': 'Øvet', 'path_key': 'flight_path_bh_normal'},
+        'fast': {'label': 'Pro', 'path_key': 'flight_path_bh_fast'}
+    }
+    
+    info = arm_speed_info.get(arm_speed, arm_speed_info['normal'])
+    path_key = info['path_key']
+    
     st.markdown(f"### 🥏 Flight Chart Sammenligning")
-    st.markdown(f"*Din kastelængde: **{throwing_distance}m***")
+    st.markdown(f"*Arm speed: **{info['label']}***")
     
     # Collect disc data from FULL database with flight paths
     discs_with_data = []
     not_found = []
     
     for disc_name in disc_names:
-        # Try to find the disc in FULL database (case-insensitive)
         disc_data = None
         matched_name = None
         for db_name, db_data in DISC_DATABASE_FULL.items():
@@ -178,7 +103,7 @@ def render_flight_chart_comparison(disc_names, throwing_distance):
                 matched_name = db_name
                 break
         
-        if disc_data and disc_data.get('flight_path_bh_normal'):
+        if disc_data and disc_data.get(path_key):
             discs_with_data.append({
                 'name': matched_name,
                 'speed': disc_data.get('speed', 5),
@@ -186,93 +111,72 @@ def render_flight_chart_comparison(disc_names, throwing_distance):
                 'turn': disc_data.get('turn', 0),
                 'fade': disc_data.get('fade', 2),
                 'manufacturer': disc_data.get('manufacturer', 'Ukendt'),
-                'path_slow': disc_data.get('flight_path_bh_slow', []),
-                'path_normal': disc_data.get('flight_path_bh_normal', []),
-                'path_fast': disc_data.get('flight_path_bh_fast', [])
+                'path': disc_data.get(path_key, [])
             })
         else:
             not_found.append(disc_name)
     
     if not_found:
-        st.warning(f"Kunne ikke finde flight data for: {', '.join(not_found)}")
+        st.warning(f"Kunne ikke finde: {', '.join(not_found)}")
     
     if not discs_with_data:
-        st.error("Ingen af de angivne discs blev fundet i databasen med flight paths.")
+        st.error("Ingen discs fundet med flight data.")
         return
     
-    # Calculate arm factor and interpolate paths
+    # Build chart data directly from database paths
     all_data = []
     stats_data = []
     
     for disc in discs_with_data:
-        # Calculate power/arm factor
-        power_info = calculate_power_percentage(throwing_distance, disc['speed'], disc['glide'])
+        path = disc['path']
+        if not path:
+            continue
         
-        # Map ratio to arm factor (0.0 = slow, 0.5 = normal, 1.0 = fast)
-        ratio = power_info['ratio']
-        if ratio <= 0.894:
-            arm_factor = 0.0
-        elif ratio <= 1.0:
-            arm_factor = 0.5 * (ratio - 0.894) / (1.0 - 0.894)
-        elif ratio <= 1.053:
-            arm_factor = 0.5 + 0.5 * (ratio - 1.0) / (1.053 - 1.0)
-        else:
-            arm_factor = min(1.0, 0.5 + 0.5 * (ratio - 1.0) / 0.053)
-        
-        # Interpolate flight path based on arm factor
-        path = interpolate_flight_path(
-            disc['path_slow'], disc['path_normal'], disc['path_fast'],
-            arm_factor, throwing_distance
-        )
-        
-        # Get stats from interpolated path
-        max_turn = min(p['x'] for p in path) if path else 0
-        final_x = path[-1]['x'] if path else 0
+        # Get stats from path
+        max_distance_ft = path[-1]['y']
+        max_turn = min(p['x'] for p in path)
+        final_x = path[-1]['x']
         fade_amount = final_x - max_turn
         
         stats_data.append({
             'name': disc['name'],
             'manufacturer': disc['manufacturer'],
-            'speed': disc['speed'],
-            'glide': disc['glide'],
-            'turn': disc['turn'],
-            'fade': disc['fade'],
             'flight_numbers': f"{disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']}",
-            'power_pct': power_info['power_pct'],
-            'expected_m': power_info['expected_m'],
+            'max_distance_m': round(max_distance_ft * 0.3048, 0),
             'max_turn': max_turn,
-            'fade_amount': fade_amount,
-            'arm_factor': arm_factor
+            'fade_amount': fade_amount
         })
         
-        # Add to chart data - convert to meters
+        # Add path points to chart data
         disc_label = f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})"
         for p in path:
             all_data.append({
                 'Disc': disc_label,
-                'Turn/Fade (m)': round(p['x'] * 0.3048, 2),  # Convert feet to meters
-                'Distance (m)': round(p['y'] * 0.3048, 1)
+                'Turn/Fade (ft)': p['x'],
+                'Distance (ft)': p['y']
             })
     
-    # Create chart
+    # Create chart using Altair
     df = pd.DataFrame(all_data)
     
-    # Use Altair for vertical flight chart (like dgputtheads)
     try:
         import altair as alt
         
+        # Calculate axis ranges
+        max_dist = df['Distance (ft)'].max()
+        max_turn_fade = max(abs(df['Turn/Fade (ft)'].min()), abs(df['Turn/Fade (ft)'].max()), 2)
+        
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
-            x=alt.X('Turn/Fade (m):Q', 
-                    title='Turn/Fade (meter)',
-                    scale=alt.Scale(domain=[-2, 2])),
-            y=alt.Y('Distance (m):Q', 
-                    title='Distance (meter)',
-                    scale=alt.Scale(domain=[0, throwing_distance + 10])),
-            color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom')),
-            tooltip=['Disc', 'Distance (m)', 'Turn/Fade (m)']
+            x=alt.X('Turn/Fade (ft):Q', 
+                    title='← Turn (højre)  |  Fade (venstre) →',
+                    scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
+            y=alt.Y('Distance (ft):Q', 
+                    title='Distance (ft)',
+                    scale=alt.Scale(domain=[0, max_dist + 20])),
+            color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
+            tooltip=['Disc', 'Distance (ft)', 'Turn/Fade (ft)']
         ).properties(
-            height=500,
-            title=f'Flight Paths ved {throwing_distance}m kastelængde'
+            height=500
         ).configure_axis(
             grid=True
         )
@@ -280,51 +184,20 @@ def render_flight_chart_comparison(disc_names, throwing_distance):
         st.altair_chart(chart, use_container_width=True)
         
     except ImportError:
-        # Fallback to line_chart if altair not available
-        pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Turn/Fade (m)')
+        pivot_df = df.pivot(index='Distance (ft)', columns='Disc', values='Turn/Fade (ft)')
         st.line_chart(pivot_df, height=500)
     
-    # Show detailed stats for each disc
-    st.markdown("### 📊 Disc Detaljer")
+    # Show stats table
+    st.markdown("### 📊 Disc Stats")
     
-    for stat in stats_data:
-        power_pct = stat['power_pct']
-        
-        with st.expander(f"**{stat['manufacturer']} {stat['name']}** ({stat['flight_numbers']})", expanded=True):
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                if power_pct >= 95:
-                    st.metric("Din power", f"🚀 {power_pct:.0f}%", 
-                              help="Du kan kaste denne disc med fuld power")
-                elif power_pct >= 70:
-                    st.metric("Din power", f"✅ {power_pct:.0f}%",
-                              help="God match for din kastelængde")
-                elif power_pct >= 50:
-                    st.metric("Din power", f"⚠️ {power_pct:.0f}%",
-                              help="Denne disc kræver mere armhastighed")
-                else:
-                    st.metric("Din power", f"❌ {power_pct:.0f}%",
-                              help="Denne disc er for hurtig til din kastelængde")
-            
-            with col2:
-                st.metric("Kræver arm", f"{stat['expected_m']:.0f}m",
-                          help="Kastelængde for at udnytte discen fuldt (speed×10 + glide×2)")
-            
-            with col3:
-                turn = stat['turn']
-                fade = stat['fade']
-                if turn <= -3:
-                    stability = "Meget understabil ↪️"
-                elif turn <= -1:
-                    stability = "Understabil ↪️"
-                elif fade >= 3:
-                    stability = "Meget overstabil ↩️"
-                elif fade >= 2:
-                    stability = "Overstabil ↩️"
-                else:
-                    stability = "Stabil →"
-                st.metric("Stabilitet", stability)
+    cols = st.columns(len(stats_data))
+    for i, stat in enumerate(stats_data):
+        with cols[i]:
+            st.markdown(f"**{stat['name']}**")
+            st.caption(stat['flight_numbers'])
+            st.metric("Distance", f"{stat['max_distance_m']:.0f}m")
+            st.metric("Max turn", f"{stat['max_turn']:.2f}")
+            st.metric("Fade", f"{stat['fade_amount']:.2f}")
     
     return True
 
@@ -685,8 +558,8 @@ if "user_prefs" not in st.session_state:
     st.session_state.user_prefs = {}
 if "shown_discs" not in st.session_state:
     st.session_state.shown_discs = []  # Remember discs shown in flight charts
-if "last_distance" not in st.session_state:
-    st.session_state.last_distance = 80  # Remember last used distance
+if "arm_speed" not in st.session_state:
+    st.session_state.arm_speed = 'normal'  # Begynder/Øvet/Pro → slow/normal/fast
 
 # --- HEADER ---
 st.header("FindMinDisc 🥏")
@@ -703,7 +576,7 @@ def reset_conversation():
     st.session_state.step = "start"
     st.session_state.user_prefs = {}
     st.session_state.shown_discs = []
-    st.session_state.last_distance = 80
+    st.session_state.arm_speed = 'normal'  # Default: Øvet
 
 # --- START CONVERSATION ---
 if st.session_state.step == "start":
@@ -715,10 +588,11 @@ if st.session_state.step == "start":
 3️⃣ Fairway driver
 4️⃣ Distance driver
 
-**Eller spørg mig direkte:**
-*"Vis flight charts for Destroyer, Mamba og Zone SS ved 100m kast"*
+**Eller sammenlign discs direkte:**
+*"Vis flight charts for Destroyer, Mamba og Zone SS"*
 *"Sammenlign Buzzz og Roc3"*
-*"Hvilken disc til skovbaner?"*""")
+
+💪 Arm speed: Begynder | Øvet | Pro""")
     st.session_state.step = "ask_type"
 
 # --- DISPLAY MESSAGES ---
@@ -736,42 +610,54 @@ if prompt := st.chat_input("Skriv dit svar..."):
         chart_request = parse_flight_chart_request(prompt)
         
         if chart_request.get('is_chart_request'):
-            # User asked for flight chart comparison
-            new_discs = chart_request['discs']
+            new_discs = chart_request.get('discs', [])
             is_add = chart_request.get('is_add_request', False)
+            is_speed_change = chart_request.get('is_speed_change', False)
+            new_arm_speed = chart_request.get('arm_speed')
             
-            # Determine distance: use provided, or fall back to last used
-            distance = chart_request.get('distance')
-            if distance is None:
-                distance = st.session_state.last_distance
+            # Update arm speed if specified
+            if new_arm_speed:
+                st.session_state.arm_speed = new_arm_speed
             
-            # If adding to existing, combine with previous discs
-            if is_add and st.session_state.shown_discs:
-                # Add new discs to existing list (avoid duplicates)
+            arm_speed = st.session_state.arm_speed
+            arm_speed_labels = {'slow': 'Begynder', 'normal': 'Øvet', 'fast': 'Pro'}
+            arm_label = arm_speed_labels.get(arm_speed, 'Øvet')
+            
+            # Handle just speed change (no new discs)
+            if is_speed_change and st.session_state.shown_discs:
+                all_discs = st.session_state.shown_discs
+                reply = f"Skiftet til **{arm_label}** arm speed:"
+            # Handle adding discs
+            elif is_add and st.session_state.shown_discs and new_discs:
                 all_discs = list(st.session_state.shown_discs)
                 for disc in new_discs:
                     if disc not in all_discs:
                         all_discs.append(disc)
-                reply = f"Tilføjet **{', '.join(new_discs)}** - viser nu **{len(all_discs)} discs** ved {distance}m:"
-            else:
-                # New chart request - replace previous
+                reply = f"Tilføjet **{', '.join(new_discs)}** ({arm_label} arm speed):"
+            # Handle new chart request
+            elif new_discs:
                 all_discs = new_discs
-                reply = f"Her er flight charts for **{', '.join(all_discs)}** ved din kastelængde på **{distance}m**:"
+                reply = f"Flight charts for **{', '.join(all_discs)}** ({arm_label} arm speed):"
+            else:
+                # No discs and no previous discs
+                reply = "Nævn mindst én disc - f.eks. 'Sammenlign Destroyer og Mamba'"
+                st.markdown(reply)
+                add_bot_message(reply)
+                st.rerun()
             
             st.markdown(reply)
             add_bot_message(reply)
             
             # Render the comparison chart
-            render_flight_chart_comparison(all_discs, distance)
+            render_flight_chart_comparison(all_discs, arm_speed)
             
             # Update session state
             st.session_state.step = "done"
-            st.session_state.user_prefs["max_dist"] = distance
-            st.session_state.shown_discs = all_discs  # Remember shown discs
-            st.session_state.last_distance = distance  # Remember distance
+            st.session_state.shown_discs = all_discs
             
-            follow_up = "\n\n💬 Du kan tilføje flere - f.eks. 'Også Wraith' eller 'Tilføj Firebird'"
+            follow_up = f"\n\n💬 *Tilføj flere: 'Også Wraith'* | *Skift speed: 'Pro' eller 'Begynder'*"
             st.markdown(follow_up)
+            add_bot_message(follow_up)
             add_bot_message(follow_up)
         
         # --- STEP: ASK DISC TYPE ---
