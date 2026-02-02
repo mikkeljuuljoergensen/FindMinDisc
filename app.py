@@ -110,38 +110,50 @@ def fix_flight_numbers_in_response(response, database):
     The AI often hallucinates flight numbers from its training data.
     This function forces the correct values from our database.
     """
-    # For each disc mentioned in the response, fix its flight numbers
-    for disc_name in sorted(database.keys(), key=len, reverse=True):
-        if disc_name.lower() in response.lower():
-            disc_data = database[disc_name]
-            speed = disc_data.get('speed', 0)
-            glide = disc_data.get('glide', 0)
-            turn = disc_data.get('turn', 0)
-            fade = disc_data.get('fade', 0)
-            correct_flight = f"{speed}/{glide}/{turn}/{fade}"
-            
-            # Fix "Flight: X/X/X/X" format (most common)
-            # This regex finds flight numbers after the disc name
-            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^0-9]*?Flight[:\s]+)(\d+)/(\d+)/(-?\d+\.?\d*)/(\d+\.?\d*)'
-            response = re.sub(pattern, rf'\1{correct_flight}', response, flags=re.IGNORECASE)
-            
-            # Fix individual "Speed: X" format
-            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Speed[:\s]+)\d+'
-            response = re.sub(pattern, rf'\g<1>{speed}', response, flags=re.IGNORECASE)
-            
-            # Fix individual "Glide: X" format  
-            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Glide[:\s]+)\d+'
-            response = re.sub(pattern, rf'\g<1>{glide}', response, flags=re.IGNORECASE)
-            
-            # Fix individual "Turn: X" format
-            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Turn[:\s]+)-?\d+\.?\d*'
-            response = re.sub(pattern, rf'\g<1>{turn}', response, flags=re.IGNORECASE)
-            
-            # Fix individual "Fade: X" format
-            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Fade[:\s]+)\d+\.?\d*'
-            response = re.sub(pattern, rf'\g<1>{fade}', response, flags=re.IGNORECASE)
+    # Split response into sections by headers (lines starting with ** or ###)
+    lines = response.split('\n')
+    current_disc = None
+    result_lines = []
     
-    return response
+    for line in lines:
+        # Check if this line defines a new disc (bold name or header)
+        disc_found = None
+        for disc_name in sorted(database.keys(), key=len, reverse=True):
+            # Check for **DiscName** or ### DiscName patterns
+            if re.search(rf'\*\*\s*{re.escape(disc_name)}\s*\*\*|###.*{re.escape(disc_name)}', line, re.IGNORECASE):
+                disc_found = disc_name
+                break
+            # Also check for just the disc name at start of line (like "Photon")
+            elif re.match(rf'^[\*\s]*{re.escape(disc_name)}\s*$', line.strip(), re.IGNORECASE):
+                disc_found = disc_name
+                break
+        
+        if disc_found:
+            current_disc = disc_found
+        
+        # If we're in a disc section, fix flight numbers on this line
+        if current_disc and current_disc in database:
+            disc_data = database[current_disc]
+            speed = str(disc_data.get('speed', 0))
+            glide = str(disc_data.get('glide', 0))
+            turn = str(disc_data.get('turn', 0))
+            fade = str(disc_data.get('fade', 0))
+            
+            # Fix Flight: X/X/X/X format
+            line = re.sub(
+                r'(Flight[:\s]+)\d+/\d+/-?\d+\.?\d*/\d+\.?\d*',
+                rf'\g<1>{speed}/{glide}/{turn}/{fade}',
+                line, flags=re.IGNORECASE
+            )
+            # Fix individual values
+            line = re.sub(r'(Speed[:\s]+)\d+', rf'\g<1>{speed}', line, flags=re.IGNORECASE)
+            line = re.sub(r'(Glide[:\s]+)\d+', rf'\g<1>{glide}', line, flags=re.IGNORECASE)
+            line = re.sub(r'(Turn[:\s]+)-?\d+\.?\d*', rf'\g<1>{turn}', line, flags=re.IGNORECASE)
+            line = re.sub(r'(Fade[:\s]+)\d+\.?\d*', rf'\g<1>{fade}', line, flags=re.IGNORECASE)
+        
+        result_lines.append(line)
+    
+    return '\n'.join(result_lines)
 
 
 def handle_free_form_question(prompt, user_prefs=None):
