@@ -203,22 +203,16 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
         response = llm.invoke(ai_prompt).content
         
         # Extract recommended disc names for potential flight chart
-        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', response)
+        # Look for disc names in database that appear in the response
         disc_names = []
-        skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'hvorfor',
-                      'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'nybegynder',
-                      'begynder', 'øvet', 'erfaren', 'af'}
-        for match in bold_matches:
-            words = match.strip().split()
-            for word in reversed(words):
-                word_clean = word.strip()
-                if word_clean.lower() not in skip_words and len(word_clean) > 2:
-                    # Check if it's actually a disc in our database
-                    for db_name in DISC_DATABASE.keys():
-                        if word_clean.lower() in db_name.lower():
-                            if db_name not in disc_names:
-                                disc_names.append(db_name)
-                            break
+        response_lower = response.lower()
+        
+        # Sort by length (longest first) to match "Aviar 3" before "Aviar"
+        for db_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
+            if db_name.lower() in response_lower:
+                if db_name not in disc_names:
+                    disc_names.append(db_name)
+                if len(disc_names) >= 4:
                     break
         
         return {
@@ -952,11 +946,15 @@ if prompt := st.chat_input("Skriv dit svar..."):
                             
                             if buy_link_parts:
                                 buy_links = f"\n🛒 **Køb {disc}:** {' | '.join(buy_link_parts)}"
-                                # Try to add after the disc recommendation
-                                pattern = rf'(\*\*{re.escape(disc)}\*\*.*?(?:✅ Hvorfor:[^\n]*|Flight:[^\n]*))'
+                                # Try to add after "✅ Hvorfor:" line for this disc
+                                # Match disc name (with or without **) followed by content up to Hvorfor line
+                                pattern = rf'(\*?\*?{re.escape(disc)}\*?\*?.*?✅ Hvorfor:[^\n]*)'
                                 match = re.search(pattern, response, re.DOTALL | re.IGNORECASE)
                                 if match:
                                     response = response.replace(match.group(1), match.group(1) + buy_links)
+                                else:
+                                    # Fallback: add at the end if pattern not found
+                                    response += f"\n{buy_links}"
                     
                     st.markdown(response)
                     add_bot_message(response)
