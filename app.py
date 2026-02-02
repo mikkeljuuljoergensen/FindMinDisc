@@ -1277,6 +1277,15 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     st.markdown(reply)
                     add_bot_message(reply)
                     st.session_state.show_chart = True
+                    
+                    # Add follow-up question about plastic
+                    disc_names = st.session_state.get('shown_discs', [])
+                    if disc_names:
+                        disc_list = ', '.join(disc_names)
+                        followup = f"\n\n💡 *Vil du vide hvilken plastik der passer bedst til {disc_list}? Eller spørg mig om noget andet!*"
+                        st.markdown(followup)
+                        add_bot_message(followup)
+                    
                     st.rerun()
                 
                 # Check if this is a plastic question (don't need new recommendations)
