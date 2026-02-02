@@ -261,23 +261,27 @@ Afslut med en kort sammenligning."""
                     modified_response = ai_response
                     for disc in disc_names:
                         if disc and len(disc) > 2:
-                            # Get direct product links from stores
+                            # Get product links from stores
                             links = get_product_links(disc)
-                            dt_url = links.get('Disc Tree', f"https://disctree.dk/search?q={disc}")
-                            nd_url = links.get('NewDisc', f"https://newdisc.dk/search?q={disc}")
                             
-                            # Create buy links section
-                            buy_links = f"\n   🛒 **Køb:** [Disc Tree]({dt_url}) | [NewDisc]({nd_url})"
+                            # Build buy links - only include stores that have the disc
+                            buy_link_parts = []
+                            if 'Disc Tree' in links:
+                                buy_link_parts.append(f"[Disc Tree]({links['Disc Tree']})")
+                            if 'NewDisc' in links:
+                                buy_link_parts.append(f"[NewDisc]({links['NewDisc']})")
                             
-                            # Find the plastic line for this disc and add links after it
-                            # Look for pattern like "🥏 Plastik:" after the disc name
-                            pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
-                            match = re.search(pattern, modified_response, re.DOTALL | re.IGNORECASE)
-                            if match:
-                                modified_response = modified_response.replace(
-                                    match.group(1), 
-                                    match.group(1) + buy_links
-                                )
+                            if buy_link_parts:
+                                buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
+                                
+                                # Find the plastic line for this disc and add links after it
+                                pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
+                                match = re.search(pattern, modified_response, re.DOTALL | re.IGNORECASE)
+                                if match:
+                                    modified_response = modified_response.replace(
+                                        match.group(1), 
+                                        match.group(1) + buy_links
+                                    )
                     
                     # Add warning to response if mismatch
                     final_reply = f"""{mismatch_warning}{modified_response}
@@ -375,22 +379,24 @@ Søgeresultater:
 {search_results}
 
 Hvis du giver nye anbefalinger, brug dette format:
-**[DiscNavn]** af [Mærke]
-- Flight numbers og vægt
-- Fordele/ulemper
-- Plastik"""
+
+### 1. **[DiscNavn]** af [Mærke]
+- Flight: X/X/X/X, Vægt: XXXg
+- ✅ Fordele: ...
+- ❌ Ulemper: ...
+- 🥏 Plastik: ..."""
 
                     try:
                         reply = llm.invoke(follow_up_prompt).content
                         
                         # Extract disc names for stock links
-                        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s]+)\*\*', reply)
+                        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', reply)
                         disc_names = []
                         skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
                                       'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
                                       'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
                                       'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
-                                      'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling'}
+                                      'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling', 'køb'}
                         
                         for match in bold_matches:
                             words = match.strip().split()
@@ -403,31 +409,30 @@ Hvis du giver nye anbefalinger, brug dette format:
                         
                         disc_names = disc_names[:3]
                         
-                        # Add stock links if we found disc names
-                        if disc_names:
-                            stock_info = "\n\n---\n## 🇩🇰 Find dem i Danmark:\n"
-                            for disc in disc_names:
-                                if disc and len(disc) > 2:
-                                    dt_result = check_stock_disctree(disc)
-                                    nd_result = check_stock_newdisc(disc)
+                        # Add buy links after plastic lines
+                        modified_reply = reply
+                        for disc in disc_names:
+                            if disc and len(disc) > 2:
+                                links = get_product_links(disc)
+                                
+                                buy_link_parts = []
+                                if 'Disc Tree' in links:
+                                    buy_link_parts.append(f"[Disc Tree]({links['Disc Tree']})")
+                                if 'NewDisc' in links:
+                                    buy_link_parts.append(f"[NewDisc]({links['NewDisc']})")
+                                
+                                if buy_link_parts:
+                                    buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
                                     
-                                    disc_links = []
-                                    if dt_result:
-                                        disc_links.append(f"Disc Tree: {dt_result}")
-                                    if nd_result:
-                                        disc_links.append(f"NewDisc: {nd_result}")
-                                    
-                                    if disc_links:
-                                        stock_info += f"**{disc}:**\n"
-                                        for link in disc_links:
-                                            stock_info += f"  * {link}\n"
-                                        stock_info += "\n"
-                            
-                            if stock_info.strip().endswith("Danmark:"):
-                                stock_info = ""  # No products found
-                            else:
-                                reply += stock_info
+                                    pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
+                                    match = re.search(pattern, modified_reply, re.DOTALL | re.IGNORECASE)
+                                    if match:
+                                        modified_reply = modified_reply.replace(
+                                            match.group(1), 
+                                            match.group(1) + buy_links
+                                        )
                         
+                        reply = modified_reply
                     except Exception as e:
                         reply = f"Beklager, noget gik galt: {e}"
                     
