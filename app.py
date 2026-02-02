@@ -219,6 +219,84 @@ def handle_free_form_question(prompt, user_prefs=None):
     # Extract useful info from the prompt
     prompt_lower = prompt.lower()
     
+    # ==== HANDLE "TELL ME MORE" QUESTIONS ====
+    # Detect questions like "fortæl mig mere om dem", "mere om Volt"
+    tell_more_patterns = ['fortæl', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
+    is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
+    
+    # Find which discs the user is asking about
+    discs_in_prompt = []
+    for disc_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
+        if disc_name.lower() in prompt_lower:
+            discs_in_prompt.append(disc_name)
+            if len(discs_in_prompt) >= 4:
+                break
+    
+    # If "dem" (them) is mentioned but no disc names, use shown_discs
+    shown_disc_names = user_prefs.get('shown_discs', [])
+    if is_tell_more and not discs_in_prompt and ('dem' in prompt_lower or 'disse' in prompt_lower or 'de ' in prompt_lower):
+        discs_in_prompt = shown_disc_names
+    
+    # If this is a "tell me more" question with specific discs, generate direct response
+    if is_tell_more and discs_in_prompt:
+        response_parts = ["Selvfølgelig! Her er mere information om de valgte discs:\n"]
+        
+        for disc_name in discs_in_prompt:
+            if disc_name in DISC_DATABASE:
+                data = DISC_DATABASE[disc_name]
+                speed = data.get('speed', 0)
+                glide = data.get('glide', 0)
+                turn = data.get('turn', 0)
+                fade = data.get('fade', 0)
+                manufacturer = data.get('manufacturer', 'Ukendt')
+                disc_type = data.get('disc_type', 'Disc')
+                stability = data.get('stability', '')
+                
+                response_parts.append(f"### **{disc_name}** af {manufacturer}")
+                response_parts.append(f"- **Type:** {disc_type}")
+                response_parts.append(f"- **Flight:** {speed}/{glide}/{turn}/{fade}")
+                
+                # Add description based on flight numbers
+                if turn <= -3:
+                    turn_desc = "Meget understabil - drejer meget til højre for højrehåndede"
+                elif turn <= -1:
+                    turn_desc = "Understabil - mild drejning til højre"
+                elif turn == 0:
+                    turn_desc = "Neutral - flyver lige"
+                else:
+                    turn_desc = "Stabil - modstår turn"
+                
+                if fade >= 3:
+                    fade_desc = "Hård fade - kraftig venstredrejning til sidst"
+                elif fade >= 2:
+                    fade_desc = "Medium fade"
+                else:
+                    fade_desc = "Blød fade - lander lige"
+                
+                response_parts.append(f"- **Turn:** {turn_desc}")
+                response_parts.append(f"- **Fade:** {fade_desc}")
+                
+                # Skill recommendation
+                if speed <= 7 and turn <= -1:
+                    skill_rec = "God for begyndere og øvede"
+                elif speed >= 11:
+                    skill_rec = "Kræver god armhastighed (erfarne spillere)"
+                else:
+                    skill_rec = "Passer til de fleste spillere"
+                
+                response_parts.append(f"- **Anbefales til:** {skill_rec}")
+                response_parts.append("")  # Empty line between discs
+        
+        response_parts.append("Vil du se en sammenligning af hvordan de flyver (flight chart)?")
+        
+        return {
+            'response': '\n'.join(response_parts),
+            'disc_names': discs_in_prompt,
+            'skill_level': user_prefs.get('skill_level', 'intermediate'),
+            'max_dist': user_prefs.get('max_dist', 80),
+            'disc_type': None
+        }
+    
     # Try to detect disc type from question
     disc_type = None
     if 'putter' in prompt_lower:

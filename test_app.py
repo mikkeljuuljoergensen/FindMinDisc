@@ -324,6 +324,50 @@ def test_speed_filtering_function(db):
 
 
 # =============================================================================
+# TEST 3c: "Tell Me More" Detection
+# =============================================================================
+def test_tell_more_detection(db):
+    section("TEST 3c: Tell Me More Detection")
+    
+    # Test detection of "tell me more" patterns
+    test_cases = [
+        ('fortæl mig mere om Photon og Volt', True, ['Photon', 'Volt']),
+        ('mere om Destroyer', True, ['Destroyer']),
+        ('hvad med Buzzz?', True, ['Buzzz']),
+        ('beskriv Roadrunner', True, ['Roadrunner']),
+        ('jeg søger en understabil disc', False, []),
+        ('sammenlign Volt og Escape', False, []),  # Not a "tell more" request
+    ]
+    
+    tell_more_patterns = ['fortæl', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
+    
+    for prompt, expected_is_tell_more, expected_discs in test_cases:
+        prompt_lower = prompt.lower()
+        
+        # Detect "tell me more" pattern
+        is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
+        
+        # Find disc names
+        discs_found = []
+        for disc_name in sorted(db.keys(), key=len, reverse=True):
+            if disc_name.lower() in prompt_lower:
+                discs_found.append(disc_name)
+                if len(discs_found) >= 4:
+                    break
+        
+        if is_tell_more == expected_is_tell_more:
+            if expected_discs:
+                if set(discs_found) == set(expected_discs):
+                    log_pass(f"'{prompt[:30]}...'", f"Tell more: {is_tell_more}, Discs: {discs_found}")
+                else:
+                    log_fail(f"'{prompt[:30]}...'", f"Discs: {expected_discs}", f"Got: {discs_found}")
+            else:
+                log_pass(f"'{prompt[:30]}...'", f"Tell more: {is_tell_more}")
+        else:
+            log_fail(f"'{prompt[:30]}...'", f"Tell more: {expected_is_tell_more}", f"Got: {is_tell_more}")
+
+
+# =============================================================================
 # TEST 4: Speed Range Detection
 # =============================================================================
 def test_speed_range_detection():
@@ -610,6 +654,7 @@ def main():
         test_key_disc_flight_numbers(db)
         test_flight_number_correction(db)
         test_speed_filtering_function(db)
+        test_tell_more_detection(db)
         test_speed_filtering(db)
         test_understable_filtering(db)
     
