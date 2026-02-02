@@ -66,19 +66,31 @@ def get_product_links(disc_name):
     """
     Gets direct product links from Danish stores.
     Returns dict with store names and URLs.
+    NewDisc only sells Axiom, MVP, and Streamline discs.
     """
     links = {}
     
+    # Disc Tree sells all brands
     dt_url = get_disctree_product(disc_name)
     if dt_url:
         links['Disc Tree'] = dt_url
     else:
         links['Disc Tree'] = f"https://disctree.dk/search?q={disc_name.replace(' ', '+')}"
     
-    nd_url = get_newdisc_product(disc_name)
-    if nd_url:
-        links['NewDisc'] = nd_url
-    else:
-        links['NewDisc'] = f"https://newdisc.dk/search?q={disc_name.replace(' ', '+')}"
+    # NewDisc only sells Axiom, MVP, Streamline - use wildcard search
+    # Common discs from these brands:
+    mvp_axiom_streamline_discs = {
+        # MVP
+        'volt', 'reactor', 'relay', 'servo', 'resistor', 'wave', 'impulse', 'inertia',
+        'photon', 'tesla', 'amp', 'anode', 'atom', 'ion', 'spin', 'proton',
+        # Axiom
+        'insanity', 'crave', 'envy', 'proxy', 'hex', 'paradox', 'pyro', 'fireball',
+        'tenacity', 'excite', 'mayhem', 'tantrum', 'vanish', 'virus', 'wrath',
+        # Streamline
+        'pilot', 'drift', 'trace', 'flare', 'stabilizer', 'runway', 'ascend', 'lift'
+    }
+    
+    if disc_name.lower() in mvp_axiom_streamline_discs:
+        links['NewDisc'] = f"https://newdisc.dk/search?q={disc_name.replace(' ', '+')}*"
     
     return links
