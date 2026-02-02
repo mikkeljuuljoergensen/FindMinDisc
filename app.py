@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_groq import ChatGroq
-from retailers import check_stock_disctree, check_stock_newdisc, check_stock_discimport, check_stock_gbaseshop
+from retailers import check_stock_disctree, check_stock_newdisc, check_stock_discimport
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -144,7 +144,6 @@ Formatér pænt med ### overskrifter og bullet points."""
                         stock_info += f"  * {check_stock_disctree(disc_clean)}\n"
                         stock_info += f"  * {check_stock_newdisc(disc_clean)}\n"
                         stock_info += f"  * {check_stock_discimport(disc_clean)}\n"
-                        stock_info += f"  * {check_stock_gbaseshop(disc_clean)}\n\n"
                 
                 final_reply = f"""{ai_response}
 
