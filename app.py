@@ -151,13 +151,14 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
             continue
         
         # Add path points to chart data with point index for ordering
-        # Negate x to flip for right-hand throw view (turn goes left, fade goes right)
+        # Database x: negative = turn (right for RHBH), positive = fade (left for RHBH)
+        # We keep x as-is to match dgputtheads orientation
         disc_label = f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})"
         for i, p in enumerate(path):
             all_data.append({
                 'Disc': disc_label,
-                'Turn/Fade (ft)': -p['x'],  # Flip for RHBH view
-                'Distance (ft)': p['y'],
+                'Fade/Turn (m)': p['x'],  # Keep as-is: negative=turn right, positive=fade left
+                'Distance (m)': round(p['y'] * 0.3048, 1),  # Convert feet to meters
                 'point_order': i  # Order for line connection
             })
     
@@ -168,19 +169,19 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         import altair as alt
         
         # Calculate axis ranges
-        max_dist = df['Distance (ft)'].max()
-        max_turn_fade = max(abs(df['Turn/Fade (ft)'].min()), abs(df['Turn/Fade (ft)'].max()), 2)
+        max_dist = df['Distance (m)'].max()
+        max_turn_fade = max(abs(df['Fade/Turn (m)'].min()), abs(df['Fade/Turn (m)'].max()), 2)
         
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
-            x=alt.X('Turn/Fade (ft):Q', 
-                    title='← Turn  |  Fade →',
+            x=alt.X('Fade/Turn (m):Q', 
+                    title='← Fade  |  Turn →',
                     scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
-            y=alt.Y('Distance (ft):Q', 
-                    title='Distance (ft)',
-                    scale=alt.Scale(domain=[0, max_dist + 20])),
+            y=alt.Y('Distance (m):Q', 
+                    title='Distance (m)',
+                    scale=alt.Scale(domain=[0, max_dist + 5])),
             color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
             order='point_order:Q',  # Connect points in sequence
-            tooltip=['Disc', 'Distance (ft)', 'Turn/Fade (ft)']
+            tooltip=['Disc', 'Distance (m)', 'Fade/Turn (m)']
         ).properties(
             height=500
         ).configure_axis(
@@ -190,7 +191,7 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         st.altair_chart(chart, use_container_width=True)
         
     except ImportError:
-        pivot_df = df.pivot(index='Distance (ft)', columns='Disc', values='Turn/Fade (ft)')
+        pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Fade/Turn (m)')
         st.line_chart(pivot_df, height=500)
     
     return True
