@@ -3,7 +3,7 @@ import re
 import json
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
-from retailers import get_product_links
+from retailers import get_product_links, check_disc_tree_stock
 from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE, calculate_arm_speed_factor
 
 # --- CONFIGURATION ---
@@ -209,9 +209,28 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
         )
         
         # Center the chart with columns
-        col1, col2, col3 = st.columns([1, 2, 1])
+        _, col2, _ = st.columns([1, 2, 1])
         with col2:
             st.altair_chart(chart)
+        
+        # Show stock status for each disc
+        st.markdown("#### 🛒 Køb hos Disc Tree")
+        for disc in discs_with_data:
+            disc_name = disc['name']
+            stock_info = check_disc_tree_stock(disc_name)
+            
+            if stock_info['status'] == 'in_stock':
+                price = stock_info.get('price', '')
+                price_text = f" ({price} kr)" if price else ""
+                st.markdown(f"✅ **{disc_name}**: [På lager{price_text}]({stock_info['url']})")
+            elif stock_info['status'] == 'sold_out':
+                st.markdown(f"⚠️ **{disc_name}**: [Udsolgt]({stock_info['url']})")
+            elif stock_info['status'] == 'not_found':
+                search_url = f"https://disctree.dk/search?q={disc_name.replace(' ', '+')}"
+                st.markdown(f"❌ **{disc_name}**: [Sælges ikke]({search_url})")
+            else:
+                # Unknown/error - just show search link
+                st.markdown(f"🔍 **{disc_name}**: [Søg]({stock_info.get('url', '')})")
         
     except ImportError:
         pivot_df = df.pivot(index='Distance', columns='Disc', values='Turn/Fade')
@@ -1284,6 +1303,20 @@ with st.sidebar:
                     # Show disc info
                     st.caption(f"**{selected_disc}** ({speed}/{glide}/{turn}/{fade})")
                     st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
+                    
+                    # Show stock status
+                    stock_info = check_disc_tree_stock(selected_disc)
+                    if stock_info['status'] == 'in_stock':
+                        price = stock_info.get('price', '')
+                        price_text = f" ({price} kr)" if price else ""
+                        st.markdown(f"✅ [På lager{price_text}]({stock_info['url']})")
+                    elif stock_info['status'] == 'sold_out':
+                        st.markdown(f"⚠️ [Udsolgt]({stock_info['url']})")
+                    elif stock_info['status'] == 'not_found':
+                        search_url = f"https://disctree.dk/search?q={selected_disc.replace(' ', '+')}"
+                        st.markdown(f"❌ [Sælges ikke hos Disc Tree]({search_url})")
+                    else:
+                        st.markdown(f"🔍 [Søg hos Disc Tree]({stock_info.get('url', '')})")
                 else:
                     st.warning("Ingen flight data for denne disc")
         else:
