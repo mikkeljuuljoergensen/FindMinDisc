@@ -811,6 +811,12 @@ if st.session_state.step == "start":
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
+# --- DISPLAY PERSISTENT FLIGHT CHART BUTTON ---
+if st.session_state.shown_discs and not st.session_state.show_chart:
+    if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="persistent_flight_btn"):
+        st.session_state.show_chart = True
+        st.rerun()
+
 # --- DISPLAY PERSISTENT FLIGHT CHART ---
 if st.session_state.show_chart and st.session_state.shown_discs:
     # Settings selectors in 3 columns
@@ -996,11 +1002,7 @@ if prompt := st.chat_input("Skriv dit svar..."):
                         skill = result.get('skill_level', 'intermediate')
                         st.session_state.arm_speed = 'slow' if skill == 'beginner' else 'normal'
                         st.session_state.shown_discs = disc_names
-                        
-                        # Show flight chart button
-                        if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="freeform_flight_btn"):
-                            st.session_state.show_chart = True
-                            st.rerun()
+                        # Button is shown persistently outside this block
                     
                     st.session_state.step = "done"
         
@@ -1262,11 +1264,7 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     arm_speed = 'slow' if max_dist < 70 else 'normal'
                     st.session_state.arm_speed = arm_speed
                     st.session_state.shown_discs = st.session_state['recommended_discs']
-                    
-                    # Show flight chart button
-                    if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="structured_flight_btn"):
-                        st.session_state.show_chart = True
-                        st.rerun()
+                    # Button is shown persistently outside this block
                 
                 st.session_state.step = "done"
         
@@ -1543,11 +1541,7 @@ Hvis du giver nye anbefalinger (KUN hvis brugeren beder om det), brug dette form
                             arm_speed = 'slow' if max_dist < 70 else 'normal'
                             st.session_state.arm_speed = arm_speed
                             st.session_state.shown_discs = st.session_state['recommended_discs']
-                            
-                            # Show flight chart button
-                            if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="followup_flight_btn"):
-                                st.session_state.show_chart = True
-                                st.rerun()
+                            # Button is shown persistently outside this block
                         
                         st.session_state.user_prefs = prefs  # Save updated prefs
 
