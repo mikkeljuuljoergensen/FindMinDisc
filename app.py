@@ -992,7 +992,11 @@ if prompt := st.chat_input("Skriv dit svar..."):
                         skill = result.get('skill_level', 'intermediate')
                         st.session_state.arm_speed = 'slow' if skill == 'beginner' else 'normal'
                         st.session_state.shown_discs = disc_names
-                        # Don't show chart automatically - wait for user to ask
+                        
+                        # Show flight chart button
+                        if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="freeform_flight_btn"):
+                            st.session_state.show_chart = True
+                            st.rerun()
                     
                     st.session_state.step = "done"
         
@@ -1254,7 +1258,11 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     arm_speed = 'slow' if max_dist < 70 else 'normal'
                     st.session_state.arm_speed = arm_speed
                     st.session_state.shown_discs = st.session_state['recommended_discs']
-                    # Don't show chart automatically
+                    
+                    # Show flight chart button
+                    if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="structured_flight_btn"):
+                        st.session_state.show_chart = True
+                        st.rerun()
                 
                 st.session_state.step = "done"
         
@@ -1481,7 +1489,11 @@ Hvis du giver nye anbefalinger, brug dette format:
                             arm_speed = 'slow' if max_dist < 70 else 'normal'
                             st.session_state.arm_speed = arm_speed
                             st.session_state.shown_discs = st.session_state['recommended_discs']
-                            # Don't show chart automatically
+                            
+                            # Show flight chart button
+                            if st.button("🥏 Vis mig hvordan de flyver!", type="primary", key="followup_flight_btn"):
+                                st.session_state.show_chart = True
+                                st.rerun()
                         
                         st.session_state.user_prefs = prefs  # Save updated prefs
 
