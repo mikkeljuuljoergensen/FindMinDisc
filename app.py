@@ -252,45 +252,6 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
         }
 
 
-def render_flight_chart_with_selectors(disc_names, default_arm_speed='normal', key_prefix='inline'):
-    """
-    Render flight chart with niveau/hand/throw selectors.
-    Used for inline charts in chat responses.
-    """
-    # Create unique keys for each set of selectors
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        niveau_option = st.radio(
-            "Niveau:",
-            ["Begynder", "Øvet", "Pro"],
-            index={"slow": 0, "normal": 1, "fast": 2}.get(default_arm_speed, 1),
-            horizontal=True,
-            key=f"{key_prefix}_niveau"
-        )
-        niveau_map = {"Begynder": "slow", "Øvet": "normal", "Pro": "fast"}
-        arm_speed = niveau_map[niveau_option]
-    with col2:
-        hand_option = st.radio(
-            "Hånd:",
-            ["Højre", "Venstre"],
-            index=0,
-            horizontal=True,
-            key=f"{key_prefix}_hand"
-        )
-        throw_hand = 'right' if hand_option == "Højre" else 'left'
-    with col3:
-        throw_option = st.radio(
-            "Kast:",
-            ["Baghånd", "Forhånd"],
-            index=0,
-            horizontal=True,
-            key=f"{key_prefix}_throw"
-        )
-        throw_type = 'backhand' if throw_option == "Baghånd" else 'forehand'
-    
-    render_flight_chart_comparison(disc_names, arm_speed, throw_hand, throw_type)
-
-
 def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='right', throw_type='backhand'):
     """
     Render a flight chart comparison using actual flight paths from database.
@@ -1021,18 +982,20 @@ if prompt := st.chat_input("Skriv dit svar..."):
                     st.markdown(response)
                     add_bot_message(response)
                     
-                    # Store recommendations for potential flight chart
+                    # Store recommendations for persistent flight chart display
                     if disc_names:
                         st.session_state['recommended_discs'] = disc_names
                         st.session_state.user_prefs['max_dist'] = result.get('max_dist', 80)
                         st.session_state.user_prefs['skill_level'] = result.get('skill_level', 'intermediate')
                         
-                        # Show flight charts with selectors
+                        # Use persistent flight chart system
                         skill = result.get('skill_level', 'intermediate')
-                        arm_speed = 'slow' if skill == 'beginner' else 'normal'
-                        render_flight_chart_with_selectors(disc_names, arm_speed, 'freeform')
+                        st.session_state.arm_speed = 'slow' if skill == 'beginner' else 'normal'
+                        st.session_state.shown_discs = disc_names
+                        st.session_state.show_chart = True
                     
                     st.session_state.step = "done"
+                    st.rerun()  # Rerun to show persistent chart
         
         # --- STEP: ASK DISTANCE ---
         elif st.session_state.step == "ask_distance":
@@ -1287,16 +1250,15 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 st.markdown(final_reply)
                 add_bot_message(final_reply)
                 
-                # Show flight charts with selectors
+                # Use persistent flight chart system
                 if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
                     arm_speed = 'slow' if max_dist < 70 else 'normal'
-                    render_flight_chart_with_selectors(
-                        st.session_state['recommended_discs'],
-                        arm_speed,
-                        'structured'
-                    )
+                    st.session_state.arm_speed = arm_speed
+                    st.session_state.shown_discs = st.session_state['recommended_discs']
+                    st.session_state.show_chart = True
                 
                 st.session_state.step = "done"
+                st.rerun()  # Rerun to show persistent chart
         
         # --- STEP: DONE - CONTINUE CONVERSATION ---
         elif st.session_state.step == "done":
@@ -1494,16 +1456,15 @@ Hvis du giver nye anbefalinger, brug dette format:
                         st.markdown(reply)
                         add_bot_message(reply)
                         
-                        # Show flight charts with selectors
+                        # Use persistent flight chart system
                         if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
                             arm_speed = 'slow' if max_dist < 70 else 'normal'
-                            render_flight_chart_with_selectors(
-                                st.session_state['recommended_discs'],
-                                arm_speed,
-                                'followup'
-                            )
+                            st.session_state.arm_speed = arm_speed
+                            st.session_state.shown_discs = st.session_state['recommended_discs']
+                            st.session_state.show_chart = True
                         
                         st.session_state.user_prefs = prefs  # Save updated prefs
+                        st.rerun()  # Rerun to show persistent chart
 
 # --- SIDEBAR INFO ---
 with st.sidebar:
