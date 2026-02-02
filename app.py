@@ -127,20 +127,32 @@ def handle_free_form_question(prompt, user_prefs=None):
     elif 'distance' in prompt_lower or 'driver' in prompt_lower:
         disc_type = "Distance driver"
     
-    # Try to detect skill level
-    skill_level = "intermediate"
-    if 'nybegynder' in prompt_lower or 'begynder' in prompt_lower or 'ny ' in prompt_lower or 'starter' in prompt_lower:
+    # Try to detect skill level - None if not specified
+    skill_level = None
+    skill_specified = False
+    if 'nybegynder' in prompt_lower or 'begynder' in prompt_lower or 'ny ' in prompt_lower or 'starter' in prompt_lower or 'dårlig' in prompt_lower:
         skill_level = "beginner"
+        skill_specified = True
     elif 'øvet' in prompt_lower or 'intermediate' in prompt_lower:
         skill_level = "intermediate"
-    elif 'erfaren' in prompt_lower or 'pro' in prompt_lower or 'avanceret' in prompt_lower:
+        skill_specified = True
+    elif 'erfaren' in prompt_lower or 'pro' in prompt_lower or 'avanceret' in prompt_lower or 'god ' in prompt_lower:
         skill_level = "advanced"
+        skill_specified = True
     
     # Try to detect throwing distance
-    max_dist = user_prefs.get('max_dist', 70 if skill_level == "beginner" else 90)
+    max_dist = user_prefs.get('max_dist', None)
+    dist_specified = max_dist is not None
     numbers = re.findall(r'(\d+)\s*(?:m|meter)', prompt_lower)
     if numbers:
         max_dist = int(numbers[0])
+        dist_specified = True
+    
+    # Set defaults if we need to give recommendations but info is missing
+    if max_dist is None:
+        max_dist = 70 if skill_level == "beginner" else 80
+    if skill_level is None:
+        skill_level = "intermediate"
     
     # Build search query
     search_terms = prompt.replace('?', '').replace('!', '')
