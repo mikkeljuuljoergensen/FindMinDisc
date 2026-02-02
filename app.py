@@ -381,9 +381,9 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
         
         # Adjust axis title based on mirror state
         if mirror_chart:
-            x_title = '← Fade  |  Turn →'
-        else:
             x_title = '← Turn  |  Fade →'
+        else:
+            x_title = '← Fade  |  Turn →'
         
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
             x=alt.X('Turn/Fade:Q', 
