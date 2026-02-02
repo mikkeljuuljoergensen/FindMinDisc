@@ -242,23 +242,29 @@ Afslut med en kort sammenligning."""
                     
                     disc_names = disc_names[:3]
                     
-                    stock_info = ""
+                    # Build buy links for each disc and inject into response
+                    modified_response = ai_response
                     for disc in disc_names:
                         if disc and len(disc) > 2:
-                            dt_result = check_stock_disctree(disc)
-                            nd_result = check_stock_newdisc(disc)
+                            # Create direct search URLs
+                            dt_url = f"https://disctree.dk/search?q={disc.replace(' ', '+')}"
+                            nd_url = f"https://newdisc.dk/search?q={disc.replace(' ', '+')}"
                             
-                            stock_info += f"**{disc}:**\n"
-                            stock_info += f"  * {dt_result}\n"
-                            stock_info += f"  * {nd_result}\n"
-                            stock_info += "\n"
+                            # Create buy links section
+                            buy_links = f"\n   🛒 **Køb:** [Disc Tree]({dt_url}) | [NewDisc]({nd_url})"
+                            
+                            # Find the plastic line for this disc and add links after it
+                            # Look for pattern like "🥏 Plastik:" after the disc name
+                            pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
+                            match = re.search(pattern, modified_response, re.DOTALL | re.IGNORECASE)
+                            if match:
+                                modified_response = modified_response.replace(
+                                    match.group(1), 
+                                    match.group(1) + buy_links
+                                )
                     
                     # Add warning to response if mismatch
-                    final_reply = f"""{mismatch_warning}{ai_response}
-
----
-## 🇩🇰 Find dem i Danmark:
-{stock_info if stock_info else "Prøv at søge direkte i butikkerne."}
+                    final_reply = f"""{mismatch_warning}{modified_response}
 
 ---
 *Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
