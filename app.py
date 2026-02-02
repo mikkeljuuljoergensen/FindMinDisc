@@ -264,10 +264,15 @@ Sammenlign til sidst."""
 *Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
 
                 except Exception as e:
-                    if "429" in str(e) or "rate" in str(e).lower():
+                    error_str = str(e).lower()
+                    if "429" in str(e) or "rate" in error_str:
                         final_reply = "⏳ API'en har brug for en pause. Vent lidt og prøv igen."
+                    elif "insufficient_quota" in error_str or "billing" in error_str:
+                        final_reply = "💳 Din OpenAI konto mangler credits. Tilføj betalingsmetode på platform.openai.com"
+                    elif "invalid_api_key" in error_str or "unauthorized" in error_str:
+                        final_reply = "🔑 Ugyldig API-nøgle. Tjek at OPENAI_API_KEY er korrekt i Streamlit Secrets."
                     else:
-                        final_reply = f"⚠️ Noget gik galt: {e}"
+                        final_reply = f"⚠️ Fejl: {e}"
                 
                 st.markdown(final_reply)
                 add_bot_message(final_reply)
