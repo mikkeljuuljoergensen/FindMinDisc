@@ -349,7 +349,11 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
             y=alt.Y('Distance:Q', 
                     title='Distance (m)',
                     scale=alt.Scale(domain=[0, max_dist + 5])),
-            color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
+            color=alt.Color('Disc:N', legend=alt.Legend(
+                orient='right', 
+                title=None,
+                labelLimit=200  # Allow longer labels
+            )),
             order='point_order:Q',  # Connect points in sequence
             tooltip=['Disc']
         ).properties(
@@ -357,6 +361,8 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
             height=450
         ).configure_axis(
             grid=True
+        ).configure_legend(
+            labelFontSize=12
         )
         
         # Center the chart with columns
