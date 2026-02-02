@@ -88,13 +88,20 @@ def parse_flight_chart_request(prompt):
     return {'is_chart_request': False}
 
 
-def render_flight_chart_comparison(disc_names, arm_speed='normal'):
+def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='right', throw_type='backhand'):
     """
     Render a flight chart comparison using actual flight paths from database.
     
     arm_speed: 'slow' (Begynder), 'normal' (Øvet), 'fast' (Pro)
+    throw_hand: 'right' or 'left'
+    throw_type: 'backhand' or 'forehand'
     """
     import pandas as pd
+    
+    # Determine if we need to mirror the chart
+    # Mirror for: left-handed backhand OR right-handed forehand
+    mirror_chart = (throw_hand == 'left' and throw_type == 'backhand') or \
+                   (throw_hand == 'right' and throw_type == 'forehand')
     
     # Map arm speed to Danish labels and path keys
     arm_speed_info = {
@@ -106,8 +113,12 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
     info = arm_speed_info.get(arm_speed, arm_speed_info['normal'])
     path_key = info['path_key']
     
+    # Build throw description
+    hand_label = 'Venstrehåndet' if throw_hand == 'left' else 'Højrehåndet'
+    throw_label = 'Forhånd' if throw_type == 'forehand' else 'Baghånd'
+    
     st.markdown(f"### 🥏 Flight Chart Sammenligning")
-    st.markdown(f"*Niveau: **{info['label']}***")
+    st.markdown(f"*{hand_label} {throw_label} | Niveau: **{info['label']}***")
     
     # Collect disc data from FULL database with flight paths
     discs_with_data = []
@@ -151,12 +162,14 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
             continue
         
         # Add path points to chart data with point index for ordering
-        # Negate x so turn goes LEFT (negative), fade goes RIGHT (positive) - RHBH view
+        # Default: Negate x so turn goes LEFT, fade goes RIGHT (RHBH view)
+        # If mirrored: Don't negate (for LHBH or RHFH)
         disc_label = f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})"
         for i, p in enumerate(path):
+            x_value = p['x'] if mirror_chart else -p['x']
             all_data.append({
                 'Disc': disc_label,
-                'Turn/Fade': -p['x'],  # Flip: turn left, fade right
+                'Turn/Fade': x_value,
                 'Distance': round(p['y'] * 0.3048, 1),  # Convert feet to meters
                 'point_order': i  # Order for line connection
             })
@@ -171,13 +184,19 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         max_dist = df['Distance'].max()
         max_turn_fade = max(abs(df['Turn/Fade'].min()), abs(df['Turn/Fade'].max()), 2)
         
+        # Adjust axis title based on mirror state
+        if mirror_chart:
+            x_title = '← Fade  |  Turn →'
+        else:
+            x_title = '← Turn  |  Fade →'
+        
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
             x=alt.X('Turn/Fade:Q', 
-                    title='← Turn  |  Fade →',
+                    title=x_title,
                     axis=alt.Axis(labels=False, ticks=False),
                     scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
             y=alt.Y('Distance:Q', 
-                    title=None,
+                    title='Distance (m)',
                     scale=alt.Scale(domain=[0, max_dist + 5])),
             color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
             order='point_order:Q',  # Connect points in sequence
@@ -561,6 +580,10 @@ if "arm_speed" not in st.session_state:
     st.session_state.arm_speed = 'normal'  # Begynder/Øvet/Pro → slow/normal/fast
 if "show_chart" not in st.session_state:
     st.session_state.show_chart = False  # Whether to display flight chart
+if "throw_hand" not in st.session_state:
+    st.session_state.throw_hand = 'right'  # right or left
+if "throw_type" not in st.session_state:
+    st.session_state.throw_type = 'backhand'  # backhand or forehand
 
 # --- HEADER ---
 st.header("FindMinDisc 🥏")
@@ -603,7 +626,33 @@ for msg in st.session_state.messages:
 
 # --- DISPLAY PERSISTENT FLIGHT CHART ---
 if st.session_state.show_chart and st.session_state.shown_discs:
-    render_flight_chart_comparison(st.session_state.shown_discs, st.session_state.arm_speed)
+    # Throw settings selector
+    col1, col2 = st.columns(2)
+    with col1:
+        hand_option = st.radio(
+            "Hånd:",
+            ["Højre", "Venstre"],
+            index=0 if st.session_state.throw_hand == 'right' else 1,
+            horizontal=True,
+            key="chart_hand"
+        )
+        st.session_state.throw_hand = 'right' if hand_option == "Højre" else 'left'
+    with col2:
+        throw_option = st.radio(
+            "Kast:",
+            ["Baghånd", "Forhånd"],
+            index=0 if st.session_state.throw_type == 'backhand' else 1,
+            horizontal=True,
+            key="chart_throw"
+        )
+        st.session_state.throw_type = 'backhand' if throw_option == "Baghånd" else 'forehand'
+    
+    render_flight_chart_comparison(
+        st.session_state.shown_discs, 
+        st.session_state.arm_speed,
+        st.session_state.throw_hand,
+        st.session_state.throw_type
+    )
 
 # --- CHAT INPUT ---
 if prompt := st.chat_input("Skriv dit svar..."):
@@ -1148,11 +1197,37 @@ with st.sidebar:
                     "Niveau:",
                     ["Begynder", "Øvet", "Pro"],
                     index=1,  # Default: Øvet
-                    horizontal=True
+                    horizontal=True,
+                    key="sidebar_niveau"
                 )
                 niveau_map = {"Begynder": "slow", "Øvet": "normal", "Pro": "fast"}
                 arm_speed = niveau_map[niveau_option]
                 path_key = f"flight_path_bh_{arm_speed}"
+                
+                # Hand and throw selectors
+                sb_col1, sb_col2 = st.columns(2)
+                with sb_col1:
+                    sb_hand = st.radio(
+                        "Hånd:",
+                        ["Højre", "Venstre"],
+                        index=0,
+                        horizontal=True,
+                        key="sidebar_hand"
+                    )
+                with sb_col2:
+                    sb_throw = st.radio(
+                        "Kast:",
+                        ["Baghånd", "Forhånd"],
+                        index=0,
+                        horizontal=True,
+                        key="sidebar_throw"
+                    )
+                
+                # Determine if we need to mirror
+                throw_hand = 'left' if sb_hand == "Venstre" else 'right'
+                throw_type = 'forehand' if sb_throw == "Forhånd" else 'backhand'
+                mirror_chart = (throw_hand == 'left' and throw_type == 'backhand') or \
+                               (throw_hand == 'right' and throw_type == 'forehand')
                 
                 # Get flight path from database
                 path = disc_data.get(path_key, [])
@@ -1170,9 +1245,10 @@ with st.sidebar:
                     
                     chart_data = []
                     for i, p in enumerate(path):
+                        x_value = p['x'] if mirror_chart else -p['x']
                         chart_data.append({
                             'Disc': disc_label,
-                            'Turn/Fade': -p['x'],  # Flip for RHBH view
+                            'Turn/Fade': x_value,
                             'Distance': round(p['y'] * 0.3048, 1),  # feet to meters
                             'point_order': i
                         })
@@ -1183,13 +1259,16 @@ with st.sidebar:
                     max_dist = df['Distance'].max()
                     max_turn_fade = max(abs(df['Turn/Fade'].min()), abs(df['Turn/Fade'].max()), 2)
                     
+                    # Adjust axis title based on mirror state
+                    x_title = '← Fade  |  Turn →' if mirror_chart else '← Turn  |  Fade →'
+                    
                     chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
                         x=alt.X('Turn/Fade:Q', 
-                                title='← Turn  |  Fade →',
+                                title=x_title,
                                 axis=alt.Axis(labels=False, ticks=False),
                                 scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
                         y=alt.Y('Distance:Q', 
-                                title=None,
+                                title='Distance (m)',
                                 scale=alt.Scale(domain=[0, max_dist + 5])),
                         order='point_order:Q',
                         tooltip=['Disc']
