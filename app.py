@@ -19,6 +19,8 @@ def parse_flight_chart_request(prompt):
     - "Sammenlign Buzzz og Roc3 ved 70m kast"
     - "Flight chart for Firebird"
     - "Destroyer vs Wraith"
+    - "Tilføj Wraith" (adds to existing)
+    - "Også Firebird" (adds to existing)
     
     Returns dict with 'discs' list and 'distance' (or None if not a flight chart request)
     """
@@ -27,6 +29,10 @@ def parse_flight_chart_request(prompt):
     # Check if this is a flight chart request
     flight_keywords = ['flight chart', 'flightchart', 'sammenlign', 'compare', 'vis mig', 'show me', 'chart for', ' vs ', ' mod ']
     is_chart_request = any(kw in prompt_lower for kw in flight_keywords)
+    
+    # Check if this is an "add to existing" request
+    add_keywords = ['tilføj', 'også', 'add', 'inkluder', 'med', 'plus', 'og også', 'hvad med']
+    is_add_request = any(kw in prompt_lower for kw in add_keywords)
     
     # Find disc names - use word boundary matching to avoid partial matches
     # Sort by length (longest first) to prefer "Zone SS" over "Zone"
@@ -38,15 +44,13 @@ def parse_flight_chart_request(prompt):
     for disc_name in disc_names_sorted:
         disc_lower = disc_name.lower()
         # Use word boundary matching to avoid "Ra" matching in "Wraith"
-        # Allow alphanumeric chars around the name but require boundary
         pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(disc_lower) + r'(?:[^a-zæøå0-9]|$)'
         if re.search(pattern, prompt_remaining):
             disc_names_found.append(disc_name)
-            # Remove this match to avoid "Zone" also matching after "Zone SS"
             prompt_remaining = re.sub(pattern, ' ', prompt_remaining, count=1)
     
-    # If multiple discs mentioned, likely a comparison request
-    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found):
+    # If multiple discs mentioned, or add request with disc, or chart request with disc
+    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found):
         # Extract distance
         distance = None
         
@@ -71,14 +75,11 @@ def parse_flight_chart_request(prompt):
                     distance = int(distance * 0.3048)
                 break
         
-        # Default distance if not specified
-        if distance is None:
-            distance = 80  # Default
-        
         return {
             'discs': disc_names_found,
-            'distance': distance,
-            'is_chart_request': True
+            'distance': distance,  # None means use last_distance
+            'is_chart_request': True,
+            'is_add_request': is_add_request
         }
     
     return {'is_chart_request': False}
@@ -133,21 +134,26 @@ def calculate_power_percentage(user_distance_m, speed, glide):
     """
     Calculate power percentage: how well user's distance matches disc requirements.
     
-    Returns percentage where 100% = perfect match for "normal" arm speed.
-    Uses precise formula from disc_database_full.json regression (R² = 0.9941).
+    Uses the practical "speed × 10" rule that disc golfers commonly use:
+    - Speed 4 putter: needs ~40m arm
+    - Speed 7 fairway: needs ~70m arm
+    - Speed 12 driver: needs ~120m arm
+    
+    Glide adds a small bonus (~2m per glide point).
+    
+    Returns percentage where 100% = you can throw this disc properly.
     """
-    # Expected distance at normal arm speed (from regression on 268 flight paths)
-    # Formula: distance = 156.83 + 16.45*speed + 17.04*glide
-    expected_normal_ft = 156.83 + 16.45 * speed + 17.04 * glide
-    expected_normal_m = expected_normal_ft * 0.3048
+    # Practical expected distance: speed * 10 + glide * 2
+    # This matches what disc golfers actually experience
+    expected_m = speed * 10 + glide * 2
     
     # Power percentage
-    power_pct = (user_distance_m / expected_normal_m) * 100
+    power_pct = (user_distance_m / expected_m) * 100
     
     return {
         'power_pct': power_pct,
-        'expected_normal_m': expected_normal_m,
-        'ratio': user_distance_m / expected_normal_m
+        'expected_m': expected_m,
+        'ratio': user_distance_m / expected_m
     }
 
 
@@ -233,7 +239,7 @@ def render_flight_chart_comparison(disc_names, throwing_distance):
             'fade': disc['fade'],
             'flight_numbers': f"{disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']}",
             'power_pct': power_info['power_pct'],
-            'expected_normal_m': power_info['expected_normal_m'],
+            'expected_m': power_info['expected_m'],
             'max_turn': max_turn,
             'fade_amount': fade_amount,
             'arm_factor': arm_factor
@@ -302,8 +308,8 @@ def render_flight_chart_comparison(disc_names, throwing_distance):
                               help="Denne disc er for hurtig til din kastelængde")
             
             with col2:
-                st.metric("Forventet distance", f"{stat['expected_normal_m']:.0f}m",
-                          help="Distance med 'normal' armhastighed")
+                st.metric("Kræver arm", f"{stat['expected_m']:.0f}m",
+                          help="Kastelængde for at udnytte discen fuldt (speed×10 + glide×2)")
             
             with col3:
                 turn = stat['turn']
@@ -677,6 +683,10 @@ if "step" not in st.session_state:
     st.session_state.step = "start"
 if "user_prefs" not in st.session_state:
     st.session_state.user_prefs = {}
+if "shown_discs" not in st.session_state:
+    st.session_state.shown_discs = []  # Remember discs shown in flight charts
+if "last_distance" not in st.session_state:
+    st.session_state.last_distance = 80  # Remember last used distance
 
 # --- HEADER ---
 st.header("FindMinDisc 🥏")
@@ -692,6 +702,8 @@ def reset_conversation():
     st.session_state.messages = []
     st.session_state.step = "start"
     st.session_state.user_prefs = {}
+    st.session_state.shown_discs = []
+    st.session_state.last_distance = 80
 
 # --- START CONVERSATION ---
 if st.session_state.step == "start":
@@ -724,22 +736,41 @@ if prompt := st.chat_input("Skriv dit svar..."):
         chart_request = parse_flight_chart_request(prompt)
         
         if chart_request.get('is_chart_request'):
-            # User asked for flight chart comparison - skip questionnaire!
-            discs = chart_request['discs']
-            distance = chart_request['distance']
+            # User asked for flight chart comparison
+            new_discs = chart_request['discs']
+            is_add = chart_request.get('is_add_request', False)
             
-            reply = f"Her er flight charts for **{', '.join(discs)}** ved din kastelængde på **{distance}m**:"
+            # Determine distance: use provided, or fall back to last used
+            distance = chart_request.get('distance')
+            if distance is None:
+                distance = st.session_state.last_distance
+            
+            # If adding to existing, combine with previous discs
+            if is_add and st.session_state.shown_discs:
+                # Add new discs to existing list (avoid duplicates)
+                all_discs = list(st.session_state.shown_discs)
+                for disc in new_discs:
+                    if disc not in all_discs:
+                        all_discs.append(disc)
+                reply = f"Tilføjet **{', '.join(new_discs)}** - viser nu **{len(all_discs)} discs** ved {distance}m:"
+            else:
+                # New chart request - replace previous
+                all_discs = new_discs
+                reply = f"Her er flight charts for **{', '.join(all_discs)}** ved din kastelængde på **{distance}m**:"
+            
             st.markdown(reply)
             add_bot_message(reply)
             
             # Render the comparison chart
-            render_flight_chart_comparison(discs, distance)
+            render_flight_chart_comparison(all_discs, distance)
             
             # Update session state
             st.session_state.step = "done"
             st.session_state.user_prefs["max_dist"] = distance
+            st.session_state.shown_discs = all_discs  # Remember shown discs
+            st.session_state.last_distance = distance  # Remember distance
             
-            follow_up = "\n\n💬 Du kan spørge om mere - f.eks. 'Sammenlign med Wraith' eller 'Hvad med 100m kastelængde?'"
+            follow_up = "\n\n💬 Du kan tilføje flere - f.eks. 'Også Wraith' eller 'Tilføj Firebird'"
             st.markdown(follow_up)
             add_bot_message(follow_up)
         
