@@ -206,30 +206,30 @@ REGLER:
 - Nævn vægt i gram
 - Hvis valget er dårligt, sig det tydeligt
 
-FORMATERING - skriv disc-navnet ALENE i bold:
-**Destroyer**
-**Buzzz**
+FORMAT FOR HVER DISC (brug præcis denne struktur):
 
-For hver disc:
-1. **[DiscNavn]** af [Mærke]
-2. Flight numbers og vægt
-3. Fordele
-4. Ulemper
-5. Plastik-anbefaling
+### 1. **Tern** af Innova
+- Flight: 12/6/-3/2, Vægt: 155g
+- ✅ Fordele: Meget understabil, god til begyndere
+- ❌ Ulemper: For ustabil i vind
+- 🥏 Plastik: Star eller GStar
 
-Sammenlign til sidst."""
+Brug **fed skrift** omkring disc-navnet (ikke brackets).
+Afslut med en kort sammenligning."""
 
                 try:
                     ai_response = llm.invoke(ai_prompt).content
                     
-                    bold_matches = re.findall(r'\*\*([A-Za-z0-9\s]+)\*\*', ai_response)
+                    # Find disc names - look for **Name** pattern
+                    bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', ai_response)
                     disc_names = []
                     skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
                                   'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
                                   'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
                                   'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
                                   'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling', 'vent',
-                                  'bemærk', 'lige', 'lidt'}
+                                  'bemærk', 'lige', 'lidt', 'prodigy', 'lone', 'star', 'streamline',
+                                  'thought', 'space', 'clash', 'dga', 'viking', 'yikun', 'gateway'}
                     
                     for match in bold_matches:
                         words = match.strip().split()
