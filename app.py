@@ -40,15 +40,29 @@ search = DuckDuckGoSearchRun()
 # --- SIDEBAR ---
 with st.sidebar:
     st.title("FindMinDisc 🥏")
+    
+    st.subheader("Om dig")
     skill_level = st.selectbox("Niveau", ["Begynder", "Øvet", "Erfaren"])
     max_dist = st.slider("Maks distance (m)", 30, 150, 80)
+    
+    st.subheader("Hvad leder du efter?")
+    disc_type = st.selectbox("Disc type", ["Putter", "Midrange", "Fairway driver", "Distance driver"])
+    
+    flight_pref = st.selectbox("Flyvning", [
+        "Lige/stabil",
+        "Understabil (drejer højre for RHBH)", 
+        "Overstabil (drejer venstre for RHBH)",
+        "Ved ikke endnu"
+    ])
+    
+    st.divider()
     st.info("Drevet af Google Gemini")
 
 # --- CHAT INTERFACE ---
 st.header("Find Din Næste Disc")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hej! Hvad skal discen kunne? 🥏"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hej! Brug menuen til venstre og fortæl mig mere om hvad du søger 🥏"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
@@ -58,26 +72,46 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Leder efter den rette disc..."):
+        with st.spinner("Søger anmeldelser fra hele nettet..."):
             
-            # 1. Search Web
-            search_query = f"best disc golf disc for {skill_level} {prompt} site:reddit.com"
-            search_results = search.run(search_query)
+            # 1. Search multiple disc golf sites
+            search_sites = [
+                "site:reddit.com/r/discgolf",
+                "site:infinitediscs.com",
+                "site:flightcharts.dgputtheads.com",
+                "site:discgolfmentor.com",
+            ]
+            
+            all_search_results = []
+            base_query = f"best {disc_type} disc golf {flight_pref} {prompt}"
+            
+            for site in search_sites:
+                try:
+                    result = search.run(f"{base_query} {site}")
+                    all_search_results.append(result)
+                except:
+                    pass
+            
+            combined_results = "\n\n---\n\n".join(all_search_results)
             
             # 2. Ask Gemini
             ai_prompt = f"""
-            Brugerprofil: {skill_level}, kaster ca. {max_dist}m.
-            Bruger søger: "{prompt}"
+            Brugerprofil:
+            - Niveau: {skill_level}
+            - Kaster ca. {max_dist}m
+            - Søger: {disc_type}
+            - Ønsket flyvning: {flight_pref}
+            - Ekstra info: "{prompt}"
             
-            Reddit-anbefalinger:
-            {search_results}
+            Anmeldelser og anbefalinger fra nettet:
+            {combined_results}
             
             Giv et kort, venligt svar på dansk:
-            1. Anbefal ÉN disc der passer.
-            2. Forklar kort hvorfor (nævn flight numbers).
-            3. Skriv discens navn ALENE på første linje.
+            1. Anbefal ÉN {disc_type.lower()} der passer perfekt.
+            2. Forklar kort hvorfor (nævn flight numbers: speed/glide/turn/fade).
+            3. Skriv discens navn ALENE på første linje (kun navnet, ingen ekstra tekst).
             
-            Hold tonen afslappet som en ven der hjælper.
+            Hold tonen afslappet som en ven der hjælper i en disc golf butik.
             """
             
             try:
