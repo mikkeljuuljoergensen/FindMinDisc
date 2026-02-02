@@ -365,10 +365,8 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
             labelFontSize=12
         )
         
-        # Center the chart with columns
-        _, col2, _ = st.columns([1, 2, 1])
-        with col2:
-            st.altair_chart(chart)
+        # Display full-width chart
+        st.altair_chart(chart, use_container_width=True)
         
         # Show stock status for each disc
         st.markdown("#### 🛒 Køb hos Disc Tree")
