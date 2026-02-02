@@ -9,6 +9,195 @@ from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_G
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
+
+def parse_flight_chart_request(prompt):
+    """
+    Parse natural language requests for flight charts.
+    
+    Examples:
+    - "Vis mig flight charts for Destroyer, Mamba, Juggernaut og Zone SS, hvis min maks kastelængde er 137 meter"
+    - "Sammenlign Buzzz og Roc3 ved 70m kast"
+    - "Flight chart for Firebird"
+    - "Destroyer vs Wraith"
+    
+    Returns dict with 'discs' list and 'distance' (or None if not a flight chart request)
+    """
+    prompt_lower = prompt.lower()
+    
+    # Check if this is a flight chart request
+    flight_keywords = ['flight chart', 'flightchart', 'sammenlign', 'compare', 'vis mig', 'show me', 'chart for', ' vs ', ' mod ']
+    is_chart_request = any(kw in prompt_lower for kw in flight_keywords)
+    
+    # Find disc names - use word boundary matching to avoid partial matches
+    # Sort by length (longest first) to prefer "Zone SS" over "Zone"
+    disc_names_sorted = sorted(DISC_DATABASE.keys(), key=len, reverse=True)
+    
+    disc_names_found = []
+    prompt_remaining = prompt_lower  # Track what's left to match
+    
+    for disc_name in disc_names_sorted:
+        disc_lower = disc_name.lower()
+        # Use word boundary matching to avoid "Ra" matching in "Wraith"
+        # Allow alphanumeric chars around the name but require boundary
+        pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(disc_lower) + r'(?:[^a-zæøå0-9]|$)'
+        if re.search(pattern, prompt_remaining):
+            disc_names_found.append(disc_name)
+            # Remove this match to avoid "Zone" also matching after "Zone SS"
+            prompt_remaining = re.sub(pattern, ' ', prompt_remaining, count=1)
+    
+    # If multiple discs mentioned, likely a comparison request
+    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found):
+        # Extract distance
+        distance = None
+        
+        # Match "137 meter", "137m", "kaster 137", "kastelængde 137"
+        dist_patterns = [
+            r'(\d+)\s*(?:meter|m\b)',
+            r'kastelængde[^\d]*(\d+)',
+            r'kaster[^\d]*(\d+)',
+            r'distance[^\d]*(\d+)',
+            r'(\d+)\s*(?:ft|feet|fod)',  # feet
+        ]
+        
+        for pattern in dist_patterns:
+            match = re.search(pattern, prompt_lower)
+            if match:
+                distance = int(match.group(1))
+                # Convert feet to meters if needed
+                if 'ft' in prompt_lower or 'feet' in prompt_lower or 'fod' in prompt_lower:
+                    distance = int(distance * 0.3048)
+                # Sanity check - if > 200, probably feet
+                if distance > 200:
+                    distance = int(distance * 0.3048)
+                break
+        
+        # Default distance if not specified
+        if distance is None:
+            distance = 80  # Default
+        
+        return {
+            'discs': disc_names_found,
+            'distance': distance,
+            'is_chart_request': True
+        }
+    
+    return {'is_chart_request': False}
+
+
+def render_flight_chart_comparison(disc_names, throwing_distance):
+    """Render a flight chart comparison for specified discs."""
+    import pandas as pd
+    
+    st.markdown(f"### 📈 Flight Chart Sammenligning")
+    st.markdown(f"*Din kastelængde: {throwing_distance}m*")
+    
+    # Collect disc data
+    discs_with_data = []
+    not_found = []
+    
+    for disc_name in disc_names:
+        # Try to find the disc in database (case-insensitive)
+        disc_data = None
+        matched_name = None
+        for db_name, db_data in DISC_DATABASE.items():
+            if db_name.lower() == disc_name.lower():
+                disc_data = db_data
+                matched_name = db_name
+                break
+        
+        if disc_data and disc_data.get('speed'):
+            discs_with_data.append({
+                'name': matched_name,
+                'speed': disc_data.get('speed', 5),
+                'glide': disc_data.get('glide', 4),
+                'turn': disc_data.get('turn', 0),
+                'fade': disc_data.get('fade', 2),
+                'manufacturer': disc_data.get('manufacturer', 'Ukendt')
+            })
+        else:
+            not_found.append(disc_name)
+    
+    if not_found:
+        st.warning(f"Kunne ikke finde: {', '.join(not_found)}")
+    
+    if not discs_with_data:
+        st.error("Ingen af de angivne discs blev fundet i databasen.")
+        return
+    
+    # Generate paths for all discs
+    all_data = []
+    stats_data = []
+    
+    for disc in discs_with_data:
+        path = generate_flight_path(
+            disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
+            user_distance_m=throwing_distance
+        )
+        stats = get_flight_stats(
+            disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
+            user_distance_m=throwing_distance
+        )
+        factors = calculate_arm_speed_factor(throwing_distance, disc['speed'], disc['glide'])
+        
+        stats_data.append({
+            'name': disc['name'],
+            'manufacturer': disc['manufacturer'],
+            'flight_numbers': f"{disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']}",
+            'distance': stats['max_distance_m'],
+            'turn': stats['max_turn'],
+            'fade': stats['fade_amount'],
+            'arm_factor': factors['arm_factor'],
+            'expected_dist': factors['expected_dist_m']
+        })
+        
+        for p in path:
+            all_data.append({
+                'Disc': f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})",
+                'Turn/Fade': p['x'],
+                'Distance (m)': round(p['y'] * 0.3048, 1)
+            })
+    
+    df = pd.DataFrame(all_data)
+    pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Turn/Fade')
+    
+    # Show the chart
+    st.line_chart(pivot_df, height=400)
+    
+    # Show detailed stats for each disc
+    st.markdown("### 📊 Disc Detaljer")
+    
+    for stat in stats_data:
+        arm_pct = int(stat['arm_factor'] * 100)
+        
+        with st.expander(f"**{stat['manufacturer']} {stat['name']}** ({stat['flight_numbers']})"):
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                if arm_pct >= 100:
+                    st.metric("Din power", f"🚀 {arm_pct}%", 
+                              help="Du kan kaste denne disc med fuld power")
+                elif arm_pct >= 75:
+                    st.metric("Din power", f"✅ {arm_pct}%",
+                              help="God match for din kastelængde")
+                else:
+                    st.metric("Din power", f"⚠️ {arm_pct}%",
+                              help="Denne disc er for hurtig til din kastelængde")
+            
+            with col2:
+                st.metric("Forventet distance", f"{stat['expected_dist']:.0f}m",
+                          help="Den distance discen er designet til")
+            
+            with col3:
+                if stat['turn'] < -0.3:
+                    stability = "Understabil ↪️"
+                elif stat['fade'] > 0.5:
+                    stability = "Overstabil ↩️"
+                else:
+                    stability = "Stabil →"
+                st.metric("Stabilitet", stability)
+    
+    return True
+
 # --- LOAD DISC DATABASE ---
 # Flight data from https://flightcharts.dgputtheads.com/
 @st.cache_data
@@ -372,7 +561,18 @@ def reset_conversation():
 
 # --- START CONVERSATION ---
 if st.session_state.step == "start":
-    add_bot_message("Hej! Jeg hjælper dig med at finde den perfekte disc 🥏\n\nHvad leder du efter?\n\n1️⃣ Putter\n2️⃣ Midrange\n3️⃣ Fairway driver\n4️⃣ Distance driver")
+    add_bot_message("""Hej! Jeg hjælper dig med at finde den perfekte disc 🥏
+
+**Vælg en mulighed:**
+1️⃣ Putter
+2️⃣ Midrange
+3️⃣ Fairway driver
+4️⃣ Distance driver
+
+**Eller spørg mig direkte:**
+*"Vis flight charts for Destroyer, Mamba og Zone SS ved 100m kast"*
+*"Sammenlign Buzzz og Roc3"*
+*"Hvilken disc til skovbaner?"*""")
     st.session_state.step = "ask_type"
 
 # --- DISPLAY MESSAGES ---
@@ -386,8 +586,31 @@ if prompt := st.chat_input("Skriv dit svar..."):
     
     with st.chat_message("assistant"):
         
+        # --- FIRST: Check for natural language flight chart requests ---
+        chart_request = parse_flight_chart_request(prompt)
+        
+        if chart_request.get('is_chart_request'):
+            # User asked for flight chart comparison - skip questionnaire!
+            discs = chart_request['discs']
+            distance = chart_request['distance']
+            
+            reply = f"Her er flight charts for **{', '.join(discs)}** ved din kastelængde på **{distance}m**:"
+            st.markdown(reply)
+            add_bot_message(reply)
+            
+            # Render the comparison chart
+            render_flight_chart_comparison(discs, distance)
+            
+            # Update session state
+            st.session_state.step = "done"
+            st.session_state.user_prefs["max_dist"] = distance
+            
+            follow_up = "\n\n💬 Du kan spørge om mere - f.eks. 'Sammenlign med Wraith' eller 'Hvad med 100m kastelængde?'"
+            st.markdown(follow_up)
+            add_bot_message(follow_up)
+        
         # --- STEP: ASK DISC TYPE ---
-        if st.session_state.step == "ask_type":
+        elif st.session_state.step == "ask_type":
             prompt_lower = prompt.lower()
             if "1" in prompt or "putter" in prompt_lower:
                 st.session_state.user_prefs["disc_type"] = "Putter"
