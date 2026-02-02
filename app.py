@@ -2,7 +2,7 @@ import streamlit as st
 import re
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
-from retailers import check_stock_disctree, check_stock_newdisc
+from retailers import get_product_links
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -246,9 +246,10 @@ Afslut med en kort sammenligning."""
                     modified_response = ai_response
                     for disc in disc_names:
                         if disc and len(disc) > 2:
-                            # Create direct search URLs
-                            dt_url = f"https://disctree.dk/search?q={disc.replace(' ', '+')}"
-                            nd_url = f"https://newdisc.dk/search?q={disc.replace(' ', '+')}"
+                            # Get direct product links from stores
+                            links = get_product_links(disc)
+                            dt_url = links.get('Disc Tree', f"https://disctree.dk/search?q={disc}")
+                            nd_url = links.get('NewDisc', f"https://newdisc.dk/search?q={disc}")
                             
                             # Create buy links section
                             buy_links = f"\n   🛒 **Køb:** [Disc Tree]({dt_url}) | [NewDisc]({nd_url})"
