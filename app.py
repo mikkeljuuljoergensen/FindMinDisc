@@ -125,34 +125,19 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
     
     # Build chart data directly from database paths
     all_data = []
-    stats_data = []
     
     for disc in discs_with_data:
         path = disc['path']
         if not path:
             continue
         
-        # Get stats from path
-        max_distance_ft = path[-1]['y']
-        max_turn = min(p['x'] for p in path)
-        final_x = path[-1]['x']
-        fade_amount = final_x - max_turn
-        
-        stats_data.append({
-            'name': disc['name'],
-            'manufacturer': disc['manufacturer'],
-            'flight_numbers': f"{disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']}",
-            'max_distance_m': round(max_distance_ft * 0.3048, 0),
-            'max_turn': max_turn,
-            'fade_amount': fade_amount
-        })
-        
         # Add path points to chart data
+        # Negate x to flip for right-hand throw view (turn goes left, fade goes right)
         disc_label = f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})"
         for p in path:
             all_data.append({
                 'Disc': disc_label,
-                'Turn/Fade (ft)': p['x'],
+                'Turn/Fade (ft)': -p['x'],  # Flip for RHBH view
                 'Distance (ft)': p['y']
             })
     
@@ -168,7 +153,7 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
             x=alt.X('Turn/Fade (ft):Q', 
-                    title='← Turn (højre)  |  Fade (venstre) →',
+                    title='← Turn  |  Fade →',
                     scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
             y=alt.Y('Distance (ft):Q', 
                     title='Distance (ft)',
@@ -186,18 +171,6 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
     except ImportError:
         pivot_df = df.pivot(index='Distance (ft)', columns='Disc', values='Turn/Fade (ft)')
         st.line_chart(pivot_df, height=500)
-    
-    # Show stats table
-    st.markdown("### 📊 Disc Stats")
-    
-    cols = st.columns(len(stats_data))
-    for i, stat in enumerate(stats_data):
-        with cols[i]:
-            st.markdown(f"**{stat['name']}**")
-            st.caption(stat['flight_numbers'])
-            st.metric("Distance", f"{stat['max_distance_m']:.0f}m")
-            st.metric("Max turn", f"{stat['max_turn']:.2f}")
-            st.metric("Fade", f"{stat['fade_amount']:.2f}")
     
     return True
 
@@ -560,6 +533,8 @@ if "shown_discs" not in st.session_state:
     st.session_state.shown_discs = []  # Remember discs shown in flight charts
 if "arm_speed" not in st.session_state:
     st.session_state.arm_speed = 'normal'  # Begynder/Øvet/Pro → slow/normal/fast
+if "show_chart" not in st.session_state:
+    st.session_state.show_chart = False  # Whether to display flight chart
 
 # --- HEADER ---
 st.header("FindMinDisc 🥏")
@@ -577,6 +552,7 @@ def reset_conversation():
     st.session_state.user_prefs = {}
     st.session_state.shown_discs = []
     st.session_state.arm_speed = 'normal'  # Default: Øvet
+    st.session_state.show_chart = False
 
 # --- START CONVERSATION ---
 if st.session_state.step == "start":
@@ -598,6 +574,10 @@ if st.session_state.step == "start":
 # --- DISPLAY MESSAGES ---
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
+
+# --- DISPLAY PERSISTENT FLIGHT CHART ---
+if st.session_state.show_chart and st.session_state.shown_discs:
+    render_flight_chart_comparison(st.session_state.shown_discs, st.session_state.arm_speed)
 
 # --- CHAT INPUT ---
 if prompt := st.chat_input("Skriv dit svar..."):
@@ -648,17 +628,14 @@ if prompt := st.chat_input("Skriv dit svar..."):
             st.markdown(reply)
             add_bot_message(reply)
             
-            # Render the comparison chart
-            render_flight_chart_comparison(all_discs, arm_speed)
-            
-            # Update session state
+            # Update session state - chart will render after rerun
             st.session_state.step = "done"
             st.session_state.shown_discs = all_discs
+            st.session_state.show_chart = True
             
-            follow_up = f"\n\n💬 *Tilføj flere: 'Også Wraith'* | *Skift speed: 'Pro' eller 'Begynder'*"
-            st.markdown(follow_up)
+            follow_up = "*Tilføj flere: 'Også Wraith'* | *Skift speed: 'Pro' eller 'Begynder'*"
             add_bot_message(follow_up)
-            add_bot_message(follow_up)
+            st.rerun()
         
         # --- STEP: ASK DISC TYPE ---
         elif st.session_state.step == "ask_type":
