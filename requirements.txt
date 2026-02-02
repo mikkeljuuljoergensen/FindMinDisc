@@ -3,6 +3,6 @@ pandas
 langchain
 langchain-google-genai
 langchain-community
-duckduckgo-search==5.3.1
+ddgs
 beautifulsoup4
 requests
