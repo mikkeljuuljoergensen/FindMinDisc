@@ -357,7 +357,7 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='r
             order='point_order:Q',  # Connect points in sequence
             tooltip=['Disc']
         ).properties(
-            width=300,
+            width=750,
             height=450
         ).configure_axis(
             grid=True
