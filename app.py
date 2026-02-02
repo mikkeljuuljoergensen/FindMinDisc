@@ -1214,11 +1214,12 @@ REGLER:
 - Hvis valget er dårligt, sig det tydeligt
 - VARIER dine anbefalinger - der findes mange gode discs!
 - Anbefal IKKE plastik - brugeren kan spørge om hjælp til det bagefter
+- ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
 
 FORMAT FOR HVER DISC:
 
 ### 1. **[DiscNavn]** af [Mærke]
-- Flight: X/X/X/X, Vægt: XXXg
+- Flight: X/X/X/X, Vægt: XXXg (brug PRÆCIS de flight numbers der står i databasen!)
 - ✅ Fordele: ...
 - ❌ Ulemper: ...
 
@@ -1502,6 +1503,7 @@ REGLER:
 - Hvis brugeren ændrer distance eller disc-type, giv NYE anbefalinger
 - Svar altid på dansk
 - PRIORITER discs fra databasen da de har verificerede flight numbers
+- ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen. Opfind IKKE flight numbers!
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
 - Hvis brugeren spørger om plastik, brug PLASTIK VIDEN ovenfor
@@ -1512,7 +1514,7 @@ Søgeresultater fra nettet:
 Hvis du giver nye anbefalinger (KUN hvis brugeren beder om det), brug dette format:
 
 ### 1. **[DiscNavn]** af [Mærke]
-- Flight: X/X/X/X, Vægt: XXXg
+- Flight: X/X/X/X, Vægt: XXXg (brug PRÆCIS de flight numbers der står i databasen!)
 - ✅ Fordele: ...
 - ❌ Ulemper: ..."""
 
