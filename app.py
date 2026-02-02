@@ -131,14 +131,15 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         if not path:
             continue
         
-        # Add path points to chart data
+        # Add path points to chart data with point index for ordering
         # Negate x to flip for right-hand throw view (turn goes left, fade goes right)
         disc_label = f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})"
-        for p in path:
+        for i, p in enumerate(path):
             all_data.append({
                 'Disc': disc_label,
                 'Turn/Fade (ft)': -p['x'],  # Flip for RHBH view
-                'Distance (ft)': p['y']
+                'Distance (ft)': p['y'],
+                'point_order': i  # Order for line connection
             })
     
     # Create chart using Altair
@@ -159,6 +160,7 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
                     title='Distance (ft)',
                     scale=alt.Scale(domain=[0, max_dist + 20])),
             color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
+            order='point_order:Q',  # Connect points in sequence
             tooltip=['Disc', 'Distance (ft)', 'Turn/Fade (ft)']
         ).properties(
             height=500
