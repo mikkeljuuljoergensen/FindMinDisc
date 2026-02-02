@@ -964,6 +964,10 @@ if prompt := st.chat_input("Skriv dit svar..."):
                         st.session_state['recommended_discs'] = disc_names
                         st.session_state.user_prefs['max_dist'] = result.get('max_dist', 80)
                         st.session_state.user_prefs['skill_level'] = result.get('skill_level', 'intermediate')
+                        
+                        # Show flight charts for free-form recommendations
+                        max_dist = result.get('max_dist', 70)
+                        render_recommendation_flight_charts(disc_names, max_dist, DISC_DATABASE)
                     
                     st.session_state.step = "done"
         
