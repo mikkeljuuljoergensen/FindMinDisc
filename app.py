@@ -104,6 +104,57 @@ def parse_flight_chart_request(prompt):
     return {'is_chart_request': False}
 
 
+def filter_wrong_speed_discs(response, database, min_speed, max_speed):
+    """
+    Remove disc recommendations that don't match the requested speed range.
+    Returns the filtered response.
+    """
+    lines = response.split('\n')
+    result_lines = []
+    skip_until_next_section = False
+    current_disc = None
+    current_disc_speed = None
+    section_start_idx = -1
+    
+    for i, line in enumerate(lines):
+        # Check if this line starts a new disc section
+        disc_found = None
+        for disc_name in sorted(database.keys(), key=len, reverse=True):
+            if re.search(rf'\*\*\s*{re.escape(disc_name)}\s*\*\*|###.*{re.escape(disc_name)}|\[\s*{re.escape(disc_name)}\s*\]', line, re.IGNORECASE):
+                disc_found = disc_name
+                break
+        
+        if disc_found:
+            # Check if the previous disc was out of range
+            if skip_until_next_section and section_start_idx >= 0:
+                # Remove the previous section (it was out of range)
+                result_lines = result_lines[:section_start_idx]
+                # Also add a note about why it was removed
+            
+            current_disc = disc_found
+            disc_data = database.get(current_disc, {})
+            current_disc_speed = disc_data.get('speed', 0)
+            section_start_idx = len(result_lines)
+            
+            # Check if this disc is outside the speed range
+            if current_disc_speed < min_speed or current_disc_speed > max_speed:
+                skip_until_next_section = True
+                continue  # Don't add this line
+            else:
+                skip_until_next_section = False
+        
+        if skip_until_next_section:
+            continue  # Skip lines in wrong-speed sections
+        
+        result_lines.append(line)
+    
+    # Clean up any trailing empty lines from removed sections
+    while result_lines and result_lines[-1].strip() == '':
+        result_lines.pop()
+    
+    return '\n'.join(result_lines)
+
+
 def fix_flight_numbers_in_response(response, database):
     """
     Post-process AI response to fix any incorrect flight numbers.
@@ -301,7 +352,12 @@ def handle_free_form_question(prompt, user_prefs=None):
     # Build speed requirement text for AI
     speed_requirement = ""
     if custom_speed_range:
-        speed_requirement = f"\n⚠️ VIGTIGT: Brugeren bad specifikt om speed {custom_speed_range[0]}-{custom_speed_range[1]}. Anbefal KUN discs i dette interval!"
+        speed_requirement = f"""
+🚫🚫🚫 SPEED-KRAV 🚫🚫🚫
+Brugeren bad SPECIFIKT om speed {custom_speed_range[0]}-{custom_speed_range[1]}.
+Du MÅ ABSOLUT KUN anbefale discs med speed {custom_speed_range[0]}, {(custom_speed_range[0]+custom_speed_range[1])//2}, eller {custom_speed_range[1]}.
+Anbefal IKKE Leopard (speed 6), Buzzz (speed 5), eller andre discs UDENFOR dette interval!
+Listen ovenfor indeholder KUN godkendte discs med korrekt speed."""
     elif disc_type:
         speed_ranges_text = {"Putter": "1-3", "Midrange": "4-6", "Fairway driver": "7-9", "Distance driver": "10-14"}
         speed_requirement = f"\n⚠️ VIGTIGT: Brugeren bad om {disc_type}s (speed {speed_ranges_text.get(disc_type, '1-14')}). Anbefal KUN discs i dette interval!"
@@ -319,12 +375,12 @@ Søgeresultater fra nettet:
 {search_results}
 {kb_context}
 
-Discs fra vores database (med PRÆCISE flight numbers):
+Discs fra vores database (med PRÆCISE flight numbers) - VÆLG KUN FRA DENNE LISTE:
 {disc_context}
 
 REGLER:
 1. Svar på dansk, venligt og hjælpsomt
-2. ⚠️ ABSOLUT KRAV: Hvis du anbefaler discs, vælg KUN fra listen ovenfor. Opfind IKKE discs!
+2. ⚠️ ABSOLUT KRAV: Vælg KUN discs fra listen ovenfor. Listen er allerede filtreret til at matche brugerens krav!
 3. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag FRA LISTEN OVENFOR
 4. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
 5. Brug flight numbers format: Speed/Glide/Turn/Fade
@@ -349,6 +405,10 @@ Afslut med at spørge om brugeren vil vide mere, sammenligne discs, eller se hvo
         
         # POST-PROCESS: Fix any incorrect flight numbers in the response
         response = fix_flight_numbers_in_response(response, DISC_DATABASE)
+        
+        # POST-PROCESS: Remove disc recommendations outside the requested speed range
+        if custom_speed_range:
+            response = filter_wrong_speed_discs(response, DISC_DATABASE, custom_speed_range[0], custom_speed_range[1])
         
         # Extract recommended disc names for potential flight chart
         # First try bold text patterns, then fall back to searching full response
