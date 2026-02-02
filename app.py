@@ -1407,18 +1407,20 @@ PLASTIK VIDEN (brug kun hvis brugeren spørger om plastik):
 {PLASTIC_GUIDE}
 
 REGLER:
+- VIGTIGST: Vurder først om brugeren beder om nye disc-anbefalinger eller bare stiller et generelt spørgsmål
+- For GENERELLE spørgsmål (fx "hvilken disc er bedst?", "hvem vandt VM?", "hvordan kaster man?"): Svar informativt UDEN at give nye disc-anbefalinger. Brug din viden og søgeresultaterne.
+- For ANBEFALINGS-spørgsmål (fx "anbefal en putter", "jeg vil have en ny disc"): Giv 2-4 konkrete disc-forslag fra databasen
 - Hvis brugeren ændrer distance eller disc-type, giv NYE anbefalinger
-- Hvis brugeren har spørgsmål, svar på dansk
-- PRIORITER discs fra databasen ovenfor da de har verificerede flight numbers
+- Svar altid på dansk
+- PRIORITER discs fra databasen da de har verificerede flight numbers
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
-- Hvis brugeren spørger om plastik, brug PLASTIK VIDEN ovenfor til at give præcise råd
-- Anbefal IKKE plastik medmindre brugeren spørger
+- Hvis brugeren spørger om plastik, brug PLASTIK VIDEN ovenfor
 
-Søgeresultater:
+Søgeresultater fra nettet:
 {search_results}
 
-Hvis du giver nye anbefalinger, brug dette format:
+Hvis du giver nye anbefalinger (KUN hvis brugeren beder om det), brug dette format:
 
 ### 1. **[DiscNavn]** af [Mærke]
 - Flight: X/X/X/X, Vægt: XXXg
