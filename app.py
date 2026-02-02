@@ -134,9 +134,11 @@ def calculate_power_percentage(user_distance_m, speed, glide):
     Calculate power percentage: how well user's distance matches disc requirements.
     
     Returns percentage where 100% = perfect match for "normal" arm speed.
+    Uses precise formula from disc_database_full.json regression (R² = 0.9941).
     """
-    # Expected distance at normal arm speed (from regression)
-    expected_normal_ft = 129.93 + 18.30 * speed + 15.07 * glide
+    # Expected distance at normal arm speed (from regression on 268 flight paths)
+    # Formula: distance = 156.83 + 16.45*speed + 17.04*glide
+    expected_normal_ft = 156.83 + 16.45 * speed + 17.04 * glide
     expected_normal_m = expected_normal_ft * 0.3048
     
     # Power percentage

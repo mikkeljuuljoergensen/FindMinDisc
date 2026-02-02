@@ -15,38 +15,42 @@ import math
 
 
 # ============================================================================
-# REFINED FORMULAS FROM 1471 DISC REGRESSION ANALYSIS
+# PRECISE FORMULAS FROM disc_database_full.json REGRESSION ANALYSIS
+# Based on 1248 flight paths (719 slow, 268 normal, 261 fast)
 # ============================================================================
 
 # Distance formulas (feet) by arm speed:
-#   Slow:   153.61 + 13.85*speed + 8.07*glide
-#   Normal: 129.93 + 18.30*speed + 15.07*glide
-#   Fast:   125.35 + 19.48*speed + 18.38*glide
+#   Slow:   158.12 + 12.20*speed + 12.03*glide  (R² = 0.9892, err = 1.4m)
+#   Normal: 156.83 + 16.45*speed + 17.04*glide  (R² = 0.9941, err = 1.3m)
+#   Fast:   155.88 + 17.75*speed + 19.30*glide  (R² = 0.9936, err = 1.3m)
 
 DISTANCE_COEFFICIENTS = {
-    'slow':   {'base': 153.61, 'speed': 13.85, 'glide': 8.07},
-    'normal': {'base': 129.93, 'speed': 18.30, 'glide': 15.07},
-    'fast':   {'base': 125.35, 'speed': 19.48, 'glide': 18.38}
+    'slow':   {'base': 158.12, 'speed': 12.20, 'glide': 12.03},
+    'normal': {'base': 156.83, 'speed': 16.45, 'glide': 17.04},
+    'fast':   {'base': 155.88, 'speed': 17.75, 'glide': 19.30}
 }
 
-# Turn formula: turn_amount = turn * (base_coef + speed_adj*speed)
-# Higher speed discs have LESS turn effect per rating point
-# turn_coef = 0.3448 - 0.0087*speed (from regression)
-TURN_BASE_COEF = 0.3448
-TURN_SPEED_ADJ = -0.0087
+# Turn formula: turn_amount = turn * base_coef * arm_mult
+# Regression shows speed has almost NO effect on turn coefficient (R² = 0.001)
+# So we use a constant: turn_coef ≈ 0.2311 (mean across all speeds)
+TURN_BASE_COEF = 0.2311
+TURN_SPEED_ADJ = 0.00122  # Negligible, but kept for completeness
 
 # Turn coefficient by arm speed (multiplier on base turn effect):
-#   Slow:   0.3124 / 0.3478 = 0.898x
-#   Normal: 0.3478 / 0.3478 = 1.000x  
-#   Fast:   0.3794 / 0.3478 = 1.091x
-TURN_ARM_MULT = {'slow': 0.898, 'normal': 1.000, 'fast': 1.091}
+#   Slow:   0.8327x (less turn with slower arm)
+#   Normal: 1.0000x
+#   Fast:   1.2703x (more turn with faster arm)
+TURN_ARM_MULT = {'slow': 0.8327, 'normal': 1.0000, 'fast': 1.2703}
 
-# Fade formula: fade_amount = fade * coef + turn_reduction
-# Fade counteracts some of the turn (turn adds ~0.07-0.08 to fade)
+# Fade formula: fade_amount = fade * coef + turn * turn_factor
+# Turn counteracts fade slightly (understable discs fade less)
+#   Slow:   0.6236*fade + 0.0674*turn  (R² = 0.8498)
+#   Normal: 0.5272*fade + 0.0398*turn  (R² = 0.8579)
+#   Fast:   0.4528*fade + 0.0099*turn  (R² = 0.8688)
 FADE_COEFFICIENTS = {
-    'slow':   {'base': 0.5686, 'turn_factor': 0.0845},
-    'normal': {'base': 0.4670, 'turn_factor': 0.0688},
-    'fast':   {'base': 0.4023, 'turn_factor': 0.0440}
+    'slow':   {'base': 0.6236, 'turn_factor': 0.0674},
+    'normal': {'base': 0.5272, 'turn_factor': 0.0398},
+    'fast':   {'base': 0.4528, 'turn_factor': 0.0099}
 }
 
 
@@ -54,9 +58,9 @@ def calculate_distance(speed, glide, arm_speed='normal'):
     """
     Calculate expected distance in feet.
     
-    Formula derived from regression on 1471 discs:
-    - R² = 0.978 (98% of variance explained)
-    - Average error: 8.3 ft (2.5m)
+    Formula derived from regression on 1248 flight paths:
+    - R² = 0.99+ (99% of variance explained)
+    - Average error: ~1.3m
     """
     coef = DISTANCE_COEFFICIENTS.get(arm_speed, DISTANCE_COEFFICIENTS['normal'])
     return coef['base'] + coef['speed'] * speed + coef['glide'] * glide
@@ -128,31 +132,40 @@ def calculate_arm_speed_factor(user_distance_m, speed, glide):
     - 0.5 = "normal" arm speed
     - 1.0 = "fast" arm speed
     - >1.0 = pro-level arm speed
-    """
-    # Expected distance for this disc at "normal" arm speed
-    expected_dist_ft = calculate_distance(speed, glide, 'normal')
-    expected_dist_m = expected_dist_ft * 0.3048
     
-    # Calculate arm factor based on ratio
-    # If user throws 80% of expected distance, they're between slow and normal
-    # slow = 0.894x normal, fast = 1.053x normal
-    ratio = user_distance_m / expected_dist_m
+    Uses precise formulas from disc_database_full.json regression.
+    """
+    # Calculate expected distances for this specific disc
+    expected_slow_ft = calculate_distance(speed, glide, 'slow')
+    expected_normal_ft = calculate_distance(speed, glide, 'normal')
+    expected_fast_ft = calculate_distance(speed, glide, 'fast')
+    
+    expected_slow_m = expected_slow_ft * 0.3048
+    expected_normal_m = expected_normal_ft * 0.3048
+    expected_fast_m = expected_fast_ft * 0.3048
+    
+    # Calculate ratios for this specific disc
+    ratio_slow = expected_slow_m / expected_normal_m  # ~0.83-0.90 depending on disc
+    ratio_fast = expected_fast_m / expected_normal_m  # ~1.04-1.06 depending on disc
+    
+    # User's ratio relative to normal
+    ratio = user_distance_m / expected_normal_m
     
     # Map ratio to arm_factor:
-    # ratio 0.894 → arm_factor 0.0 (slow)
-    # ratio 1.000 → arm_factor 0.5 (normal)
-    # ratio 1.053 → arm_factor 1.0 (fast)
-    if ratio <= 0.894:
+    # ratio = ratio_slow → arm_factor 0.0 (slow)
+    # ratio = 1.000 → arm_factor 0.5 (normal)
+    # ratio = ratio_fast → arm_factor 1.0 (fast)
+    if ratio <= ratio_slow:
         arm_factor = 0.0
     elif ratio <= 1.0:
         # Linear interpolation between slow (0.0) and normal (0.5)
-        arm_factor = 0.5 * (ratio - 0.894) / (1.0 - 0.894)
-    elif ratio <= 1.053:
+        arm_factor = 0.5 * (ratio - ratio_slow) / (1.0 - ratio_slow)
+    elif ratio <= ratio_fast:
         # Linear interpolation between normal (0.5) and fast (1.0)
-        arm_factor = 0.5 + 0.5 * (ratio - 1.0) / (1.053 - 1.0)
+        arm_factor = 0.5 + 0.5 * (ratio - 1.0) / (ratio_fast - 1.0)
     else:
         # Beyond fast - extrapolate
-        arm_factor = 1.0 + (ratio - 1.053) / 0.053
+        arm_factor = 1.0 + (ratio - ratio_fast) / (ratio_fast - 1.0)
     
     # Clamp to reasonable range
     arm_factor = max(0.0, min(1.5, arm_factor))
@@ -160,7 +173,9 @@ def calculate_arm_speed_factor(user_distance_m, speed, glide):
     return {
         'arm_factor': arm_factor,
         'ratio': ratio,
-        'expected_dist_m': expected_dist_m
+        'expected_dist_m': expected_normal_m,
+        'expected_slow_m': expected_slow_m,
+        'expected_fast_m': expected_fast_m
     }
 
 
