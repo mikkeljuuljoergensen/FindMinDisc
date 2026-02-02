@@ -1,18 +1,17 @@
 import streamlit as st
 import pandas as pd
 from langchain_community.tools import DuckDuckGoSearchRun
-from langchain_google_genai import ChatGoogleGenerativeAI # <-- CHANGED IMPORT
+from langchain_groq import ChatGroq
 from retailers import check_stock_disctree, check_stock_newdisc
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
 # --- API KEY HANDLING ---
-# We now look for "GOOGLE_API_KEY" instead of "OPENAI_API_KEY"
-if "GOOGLE_API_KEY" in st.secrets:
-    api_key = st.secrets["GOOGLE_API_KEY"]
+if "GROQ_API_KEY" in st.secrets:
+    api_key = st.secrets["GROQ_API_KEY"]
 else:
-    st.error("Missing Google API Key. Please add it to Streamlit Secrets.")
+    st.error("Mangler GROQ_API_KEY. Tilføj den til Streamlit Secrets.")
     st.stop()
 
 # --- DATA LOADING (Dummy Data Fallback) ---
@@ -29,10 +28,10 @@ def load_discs():
 df = load_discs()
 
 # --- AI SETUP ---
-# We use Gemini 2.0 Flash (Free & Fast)
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash", 
-    google_api_key=api_key,
+# Groq with Llama 3.3 (Free & Fast)
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    api_key=api_key,
     temperature=0.7
 )
 search = DuckDuckGoSearchRun()
@@ -56,7 +55,7 @@ with st.sidebar:
     ])
     
     st.divider()
-    st.info("Drevet af Google Gemini")
+    st.info("Drevet af Llama 3.3 via Groq")
 
 # --- CHAT INTERFACE ---
 st.header("Find Din Næste Disc")
