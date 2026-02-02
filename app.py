@@ -7,6 +7,56 @@ from retailers import get_product_links
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
+# --- PLASTIC KNOWLEDGE BASE ---
+# Source: https://flightcharts.dgputtheads.com/discgolfplastics.html
+PLASTIC_GUIDE = """
+PLASTIK GUIDE (fra holdbar/overstabil til blød/understabil):
+
+**Innova:**
+- Champion/Halo Star: Mest holdbar, overstabil, glat
+- Star: Holdbar, godt greb, let overstabil
+- GStar: Fleksibel, godt greb, mere understabil
+- Pro: Medium holdbar, godt greb
+- DX: Billig, blødt, slides hurtigt understabilt
+
+**Discraft:**
+- Z/Titanium: Mest holdbar, overstabil, glat
+- ESP: Holdbar, fantastisk greb
+- ESP FLX/Z FLX: Fleksibel version
+- X/Jawbreaker: Medium, godt greb
+- Pro D: Billig base plastik
+
+**Latitude 64/Dynamic Discs/Westside (Trilogy):**
+- Opto/Lucid/VIP: Mest holdbar, overstabil
+- Gold Line/Fuzion/Tournament: Holdbar, godt greb
+- Frost/Fluid/Elasto: Fleksibel
+- Retro/Prime/Origio: Base plastik
+
+**MVP/Axiom/Streamline:**
+- Proton: Mest holdbar, overstabil, glat
+- Neutron: Holdbar, fantastisk greb
+- Plasma: Holdbar med swirl
+- Fission: Let, god til begyndere
+- Electron: Base plastik til putters
+
+**Discmania:**
+- C Line = Innova Champion
+- S Line = Innova Star
+- P Line = Innova Pro
+- D Line = Innova DX
+
+**Kastaplast:**
+- K1: Premium holdbar
+- K2: Fleksibel premium
+- K3: Base plastik
+
+**Generelle råd:**
+- Begyndere: Start med base plastik (DX, Pro D, Retro) - billigt og lærer dig at kaste
+- Erfarne: Premium plastik (Star, ESP, Neutron) - holder formen længere
+- Koldt vejr: Fleksibelt plastik (GStar, FLX, Frost)
+- Greb i regn: ESP, Neutron, Star
+"""
+
 # --- API KEY HANDLING ---
 if "OPENAI_API_KEY" in st.secrets:
     api_key = st.secrets["OPENAI_API_KEY"]
@@ -369,12 +419,15 @@ Brugerens nuværende profil: kaster {max_dist}m, søger {disc_type}, ønsker {fl
 
 Brugerens nye besked: "{prompt}"
 
+PLASTIK VIDEN (brug kun hvis brugeren spørger om plastik):
+{PLASTIC_GUIDE}
+
 REGLER:
 - Hvis brugeren ændrer distance eller disc-type, giv NYE anbefalinger
 - Hvis brugeren har spørgsmål, svar på dansk
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
-- Hvis brugeren spørger om plastik, forklar forskellene (base plastik = billigt/mindre holdbart, premium = holdbart/dyrere)
+- Hvis brugeren spørger om plastik, brug PLASTIK VIDEN ovenfor til at give præcise råd
 - Anbefal IKKE plastik medmindre brugeren spørger
 
 Søgeresultater:
