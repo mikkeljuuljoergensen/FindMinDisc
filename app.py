@@ -422,4 +422,4 @@ with st.sidebar:
         reset_conversation()
         st.rerun()
     st.divider()
-    st.caption("Drevet af Llama 3.3 via Groq")
+    st.caption("Drevet af den bedste AI Mikkel har råd til")
