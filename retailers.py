@@ -13,7 +13,7 @@ def check_stock_disctree(disc_name):
         response = requests.get(url, headers=headers, timeout=10)
         
         if response.status_code != 200:
-            return "⚠️ Could not connect to Disc Tree."
+            return "⚠️ Kunne ikke forbinde til Disc Tree."
 
         soup = BeautifulSoup(response.text, 'html.parser')
         
@@ -21,12 +21,12 @@ def check_stock_disctree(disc_name):
         results = soup.select('.product-card, .product-item, .grid-view-item, .card-wrapper')
         
         if results:
-            return f"✅ **Found at Disc Tree:** [View Search Results]({url})"
+            return f"✅ **Fundet på Disc Tree:** [Se søgeresultater]({url})"
         else:
-            return f"❌ Not currently in stock at Disc Tree."
+            return f"❌ Ikke på lager hos Disc Tree."
             
     except Exception as e:
-        return f"⚠️ Error checking stock: {str(e)}"
+        return f"⚠️ Fejl ved lagertjek: {str(e)}"
 
 def check_stock_newdisc(disc_name):
     search_query = disc_name.replace(" ", "+")
@@ -37,8 +37,8 @@ def check_stock_newdisc(disc_name):
         response = requests.get(url, headers=headers, timeout=10)
         
         if "Ingen resultater" in response.text or "No results" in response.text:
-            return "❌ Not currently in stock at NewDisc."
+            return "❌ Ikke på lager hos NewDisc."
         
-        return f"🔍 **Check NewDisc:** [View Search Results]({url})"
+        return f"🔍 **Tjek NewDisc:** [Se søgeresultater]({url})"
     except Exception as e:
-        return f"⚠️ Error checking stock: {str(e)}"
+        return f"⚠️ Fejl ved lagertjek: {str(e)}"

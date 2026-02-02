@@ -89,23 +89,32 @@ Ekstra info: "{prompt}"
 Anbefalinger fra nettet:
 {search_results}
 
-Giv 3 disc-anbefalinger på dansk. For hver disc:
-1. Navn og mærke
-2. Flight numbers (speed/glide/turn/fade)
-3. Fordele (hvorfor den passer)
-4. Ulemper (hvornår den IKKE passer)
-5. Anbefalet plastik og hvorfor (f.eks. "Star plastic - holder længere og er god i vådt vejr")
+Giv 3 disc-anbefalinger på dansk. VIGTIGT formatering - skriv discnavn i bold sådan: **Buzzz**
 
-Sammenlign de 3 discs kort til sidst - hvem passer bedst til hvad?
+For hver disc:
+1. **[Disc navn]** af [Mærke]
+2. Flight numbers (speed/glide/turn/fade)
+3. Fordele
+4. Ulemper
+5. Anbefalet plastik - HUSK at nævne hvordan plastikken påvirker stabiliteten:
+   - Premium plastik (ESP, Star, Champion, Neutron) = mere overstabil, holder formen længere
+   - Base plastik (DX, Pro-D, Prime) = bliver understabil hurtigere, bedre greb
+   - Gummiagtigt (Gstar, Glow) = bedre greb i koldt vejr
+
+Sammenlign til sidst - hvem passer bedst til hvad?
 
 Formatér pænt med ### overskrifter og bullet points."""
             
             try:
                 ai_response = llm.invoke(ai_prompt).content
                 
-                # Extract disc names for stock check (look for bold text or headers)
+                # Extract disc names for stock check
                 import re
-                disc_names = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', ai_response)[:3]
+                # Find bold disc names like **Buzzz** or **Mako3**
+                bold_names = re.findall(r'\*\*([A-Za-z0-9]+)\*\*', ai_response)
+                # Filter to likely disc names (not common words)
+                skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 'disc', 'discs', 'found', 'check', 'view'}
+                disc_names = [name for name in bold_names if name.lower() not in skip_words][:3]
                 
                 # Build stock info
                 stock_info = ""
