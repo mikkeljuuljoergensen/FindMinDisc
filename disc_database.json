@@ -1,0 +1,346 @@
+{
+  "Boss": {
+    "manufacturer": "Innova",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "max_weight": 175.96
+  },
+  "Nuke": {
+    "manufacturer": "Discraft",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "max_weight": 175.96
+  },
+  "Shryke": {
+    "manufacturer": "Innova",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2,
+    "max_weight": 175.13
+  },
+  "Force": {
+    "manufacturer": "Discraft",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "max_weight": 175.13
+  },
+  "Zeus": {
+    "manufacturer": "Discraft",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "max_weight": 175.13
+  },
+  "Destroyer": {
+    "manufacturer": "Innova",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "max_weight": 175.13
+  },
+  "Tern": {
+    "manufacturer": "Innova",
+    "speed": 12,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2,
+    "max_weight": 175.13
+  },
+  "Thrasher": {
+    "manufacturer": "Discraft",
+    "speed": 12,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2,
+    "max_weight": 175.13
+  },
+  "Hades": {
+    "manufacturer": "Discraft",
+    "speed": 12,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2,
+    "max_weight": 174.3
+  },
+  "Wraith": {
+    "manufacturer": "Innova",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "max_weight": 175.13
+  },
+  "Mamba": {
+    "manufacturer": "Innova",
+    "speed": 11,
+    "glide": 6,
+    "turn": -5,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "Sapphire": {
+    "manufacturer": "Latitude 64",
+    "speed": 10,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1.5,
+    "max_weight": 174.3
+  },
+  "Firebird": {
+    "manufacturer": "Innova",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4,
+    "max_weight": 175.13
+  },
+  "Thunderbird": {
+    "manufacturer": "Innova",
+    "speed": 9,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2,
+    "max_weight": 175.96
+  },
+  "Escape": {
+    "manufacturer": "Dynamic Discs",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "max_weight": 175.13
+  },
+  "Insanity": {
+    "manufacturer": "Axiom",
+    "speed": 9,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1.5,
+    "max_weight": 175.13
+  },
+  "Sidewinder": {
+    "manufacturer": "Innova",
+    "speed": 9,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "Heat": {
+    "manufacturer": "Discraft",
+    "speed": 9,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "Roadrunner": {
+    "manufacturer": "Innova",
+    "speed": 9,
+    "glide": 5,
+    "turn": -4,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "Volt": {
+    "manufacturer": "MVP",
+    "speed": 8,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2,
+    "max_weight": 175.13
+  },
+  "Diamond": {
+    "manufacturer": "Latitude 64",
+    "speed": 8,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "River": {
+    "manufacturer": "Latitude 64",
+    "speed": 7,
+    "glide": 7,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 178.45
+  },
+  "Drift": {
+    "manufacturer": "Streamline",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Crave": {
+    "manufacturer": "Axiom",
+    "speed": 6,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 175.13
+  },
+  "Leopard": {
+    "manufacturer": "Innova",
+    "speed": 6,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Verdict": {
+    "manufacturer": "Dynamic Discs",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4,
+    "max_weight": 180.11
+  },
+  "Malta": {
+    "manufacturer": "Discraft",
+    "speed": 5,
+    "glide": 4,
+    "turn": 1,
+    "fade": 3,
+    "max_weight": 176.8
+  },
+  "Pyro": {
+    "manufacturer": "Axiom",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2.5,
+    "max_weight": 178.45
+  },
+  "Truth": {
+    "manufacturer": "Dynamic Discs",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 180.11
+  },
+  "Hex": {
+    "manufacturer": "Axiom",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 177.6
+  },
+  "Buzzz": {
+    "manufacturer": "Discraft",
+    "speed": 5,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 180.11
+  },
+  "Fuse": {
+    "manufacturer": "Latitude 64",
+    "speed": 5,
+    "glide": 6,
+    "turn": -1,
+    "fade": 0,
+    "max_weight": 181.77
+  },
+  "Meteor": {
+    "manufacturer": "Discraft",
+    "speed": 5,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "max_weight": 178.5
+  },
+  "Paradox": {
+    "manufacturer": "Axiom",
+    "speed": 5,
+    "glide": 4,
+    "turn": -4,
+    "fade": 0,
+    "max_weight": 178.5
+  },
+  "Luna": {
+    "manufacturer": "Discraft",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3,
+    "max_weight": 175.13
+  },
+  "Envy": {
+    "manufacturer": "Axiom",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2,
+    "max_weight": 174.3
+  },
+  "Pure": {
+    "manufacturer": "Latitude 64",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Proxy": {
+    "manufacturer": "Axiom",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 0.5,
+    "max_weight": 174.3
+  },
+  "Judge": {
+    "manufacturer": "Dynamic Discs",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Aviar": {
+    "manufacturer": "Innova",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Warden": {
+    "manufacturer": "Dynamic Discs",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 0.5,
+    "max_weight": 175.96
+  },
+  "Pilot": {
+    "manufacturer": "Streamline",
+    "speed": 2,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1,
+    "max_weight": 175.96
+  },
+  "Berg": {
+    "manufacturer": "Kastaplast",
+    "speed": 1,
+    "glide": 1,
+    "turn": 0,
+    "fade": 2,
+    "max_weight": 175.13
+  }
+}

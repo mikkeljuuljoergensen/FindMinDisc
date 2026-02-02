@@ -1,11 +1,115 @@
 import streamlit as st
 import re
+import json
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 from retailers import get_product_links
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
+
+# --- LOAD DISC DATABASE ---
+# Flight data from https://flightcharts.dgputtheads.com/
+@st.cache_data
+def load_disc_database():
+    try:
+        with open("disc_database.json", "r") as f:
+            return json.load(f)
+    except:
+        return {}
+
+DISC_DATABASE = load_disc_database()
+
+def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref):
+    """Get disc recommendations based on throwing distance and preferences."""
+    recommendations = []
+    
+    # Map disc type to speed range
+    speed_ranges = {
+        "Putter": (1, 3),
+        "Midrange": (4, 6),
+        "Fairway driver": (7, 9),
+        "Distance driver": (10, 14)
+    }
+    min_speed, max_speed = speed_ranges.get(disc_type, (1, 14))
+    
+    # Adjust max speed based on throwing distance
+    # Rule of thumb: You need ~10m per speed rating to throw a disc properly
+    recommended_max_speed = max_dist // 10
+    actual_max_speed = min(max_speed, recommended_max_speed)
+    
+    for name, data in DISC_DATABASE.items():
+        speed = data.get("speed", 0)
+        turn = data.get("turn", 0)
+        fade = data.get("fade", 0)
+        
+        # Check if speed is in range for disc type
+        if not (min_speed <= speed <= max_speed):
+            continue
+        
+        # Filter by flight preference
+        if flight_pref == "Understabil" and turn >= 0:
+            continue
+        elif flight_pref == "Overstabil" and turn < 0:
+            continue
+        elif flight_pref == "Lige/stabil" and (turn < -2 or fade > 2):
+            continue
+        
+        # Prioritize discs that match throwing distance
+        priority = 0
+        if speed <= recommended_max_speed:
+            priority = 10  # Good match
+        elif speed <= recommended_max_speed + 2:
+            priority = 5   # Acceptable with lightweight
+        else:
+            priority = 1   # Not ideal
+        
+        # Boost understable discs for beginners (under 70m)
+        if max_dist < 70 and turn <= -2:
+            priority += 5
+        
+        recommendations.append({
+            "name": name,
+            "data": data,
+            "priority": priority
+        })
+    
+    # Sort by priority
+    recommendations.sort(key=lambda x: x["priority"], reverse=True)
+    return recommendations[:6]
+
+def format_disc_database_for_ai():
+    """Format disc database for AI context."""
+    lines = []
+    
+    # Group by type
+    putters = []
+    midranges = []
+    fairways = []
+    drivers = []
+    
+    for name, data in DISC_DATABASE.items():
+        speed = data.get("speed", 0)
+        line = f"  - {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 0)}/{data.get('turn', 0)}/{data.get('fade', 0)}"
+        
+        if speed <= 3:
+            putters.append(line)
+        elif speed <= 6:
+            midranges.append(line)
+        elif speed <= 9:
+            fairways.append(line)
+        else:
+            drivers.append(line)
+    
+    result = "DISC DATABASE (Speed/Glide/Turn/Fade):\n"
+    result += "Putters:\n" + "\n".join(putters) + "\n"
+    result += "Midranges:\n" + "\n".join(midranges) + "\n"
+    result += "Fairway Drivers:\n" + "\n".join(fairways) + "\n"
+    result += "Distance Drivers:\n" + "\n".join(drivers)
+    
+    return result
+
+DISC_DATABASE_TEXT = format_disc_database_for_ai()
 
 # --- PLASTIC KNOWLEDGE BASE ---
 # Source: https://flightcharts.dgputtheads.com/discgolfplastics.html
@@ -258,10 +362,24 @@ Forklar at de bør overveje midranges eller fairway drivers i stedet."""
 Disc-type: **{disc_type}** ({speed_hint})
 Ekstra ønsker: {extra_info if extra_info else "Ingen"}
 
+{DISC_DATABASE_TEXT}
+
+HASTIGHEDS-GUIDE (vigtig!):
+- Speed 10+ kræver 80+ meter kastelængde
+- Speed 7-9 kræver 60-80 meter kastelængde  
+- Speed 4-6 kræver 40-60 meter kastelængde
+- Speed 1-3: kan kastes af alle
+
+UNDERSTABIL vs OVERSTABIL:
+- Negative turn (f.eks. -3) = understabil = drejer HØJRE for RH-backhand = lettere at kaste langt
+- Positiv fade (f.eks. +3) = fader VENSTRE til slut
+- Begyndere og kastere under 70m bør vælge understabile discs (turn -2 eller lavere)
+
 Søgeresultater:
 {search_results}
 
 Giv 3 FORSKELLIGE {disc_type.lower()}-anbefalinger på dansk.
+PRIORITER discs fra databasen ovenfor da de har verificerede flight numbers.
 Vær kreativ - anbefal ikke altid de samme discs!
 
 REGLER:
@@ -419,12 +537,21 @@ Brugerens nuværende profil: kaster {max_dist}m, søger {disc_type}, ønsker {fl
 
 Brugerens nye besked: "{prompt}"
 
+{DISC_DATABASE_TEXT}
+
+HASTIGHEDS-GUIDE:
+- Speed 10+ kræver 80+ meter kastelængde
+- Speed 7-9 kræver 60-80 meter kastelængde  
+- Speed 4-6 kræver 40-60 meter kastelængde
+- Speed 1-3: kan kastes af alle
+
 PLASTIK VIDEN (brug kun hvis brugeren spørger om plastik):
 {PLASTIC_GUIDE}
 
 REGLER:
 - Hvis brugeren ændrer distance eller disc-type, giv NYE anbefalinger
 - Hvis brugeren har spørgsmål, svar på dansk
+- PRIORITER discs fra databasen ovenfor da de har verificerede flight numbers
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
 - Hvis brugeren spørger om plastik, brug PLASTIK VIDEN ovenfor til at give præcise råd
