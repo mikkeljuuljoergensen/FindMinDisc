@@ -91,59 +91,102 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
             }
             speed_hint = speed_ranges.get(disc_type, "")
             
+            # Calculate recommended max speed based on distance
+            # Rule of thumb: you need ~10m per speed point
+            recommended_max_speed = max(6, min(14, max_dist // 10))
+            
+            # Build warning for beginners choosing wrong discs
+            skill_warning = ""
+            if skill_level == "Begynder" and disc_type == "Distance driver":
+                skill_warning = f"""
+⚠️ VIGTIGT RÅD TIL BEGYNDEREN:
+Med en kastelængde på {max_dist}m anbefales det IKKE at bruge distance drivers (speed 10+).
+Distance drivers kræver typisk 80+ meter armhastighed for at flyve korrekt.
+For {max_dist}m anbefales max speed {recommended_max_speed} disc.
+FORESLÅ i stedet understabile fairway drivers (speed 7-9) eller midranges i LETVÆGT (150-160g).
+Hvis brugeren insisterer på distance drivers, anbefal KUN letvægts understabile modeller (under 160g).
+"""
+            elif skill_level == "Begynder" and disc_type == "Fairway driver" and max_dist < 60:
+                skill_warning = f"""
+⚠️ TIP: Med {max_dist}m kastelængde kan en midrange måske være bedre end en fairway driver.
+Hvis du anbefaler fairway drivers, vælg understabile letvægts-modeller.
+"""
+            
             # 2. Ask LLM for recommendations
             ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, ønsker {flight_pref}.
+{skill_warning}
 
-VIGTIG: Brugeren søger specifikt en **{disc_type}** ({speed_hint}).
-Anbefal KUN discs der er {disc_type}s - IKKE andre disc-typer!
-- Putter = speed 1-3 (f.eks. Aviar, P2, Luna, Envy)
-- Midrange = speed 4-6 (f.eks. Buzzz, Roc, Mako3)
-- Fairway driver = speed 7-9 (f.eks. Leopard, Teebird, River)
-- Distance driver = speed 10+ (f.eks. Destroyer, Wraith, Zeus)
+Brugeren har valgt: **{disc_type}** ({speed_hint}).
+
+REGLER:
+- Anbefal KUN {disc_type}s
+- For begyndere der kaster under 70m: anbefal ALTID letvægt (150-165g) og understabile discs
+- Nævn specifik vægt i gram når relevant
+- Hvis valget er dårligt for brugeren, SIG DET TYDELIGT i starten
+
+Disc-typer reference:
+- Putter = speed 1-3 (Aviar, P2, Luna, Envy)
+- Midrange = speed 4-6 (Buzzz, Roc, Mako3, Fuse)
+- Fairway driver = speed 7-9 (Leopard, Diamond, River, Maul)
+- Distance driver = speed 10+ (Destroyer, Wraith, Tern, Shryke)
 
 Ekstra info fra bruger: "{prompt}"
 
 Søgeresultater:
 {search_results}
 
-Giv 3 {disc_type.lower()}-anbefalinger på dansk. Formatér discnavn i bold: **DiscNavn**
+Giv 3 anbefalinger på dansk.
+
+VIGTIG FORMATERING - skriv disc-navnet ALENE i bold sådan (uden mærke):
+**Destroyer**
+**Buzzz**
+**Leopard**
 
 For hver disc:
-1. **[Disc navn]** af [Mærke]
-2. Flight numbers (speed/glide/turn/fade)
+1. **[DiscNavn]** af [Mærke]
+2. Flight numbers og anbefalet vægt
 3. Fordele
 4. Ulemper
-5. Anbefalet plastik og hvordan det påvirker stabiliteten:
-   - Premium (ESP, Star, Champion, Neutron) = mere overstabil
-   - Base (DX, Pro-D, Prime) = bliver understabil hurtigere
-   - Gummi (Gstar, Glow) = bedre greb i koldt vejr
-   - Base plastik (DX, Pro-D, Prime) = bliver understabil hurtigere, bedre greb
-   - Gummiagtigt (Gstar, Glow) = bedre greb i koldt vejr
+5. Plastik-anbefaling
 
-Sammenlign til sidst - hvem passer bedst til hvad?
-
-Formatér pænt med ### overskrifter og bullet points."""
+Sammenlign til sidst."""
             
             try:
                 ai_response = llm.invoke(ai_prompt).content
                 
                 # Extract disc names for stock check
                 import re
-                # Find bold disc names like **Buzzz** or **Mako3**
-                bold_names = re.findall(r'\*\*([A-Za-z0-9]+)\*\*', ai_response)
-                # Filter to likely disc names (not common words)
-                skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 'disc', 'discs', 'found', 'check', 'view', 'speed', 'glide', 'turn', 'fade', 'premium', 'base'}
-                disc_names = [name for name in bold_names if name.lower() not in skip_words][:3]
+                # Find bold text like **Destroyer** or **Innova Destroyer** or **Mako3**
+                bold_matches = re.findall(r'\*\*([A-Za-z0-9\s]+)\*\*', ai_response)
+                
+                # Extract just the disc name (last word if multiple, or the whole thing)
+                disc_names = []
+                skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
+                              'disc', 'discs', 'found', 'check', 'view', 'speed', 'glide', 'turn', 
+                              'fade', 'premium', 'base', 'distance', 'driver', 'putter', 'midrange',
+                              'fairway', 'innova', 'discraft', 'discmania', 'latitude', 'mvp', 'axiom',
+                              'kastaplast', 'westside', 'dynamic', 'navn', 'mærke', 'af'}
+                
+                for match in bold_matches:
+                    words = match.strip().split()
+                    # Get the last word (usually the disc name) or check each word
+                    for word in reversed(words):
+                        word_clean = word.strip()
+                        if word_clean.lower() not in skip_words and len(word_clean) > 2:
+                            if word_clean not in disc_names:
+                                disc_names.append(word_clean)
+                            break
+                
+                disc_names = disc_names[:3]
                 
                 # Build stock info with links to Danish retailers
                 stock_info = ""
                 for disc in disc_names:
-                    disc_clean = disc.strip()
-                    if disc_clean and len(disc_clean) > 2:
-                        stock_info += f"**{disc_clean}:**\n"
-                        stock_info += f"  * {check_stock_disctree(disc_clean)}\n"
-                        stock_info += f"  * {check_stock_newdisc(disc_clean)}\n"
-                        stock_info += f"  * {check_stock_discimport(disc_clean)}\n"
+                    if disc and len(disc) > 2:
+                        stock_info += f"**{disc}:**\n"
+                        stock_info += f"  * {check_stock_disctree(disc)}\n"
+                        stock_info += f"  * {check_stock_newdisc(disc)}\n"
+                        stock_info += f"  * {check_stock_discimport(disc)}\n\n"
                 
                 final_reply = f"""{ai_response}
 
