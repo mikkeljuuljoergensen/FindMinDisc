@@ -174,10 +174,10 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
         chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
             x=alt.X('Turn/Fade:Q', 
                     title='← Turn  |  Fade →',
+                    axis=alt.Axis(labels=False, ticks=False),
                     scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
             y=alt.Y('Distance:Q', 
                     title=None,
-                    axis=alt.Axis(labels=False, ticks=False),
                     scale=alt.Scale(domain=[0, max_dist + 5])),
             color=alt.Color('Disc:N', legend=alt.Legend(orient='bottom', title=None)),
             order='point_order:Q',  # Connect points in sequence
