@@ -203,13 +203,14 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
         response = llm.invoke(ai_prompt).content
         
         # Extract recommended disc names for potential flight chart
-        # Look for disc names in database that appear in the response
+        # Use word boundary matching to avoid false positives like "Glide" in "Flight: 2/3/0/1"
         disc_names = []
-        response_lower = response.lower()
         
         # Sort by length (longest first) to match "Aviar 3" before "Aviar"
         for db_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
-            if db_name.lower() in response_lower:
+            # Require word boundaries around the disc name
+            pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(db_name.lower()) + r'(?:[^a-zæøå0-9]|$)'
+            if re.search(pattern, response.lower()):
                 if db_name not in disc_names:
                     disc_names.append(db_name)
                 if len(disc_names) >= 4:
@@ -965,9 +966,11 @@ if prompt := st.chat_input("Skriv dit svar..."):
                         st.session_state.user_prefs['max_dist'] = result.get('max_dist', 80)
                         st.session_state.user_prefs['skill_level'] = result.get('skill_level', 'intermediate')
                         
-                        # Show flight charts for free-form recommendations
-                        max_dist = result.get('max_dist', 70)
-                        render_recommendation_flight_charts(disc_names, max_dist, DISC_DATABASE)
+                        # Show flight charts using database paths
+                        # Map skill level to arm speed
+                        skill = result.get('skill_level', 'intermediate')
+                        arm_speed = 'slow' if skill == 'beginner' else 'normal'
+                        render_flight_chart_comparison(disc_names, arm_speed)
                     
                     st.session_state.step = "done"
         
@@ -1224,12 +1227,13 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 st.markdown(final_reply)
                 add_bot_message(final_reply)
                 
-                # Show flight charts for recommended discs
+                # Show flight charts using database paths
                 if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
-                    render_recommendation_flight_charts(
+                    # Map distance to arm speed: under 70m = beginner
+                    arm_speed = 'slow' if max_dist < 70 else 'normal'
+                    render_flight_chart_comparison(
                         st.session_state['recommended_discs'],
-                        max_dist,
-                        DISC_DATABASE
+                        arm_speed
                     )
                 
                 st.session_state.step = "done"
@@ -1391,12 +1395,12 @@ Hvis du giver nye anbefalinger, brug dette format:
                     st.markdown(reply)
                     add_bot_message(reply)
                     
-                    # Show flight charts for follow-up recommendations
+                    # Show flight charts using database paths
                     if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
-                        render_recommendation_flight_charts(
+                        arm_speed = 'slow' if max_dist < 70 else 'normal'
+                        render_flight_chart_comparison(
                             st.session_state['recommended_discs'],
-                            max_dist,
-                            DISC_DATABASE
+                            arm_speed
                         )
                     
                     st.session_state.user_prefs = prefs  # Save updated prefs
