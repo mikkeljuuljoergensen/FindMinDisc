@@ -1305,8 +1305,13 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 
                 # Check if user wants new recommendations
                 wants_new_recs = any(kw in prompt_lower for kw in [
-                    'anbefal', 'foreslå', 'alternativ', 'andre', 'ny ', 'nye ', 
-                    'putter', 'midrange', 'fairway', 'distance', 'driver'
+                    'anbefal', 'foreslå', 'alternativ', 'andre discs', 'ny disc', 'nye discs',
+                    'jeg vil have', 'jeg skal bruge', 'find mig'
+                ])
+                
+                # Check if user is asking about a specific disc type
+                asking_disc_type = any(kw in prompt_lower for kw in [
+                    'putter', 'midrange', 'mid-range', 'fairway', 'distance', 'driver', 'approach'
                 ])
                 
                 # Simple questions about plastic - answer directly without new search
@@ -1336,8 +1341,49 @@ Vær kort og præcis - brugeren har allerede fået disc-anbefalinger."""
                         
                         st.markdown(reply)
                         add_bot_message(reply)
+                
+                # General questions - answer without giving new recommendations
+                elif not wants_new_recs and not asking_disc_type:
+                    with st.spinner("Tænker..."):
+                        # Get conversation context
+                        conversation_context = "\n".join([f"{m['role']}: {m['content'][:200]}" for m in st.session_state.messages[-6:]])
+                        prev_discs = st.session_state.get('recommended_discs', [])
+                        
+                        # Search for relevant info
+                        try:
+                            search_results = search.run(f"disc golf {prompt}")[:2000]
+                        except:
+                            search_results = ""
+                        
+                        general_prompt = f"""Du er en venlig disc golf ekspert.
+
+Tidligere samtale:
+{conversation_context}
+
+Discs vi har talt om: {', '.join(prev_discs) if prev_discs else 'Ingen endnu'}
+
+Brugerens spørgsmål: "{prompt}"
+
+Søgeresultater:
+{search_results}
+
+REGLER:
+- Svar på dansk, venligt og informativt
+- DETTE ER ET GENERELT SPØRGSMÅL - giv IKKE nye disc-anbefalinger medmindre brugeren specifikt beder om det
+- Svar på spørgsmålet direkte baseret på din viden og søgeresultaterne
+- Hvis spørgsmålet handler om de discs vi talte om, referer til dem
+- Hold svaret kort og relevant"""
+
+                        try:
+                            reply = llm.invoke(general_prompt).content
+                        except Exception as e:
+                            reply = f"Beklager, noget gik galt: {e}"
+                        
+                        st.markdown(reply)
+                        add_bot_message(reply)
+                
                 else:
-                    # User wants new recommendations or has other questions
+                    # User wants new recommendations
                     with st.spinner("Søger..."):
                         prefs = st.session_state.user_prefs
                         
