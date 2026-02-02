@@ -75,14 +75,28 @@ def parse_flight_chart_request(prompt):
             disc_names_found.append(disc_name)
             prompt_normalized = prompt_normalized.replace(normalized, '', 1)
     
-    # If discs found or arm speed change requested
-    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found) or arm_speed:
+    # Only treat as chart request if:
+    # - 2+ discs found (comparison), OR
+    # - chart keywords + at least 1 disc, OR
+    # - add keywords + at least 1 disc
+    # Note: arm_speed alone is NOT enough - we handle that in the chat handler
+    if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found):
         return {
             'discs': disc_names_found,
             'arm_speed': arm_speed,
             'is_chart_request': True,
             'is_add_request': is_add_request,
-            'is_speed_change': arm_speed is not None and not disc_names_found
+            'is_speed_change': False
+        }
+    
+    # Arm speed change only (no new discs) - let the handler check if there are existing discs
+    if arm_speed is not None:
+        return {
+            'discs': [],
+            'arm_speed': arm_speed,
+            'is_chart_request': False,  # Not a chart request on its own
+            'is_add_request': False,
+            'is_speed_change': True
         }
     
     return {'is_chart_request': False}
@@ -826,10 +840,22 @@ if prompt := st.chat_input("Skriv dit svar..."):
         # --- FIRST: Check for natural language flight chart requests ---
         chart_request = parse_flight_chart_request(prompt)
         
-        if chart_request.get('is_chart_request'):
+        # Handle arm speed change with existing discs (not a full chart request)
+        if chart_request.get('is_speed_change') and st.session_state.shown_discs:
+            new_arm_speed = chart_request.get('arm_speed')
+            if new_arm_speed:
+                st.session_state.arm_speed = new_arm_speed
+            niveau_labels = {'slow': 'Begynder', 'normal': 'Øvet', 'fast': 'Pro'}
+            niveau_label = niveau_labels.get(st.session_state.arm_speed, 'Øvet')
+            reply = f"Skiftet til **{niveau_label}** niveau:"
+            st.markdown(reply)
+            add_bot_message(reply)
+            st.session_state.show_chart = True
+            st.rerun()
+        
+        elif chart_request.get('is_chart_request'):
             new_discs = chart_request.get('discs', [])
             is_add = chart_request.get('is_add_request', False)
-            is_speed_change = chart_request.get('is_speed_change', False)
             new_arm_speed = chart_request.get('arm_speed')
             
             # Update arm speed if specified
@@ -840,12 +866,8 @@ if prompt := st.chat_input("Skriv dit svar..."):
             niveau_labels = {'slow': 'Begynder', 'normal': 'Øvet', 'fast': 'Pro'}
             niveau_label = niveau_labels.get(arm_speed, 'Øvet')
             
-            # Handle just speed change (no new discs)
-            if is_speed_change and st.session_state.shown_discs:
-                all_discs = st.session_state.shown_discs
-                reply = f"Skiftet til **{niveau_label}** niveau:"
             # Handle adding discs
-            elif is_add and st.session_state.shown_discs and new_discs:
+            if is_add and st.session_state.shown_discs and new_discs:
                 all_discs = list(st.session_state.shown_discs)
                 for disc in new_discs:
                     if disc not in all_discs:
