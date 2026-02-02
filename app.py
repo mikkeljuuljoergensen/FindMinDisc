@@ -2,7 +2,7 @@ import streamlit as st
 import re
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_groq import ChatGroq
-from retailers import check_stock_disctree, check_stock_newdisc, check_stock_discimport
+from retailers import check_stock_disctree, check_stock_newdisc
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -211,13 +211,26 @@ Sammenlign til sidst."""
                     stock_info = ""
                     for disc in disc_names:
                         if disc and len(disc) > 2:
-                            stock_info += f"**{disc}:** {check_stock_disctree(disc)} · {check_stock_newdisc(disc)} · {check_stock_discimport(disc)}\n\n"
+                            dt_result = check_stock_disctree(disc)
+                            nd_result = check_stock_newdisc(disc)
+                            
+                            disc_links = []
+                            if dt_result:
+                                disc_links.append(f"Disc Tree: {dt_result}")
+                            if nd_result:
+                                disc_links.append(f"NewDisc: {nd_result}")
+                            
+                            if disc_links:
+                                stock_info += f"**{disc}:**\n"
+                                for link in disc_links:
+                                    stock_info += f"  * {link}\n"
+                                stock_info += "\n"
                     
                     final_reply = f"""{ai_response}
 
 ---
 ## 🇩🇰 Find dem i Danmark:
-{stock_info if stock_info else "Kunne ikke finde disc-navne."}
+{stock_info if stock_info else "Kunne ikke finde disse discs i de danske butikker."}
 
 ---
 *Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
@@ -340,8 +353,25 @@ Hvis du giver nye anbefalinger, brug dette format:
                             stock_info = "\n\n---\n## 🇩🇰 Find dem i Danmark:\n"
                             for disc in disc_names:
                                 if disc and len(disc) > 2:
-                                    stock_info += f"**{disc}:** {check_stock_disctree(disc)} · {check_stock_newdisc(disc)} · {check_stock_discimport(disc)}\n\n"
-                            reply += stock_info
+                                    dt_result = check_stock_disctree(disc)
+                                    nd_result = check_stock_newdisc(disc)
+                                    
+                                    disc_links = []
+                                    if dt_result:
+                                        disc_links.append(f"Disc Tree: {dt_result}")
+                                    if nd_result:
+                                        disc_links.append(f"NewDisc: {nd_result}")
+                                    
+                                    if disc_links:
+                                        stock_info += f"**{disc}:**\n"
+                                        for link in disc_links:
+                                            stock_info += f"  * {link}\n"
+                                        stock_info += "\n"
+                            
+                            if stock_info.strip().endswith("Danmark:"):
+                                stock_info = ""  # No products found
+                            else:
+                                reply += stock_info
                         
                     except Exception as e:
                         reply = f"Beklager, noget gik galt: {e}"
