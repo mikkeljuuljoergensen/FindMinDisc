@@ -49,32 +49,31 @@ def parse_flight_chart_request(prompt):
     # Create normalized lookup: "aviar3" -> "Aviar 3", "teebird3" -> "Teebird 3"
     normalized_lookup = {}
     for disc_name in disc_names_sorted:
-        # Normalize: lowercase, remove spaces
+        # Normalize: lowercase, remove spaces and hyphens
         normalized = disc_name.lower().replace(' ', '').replace('-', '')
         normalized_lookup[normalized] = disc_name
     
     disc_names_found = []
     prompt_remaining = prompt_lower
+    prompt_normalized = prompt_lower.replace(' ', '').replace('-', '')
     
-    # First try exact matches
+    # First try exact matches (with word boundaries)
     for disc_name in disc_names_sorted:
         disc_lower = disc_name.lower()
         pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(disc_lower) + r'(?:[^a-zæøå0-9]|$)'
         if re.search(pattern, prompt_remaining):
             disc_names_found.append(disc_name)
             prompt_remaining = re.sub(pattern, ' ', prompt_remaining, count=1)
+            # Also remove from normalized
+            prompt_normalized = prompt_normalized.replace(disc_lower.replace(' ', '').replace('-', ''), '', 1)
     
     # Then try normalized matches (handles "Aviar3" -> "Aviar 3")
     for normalized, disc_name in sorted(normalized_lookup.items(), key=lambda x: len(x[0]), reverse=True):
         if disc_name in disc_names_found:
             continue  # Already found
-        pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(normalized) + r'(?:[^a-zæøå0-9]|$)'
-        if re.search(pattern, prompt_remaining.replace(' ', '').replace('-', '')):
-            # Check if it's actually in the original prompt
-            if normalized in prompt_remaining.replace(' ', '').replace('-', ''):
-                disc_names_found.append(disc_name)
-                # Remove from prompt to avoid double matching
-                prompt_remaining = prompt_remaining.replace(normalized, ' ')
+        if normalized in prompt_normalized:
+            disc_names_found.append(disc_name)
+            prompt_normalized = prompt_normalized.replace(normalized, '', 1)
     
     # If discs found or arm speed change requested
     if len(disc_names_found) >= 2 or (is_chart_request and disc_names_found) or (is_add_request and disc_names_found) or arm_speed:
