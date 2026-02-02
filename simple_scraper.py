@@ -23,66 +23,88 @@ def scrape_reddit_simple(limit=100):
     
     print("Scraping r/discgolf (public, no API needed)...")
     
-    # Get hot posts
-    url = 'https://old.reddit.com/r/discgolf/'
+    # Scrape multiple pages and sorting methods for more data
+    sort_methods = ['hot', 'top', 'new']
     
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
+    for sort_method in sort_methods:
+        print(f"\nScraping {sort_method} posts...")
         
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Find all posts
-        for thing in soup.find_all('div', class_='thing'):
+        # Get multiple pages
+        for page in range(5):  # 5 pages per sort method
+            if sort_method == 'top':
+                url = f'https://old.reddit.com/r/discgolf/top/?t=month&after=t3_{page * 25}' if page > 0 else 'https://old.reddit.com/r/discgolf/top/?t=month'
+            else:
+                url = f'https://old.reddit.com/r/discgolf/{sort_method}/?after=t3_{page * 25}' if page > 0 else f'https://old.reddit.com/r/discgolf/{sort_method}/'
+    
             try:
-                # Get post data
-                post_id = thing.get('data-fullname', '').replace('t3_', '')
-                title_elem = thing.find('a', class_='title')
+                response = requests.get(url, headers=headers)
+                response.raise_for_status()
+                time.sleep(2)  # Be nice to Reddit servers
                 
-                if not title_elem:
-                    continue
+                soup = BeautifulSoup(response.content, 'html.parser')
                 
-                title = title_elem.get_text(strip=True)
-                score_elem = thing.find('div', class_='score unvoted')
-                score = score_elem.get_text(strip=True) if score_elem else '0'
-                
-                # Try to convert score to int
-                try:
-                    score = int(score)
-                except:
-                    score = 0
-                
-                # Get selftext if available
-                selftext = ""
-                
-                post_data = {
-                    'id': post_id,
-                    'title': title,
-                    'selftext': selftext,
-                    'author': 'unknown',
-                    'score': score,
-                    'url': f'https://reddit.com{thing.get("data-permalink", "")}',
-                    'created_utc': time.time(),
-                    'num_comments': 0,
-                    'subreddit': 'discgolf',
-                    'link_flair_text': None,
-                    'comments': []
-                }
-                
-                posts.append(post_data)
+                # Find all posts
+                for thing in soup.find_all('div', class_='thing'):
+                    try:
+                        # Get post data
+                        post_id = thing.get('data-fullname', '').replace('t3_', '')
+                        if not post_id or any(p['id'] == post_id for p in posts):
+                            continue  # Skip duplicates
+                        
+                        title_elem = thing.find('a', class_='title')
+                        
+                        if not title_elem:
+                            continue
+                        
+                        title = title_elem.get_text(strip=True)
+                        score_elem = thing.find('div', class_='score unvoted')
+                        score = score_elem.get_text(strip=True) if score_elem else '0'
+                        
+                        # Try to convert score to int
+                        try:
+                            score = int(score)
+                        except:
+                            score = 0
+                        
+                        # Get selftext if available
+                        selftext = ""
+                        
+                        post_data = {
+                            'id': post_id,
+                            'title': title,
+                            'selftext': selftext,
+                            'author': 'unknown',
+                            'score': score,
+                            'url': f'https://reddit.com{thing.get("data-permalink", "")}',
+                            'created_utc': time.time(),
+                            'num_comments': 0,
+                            'subreddit': 'discgolf',
+                            'link_flair_text': None,
+                            'comments': []
+                        }
+                        
+                        posts.append(post_data)
+                        
+                        if len(posts) >= limit:
+                            break
+                            
+                    except Exception as e:
+                        print(f"Error parsing post: {e}")
+                        continue
                 
                 if len(posts) >= limit:
                     break
-                    
+                
             except Exception as e:
-                print(f"Error parsing post: {e}")
+                print(f"Error fetching page: {e}")
                 continue
         
-        print(f"Scraped {len(posts)} posts")
+        if len(posts) >= limit:
+            break
         
-    except Exception as e:
-        print(f"Error: {e}")
+        print(f"Scraped {len(posts)} posts so far...")
     
+    print(f"\nTotal scraped: {len(posts)} posts")
     return posts
 
 
@@ -129,8 +151,8 @@ if __name__ == "__main__":
     print("=" * 80)
     print()
     
-    # Scrape posts
-    posts = scrape_reddit_simple(limit=100)
+    # Scrape posts (increased to 500 for more comprehensive data)
+    posts = scrape_reddit_simple(limit=500)
     
     if posts:
         # Save to JSON
