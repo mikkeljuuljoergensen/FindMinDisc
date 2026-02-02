@@ -88,6 +88,143 @@ def parse_flight_chart_request(prompt):
     return {'is_chart_request': False}
 
 
+def handle_free_form_question(prompt, user_prefs=None):
+    """
+    Handle any free-form disc golf question using AI + web search.
+    
+    Returns AI response with disc recommendations.
+    """
+    if user_prefs is None:
+        user_prefs = {}
+    
+    # Extract useful info from the prompt
+    prompt_lower = prompt.lower()
+    
+    # Try to detect disc type from question
+    disc_type = None
+    if 'putter' in prompt_lower:
+        disc_type = "Putter"
+    elif 'midrange' in prompt_lower or 'mid-range' in prompt_lower:
+        disc_type = "Midrange"
+    elif 'fairway' in prompt_lower:
+        disc_type = "Fairway driver"
+    elif 'distance' in prompt_lower or 'driver' in prompt_lower:
+        disc_type = "Distance driver"
+    
+    # Try to detect skill level
+    skill_level = "intermediate"
+    if 'nybegynder' in prompt_lower or 'begynder' in prompt_lower or 'ny ' in prompt_lower or 'starter' in prompt_lower:
+        skill_level = "beginner"
+    elif 'erfaren' in prompt_lower or 'pro' in prompt_lower or 'avanceret' in prompt_lower:
+        skill_level = "advanced"
+    
+    # Try to detect throwing distance
+    max_dist = user_prefs.get('max_dist', 70 if skill_level == "beginner" else 90)
+    numbers = re.findall(r'(\d+)\s*(?:m|meter)', prompt_lower)
+    if numbers:
+        max_dist = int(numbers[0])
+    
+    # Build search query
+    search_terms = prompt.replace('?', '').replace('!', '')
+    if skill_level == "beginner":
+        search_query = f"best disc golf discs for beginners {search_terms}"
+    else:
+        search_query = f"disc golf recommendation {search_terms}"
+    
+    # Web search
+    try:
+        search_results = search.run(search_query)[:4000]
+    except Exception:
+        search_results = ""
+    
+    # Get sample discs from database for context
+    sample_discs = []
+    for name, data in list(DISC_DATABASE.items())[:100]:
+        speed = data.get('speed', 0)
+        # Filter by skill level
+        if skill_level == "beginner" and speed > 9:
+            continue
+        if disc_type:
+            speed_ranges = {"Putter": (1, 3), "Midrange": (4, 6), "Fairway driver": (7, 9), "Distance driver": (10, 14)}
+            min_s, max_s = speed_ranges.get(disc_type, (1, 14))
+            if not (min_s <= speed <= max_s):
+                continue
+        sample_discs.append(f"{name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
+        if len(sample_discs) >= 30:
+            break
+    
+    disc_context = "\n".join(sample_discs) if sample_discs else "Ingen relevante discs fundet"
+    
+    # Build AI prompt
+    ai_prompt = f"""Du er en venlig disc golf ekspert der hjælper brugere med at finde de rigtige discs.
+
+Brugerens spørgsmål: "{prompt}"
+
+Brugerens niveau: {"Nybegynder" if skill_level == "beginner" else "Øvet" if skill_level == "intermediate" else "Erfaren"}
+Estimeret kastelængde: ca. {max_dist}m
+
+Søgeresultater fra nettet:
+{search_results}
+
+Discs fra vores database:
+{disc_context}
+
+REGLER:
+1. Svar på dansk, venligt og hjælpsomt
+2. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag
+3. Brug flight numbers format: Speed/Glide/Turn/Fade
+4. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
+5. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
+6. Vær ærlig om hvad der passer til brugerens niveau
+
+Hvis du anbefaler discs, brug dette format:
+
+### **[DiscNavn]** af [Mærke]
+- Flight: X/X/X/X
+- ✅ Hvorfor: ...
+
+Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
+
+    try:
+        response = llm.invoke(ai_prompt).content
+        
+        # Extract recommended disc names for potential flight chart
+        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', response)
+        disc_names = []
+        skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'hvorfor',
+                      'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'nybegynder',
+                      'begynder', 'øvet', 'erfaren', 'af'}
+        for match in bold_matches:
+            words = match.strip().split()
+            for word in reversed(words):
+                word_clean = word.strip()
+                if word_clean.lower() not in skip_words and len(word_clean) > 2:
+                    # Check if it's actually a disc in our database
+                    for db_name in DISC_DATABASE.keys():
+                        if word_clean.lower() in db_name.lower():
+                            if db_name not in disc_names:
+                                disc_names.append(db_name)
+                            break
+                    break
+        
+        return {
+            'response': response,
+            'disc_names': disc_names[:4],
+            'skill_level': skill_level,
+            'max_dist': max_dist,
+            'disc_type': disc_type
+        }
+        
+    except Exception as e:
+        return {
+            'response': f"Beklager, der opstod en fejl: {e}",
+            'disc_names': [],
+            'skill_level': skill_level,
+            'max_dist': max_dist,
+            'disc_type': disc_type
+        }
+
+
 def render_flight_chart_comparison(disc_names, arm_speed='normal', throw_hand='right', throw_type='backhand'):
     """
     Render a flight chart comparison using actual flight paths from database.
@@ -626,18 +763,14 @@ def reset_conversation():
 if st.session_state.step == "start":
     add_bot_message("""Hej! Jeg hjælper dig med at finde den perfekte disc 🥏
 
-**Vælg en mulighed:**
-1️⃣ Putter
-2️⃣ Midrange
-3️⃣ Fairway driver
-4️⃣ Distance driver
+**Spørg mig om hvad som helst**, f.eks.:
+- *"Jeg er nybegynder og skal bruge 3 discs"*
+- *"Hvilken putter er god til putting i vind?"*
+- *"Sammenlign Destroyer og Wraith"*
 
-**Eller sammenlign discs direkte:**
-*"Vis flight charts for Destroyer, Mamba og Zone SS"*
-*"Sammenlign Buzzz og Roc3"*
-
-💪 Niveau: Begynder | Øvet | Pro""")
-    st.session_state.step = "ask_type"
+**Eller vælg en disc-type:**
+1️⃣ Putter | 2️⃣ Midrange | 3️⃣ Fairway | 4️⃣ Distance""")
+    st.session_state.step = "chat"
 
 # --- DISPLAY MESSAGES ---
 for msg in st.session_state.messages:
@@ -731,27 +864,78 @@ if prompt := st.chat_input("Skriv dit svar..."):
             add_bot_message(follow_up)
             st.rerun()
         
-        # --- STEP: ASK DISC TYPE ---
-        elif st.session_state.step == "ask_type":
+        # --- STEP: CHAT (handles both structured and free-form) ---
+        elif st.session_state.step == "chat":
             prompt_lower = prompt.lower()
-            if "1" in prompt or "putter" in prompt_lower:
-                st.session_state.user_prefs["disc_type"] = "Putter"
-            elif "2" in prompt or "midrange" in prompt_lower or "mid" in prompt_lower:
-                st.session_state.user_prefs["disc_type"] = "Midrange"
-            elif "3" in prompt or "fairway" in prompt_lower:
-                st.session_state.user_prefs["disc_type"] = "Fairway driver"
-            elif "4" in prompt or "distance" in prompt_lower or "driver" in prompt_lower:
-                st.session_state.user_prefs["disc_type"] = "Distance driver"
-            else:
-                reply = "Hmm, jeg forstod ikke helt. Skriv 1, 2, 3 eller 4 - eller skriv disc-typen (f.eks. 'putter' eller 'midrange')"
+            
+            # Check for structured disc type selection (1, 2, 3, 4)
+            if prompt.strip() in ["1", "2", "3", "4"]:
+                disc_types = {"1": "Putter", "2": "Midrange", "3": "Fairway driver", "4": "Distance driver"}
+                st.session_state.user_prefs["disc_type"] = disc_types[prompt.strip()]
+                reply = f"Fedt, du leder efter en **{st.session_state.user_prefs['disc_type']}**!\n\nHvor langt kaster du cirka? (i meter)"
                 st.write(reply)
                 add_bot_message(reply)
-                st.rerun()
-            
-            reply = f"Fedt, du leder efter en **{st.session_state.user_prefs['disc_type']}**!\n\nHvor langt kaster du cirka? (i meter)"
-            st.write(reply)
-            add_bot_message(reply)
-            st.session_state.step = "ask_distance"
+                st.session_state.step = "ask_distance"
+            elif "putter" in prompt_lower and len(prompt) < 15:
+                st.session_state.user_prefs["disc_type"] = "Putter"
+                reply = "Fedt, du leder efter en **Putter**!\n\nHvor langt kaster du cirka? (i meter)"
+                st.write(reply)
+                add_bot_message(reply)
+                st.session_state.step = "ask_distance"
+            elif ("midrange" in prompt_lower or "mid-range" in prompt_lower) and len(prompt) < 20:
+                st.session_state.user_prefs["disc_type"] = "Midrange"
+                reply = "Fedt, du leder efter en **Midrange**!\n\nHvor langt kaster du cirka? (i meter)"
+                st.write(reply)
+                add_bot_message(reply)
+                st.session_state.step = "ask_distance"
+            elif "fairway" in prompt_lower and len(prompt) < 20:
+                st.session_state.user_prefs["disc_type"] = "Fairway driver"
+                reply = "Fedt, du leder efter en **Fairway driver**!\n\nHvor langt kaster du cirka? (i meter)"
+                st.write(reply)
+                add_bot_message(reply)
+                st.session_state.step = "ask_distance"
+            elif "distance" in prompt_lower and "driver" in prompt_lower and len(prompt) < 25:
+                st.session_state.user_prefs["disc_type"] = "Distance driver"
+                reply = "Fedt, du leder efter en **Distance driver**!\n\nHvor langt kaster du cirka? (i meter)"
+                st.write(reply)
+                add_bot_message(reply)
+                st.session_state.step = "ask_distance"
+            else:
+                # Free-form question - use AI to answer
+                with st.spinner("Søger efter svar..."):
+                    result = handle_free_form_question(prompt, st.session_state.user_prefs)
+                    
+                    response = result['response']
+                    disc_names = result.get('disc_names', [])
+                    
+                    # Add buy links for recommended discs
+                    for disc in disc_names:
+                        if disc and len(disc) > 2:
+                            links = get_product_links(disc)
+                            buy_link_parts = []
+                            if 'Disc Tree' in links:
+                                buy_link_parts.append(f"[Disc Tree]({links['Disc Tree']})")
+                            if 'NewDisc' in links:
+                                buy_link_parts.append(f"[NewDisc]({links['NewDisc']})")
+                            
+                            if buy_link_parts:
+                                buy_links = f"\n🛒 **Køb {disc}:** {' | '.join(buy_link_parts)}"
+                                # Try to add after the disc recommendation
+                                pattern = rf'(\*\*{re.escape(disc)}\*\*.*?(?:✅ Hvorfor:[^\n]*|Flight:[^\n]*))'
+                                match = re.search(pattern, response, re.DOTALL | re.IGNORECASE)
+                                if match:
+                                    response = response.replace(match.group(1), match.group(1) + buy_links)
+                    
+                    st.markdown(response)
+                    add_bot_message(response)
+                    
+                    # Store recommendations for potential flight chart
+                    if disc_names:
+                        st.session_state['recommended_discs'] = disc_names
+                        st.session_state.user_prefs['max_dist'] = result.get('max_dist', 80)
+                        st.session_state.user_prefs['skill_level'] = result.get('skill_level', 'intermediate')
+                    
+                    st.session_state.step = "done"
         
         # --- STEP: ASK DISTANCE ---
         elif st.session_state.step == "ask_distance":
