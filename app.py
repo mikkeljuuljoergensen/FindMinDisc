@@ -220,7 +220,7 @@ Sammenlign til sidst."""
 {stock_info if stock_info else "Kunne ikke finde disc-navne."}
 
 ---
-*Vil du søge igen? Skriv 'forfra' for at starte en ny søgning.*"""
+*Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
 
                 except Exception as e:
                     if "429" in str(e) or "rate" in str(e).lower():
@@ -232,27 +232,123 @@ Sammenlign til sidst."""
                 add_bot_message(final_reply)
                 st.session_state.step = "done"
         
-        # --- STEP: DONE - ALLOW RESTART ---
+        # --- STEP: DONE - CONTINUE CONVERSATION ---
         elif st.session_state.step == "done":
-            if "forfra" in prompt.lower() or "igen" in prompt.lower() or "ny" in prompt.lower():
+            if "forfra" in prompt.lower():
                 reset_conversation()
                 st.rerun()
             else:
-                with st.spinner("Tænker..."):
+                with st.spinner("Søger nye anbefalinger..."):
                     prefs = st.session_state.user_prefs
-                    follow_up_prompt = f"""Brugeren spurgte tidligere om {prefs.get('disc_type', 'disc')} til {prefs.get('max_dist', '?')}m.
                     
-Nu spørger de: "{prompt}"
+                    # Check if user is updating their distance
+                    numbers = re.findall(r'\d+', prompt)
+                    if numbers:
+                        new_dist = int(numbers[0])
+                        if new_dist > 200:
+                            new_dist = int(new_dist * 0.3)
+                        if new_dist < 200:  # Likely a distance update
+                            prefs["max_dist"] = new_dist
+                    
+                    # Check if user is changing disc type
+                    prompt_lower = prompt.lower()
+                    if "putter" in prompt_lower:
+                        prefs["disc_type"] = "Putter"
+                    elif "midrange" in prompt_lower or "mid-range" in prompt_lower or "mid range" in prompt_lower:
+                        prefs["disc_type"] = "Midrange"
+                    elif "fairway" in prompt_lower:
+                        prefs["disc_type"] = "Fairway driver"
+                    elif "distance" in prompt_lower:
+                        prefs["disc_type"] = "Distance driver"
+                    
+                    # Build context from conversation
+                    conversation_context = "\n".join([f"{m['role']}: {m['content'][:200]}" for m in st.session_state.messages[-6:]])
+                    
+                    # Search again
+                    disc_type = prefs.get("disc_type", "disc")
+                    max_dist = prefs.get("max_dist", 80)
+                    flight = prefs.get("flight", "")
+                    
+                    search_query = f"best {disc_type} disc golf {flight} {prompt} review"
+                    try:
+                        search_results = search.run(search_query)[:3000]
+                    except:
+                        search_results = ""
+                    
+                    speed_ranges = {
+                        "Putter": "speed 1-3",
+                        "Midrange": "speed 4-6",
+                        "Fairway driver": "speed 7-9",
+                        "Distance driver": "speed 10-14"
+                    }
+                    speed_hint = speed_ranges.get(disc_type, "")
+                    
+                    warning = ""
+                    if max_dist < 70 and disc_type == "Distance driver":
+                        warning = f"⚠️ Med {max_dist}m kastelængde anbefales distance drivers IKKE. Foreslå i stedet fairway drivers eller midranges."
+                    elif max_dist < 50 and disc_type == "Fairway driver":
+                        warning = f"⚠️ Med {max_dist}m kan en midrange være bedre."
+                    
+                    follow_up_prompt = f"""Tidligere samtale:
+{conversation_context}
 
-Svar kort og hjælpsomt på dansk. Hvis de vil starte forfra, bed dem skrive 'forfra'."""
-                    
+Brugerens nuværende profil: kaster {max_dist}m, søger {disc_type}, ønsker {flight} flyvning.
+{warning}
+
+Brugerens nye besked: "{prompt}"
+
+REGLER:
+- Hvis brugeren ændrer distance eller disc-type, giv NYE anbefalinger
+- Hvis brugeren har spørgsmål, svar på dansk
+- For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
+- Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
+
+Søgeresultater:
+{search_results}
+
+Hvis du giver nye anbefalinger, brug dette format:
+**[DiscNavn]** af [Mærke]
+- Flight numbers og vægt
+- Fordele/ulemper
+- Plastik"""
+
                     try:
                         reply = llm.invoke(follow_up_prompt).content
-                    except:
-                        reply = "Beklager, jeg kunne ikke svare. Skriv 'forfra' for at starte en ny søgning."
+                        
+                        # Extract disc names for stock links
+                        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s]+)\*\*', reply)
+                        disc_names = []
+                        skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
+                                      'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
+                                      'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
+                                      'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
+                                      'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling'}
+                        
+                        for match in bold_matches:
+                            words = match.strip().split()
+                            for word in reversed(words):
+                                word_clean = word.strip()
+                                if word_clean.lower() not in skip_words and len(word_clean) > 2:
+                                    if word_clean not in disc_names:
+                                        disc_names.append(word_clean)
+                                    break
+                        
+                        disc_names = disc_names[:3]
+                        
+                        # Add stock links if we found disc names
+                        if disc_names:
+                            stock_info = "\n\n---\n## 🇩🇰 Find dem i Danmark:\n"
+                            for disc in disc_names:
+                                if disc and len(disc) > 2:
+                                    stock_info += f"**{disc}:** {check_stock_disctree(disc)} · {check_stock_newdisc(disc)} · {check_stock_discimport(disc)}\n\n"
+                            reply += stock_info
+                        
+                    except Exception as e:
+                        reply = f"Beklager, noget gik galt: {e}"
                     
                     st.markdown(reply)
                     add_bot_message(reply)
+                    st.session_state.user_prefs = prefs  # Save updated prefs
 
 # --- SIDEBAR INFO ---
 with st.sidebar:
