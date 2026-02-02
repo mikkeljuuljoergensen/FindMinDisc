@@ -221,6 +221,7 @@ REGLER:
 - Nævn vægt i gram
 - Hvis valget er dårligt, sig det tydeligt
 - VARIER dine anbefalinger - der findes mange gode discs!
+- Anbefal IKKE plastik - brugeren kan spørge om hjælp til det bagefter
 
 FORMAT FOR HVER DISC:
 
@@ -228,9 +229,8 @@ FORMAT FOR HVER DISC:
 - Flight: X/X/X/X, Vægt: XXXg
 - ✅ Fordele: ...
 - ❌ Ulemper: ...
-- 🥏 Plastik: ...
 
-Afslut med en kort sammenligning."""
+Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
 
                 try:
                     ai_response = llm.invoke(ai_prompt).content
@@ -274,8 +274,8 @@ Afslut med en kort sammenligning."""
                             if buy_link_parts:
                                 buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
                                 
-                                # Find the plastic line for this disc and add links after it
-                                pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
+                                # Find the Ulemper line for this disc and add links after it
+                                pattern = rf'(\*\*{re.escape(disc)}\*\*.*?❌ Ulemper:[^\n]*)'
                                 match = re.search(pattern, modified_response, re.DOTALL | re.IGNORECASE)
                                 if match:
                                     modified_response = modified_response.replace(
@@ -374,6 +374,8 @@ REGLER:
 - Hvis brugeren har spørgsmål, svar på dansk
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Hvis disc-typen ikke passer til distancen, SIG DET og foreslå en bedre type
+- Hvis brugeren spørger om plastik, forklar forskellene (base plastik = billigt/mindre holdbart, premium = holdbart/dyrere)
+- Anbefal IKKE plastik medmindre brugeren spørger
 
 Søgeresultater:
 {search_results}
@@ -383,8 +385,7 @@ Hvis du giver nye anbefalinger, brug dette format:
 ### 1. **[DiscNavn]** af [Mærke]
 - Flight: X/X/X/X, Vægt: XXXg
 - ✅ Fordele: ...
-- ❌ Ulemper: ...
-- 🥏 Plastik: ..."""
+- ❌ Ulemper: ..."""
 
                     try:
                         reply = llm.invoke(follow_up_prompt).content
@@ -424,7 +425,8 @@ Hvis du giver nye anbefalinger, brug dette format:
                                 if buy_link_parts:
                                     buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
                                     
-                                    pattern = rf'(\*\*{re.escape(disc)}\*\*.*?🥏 Plastik:[^\n]*)'
+                                    # Find the Ulemper line for this disc and add links after it
+                                    pattern = rf'(\*\*{re.escape(disc)}\*\*.*?❌ Ulemper:[^\n]*)'
                                     match = re.search(pattern, modified_reply, re.DOTALL | re.IGNORECASE)
                                     if match:
                                         modified_reply = modified_reply.replace(
