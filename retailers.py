@@ -167,20 +167,28 @@ def find_disc_in_stores(disc_name, plastic=None):
 
 # Keep old functions for backwards compatibility but update them
 def check_stock_disctree(disc_name):
+    """Returns stock info or search link as fallback"""
     products = scrape_disctree(disc_name)
+    search_url = f"https://disctree.dk/search?q={disc_name.replace(' ', '+')}"
+    
     if products:
         p = products[0]
         if p['sold_out']:
             return f"❌ [Udsolgt]({p['link']})"
         return f"✅ [På lager]({p['link']})"
-    return None  # Return None if not found
+    # Always return search link as fallback
+    return f"🔍 [Søg efter {disc_name}]({search_url})"
 
 
 def check_stock_newdisc(disc_name):
+    """Returns stock info or search link as fallback"""
     products = scrape_newdisc(disc_name)
+    search_url = f"https://newdisc.dk/search?q={disc_name.replace(' ', '+')}"
+    
     if products:
         p = products[0]
         if p['sold_out']:
             return f"❌ [Udsolgt]({p['link']})"
         return f"✅ [På lager]({p['link']})"
-    return None  # Return None if not found
+    # Always return search link as fallback
+    return f"🔍 [Søg efter {disc_name}]({search_url})"

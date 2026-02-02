@@ -134,8 +134,34 @@ if prompt := st.chat_input("Skriv dit svar..."):
             flight = prefs["flight"]
             extra_info = prefs.get("extra", "")
             
+            # Check for mismatch and warn user BEFORE searching
+            mismatch_warning = ""
+            if max_dist < 60 and disc_type == "Distance driver":
+                mismatch_warning = f"""⚠️ **Vent lige lidt!**
+
+Du kaster {max_dist}m og leder efter en distance driver. Det er typisk ikke det bedste valg:
+- Distance drivers (speed 10+) kræver **80+ meter armhastighed** for at flyve korrekt
+- Med {max_dist}m vil en distance driver sandsynligvis bare dykke ned eller fade hårdt til venstre
+
+**Jeg anbefaler i stedet:**
+- **Putter** (speed 1-3) til præcision
+- **Midrange** (speed 4-6) til allround brug
+- **Fairway driver** (speed 7-9) til lidt mere distance
+
+Men okay, du bad om distance drivers, så her er nogle **letvægts understabile** modeller der kan virke:
+
+---
+
+"""
+            elif max_dist < 50 and disc_type == "Fairway driver":
+                mismatch_warning = f"""⚠️ **Bemærk:** Med {max_dist}m kastelængde kan en midrange (speed 4-6) måske passe bedre end en fairway driver. Men her er mine anbefalinger:
+
+---
+
+"""
+            
             with st.spinner("Søger efter de bedste discs til dig..."):
-                search_query = f"best {disc_type} disc golf {flight} {extra_info} review recommendation"
+                search_query = f"best {disc_type} disc golf {flight} {extra_info} review recommendation lightweight beginner"
                 try:
                     search_results = search.run(search_query)[:4000]
                 except:
@@ -150,14 +176,21 @@ if prompt := st.chat_input("Skriv dit svar..."):
                 speed_hint = speed_ranges.get(disc_type, "")
                 recommended_max_speed = max(6, min(14, max_dist // 10))
                 
-                warning = ""
-                if max_dist < 70 and disc_type == "Distance driver":
-                    warning = f"⚠️ Med {max_dist}m kastelængde anbefales distance drivers normalt ikke. Anbefal letvægts understabile modeller (150-160g) eller foreslå fairway drivers."
+                # Warning for AI
+                ai_warning = ""
+                if max_dist < 60 and disc_type == "Distance driver":
+                    ai_warning = f"""KRITISK: Brugeren kaster kun {max_dist}m men vil have distance drivers.
+Anbefal KUN letvægts (150-160g) understabile distance drivers som:
+- Innova Tern (12/6/-3/2) i letvægt
+- Innova Mamba (11/6/-5/1) 
+- Latitude 64 Diamond (8/6/-3/1) - teknisk en fairway men god for begyndere
+- Discraft Avenger SS (10/5/-3/1) i letvægt
+Forklar at de bør overveje midranges eller fairway drivers i stedet."""
                 elif max_dist < 50 and disc_type == "Fairway driver":
-                    warning = f"⚠️ Med {max_dist}m kan en midrange være bedre. Vælg letvægts understabile modeller."
+                    ai_warning = f"Brugeren kaster {max_dist}m. Anbefal letvægts understabile fairways som Leopard, Diamond, eller River."
                 
                 ai_prompt = f"""Brugerprofil: kaster {max_dist}m, ønsker {flight} flyvning.
-{warning}
+{ai_warning}
 
 Disc-type: **{disc_type}** ({speed_hint})
 Ekstra ønsker: {extra_info if extra_info else "Ingen"}
@@ -195,7 +228,8 @@ Sammenlign til sidst."""
                                   'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
                                   'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
                                   'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
-                                  'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling'}
+                                  'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling', 'vent',
+                                  'bemærk', 'lige', 'lidt'}
                     
                     for match in bold_matches:
                         words = match.strip().split()
@@ -214,23 +248,17 @@ Sammenlign til sidst."""
                             dt_result = check_stock_disctree(disc)
                             nd_result = check_stock_newdisc(disc)
                             
-                            disc_links = []
-                            if dt_result:
-                                disc_links.append(f"Disc Tree: {dt_result}")
-                            if nd_result:
-                                disc_links.append(f"NewDisc: {nd_result}")
-                            
-                            if disc_links:
-                                stock_info += f"**{disc}:**\n"
-                                for link in disc_links:
-                                    stock_info += f"  * {link}\n"
-                                stock_info += "\n"
+                            stock_info += f"**{disc}:**\n"
+                            stock_info += f"  * {dt_result}\n"
+                            stock_info += f"  * {nd_result}\n"
+                            stock_info += "\n"
                     
-                    final_reply = f"""{ai_response}
+                    # Add warning to response if mismatch
+                    final_reply = f"""{mismatch_warning}{ai_response}
 
 ---
 ## 🇩🇰 Find dem i Danmark:
-{stock_info if stock_info else "Kunne ikke finde disse discs i de danske butikker."}
+{stock_info if stock_info else "Prøv at søge direkte i butikkerne."}
 
 ---
 *Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
