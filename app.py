@@ -42,23 +42,23 @@ with st.sidebar:
     st.title("FindMinDisc 🥏")
     skill_level = st.selectbox("Niveau", ["Begynder", "Øvet", "Erfaren"])
     max_dist = st.slider("Maks distance (m)", 30, 150, 80)
-    st.info("Drevet af Google Gemini (Gratis)")
+    st.info("Drevet af Google Gemini")
 
 # --- CHAT INTERFACE ---
-st.header("Find Din Perfekte Disc")
+st.header("Find Din Næste Disc")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hej! Hvilken type flyvning leder du efter?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hej! Hvad skal discen kunne? 🥏"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
-if prompt := st.chat_input():
+if prompt := st.chat_input("Beskriv hvad du leder efter..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Søger anmeldelser & tjekker dansk lager..."):
+        with st.spinner("Leder efter den rette disc..."):
             
             # 1. Search Web
             search_query = f"best disc golf disc for {skill_level} {prompt} site:reddit.com"
@@ -66,17 +66,18 @@ if prompt := st.chat_input():
             
             # 2. Ask Gemini
             ai_prompt = f"""
-            Brugerprofil: {skill_level}, Maks distance: {max_dist}m.
-            Brugerens ønske: "{prompt}"
+            Brugerprofil: {skill_level}, kaster ca. {max_dist}m.
+            Bruger søger: "{prompt}"
             
-            Søgeresultater fra Reddit:
+            Reddit-anbefalinger:
             {search_results}
             
-            Opgave:
-            1. Foreslå ÉN specifik disc baseret på søgeresultaterne.
-            2. Forklar HVORFOR den passer til brugeren (nævn flyvenumre).
-            3. Returner KUN discens navn på allerførste linje.
-            4. Svar på dansk.
+            Giv et kort, venligt svar på dansk:
+            1. Anbefal ÉN disc der passer.
+            2. Forklar kort hvorfor (nævn flight numbers).
+            3. Skriv discens navn ALENE på første linje.
+            
+            Hold tonen afslappet som en ven der hjælper.
             """
             
             try:
@@ -92,17 +93,17 @@ if prompt := st.chat_input():
                 stock_nd = check_stock_newdisc(suggested_disc)
                 
                 final_reply = f"""
-                ### Jeg anbefaler **{suggested_disc}**
+### Prøv en **{suggested_disc}**
                 
-                {explanation}
+{explanation}
                 
-                ---
-                **🇩🇰 Dansk tilgængelighed:**
-                * {stock_dt}
-                * {stock_nd}
-                """
+---
+**🇩🇰 På lager i DK:**
+* {stock_dt}
+* {stock_nd}
+"""
             except Exception as e:
-                final_reply = f"⚠️ Gemini havde et problem: {e}"
+                final_reply = f"⚠️ Ups, noget gik galt: {e}"
             
             st.markdown(final_reply)
             st.session_state.messages.append({"role": "assistant", "content": final_reply})
