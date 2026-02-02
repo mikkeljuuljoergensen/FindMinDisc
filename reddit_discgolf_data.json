@@ -1,916 +1,4006 @@
 {
-  "scraped_at": "2026-02-02T20:22:19.379561",
-  "total_posts": 70,
+  "scraped_at": "2026-02-02T20:30:16.061639",
+  "total_posts": 500,
   "posts": [
     {
-      "id": "1qr1dkd",
+      "id": "t3_1qr1dkd",
       "title": "Mail Call Weekly",
-      "selftext": "",
-      "author": "unknown",
-      "score": 6,
+      "text": "Mail Call Weekly",
       "url": "https://reddit.com/r/discgolf/comments/1qr1dkd/mail_call_weekly/",
-      "created_utc": 1770060091.700052,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "score": 6,
+      "source": "hot"
     },
     {
-      "id": "1qtyuxd",
+      "id": "t3_1qtyuxd",
       "title": "Diavalo in the snow",
-      "selftext": "",
-      "author": "unknown",
-      "score": 40,
+      "text": "Diavalo in the snow",
       "url": "https://reddit.com/r/discgolf/comments/1qtyuxd/diavalo_in_the_snow/",
-      "created_utc": 1770060091.7000968,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "score": 39,
+      "source": "hot"
     },
     {
-      "id": "10pu8qn",
-      "title": "I made the perfect 2nd monitor game, it's an MMO that grinds when you're offline!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 3474,
-      "url": "https://reddit.com/user/IdleOn_Boii/comments/10pu8qn/i_made_the_perfect_2nd_monitor_game_its_an_mmo/",
-      "created_utc": 1770060091.7001345,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtxefk",
-      "title": "Snow Round in East Tennessee",
-      "selftext": "",
-      "author": "unknown",
-      "score": 24,
-      "url": "https://reddit.com/r/discgolf/comments/1qtxefk/snow_round_in_east_tennessee/",
-      "created_utc": 1770060091.7001703,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtmtdl",
-      "title": "Caught an ace on camera today!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 101,
-      "url": "https://reddit.com/r/discgolf/comments/1qtmtdl/caught_an_ace_on_camera_today/",
-      "created_utc": 1770060091.7002025,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qttncr",
-      "title": "Thoughts on Disc Golf World?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 30,
-      "url": "https://reddit.com/r/discgolf/comments/1qttncr/thoughts_on_disc_golf_world/",
-      "created_utc": 1770060091.7002358,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qticat",
-      "title": "I did something dumb today",
-      "selftext": "",
-      "author": "unknown",
-      "score": 126,
-      "url": "https://reddit.com/r/discgolf/comments/1qticat/i_did_something_dumb_today/",
-      "created_utc": 1770060091.7002687,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qt24v7",
-      "title": "Busted Kneecap",
-      "selftext": "",
-      "author": "unknown",
-      "score": 305,
-      "url": "https://reddit.com/r/discgolf/comments/1qt24v7/busted_kneecap/",
-      "created_utc": 1770060091.7003036,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtz79c",
-      "title": "Orlando in 2 weeks, Olympus or Elsewhere",
-      "selftext": "",
-      "author": "unknown",
-      "score": 5,
-      "url": "https://reddit.com/r/discgolf/comments/1qtz79c/orlando_in_2_weeks_olympus_or_elsewhere/",
-      "created_utc": 1770060091.700335,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtaxp0",
-      "title": "This is the best run of Envy.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 79,
-      "url": "https://reddit.com/r/discgolf/comments/1qtaxp0/this_is_the_best_run_of_envy/",
-      "created_utc": 1770060091.7003653,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtnump",
-      "title": "Question about a disc and painting discs (from a noob trying to get her bf a valentines gift)",
-      "selftext": "",
-      "author": "unknown",
-      "score": 10,
-      "url": "https://reddit.com/r/discgolf/comments/1qtnump/question_about_a_disc_and_painting_discs_from_a/",
-      "created_utc": 1770060091.7003958,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qu4e3i",
-      "title": "Gift Ideas for New Dads",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qu4e3i/gift_ideas_for_new_dads/",
-      "created_utc": 1770060091.7004313,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qu4837",
-      "title": "Switching from Star to Champion",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qu4837/switching_from_star_to_champion/",
-      "created_utc": 1770060091.7004633,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtjxin",
-      "title": "Made some minis",
-      "selftext": "",
-      "author": "unknown",
-      "score": 18,
-      "url": "https://reddit.com/r/discgolf/comments/1qtjxin/made_some_minis/",
-      "created_utc": 1770060091.7004933,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qt5c0b",
-      "title": "Discraft forgot Ricky is a World Champion???",
-      "selftext": "",
-      "author": "unknown",
-      "score": 93,
-      "url": "https://reddit.com/r/discgolf/comments/1qt5c0b/discraft_forgot_ricky_is_a_world_champion/",
-      "created_utc": 1770060091.700523,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtjwxh",
-      "title": "What does this mean?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 16,
-      "url": "https://reddit.com/r/discgolf/comments/1qtjwxh/what_does_this_mean/",
-      "created_utc": 1770060091.7005527,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1hhgblf",
-      "title": "The everything app, for work. Get everyone working in a single platform designed to manage any type of work.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 1268,
-      "url": "https://reddit.com/user/ClickUp_App/comments/1hhgblf/the_everything_app_for_work_get_everyone_working/",
-      "created_utc": 1770060091.700582,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qt3gsh",
-      "title": "Frozen Cheese Slices",
-      "selftext": "",
-      "author": "unknown",
-      "score": 108,
-      "url": "https://reddit.com/r/discgolf/comments/1qt3gsh/frozen_cheese_slices/",
-      "created_utc": 1770060091.7006133,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtncup",
-      "title": "Classic SUPER SOFT Judge!!🤯",
-      "selftext": "",
-      "author": "unknown",
-      "score": 8,
-      "url": "https://reddit.com/r/discgolf/comments/1qtncup/classic_super_soft_judge/",
-      "created_utc": 1770060091.7006443,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qu1e9w",
-      "title": "Has anyone tried the Discount Disc Golf (DDG) branded discs?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qu1e9w/has_anyone_tried_the_discount_disc_golf_ddg/",
-      "created_utc": 1770060091.7006764,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qt82ut",
-      "title": "Gotta slide down on your discs at least once",
-      "selftext": "",
-      "author": "unknown",
-      "score": 55,
-      "url": "https://reddit.com/r/discgolf/comments/1qt82ut/gotta_slide_down_on_your_discs_at_least_once/",
-      "created_utc": 1770060091.7007077,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtkbg8",
-      "title": "Ratings / division question",
-      "selftext": "",
-      "author": "unknown",
-      "score": 8,
-      "url": "https://reddit.com/r/discgolf/comments/1qtkbg8/ratings_division_question/",
-      "created_utc": 1770060091.7007346,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtdals",
-      "title": "PDGA approved “box putter”",
-      "selftext": "",
-      "author": "unknown",
-      "score": 21,
-      "url": "https://reddit.com/r/discgolf/comments/1qtdals/pdga_approved_box_putter/",
-      "created_utc": 1770060091.700763,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qu4611",
-      "title": "What was so different during Covid compared to now?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qu4611/what_was_so_different_during_covid_compared_to_now/",
-      "created_utc": 1770060091.7007945,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qt26bv",
-      "title": "What is golf?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 75,
-      "url": "https://reddit.com/r/discgolf/comments/1qt26bv/what_is_golf/",
-      "created_utc": 1770060091.7008245,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qskinz",
-      "title": "Glow in the snow",
-      "selftext": "",
-      "author": "unknown",
-      "score": 489,
-      "url": "https://reddit.com/r/discgolf/comments/1qskinz/glow_in_the_snow/",
-      "created_utc": 1770060091.700854,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qszq7s",
-      "title": "Ice Bowl Yeti",
-      "selftext": "",
-      "author": "unknown",
-      "score": 40,
-      "url": "https://reddit.com/r/discgolf/comments/1qszq7s/ice_bowl_yeti/",
-      "created_utc": 1770060091.7008836,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1p679x5",
+      "id": "t3_1p679x5",
       "title": "The #1 most played Idler game on Steam",
-      "selftext": "",
-      "author": "unknown",
-      "score": 172,
+      "text": "The #1 most played Idler game on Steam",
       "url": "https://reddit.com/user/IdleOn_Boii/comments/1p679x5/the_1_most_played_idler_game_on_steam/",
-      "created_utc": 1770060095.350791,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "score": 169,
+      "source": "hot"
     },
     {
-      "id": "1qu4q5x",
+      "id": "t3_1qtxefk",
+      "title": "Snow Round in East Tennessee",
+      "text": "Snow Round in East Tennessee",
+      "url": "https://reddit.com/r/discgolf/comments/1qtxefk/snow_round_in_east_tennessee/",
+      "score": 24,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtmtdl",
+      "title": "Caught an ace on camera today!",
+      "text": "Caught an ace on camera today!",
+      "url": "https://reddit.com/r/discgolf/comments/1qtmtdl/caught_an_ace_on_camera_today/",
+      "score": 100,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qttncr",
+      "title": "Thoughts on Disc Golf World?",
+      "text": "Thoughts on Disc Golf World?",
+      "url": "https://reddit.com/r/discgolf/comments/1qttncr/thoughts_on_disc_golf_world/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qticat",
+      "title": "I did something dumb today",
+      "text": "I did something dumb today",
+      "url": "https://reddit.com/r/discgolf/comments/1qticat/i_did_something_dumb_today/",
+      "score": 124,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu4q5x",
       "title": "How is the stability of the Proto Glow Halo Champion Fox compared to Halo Star and Star?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
+      "text": "How is the stability of the Proto Glow Halo Champion Fox compared to Halo Star and Star?",
       "url": "https://reddit.com/r/discgolf/comments/1qu4q5x/how_is_the_stability_of_the_proto_glow_halo/",
-      "created_utc": 1770060095.3508654,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1lzhv5s",
-      "title": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/Dating-Insider/comments/1lzhv5s/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/",
-      "created_utc": 1770060095.350935,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qpsqvo",
-      "title": "\"It takes two\" meets \"Re-Volt\". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/wheelmatesgame/comments/1qpsqvo/it_takes_two_meets_revolt_twoplayer_adventure/",
-      "created_utc": 1770060095.3510027,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qpce8g",
-      "title": "AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/AMDOfficial/comments/1qpce8g/amd_ryzen_9_9950x3d_brings_power_and_legendary/",
-      "created_utc": 1770060098.914112,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qppatf",
-      "title": "Horrific Comments from Innova Ambassador/Tournament Director Jason Wilder",
-      "selftext": "",
-      "author": "unknown",
-      "score": 1452,
-      "url": "https://reddit.com/r/discgolf/comments/1qppatf/horrific_comments_from_innova/",
-      "created_utc": 1770060109.3719296,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q72saw",
-      "title": "Disc Golf at the South Pole",
-      "selftext": "",
-      "author": "unknown",
-      "score": 1233,
-      "url": "https://reddit.com/r/discgolf/comments/1q72saw/disc_golf_at_the_south_pole/",
-      "created_utc": 1770060109.3720026,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qf69u0",
-      "title": "Found Gannon’s Disc",
-      "selftext": "",
-      "author": "unknown",
-      "score": 1117,
-      "url": "https://reddit.com/r/discgolf/comments/1qf69u0/found_gannons_disc/",
-      "created_utc": 1770060109.3720644,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q7o5mh",
-      "title": "My mom found this at the thrift today and asked me if i wanted it",
-      "selftext": "",
-      "author": "unknown",
-      "score": 1066,
-      "url": "https://reddit.com/r/discgolf/comments/1q7o5mh/my_mom_found_this_at_the_thrift_today_and_asked/",
-      "created_utc": 1770060109.3721046,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qd6fp8",
-      "title": "new NC disc golf channel",
-      "selftext": "",
-      "author": "unknown",
-      "score": 961,
-      "url": "https://reddit.com/r/discgolf/comments/1qd6fp8/new_nc_disc_golf_channel/",
-      "created_utc": 1770060109.3721397,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qj1x4z",
-      "title": "Welcome Aaron Gossage to Team MVP!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 817,
-      "url": "https://reddit.com/r/discgolf/comments/1qj1x4z/welcome_aaron_gossage_to_team_mvp/",
-      "created_utc": 1770060109.3721778,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qqspi0",
-      "title": "Best player Anttila",
-      "selftext": "",
-      "author": "unknown",
-      "score": 741,
-      "url": "https://reddit.com/r/discgolf/comments/1qqspi0/best_player_anttila/",
-      "created_utc": 1770060109.3722117,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qd19w8",
-      "title": "561 ft ace!!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 709,
-      "url": "https://reddit.com/r/discgolf/comments/1qd19w8/561_ft_ace/",
-      "created_utc": 1770060109.3722448,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qly4zh",
-      "title": "Is this real life?!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 665,
-      "url": "https://reddit.com/r/discgolf/comments/1qly4zh/is_this_real_life/",
-      "created_utc": 1770060109.372278,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qi6p2q",
-      "title": "Silas Schultz to team MVP",
-      "selftext": "",
-      "author": "unknown",
-      "score": 612,
-      "url": "https://reddit.com/r/discgolf/comments/1qi6p2q/silas_schultz_to_team_mvp/",
-      "created_utc": 1770060109.3723156,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qj2ncz",
-      "title": "New sponsor and new name. Big day for Arron.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 593,
-      "url": "https://reddit.com/r/discgolf/comments/1qj2ncz/new_sponsor_and_new_name_big_day_for_arron/",
-      "created_utc": 1770060109.3723516,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q4yqc8",
-      "title": "1978 Spring Golf St Mary’s College New Pictures Discovered",
-      "selftext": "",
-      "author": "unknown",
-      "score": 554,
-      "url": "https://reddit.com/r/discgolf/comments/1q4yqc8/1978_spring_golf_st_marys_college_new_pictures/",
-      "created_utc": 1770060109.3723848,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qb4m4u",
-      "title": "Disc golf conspiracy I just stumbled into..",
-      "selftext": "",
-      "author": "unknown",
-      "score": 547,
-      "url": "https://reddit.com/r/discgolf/comments/1qb4m4u/disc_golf_conspiracy_i_just_stumbled_into/",
-      "created_utc": 1770060109.372416,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qbczb2",
-      "title": "Imagine you’re just playing a tournament in Chinese Taipei and fucking Calvin Heimburg shows up.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 535,
-      "url": "https://reddit.com/r/discgolf/comments/1qbczb2/imagine_youre_just_playing_a_tournament_in/",
-      "created_utc": 1770060109.3724475,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qngyuk",
-      "title": "My latest oil painting: Hole 1 Maple Hill",
-      "selftext": "",
-      "author": "unknown",
-      "score": 535,
-      "url": "https://reddit.com/r/discgolf/comments/1qngyuk/my_latest_oil_painting_hole_1_maple_hill/",
-      "created_utc": 1770060109.3724794,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qr9a34",
-      "title": "Can the Global Economy Survive a Real U.S.–China Economic Split?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/Equivalent_Ad_1878/comments/1qr9a34/can_the_global_economy_survive_a_real_uschina/",
-      "created_utc": 1770060109.3725178,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qgsh0e",
-      "title": "Shoutout to Scott Stokely!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 500,
-      "url": "https://reddit.com/r/discgolf/comments/1qgsh0e/shoutout_to_scott_stokely/",
-      "created_utc": 1770060109.3725505,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qrq0ws",
-      "title": "Goodwill for the win!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 477,
-      "url": "https://reddit.com/r/discgolf/comments/1qrq0ws/goodwill_for_the_win/",
-      "created_utc": 1770060109.3725832,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qgg4ir",
-      "title": "Brothers at the tunnel",
-      "selftext": "",
-      "author": "unknown",
-      "score": 467,
-      "url": "https://reddit.com/r/discgolf/comments/1qgg4ir/brothers_at_the_tunnel/",
-      "created_utc": 1770060109.372616,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q49pb6",
-      "title": "Four days into 2026 and I think I’ve already peaked.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 457,
-      "url": "https://reddit.com/r/discgolf/comments/1q49pb6/four_days_into_2026_and_i_think_ive_already_peaked/",
-      "created_utc": 1770060109.3726492,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q92oed",
-      "title": "One of my favorite pictures that I took last year.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 453,
-      "url": "https://reddit.com/r/discgolf/comments/1q92oed/one_of_my_favorite_pictures_that_i_took_last_year/",
-      "created_utc": 1770060109.3726807,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qei5pz",
-      "title": "Finnish pro disc golfers Silva Saarinen and Iida Lehtomäki attended the Finnish Sports Gala. Silva was nominated for the 2025 Athlete of the Year award and Iida’s second-place finish at the 2025 Pro Worlds was nominated as the most exciting sports moment.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 451,
-      "url": "https://reddit.com/r/discgolf/comments/1qei5pz/finnish_pro_disc_golfers_silva_saarinen_and_iida/",
-      "created_utc": 1770060109.3727143,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qb0stv",
-      "title": "TMNT Discs Dyes",
-      "selftext": "",
-      "author": "unknown",
-      "score": 404,
-      "url": "https://reddit.com/r/discgolf/comments/1qb0stv/tmnt_discs_dyes/",
-      "created_utc": 1770060109.3727472,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1q6owpi",
-      "title": "White on white",
-      "selftext": "",
-      "author": "unknown",
-      "score": 395,
-      "url": "https://reddit.com/r/discgolf/comments/1q6owpi/white_on_white/",
-      "created_utc": 1770060109.3727784,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qn90f1",
-      "title": "Tesla hummingbird ace",
-      "selftext": "",
-      "author": "unknown",
-      "score": 387,
-      "url": "https://reddit.com/r/discgolf/comments/1qn90f1/tesla_hummingbird_ace/",
-      "created_utc": 1770060109.3728116,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qpqpuq",
-      "title": "\"It takes two\" meets \"Re-Volt\". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/wheelmatesgame/comments/1qpqpuq/it_takes_two_meets_revolt_twoplayer_adventure/",
-      "created_utc": 1770060116.072746,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1oz5ccr",
-      "title": "We're not just another Product Engagement Platform option; we are the new standard, and we guarantee a better price and an effortless migration for anyone ready to make the switch.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/UserpilotInc/comments/1oz5ccr/were_not_just_another_product_engagement_platform/",
-      "created_utc": 1770060122.7763734,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qu3bts",
-      "title": "Help me out",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qu3bts/help_me_out/",
-      "created_utc": 1770060126.0980823,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qto803",
-      "title": "Why is turn negative (-) to go right?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qto803/why_is_turn_negative_to_go_right/",
-      "created_utc": 1770060126.098131,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1ppkwq5",
-      "title": "Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/Hjemmevaernet/comments/1ppkwq5/vi_har_alle_den_samme_mængde_tid_forskellen/",
-      "created_utc": 1770060126.09817,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtirhm",
-      "title": "How much distance will a hyzer flip add?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qtirhm/how_much_distance_will_a_hyzer_flip_add/",
-      "created_utc": 1770060126.0982108,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qthhwd",
-      "title": "First Haul of 2026",
-      "selftext": "",
-      "author": "unknown",
-      "score": 3,
-      "url": "https://reddit.com/r/discgolf/comments/1qthhwd/first_haul_of_2026/",
-      "created_utc": 1770060126.0982492,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtgver",
-      "title": "Hi-top recommendations?",
-      "selftext": "",
-      "author": "unknown",
       "score": 5,
-      "url": "https://reddit.com/r/discgolf/comments/1qtgver/hitop_recommendations/",
-      "created_utc": 1770060126.0982816,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "source": "hot"
     },
     {
-      "id": "1qptw8h",
-      "title": "\"It takes two\" meets \"Re-Volt\". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/user/wheelmatesgame/comments/1qptw8h/it_takes_two_meets_revolt_twoplayer_adventure/",
-      "created_utc": 1770060126.0983279,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "id": "t3_1qt24v7",
+      "title": "Busted Kneecap",
+      "text": "Busted Kneecap",
+      "url": "https://reddit.com/r/discgolf/comments/1qt24v7/busted_kneecap/",
+      "score": 307,
+      "source": "hot"
     },
     {
-      "id": "1qtc18v",
-      "title": "Should I join my first pdga event in an A tier?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 8,
-      "url": "https://reddit.com/r/discgolf/comments/1qtc18v/should_i_join_my_first_pdga_event_in_an_a_tier/",
-      "created_utc": 1770060126.0983758,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtbprm",
-      "title": "Is this the cleanest 300’ midrange throw?",
-      "selftext": "",
-      "author": "unknown",
-      "score": 0,
-      "url": "https://reddit.com/r/discgolf/comments/1qtbprm/is_this_the_cleanest_300_midrange_throw/",
-      "created_utc": 1770060126.0984182,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
-    },
-    {
-      "id": "1qtb5ww",
-      "title": "Going into next season",
-      "selftext": "",
-      "author": "unknown",
+      "id": "t3_1qtz79c",
+      "title": "Orlando in 2 weeks, Olympus or Elsewhere",
+      "text": "Orlando in 2 weeks, Olympus or Elsewhere",
+      "url": "https://reddit.com/r/discgolf/comments/1qtz79c/orlando_in_2_weeks_olympus_or_elsewhere/",
       "score": 4,
-      "url": "https://reddit.com/r/discgolf/comments/1qtb5ww/going_into_next_season/",
-      "created_utc": 1770060126.098456,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "source": "hot"
     },
     {
-      "id": "1qi3uut",
-      "title": "Unlock exclusive rewards with the World of Warcraft: Midnight Epic Edition.",
-      "selftext": "",
-      "author": "unknown",
+      "id": "t3_1qtaxp0",
+      "title": "This is the best run of Envy.",
+      "text": "This is the best run of Envy.",
+      "url": "https://reddit.com/r/discgolf/comments/1qtaxp0/this_is_the_best_run_of_envy/",
+      "score": 81,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtnump",
+      "title": "Question about a disc and painting discs (from a noob trying to get her bf a valentines gift)",
+      "text": "Question about a disc and painting discs (from a noob trying to get her bf a valentines gift)",
+      "url": "https://reddit.com/r/discgolf/comments/1qtnump/question_about_a_disc_and_painting_discs_from_a/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu4udn",
+      "title": "Disc ID",
+      "text": "Disc ID",
+      "url": "https://reddit.com/r/discgolf/comments/1qu4udn/disc_id/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu4e3i",
+      "title": "Gift Ideas for New Dads",
+      "text": "Gift Ideas for New Dads",
+      "url": "https://reddit.com/r/discgolf/comments/1qu4e3i/gift_ideas_for_new_dads/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpce8g",
+      "title": "AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.",
+      "text": "AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.",
+      "url": "https://reddit.com/user/AMDOfficial/comments/1qpce8g/amd_ryzen_9_9950x3d_brings_power_and_legendary/",
       "score": 0,
-      "url": "https://reddit.com/user/PlayWarcraft/comments/1qi3uut/unlock_exclusive_rewards_with_the_world_of/",
-      "created_utc": 1770060136.0462582,
-      "num_comments": 0,
-      "subreddit": "discgolf",
-      "link_flair_text": null,
-      "comments": []
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtjxin",
+      "title": "Made some minis",
+      "text": "Made some minis",
+      "url": "https://reddit.com/r/discgolf/comments/1qtjxin/made_some_minis/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt5c0b",
+      "title": "Discraft forgot Ricky is a World Champion???",
+      "text": "Discraft forgot Ricky is a World Champion???",
+      "url": "https://reddit.com/r/discgolf/comments/1qt5c0b/discraft_forgot_ricky_is_a_world_champion/",
+      "score": 94,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtjwxh",
+      "title": "What does this mean?",
+      "text": "What does this mean?",
+      "url": "https://reddit.com/r/discgolf/comments/1qtjwxh/what_does_this_mean/",
+      "score": 16,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt3gsh",
+      "title": "Frozen Cheese Slices",
+      "text": "Frozen Cheese Slices",
+      "url": "https://reddit.com/r/discgolf/comments/1qt3gsh/frozen_cheese_slices/",
+      "score": 110,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtncup",
+      "title": "Classic SUPER SOFT Judge!!🤯",
+      "text": "Classic SUPER SOFT Judge!!🤯",
+      "url": "https://reddit.com/r/discgolf/comments/1qtncup/classic_super_soft_judge/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu1e9w",
+      "title": "Has anyone tried the Discount Disc Golf (DDG) branded discs?",
+      "text": "Has anyone tried the Discount Disc Golf (DDG) branded discs?",
+      "url": "https://reddit.com/r/discgolf/comments/1qu1e9w/has_anyone_tried_the_discount_disc_golf_ddg/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt82ut",
+      "title": "Gotta slide down on your discs at least once",
+      "text": "Gotta slide down on your discs at least once",
+      "url": "https://reddit.com/r/discgolf/comments/1qt82ut/gotta_slide_down_on_your_discs_at_least_once/",
+      "score": 57,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtkbg8",
+      "title": "Ratings / division question",
+      "text": "Ratings / division question",
+      "url": "https://reddit.com/r/discgolf/comments/1qtkbg8/ratings_division_question/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtdals",
+      "title": "PDGA approved “box putter”",
+      "text": "PDGA approved “box putter”",
+      "url": "https://reddit.com/r/discgolf/comments/1qtdals/pdga_approved_box_putter/",
+      "score": 22,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt26bv",
+      "title": "What is golf?",
+      "text": "What is golf?",
+      "url": "https://reddit.com/r/discgolf/comments/1qt26bv/what_is_golf/",
+      "score": 73,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu4837",
+      "title": "Switching from Star to Champion",
+      "text": "Switching from Star to Champion",
+      "url": "https://reddit.com/r/discgolf/comments/1qu4837/switching_from_star_to_champion/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1lzhvhw",
+      "title": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "text": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "url": "https://reddit.com/user/Dating-Insider/comments/1lzhvhw/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu4611",
+      "title": "What was so different during Covid compared to now?",
+      "text": "What was so different during Covid compared to now?",
+      "url": "https://reddit.com/r/discgolf/comments/1qu4611/what_was_so_different_during_covid_compared_to_now/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qskinz",
+      "title": "Glow in the snow",
+      "text": "Glow in the snow",
+      "url": "https://reddit.com/r/discgolf/comments/1qskinz/glow_in_the_snow/",
+      "score": 485,
+      "source": "hot"
+    },
+    {
+      "id": "t3_10pu8qn",
+      "title": "I made the perfect 2nd monitor game, it's an MMO that grinds when you're offline!",
+      "text": "I made the perfect 2nd monitor game, it's an MMO that grinds when you're offline!",
+      "url": "https://reddit.com/user/IdleOn_Boii/comments/10pu8qn/i_made_the_perfect_2nd_monitor_game_its_an_mmo/",
+      "score": 3474,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qszq7s",
+      "title": "Ice Bowl Yeti",
+      "text": "Ice Bowl Yeti",
+      "url": "https://reddit.com/r/discgolf/comments/1qszq7s/ice_bowl_yeti/",
+      "score": 39,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt0uu7",
+      "title": "How do we bring this stamp back?",
+      "text": "How do we bring this stamp back?",
+      "url": "https://reddit.com/r/discgolf/comments/1qt0uu7/how_do_we_bring_this_stamp_back/",
+      "score": 34,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsm31t",
+      "title": "Built a small travel bag, and decided to have some fun with discs I don't care about losing",
+      "text": "Built a small travel bag, and decided to have some fun with discs I don't care about losing",
+      "url": "https://reddit.com/r/discgolf/comments/1qsm31t/built_a_small_travel_bag_and_decided_to_have_some/",
+      "score": 286,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt9epd",
+      "title": "Why mess with a good thing?",
+      "text": "Why mess with a good thing?",
+      "url": "https://reddit.com/r/discgolf/comments/1qt9epd/why_mess_with_a_good_thing/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtc18v",
+      "title": "Should I join my first pdga event in an A tier?",
+      "text": "Should I join my first pdga event in an A tier?",
+      "url": "https://reddit.com/r/discgolf/comments/1qtc18v/should_i_join_my_first_pdga_event_in_an_a_tier/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qthhwd",
+      "title": "First Haul of 2026",
+      "text": "First Haul of 2026",
+      "url": "https://reddit.com/r/discgolf/comments/1qthhwd/first_haul_of_2026/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtgver",
+      "title": "Hi-top recommendations?",
+      "text": "Hi-top recommendations?",
+      "url": "https://reddit.com/r/discgolf/comments/1qtgver/hitop_recommendations/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt7ae5",
+      "title": "MVP mid (and fairway) selection",
+      "text": "MVP mid (and fairway) selection",
+      "url": "https://reddit.com/r/discgolf/comments/1qt7ae5/mvp_mid_and_fairway_selection/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt5iub",
+      "title": "First round of 2026!❄️",
+      "text": "First round of 2026!❄️",
+      "url": "https://reddit.com/r/discgolf/comments/1qt5iub/first_round_of_2026/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsnvx0",
+      "title": "accidentally discovered I have a particle glow NEUTRON virus??",
+      "text": "accidentally discovered I have a particle glow NEUTRON virus??",
+      "url": "https://reddit.com/r/discgolf/comments/1qsnvx0/accidentally_discovered_i_have_a_particle_glow/",
+      "score": 108,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtb5ww",
+      "title": "Going into next season",
+      "text": "Going into next season",
+      "url": "https://reddit.com/r/discgolf/comments/1qtb5ww/going_into_next_season/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qu3bts",
+      "title": "Help me out",
+      "text": "Help me out",
+      "url": "https://reddit.com/r/discgolf/comments/1qu3bts/help_me_out/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt9xpf",
+      "title": "Kudzu Cove question",
+      "text": "Kudzu Cove question",
+      "url": "https://reddit.com/r/discgolf/comments/1qt9xpf/kudzu_cove_question/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsl3wx",
+      "title": "Raven Klein to RPM Discs",
+      "text": "Raven Klein to RPM Discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qsl3wx/raven_klein_to_rpm_discs/",
+      "score": 102,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsdjwp",
+      "title": "Am in the only one that’s super excited to see Aaron Gossage on team MVP?",
+      "text": "Am in the only one that’s super excited to see Aaron Gossage on team MVP?",
+      "url": "https://reddit.com/r/discgolf/comments/1qsdjwp/am_in_the_only_one_thats_super_excited_to_see/",
+      "score": 226,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsxu0s",
+      "title": "Do older player discs stay in production?",
+      "text": "Do older player discs stay in production?",
+      "url": "https://reddit.com/r/discgolf/comments/1qsxu0s/do_older_player_discs_stay_in_production/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsoi96",
+      "title": "My putt switched from a throw to a swing last night. It feels great.",
+      "text": "My putt switched from a throw to a swing last night. It feels great.",
+      "url": "https://reddit.com/r/discgolf/comments/1qsoi96/my_putt_switched_from_a_throw_to_a_swing_last/",
+      "score": 38,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtirhm",
+      "title": "How much distance will a hyzer flip add?",
+      "text": "How much distance will a hyzer flip add?",
+      "url": "https://reddit.com/r/discgolf/comments/1qtirhm/how_much_distance_will_a_hyzer_flip_add/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt0svj",
+      "title": "The Open at Austin attendee advice",
+      "text": "The Open at Austin attendee advice",
+      "url": "https://reddit.com/r/discgolf/comments/1qt0svj/the_open_at_austin_attendee_advice/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt8h9t",
+      "title": "TSA Apparel",
+      "text": "TSA Apparel",
+      "url": "https://reddit.com/r/discgolf/comments/1qt8h9t/tsa_apparel/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qshhom",
+      "title": "Bokeh",
+      "text": "Bokeh",
+      "url": "https://reddit.com/r/discgolf/comments/1qshhom/bokeh/",
+      "score": 37,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qto803",
+      "title": "Why is turn negative (-) to go right?",
+      "text": "Why is turn negative (-) to go right?",
+      "url": "https://reddit.com/r/discgolf/comments/1qto803/why_is_turn_negative_to_go_right/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsg8nt",
+      "title": "Can it be April Yet?",
+      "text": "Can it be April Yet?",
+      "url": "https://reddit.com/r/discgolf/comments/1qsg8nt/can_it_be_april_yet/",
+      "score": 45,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsl8nv",
+      "title": "I built an “In The Bag” website",
+      "text": "I built an “In The Bag” website",
+      "url": "https://reddit.com/r/discgolf/comments/1qsl8nv/i_built_an_in_the_bag_website/",
+      "score": 16,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsfcj0",
+      "title": "Jawbreaker Z Flx plastic is awesome",
+      "text": "Jawbreaker Z Flx plastic is awesome",
+      "url": "https://reddit.com/r/discgolf/comments/1qsfcj0/jawbreaker_z_flx_plastic_is_awesome/",
+      "score": 26,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsztp4",
+      "title": "Have a retriever dog?",
+      "text": "Have a retriever dog?",
+      "url": "https://reddit.com/r/discgolf/comments/1qsztp4/have_a_retriever_dog/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrq0ws",
+      "title": "Goodwill for the win!",
+      "text": "Goodwill for the win!",
+      "url": "https://reddit.com/r/discgolf/comments/1qrq0ws/goodwill_for_the_win/",
+      "score": 484,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsh61q",
+      "title": "DIY Cart progress",
+      "text": "DIY Cart progress",
+      "url": "https://reddit.com/r/discgolf/comments/1qsh61q/diy_cart_progress/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs4qff",
+      "title": "2 off the 1st",
+      "text": "2 off the 1st",
+      "url": "https://reddit.com/r/discgolf/comments/1qs4qff/2_off_the_1st/",
+      "score": 29,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs9xey",
+      "title": "Virgin knee high snow.",
+      "text": "Virgin knee high snow.",
+      "url": "https://reddit.com/r/discgolf/comments/1qs9xey/virgin_knee_high_snow/",
+      "score": 16,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsdkc6",
+      "title": "Chandler Reigh to Team Infinite",
+      "text": "Chandler Reigh to Team Infinite",
+      "url": "https://reddit.com/r/discgolf/comments/1qsdkc6/chandler_reigh_to_team_infinite/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrxh90",
+      "title": "Never heard of disc golf before doing this painting",
+      "text": "Never heard of disc golf before doing this painting",
+      "url": "https://reddit.com/r/discgolf/comments/1qrxh90/never_heard_of_disc_golf_before_doing_this/",
+      "score": 90,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qshqot",
+      "title": "Proton Detour?",
+      "text": "Proton Detour?",
+      "url": "https://reddit.com/r/discgolf/comments/1qshqot/proton_detour/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qscotm",
+      "title": "Giving away 2 free discs",
+      "text": "Giving away 2 free discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qscotm/giving_away_2_free_discs/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qt4x3m",
+      "title": "Team Foundation Challenge: February 2026",
+      "text": "Team Foundation Challenge: February 2026",
+      "url": "https://reddit.com/r/discgolf/comments/1qt4x3m/team_foundation_challenge_february_2026/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsehzv",
+      "title": "Snow round",
+      "text": "Snow round",
+      "url": "https://reddit.com/r/discgolf/comments/1qsehzv/snow_round/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrmrly",
+      "title": "Home basket, winter night, toke and a beer.",
+      "text": "Home basket, winter night, toke and a beer.",
+      "url": "https://reddit.com/r/discgolf/comments/1qrmrly/home_basket_winter_night_toke_and_a_beer/",
+      "score": 318,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qtbprm",
+      "title": "Is this the cleanest 300’ midrange throw?",
+      "text": "Is this the cleanest 300’ midrange throw?",
+      "url": "https://reddit.com/r/discgolf/comments/1qtbprm/is_this_the_cleanest_300_midrange_throw/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ppkwqq",
+      "title": "Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.",
+      "text": "Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.",
+      "url": "https://reddit.com/user/Hjemmevaernet/comments/1ppkwqq/vi_har_alle_den_samme_mængde_tid_forskellen/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrqsx8",
+      "title": "Worlds $4,500 VIP😂",
+      "text": "Worlds $4,500 VIP😂",
+      "url": "https://reddit.com/r/discgolf/comments/1qrqsx8/worlds_4500_vip/",
+      "score": 109,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs6zlt",
+      "title": "disc golf vacation - Charlotte / Raleigh",
+      "text": "disc golf vacation - Charlotte / Raleigh",
+      "url": "https://reddit.com/r/discgolf/comments/1qs6zlt/disc_golf_vacation_charlotte_raleigh/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs9gfs",
+      "title": "Just quit after the second hole",
+      "text": "Just quit after the second hole",
+      "url": "https://reddit.com/r/discgolf/comments/1qs9gfs/just_quit_after_the_second_hole/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs2stz",
+      "title": "Innova Proto Glow aviar x3",
+      "text": "Innova Proto Glow aviar x3",
+      "url": "https://reddit.com/r/discgolf/comments/1qs2stz/innova_proto_glow_aviar_x3/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsise0",
+      "title": "In the Bag 2026???",
+      "text": "In the Bag 2026???",
+      "url": "https://reddit.com/r/discgolf/comments/1qsise0/in_the_bag_2026/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrtzbm",
+      "title": "Help with gifts for boyfriend",
+      "text": "Help with gifts for boyfriend",
+      "url": "https://reddit.com/r/discgolf/comments/1qrtzbm/help_with_gifts_for_boyfriend/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsdjue",
+      "title": "Disc Identification",
+      "text": "Disc Identification",
+      "url": "https://reddit.com/r/discgolf/comments/1qsdjue/disc_identification/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qr7ouu",
+      "title": "Anniken K. Steen signs with Latitude 64",
+      "text": "Anniken K. Steen signs with Latitude 64",
+      "url": "https://reddit.com/r/discgolf/comments/1qr7ouu/anniken_k_steen_signs_with_latitude_64/",
+      "score": 227,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrld7m",
+      "title": "Found my Hex",
+      "text": "Found my Hex",
+      "url": "https://reddit.com/r/discgolf/comments/1qrld7m/found_my_hex/",
+      "score": 47,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsnipj",
+      "title": "Looking for a new disc",
+      "text": "Looking for a new disc",
+      "url": "https://reddit.com/r/discgolf/comments/1qsnipj/looking_for_a_new_disc/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs91tr",
+      "title": "Flagstaff and Sedona disc golf",
+      "text": "Flagstaff and Sedona disc golf",
+      "url": "https://reddit.com/r/discgolf/comments/1qs91tr/flagstaff_and_sedona_disc_golf/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrnhn8",
+      "title": "Circle Bird in Zero Pro - wonderful",
+      "text": "Circle Bird in Zero Pro - wonderful",
+      "url": "https://reddit.com/r/discgolf/comments/1qrnhn8/circle_bird_in_zero_pro_wonderful/",
+      "score": 20,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrl3ku",
+      "title": "First time on a course today",
+      "text": "First time on a course today",
+      "url": "https://reddit.com/r/discgolf/comments/1qrl3ku/first_time_on_a_course_today/",
+      "score": 25,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrhy3d",
+      "title": "Eagle McMahon and Streamline branding question",
+      "text": "Eagle McMahon and Streamline branding question",
+      "url": "https://reddit.com/r/discgolf/comments/1qrhy3d/eagle_mcmahon_and_streamline_branding_question/",
+      "score": 37,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsesz8",
+      "title": "What year is this Wraith from??",
+      "text": "What year is this Wraith from??",
+      "url": "https://reddit.com/r/discgolf/comments/1qsesz8/what_year_is_this_wraith_from/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrego6",
+      "title": "Am I the only one, can Jawbreaker Z go to pasture now?",
+      "text": "Am I the only one, can Jawbreaker Z go to pasture now?",
+      "url": "https://reddit.com/r/discgolf/comments/1qrego6/am_i_the_only_one_can_jawbreaker_z_go_to_pasture/",
+      "score": 44,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsnksm",
+      "title": "Anyone ever puddle topped their glitch?",
+      "text": "Anyone ever puddle topped their glitch?",
+      "url": "https://reddit.com/r/discgolf/comments/1qsnksm/anyone_ever_puddle_topped_their_glitch/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqspi0",
+      "title": "Best player Anttila",
+      "text": "Best player Anttila",
+      "url": "https://reddit.com/r/discgolf/comments/1qqspi0/best_player_anttila/",
+      "score": 743,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsg079",
+      "title": "Enjoyed seeing this beauty parked outside Bevel Brewing",
+      "text": "Enjoyed seeing this beauty parked outside Bevel Brewing",
+      "url": "https://reddit.com/r/discgolf/comments/1qsg079/enjoyed_seeing_this_beauty_parked_outside_bevel/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs4lkg",
+      "title": "TSA Vessel vs Kastaplast Jarn",
+      "text": "TSA Vessel vs Kastaplast Jarn",
+      "url": "https://reddit.com/r/discgolf/comments/1qs4lkg/tsa_vessel_vs_kastaplast_jarn/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrcy4l",
+      "title": "F2 Friday: Free Weekly Disc with 3 purchased: Halo Orc,",
+      "text": "F2 Friday: Free Weekly Disc with 3 purchased: Halo Orc,",
+      "url": "https://reddit.com/r/discgolf/comments/1qrcy4l/f2_friday_free_weekly_disc_with_3_purchased_halo/",
+      "score": 22,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qr812n",
+      "title": "Bright and colorful F2 Friday haul!",
+      "text": "Bright and colorful F2 Friday haul!",
+      "url": "https://reddit.com/r/discgolf/comments/1qr812n/bright_and_colorful_f2_friday_haul/",
+      "score": 35,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrerh3",
+      "title": "Weather report for NorCal/SoCal Tourney at Waller Pines DGC in Santa Maria, CA tomorrow: Sunny, 79 degrees with light winds off the Pacific.",
+      "text": "Weather report for NorCal/SoCal Tourney at Waller Pines DGC in Santa Maria, CA tomorrow: Sunny, 79 degrees with light winds off the Pacific.",
+      "url": "https://reddit.com/r/discgolf/comments/1qrerh3/weather_report_for_norcalsocal_tourney_at_waller/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1po149i",
+      "title": "Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.",
+      "text": "Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.",
+      "url": "https://reddit.com/user/Hjemmevaernet/comments/1po149i/vi_har_alle_den_samme_mængde_tid_forskellen/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qscxl6",
+      "title": "How’s it looking?",
+      "text": "How’s it looking?",
+      "url": "https://reddit.com/r/discgolf/comments/1qscxl6/hows_it_looking/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qsdc8h",
+      "title": "In case you were wondering, there are subreddits for purple, orange, pink, green and blue discs",
+      "text": "In case you were wondering, there are subreddits for purple, orange, pink, green and blue discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qsdc8h/in_case_you_were_wondering_there_are_subreddits/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrwld2",
+      "title": "Garage storage",
+      "text": "Garage storage",
+      "url": "https://reddit.com/r/discgolf/comments/1qrwld2/garage_storage/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrc9q7",
+      "title": "Disc for school supply",
+      "text": "Disc for school supply",
+      "url": "https://reddit.com/r/discgolf/comments/1qrc9q7/disc_for_school_supply/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qs5m6h",
+      "title": "After looking at my glow craves, seems like blue and white are the least common glow colors. Is this true?",
+      "text": "After looking at my glow craves, seems like blue and white are the least common glow colors. Is this true?",
+      "url": "https://reddit.com/r/discgolf/comments/1qs5m6h/after_looking_at_my_glow_craves_seems_like_blue/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrasr8",
+      "title": "2026 Siam Open • Round 3 • All • Clay Edwards • Jakub Semerád • Ben Holding • Tomi Lehtonen (Final Round)",
+      "text": "2026 Siam Open • Round 3 • All • Clay Edwards • Jakub Semerád • Ben Holding • Tomi Lehtonen (Final Round)",
+      "url": "https://reddit.com/r/discgolf/comments/1qrasr8/2026_siam_open_round_3_all_clay_edwards_jakub/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrapgh",
+      "title": "How long are tournaments?",
+      "text": "How long are tournaments?",
+      "url": "https://reddit.com/r/discgolf/comments/1qrapgh/how_long_are_tournaments/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqpm22",
+      "title": "Still have yet to find this disc design anywhere. Is it like a 1 of 1 or something?",
+      "text": "Still have yet to find this disc design anywhere. Is it like a 1 of 1 or something?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqpm22/still_have_yet_to_find_this_disc_design_anywhere/",
+      "score": 87,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrw9eo",
+      "title": "McFormCheck part III",
+      "text": "McFormCheck part III",
+      "url": "https://reddit.com/r/discgolf/comments/1qrw9eo/mcformcheck_part_iii/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrbvj6",
+      "title": "Maple Hill in June",
+      "text": "Maple Hill in June",
+      "url": "https://reddit.com/r/discgolf/comments/1qrbvj6/maple_hill_in_june/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqs5ma",
+      "title": "Used bin gem",
+      "text": "Used bin gem",
+      "url": "https://reddit.com/r/discgolf/comments/1qqs5ma/used_bin_gem/",
+      "score": 34,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqfjgg",
+      "title": "Vintage discs worth using?",
+      "text": "Vintage discs worth using?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqfjgg/vintage_discs_worth_using/",
+      "score": 117,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqd9wz",
+      "title": "Interesting",
+      "text": "Interesting",
+      "url": "https://reddit.com/r/discgolf/comments/1qqd9wz/interesting/",
+      "score": 143,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqtt5k",
+      "title": "To throw or not to throw…",
+      "text": "To throw or not to throw…",
+      "url": "https://reddit.com/r/discgolf/comments/1qqtt5k/to_throw_or_not_to_throw/",
+      "score": 19,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqjgmp",
+      "title": "Is anyone else excited to see more open bag players on tour?",
+      "text": "Is anyone else excited to see more open bag players on tour?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqjgmp/is_anyone_else_excited_to_see_more_open_bag/",
+      "score": 45,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrlx92",
+      "title": "Form check",
+      "text": "Form check",
+      "url": "https://reddit.com/r/discgolf/comments/1qrlx92/form_check/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qruk2y",
+      "title": "845 rated player. Hey guys, looking to tweak my form a little bit. Longest throw of 485 on flat ground.",
+      "text": "845 rated player. Hey guys, looking to tweak my form a little bit. Longest throw of 485 on flat ground.",
+      "url": "https://reddit.com/r/discgolf/comments/1qruk2y/845_rated_player_hey_guys_looking_to_tweak_my/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqeoy4",
+      "title": "What is Seppo up to?",
+      "text": "What is Seppo up to?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqeoy4/what_is_seppo_up_to/",
+      "score": 55,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrn3bj",
+      "title": "Convince/Dissuade me on a disc golf bag",
+      "text": "Convince/Dissuade me on a disc golf bag",
+      "url": "https://reddit.com/r/discgolf/comments/1qrn3bj/convincedissuade_me_on_a_disc_golf_bag/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqwu84",
+      "title": "Disc Golf Lessons in Austin",
+      "text": "Disc Golf Lessons in Austin",
+      "url": "https://reddit.com/r/discgolf/comments/1qqwu84/disc_golf_lessons_in_austin/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqobf3",
+      "title": "Thoughts on the Liz-atte?",
+      "text": "Thoughts on the Liz-atte?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqobf3/thoughts_on_the_lizatte/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqeipy",
+      "title": "Where can I get a Paul Oman disc?",
+      "text": "Where can I get a Paul Oman disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqeipy/where_can_i_get_a_paul_oman_disc/",
+      "score": 43,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qppatf",
+      "title": "Horrific Comments from Innova Ambassador/Tournament Director Jason Wilder",
+      "text": "Horrific Comments from Innova Ambassador/Tournament Director Jason Wilder",
+      "url": "https://reddit.com/r/discgolf/comments/1qppatf/horrific_comments_from_innova/",
+      "score": 1452,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrjkh2",
+      "title": "Need a little help with my pdga membership",
+      "text": "Need a little help with my pdga membership",
+      "url": "https://reddit.com/r/discgolf/comments/1qrjkh2/need_a_little_help_with_my_pdga_membership/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqib5z",
+      "title": "Eagle McMahon Tossing His New Team Series, The Neutron Engine!",
+      "text": "Eagle McMahon Tossing His New Team Series, The Neutron Engine!",
+      "url": "https://reddit.com/r/discgolf/comments/1qqib5z/eagle_mcmahon_tossing_his_new_team_series_the/",
+      "score": 26,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqq7wh",
+      "title": "Disc Recommendations for new High School Class/Club",
+      "text": "Disc Recommendations for new High School Class/Club",
+      "url": "https://reddit.com/r/discgolf/comments/1qqq7wh/disc_recommendations_for_new_high_school_classclub/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrmxun",
+      "title": "McFormCheck",
+      "text": "McFormCheck",
+      "url": "https://reddit.com/r/discgolf/comments/1qrmxun/mcformcheck/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqibfb",
+      "title": "ECLIPSE DEFLECTOR! * breathes heavily*",
+      "text": "ECLIPSE DEFLECTOR! * breathes heavily*",
+      "url": "https://reddit.com/r/discgolf/comments/1qqibfb/eclipse_deflector_breathes_heavily/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrt41a",
+      "title": "Mixed Feelings about Gossage going to MVP. (Mostly Sad)",
+      "text": "Mixed Feelings about Gossage going to MVP. (Mostly Sad)",
+      "url": "https://reddit.com/r/discgolf/comments/1qrt41a/mixed_feelings_about_gossage_going_to_mvp_mostly/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qq9ymu",
+      "title": "Finally received my new disc, perfect timing for this nationwide snow storm..",
+      "text": "Finally received my new disc, perfect timing for this nationwide snow storm..",
+      "url": "https://reddit.com/r/discgolf/comments/1qq9ymu/finally_received_my_new_disc_perfect_timing_for/",
+      "score": 46,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrn14u",
+      "title": "McFormCheck part II",
+      "text": "McFormCheck part II",
+      "url": "https://reddit.com/r/discgolf/comments/1qrn14u/mcformcheck_part_ii/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqebd1",
+      "title": "PDGA - Get player info from tournament page",
+      "text": "PDGA - Get player info from tournament page",
+      "url": "https://reddit.com/r/discgolf/comments/1qqebd1/pdga_get_player_info_from_tournament_page/",
+      "score": 24,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqn9dm",
+      "title": "How do you define if a disc is “beat in”?",
+      "text": "How do you define if a disc is “beat in”?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqn9dm/how_do_you_define_if_a_disc_is_beat_in/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqhsgc",
+      "title": "Top 3 most popular disc golf courses in every Canadian province & territory: 2025 + overall top 10",
+      "text": "Top 3 most popular disc golf courses in every Canadian province & territory: 2025 + overall top 10",
+      "url": "https://reddit.com/r/discgolf/comments/1qqhsgc/top_3_most_popular_disc_golf_courses_in_every/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqg3ju",
+      "title": "What's your favorite baseline(putter) plastic? Any brand, and stiffness.",
+      "text": "What's your favorite baseline(putter) plastic? Any brand, and stiffness.",
+      "url": "https://reddit.com/r/discgolf/comments/1qqg3ju/whats_your_favorite_baselineputter_plastic_any/",
+      "score": 14,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqijpp",
+      "title": "Minnesota Indoor Disc Golf?",
+      "text": "Minnesota Indoor Disc Golf?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqijpp/minnesota_indoor_disc_golf/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpv3ri",
+      "title": "Finland’s Largest Retailer on Clash Discs: “Clash Disc has kind of stopped operating”",
+      "text": "Finland’s Largest Retailer on Clash Discs: “Clash Disc has kind of stopped operating”",
+      "url": "https://reddit.com/r/discgolf/comments/1qpv3ri/finlands_largest_retailer_on_clash_discs_clash/",
+      "score": 137,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qrb191",
+      "title": "Winter Discs? (Inspiration from shoveling a $H!T-T0N of snow",
+      "text": "Winter Discs? (Inspiration from shoveling a $H!T-T0N of snow",
+      "url": "https://reddit.com/r/discgolf/comments/1qrb191/winter_discs_inspiration_from_shoveling_a_htt0n/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqac1y",
+      "title": "2nd run Phoenix - beefcake?",
+      "text": "2nd run Phoenix - beefcake?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqac1y/2nd_run_phoenix_beefcake/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qq9iyo",
+      "title": "2026 Siam Open • All of Round 2 (of 3) • Clay Edwards • Tomi Lehtonen • Jakub Semerád • Japi Pistokoski",
+      "text": "2026 Siam Open • All of Round 2 (of 3) • Clay Edwards • Tomi Lehtonen • Jakub Semerád • Japi Pistokoski",
+      "url": "https://reddit.com/r/discgolf/comments/1qq9iyo/2026_siam_open_all_of_round_2_of_3_clay_edwards/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qql3v0",
+      "title": "What to do?!?",
+      "text": "What to do?!?",
+      "url": "https://reddit.com/r/discgolf/comments/1qql3v0/what_to_do/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqhft1",
+      "title": "Question about literal Frisbee discs",
+      "text": "Question about literal Frisbee discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qqhft1/question_about_literal_frisbee_discs/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpus92",
+      "title": "For those of you that were stuck in the two 290– 330 range, was there an “AH-HA!” Moment when you reached 350+? Or was it very gradual?",
+      "text": "For those of you that were stuck in the two 290– 330 range, was there an “AH-HA!” Moment when you reached 350+? Or was it very gradual?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpus92/for_those_of_you_that_were_stuck_in_the_two_290/",
+      "score": 66,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpwrbc",
+      "title": "Best courses in Washington, Oregon or Idaho?",
+      "text": "Best courses in Washington, Oregon or Idaho?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpwrbc/best_courses_in_washington_oregon_or_idaho/",
+      "score": 49,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qr8tcs",
+      "title": "Do better Wordle…",
+      "text": "Do better Wordle…",
+      "url": "https://reddit.com/r/discgolf/comments/1qr8tcs/do_better_wordle/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpuys5",
+      "title": "Stumbled into this again…Simon’s influence at MVP.",
+      "text": "Stumbled into this again…Simon’s influence at MVP.",
+      "url": "https://reddit.com/r/discgolf/comments/1qpuys5/stumbled_into_this_againsimons_influence_at_mvp/",
+      "score": 44,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqcl14",
+      "title": "ARP | 2026 Savannah Open R3 Back | Robinson : Kiep : Frederiksen : Side...",
+      "text": "ARP | 2026 Savannah Open R3 Back | Robinson : Kiep : Frederiksen : Side...",
+      "url": "https://reddit.com/r/discgolf/comments/1qqcl14/arp_2026_savannah_open_r3_back_robinson_kiep/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqitv1",
+      "title": "Any form coaches you would recommend?",
+      "text": "Any form coaches you would recommend?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqitv1/any_form_coaches_you_would_recommend/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpl7gm",
+      "title": "Used BIN find 😍🥰",
+      "text": "Used BIN find 😍🥰",
+      "url": "https://reddit.com/r/discgolf/comments/1qpl7gm/used_bin_find/",
+      "score": 72,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpc9b6",
+      "title": "fish-bees",
+      "text": "fish-bees",
+      "url": "https://reddit.com/r/discgolf/comments/1qpc9b6/fishbees/",
+      "score": 160,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qptmiv",
+      "title": "Fun Hypothetical",
+      "text": "Fun Hypothetical",
+      "url": "https://reddit.com/r/discgolf/comments/1qptmiv/fun_hypothetical/",
+      "score": 21,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpuomp",
+      "title": "Disc ID?",
+      "text": "Disc ID?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpuomp/disc_id/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qphepg",
+      "title": "What's your unpopular opinion on discs?",
+      "text": "What's your unpopular opinion on discs?",
+      "url": "https://reddit.com/r/discgolf/comments/1qphepg/whats_your_unpopular_opinion_on_discs/",
+      "score": 68,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qptepb",
+      "title": "Use disposable handwarmers? Pro tip:",
+      "text": "Use disposable handwarmers? Pro tip:",
+      "url": "https://reddit.com/r/discgolf/comments/1qptepb/use_disposable_handwarmers_pro_tip/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqvmtp",
+      "title": "TikTok and Instagram!!!",
+      "text": "TikTok and Instagram!!!",
+      "url": "https://reddit.com/r/discgolf/comments/1qqvmtp/tiktok_and_instagram/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpkh26",
+      "title": "Any FPO players that are good YouTube follows?",
+      "text": "Any FPO players that are good YouTube follows?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpkh26/any_fpo_players_that_are_good_youtube_follows/",
+      "score": 33,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpxfda",
+      "title": "Tips for maintaining nose angle while increasing launch angle?",
+      "text": "Tips for maintaining nose angle while increasing launch angle?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpxfda/tips_for_maintaining_nose_angle_while_increasing/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpqwdh",
+      "title": "Vintage Innova ID Help",
+      "text": "Vintage Innova ID Help",
+      "url": "https://reddit.com/r/discgolf/comments/1qpqwdh/vintage_innova_id_help/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqspyn",
+      "title": "Anyone else find this guy to be insufferable? JustDisc",
+      "text": "Anyone else find this guy to be insufferable? JustDisc",
+      "url": "https://reddit.com/r/discgolf/comments/1qqspyn/anyone_else_find_this_guy_to_be_insufferable/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqla99",
+      "title": "Discgolf sponsor 14 year old",
+      "text": "Discgolf sponsor 14 year old",
+      "url": "https://reddit.com/r/discgolf/comments/1qqla99/discgolf_sponsor_14_year_old/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpwl3f",
+      "title": "Discology Icon vs OG V3",
+      "text": "Discology Icon vs OG V3",
+      "url": "https://reddit.com/r/discgolf/comments/1qpwl3f/discology_icon_vs_og_v3/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqf6ka",
+      "title": "Ever thrown a transe?",
+      "text": "Ever thrown a transe?",
+      "url": "https://reddit.com/r/discgolf/comments/1qqf6ka/ever_thrown_a_transe/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpth5l",
+      "title": "Gloves for cut fingers?",
+      "text": "Gloves for cut fingers?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpth5l/gloves_for_cut_fingers/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpibik",
+      "title": "Disc similar to an Infinite Pharaoh but easier to replace?",
+      "text": "Disc similar to an Infinite Pharaoh but easier to replace?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpibik/disc_similar_to_an_infinite_pharaoh_but_easier_to/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpeyy0",
+      "title": "Big Z / Jawbreaker blend Zone SS",
+      "text": "Big Z / Jawbreaker blend Zone SS",
+      "url": "https://reddit.com/r/discgolf/comments/1qpeyy0/big_z_jawbreaker_blend_zone_ss/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqk5gq",
+      "title": "Eagle's New AI Video - Wynn Dragon vs Engine",
+      "text": "Eagle's New AI Video - Wynn Dragon vs Engine",
+      "url": "https://reddit.com/r/discgolf/comments/1qqk5gq/eagles_new_ai_video_wynn_dragon_vs_engine/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpi1qc",
+      "title": "Attending The SupremeFlight Open in FL",
+      "text": "Attending The SupremeFlight Open in FL",
+      "url": "https://reddit.com/r/discgolf/comments/1qpi1qc/attending_the_supremeflight_open_in_fl/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpfbp5",
+      "title": "ARP | 2026 Savannah Open R2 Front | Robinson : Kneece : Frederiksen : Welsh | MPO Lead Card",
+      "text": "ARP | 2026 Savannah Open R2 Front | Robinson : Kneece : Frederiksen : Welsh | MPO Lead Card",
+      "url": "https://reddit.com/r/discgolf/comments/1qpfbp5/arp_2026_savannah_open_r2_front_robinson_kneece/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpbmhm",
+      "title": "New mid. Will it bump the Balance?",
+      "text": "New mid. Will it bump the Balance?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpbmhm/new_mid_will_it_bump_the_balance/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpf4js",
+      "title": "A more durable soft plastic Zone OS?",
+      "text": "A more durable soft plastic Zone OS?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpf4js/a_more_durable_soft_plastic_zone_os/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qolv6e",
+      "title": "These Reactors look amazing!",
+      "text": "These Reactors look amazing!",
+      "url": "https://reddit.com/r/discgolf/comments/1qolv6e/these_reactors_look_amazing/",
+      "score": 317,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpscrd",
+      "title": "Twin cities mn course conditions",
+      "text": "Twin cities mn course conditions",
+      "url": "https://reddit.com/r/discgolf/comments/1qpscrd/twin_cities_mn_course_conditions/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpgqbu",
+      "title": "Experience with the Innova Glass Clear line?",
+      "text": "Experience with the Innova Glass Clear line?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpgqbu/experience_with_the_innova_glass_clear_line/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpw1im",
+      "title": "Roast my Bag. What should I take out of the bag? I want to fit more beer.",
+      "text": "Roast my Bag. What should I take out of the bag? I want to fit more beer.",
+      "url": "https://reddit.com/r/discgolf/comments/1qpw1im/roast_my_bag_what_should_i_take_out_of_the_bag_i/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qozasz",
+      "title": "Rate my bag as a beginner?",
+      "text": "Rate my bag as a beginner?",
+      "url": "https://reddit.com/r/discgolf/comments/1qozasz/rate_my_bag_as_a_beginner/",
+      "score": 25,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qouykv",
+      "title": "Glad I decided to pop into PIAS after work!!!",
+      "text": "Glad I decided to pop into PIAS after work!!!",
+      "url": "https://reddit.com/r/discgolf/comments/1qouykv/glad_i_decided_to_pop_into_pias_after_work/",
+      "score": 41,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qog839",
+      "title": "Put together a disc/bag rack while I was stuck at the house this weekend",
+      "text": "Put together a disc/bag rack while I was stuck at the house this weekend",
+      "url": "https://reddit.com/r/discgolf/comments/1qog839/put_together_a_discbag_rack_while_i_was_stuck_at/",
+      "score": 189,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qovar1",
+      "title": "Winter Disc Golf Appreciation Post/Thread",
+      "text": "Winter Disc Golf Appreciation Post/Thread",
+      "url": "https://reddit.com/r/discgolf/comments/1qovar1/winter_disc_golf_appreciation_postthread/",
+      "score": 34,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpoyaq",
+      "title": "What's missing",
+      "text": "What's missing",
+      "url": "https://reddit.com/r/discgolf/comments/1qpoyaq/whats_missing/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qot1uh",
+      "title": "The disc golfers hand lotion",
+      "text": "The disc golfers hand lotion",
+      "url": "https://reddit.com/r/discgolf/comments/1qot1uh/the_disc_golfers_hand_lotion/",
+      "score": 36,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoqeji",
+      "title": "Your Takes on Various 5-6 flippy mids",
+      "text": "Your Takes on Various 5-6 flippy mids",
+      "url": "https://reddit.com/r/discgolf/comments/1qoqeji/your_takes_on_various_56_flippy_mids/",
+      "score": 37,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoed4o",
+      "title": "[WEIRD DISC ALERT] PDGA Approved: Cryptid from Jester Disc Golf",
+      "text": "[WEIRD DISC ALERT] PDGA Approved: Cryptid from Jester Disc Golf",
+      "url": "https://reddit.com/r/discgolf/comments/1qoed4o/weird_disc_alert_pdga_approved_cryptid_from/",
+      "score": 77,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpr649",
+      "title": "Hva bruker dere for å lade glow-discer under runder?",
+      "text": "Hva bruker dere for å lade glow-discer under runder?",
+      "url": "https://reddit.com/r/discgolf/comments/1qpr649/hva_bruker_dere_for_å_lade_glowdiscer_under_runder/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qojrvo",
+      "title": "Whats your favorite approach disc?",
+      "text": "Whats your favorite approach disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1qojrvo/whats_your_favorite_approach_disc/",
+      "score": 32,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qouc9s",
+      "title": "What is a myth about winter disc golf?",
+      "text": "What is a myth about winter disc golf?",
+      "url": "https://reddit.com/r/discgolf/comments/1qouc9s/what_is_a_myth_about_winter_disc_golf/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoua4b",
+      "title": "More disc east pickups",
+      "text": "More disc east pickups",
+      "url": "https://reddit.com/r/discgolf/comments/1qoua4b/more_disc_east_pickups/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qonawh",
+      "title": "Floppy disc ACE!!!",
+      "text": "Floppy disc ACE!!!",
+      "url": "https://reddit.com/r/discgolf/comments/1qonawh/floppy_disc_ace/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpmbzh",
+      "title": "In the bag/flippy mid recommendations",
+      "text": "In the bag/flippy mid recommendations",
+      "url": "https://reddit.com/r/discgolf/comments/1qpmbzh/in_the_bagflippy_mid_recommendations/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qov3i6",
+      "title": "Advice for Announcing a Tournament",
+      "text": "Advice for Announcing a Tournament",
+      "url": "https://reddit.com/r/discgolf/comments/1qov3i6/advice_for_announcing_a_tournament/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qojdfo",
+      "title": "What's your shortest and longest ace?",
+      "text": "What's your shortest and longest ace?",
+      "url": "https://reddit.com/r/discgolf/comments/1qojdfo/whats_your_shortest_and_longest_ace/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qomgtj",
+      "title": "ARP | 2026 Savannah Open R1 Front | I. Robinson : Queen : Sides : Capps | MPO Feat. Card",
+      "text": "ARP | 2026 Savannah Open R1 Front | I. Robinson : Queen : Sides : Capps | MPO Feat. Card",
+      "url": "https://reddit.com/r/discgolf/comments/1qomgtj/arp_2026_savannah_open_r1_front_i_robinson_queen/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qokgdr",
+      "title": "Gateway goodies",
+      "text": "Gateway goodies",
+      "url": "https://reddit.com/r/discgolf/comments/1qokgdr/gateway_goodies/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qp0axc",
+      "title": "Proto Tomb",
+      "text": "Proto Tomb",
+      "url": "https://reddit.com/r/discgolf/comments/1qp0axc/proto_tomb/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoiwmn",
+      "title": "Buying/retnting discs in Tokyo?",
+      "text": "Buying/retnting discs in Tokyo?",
+      "url": "https://reddit.com/r/discgolf/comments/1qoiwmn/buyingretnting_discs_in_tokyo/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qohmvk",
+      "title": "Did udisc get ride of the putting game & throwing game?",
+      "text": "Did udisc get ride of the putting game & throwing game?",
+      "url": "https://reddit.com/r/discgolf/comments/1qohmvk/did_udisc_get_ride_of_the_putting_game_throwing/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoso9z",
+      "title": "2026 SkipAce.com Fantasy Disc Golf",
+      "text": "2026 SkipAce.com Fantasy Disc Golf",
+      "url": "https://reddit.com/r/discgolf/comments/1qoso9z/2026_skipacecom_fantasy_disc_golf/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnrri1",
+      "title": "I love how this custom dyed turned out",
+      "text": "I love how this custom dyed turned out",
+      "url": "https://reddit.com/r/discgolf/comments/1qnrri1/i_love_how_this_custom_dyed_turned_out/",
+      "score": 282,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnwj80",
+      "title": "New disc duo Fox",
+      "text": "New disc duo Fox",
+      "url": "https://reddit.com/r/discgolf/comments/1qnwj80/new_disc_duo_fox/",
+      "score": 96,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qngyuk",
+      "title": "My latest oil painting: Hole 1 Maple Hill",
+      "text": "My latest oil painting: Hole 1 Maple Hill",
+      "url": "https://reddit.com/r/discgolf/comments/1qngyuk/my_latest_oil_painting_hole_1_maple_hill/",
+      "score": 532,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnjg2a",
+      "title": "First birdie!",
+      "text": "First birdie!",
+      "url": "https://reddit.com/r/discgolf/comments/1qnjg2a/first_birdie/",
+      "score": 364,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qohusg",
+      "title": "Team challenge lunch",
+      "text": "Team challenge lunch",
+      "url": "https://reddit.com/r/discgolf/comments/1qohusg/team_challenge_lunch/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qor0ts",
+      "title": "Adding some color to bottom of discs",
+      "text": "Adding some color to bottom of discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qor0ts/adding_some_color_to_bottom_of_discs/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qh1k36",
+      "title": "POV: You booted up a cursed 90s DOS game and it wants you dead",
+      "text": "POV: You booted up a cursed 90s DOS game and it wants you dead",
+      "url": "https://reddit.com/user/AlawarGames/comments/1qh1k36/pov_you_booted_up_a_cursed_90s_dos_game_and_it/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qo94kp",
+      "title": "Less baggage in winter: Discs that take varying levels of power the best?",
+      "text": "Less baggage in winter: Discs that take varying levels of power the best?",
+      "url": "https://reddit.com/r/discgolf/comments/1qo94kp/less_baggage_in_winter_discs_that_take_varying/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qo1zbv",
+      "title": "11x Ken Climo L mold",
+      "text": "11x Ken Climo L mold",
+      "url": "https://reddit.com/r/discgolf/comments/1qo1zbv/11x_ken_climo_l_mold/",
+      "score": 16,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qodbmz",
+      "title": "Prodigy A3: With or Without Dome?",
+      "text": "Prodigy A3: With or Without Dome?",
+      "url": "https://reddit.com/r/discgolf/comments/1qodbmz/prodigy_a3_with_or_without_dome/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnqw4g",
+      "title": "New Zealand Open 🇳🇿 — Final Round Coverage | MVP Discs Tour Down Under Stop #3",
+      "text": "New Zealand Open 🇳🇿 — Final Round Coverage | MVP Discs Tour Down Under Stop #3",
+      "url": "https://reddit.com/r/discgolf/comments/1qnqw4g/new_zealand_open_final_round_coverage_mvp_discs/",
+      "score": 46,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnzjzs",
+      "title": "PDGA membership questions",
+      "text": "PDGA membership questions",
+      "url": "https://reddit.com/r/discgolf/comments/1qnzjzs/pdga_membership_questions/",
+      "score": 14,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn90f1",
+      "title": "Tesla hummingbird ace",
+      "text": "Tesla hummingbird ace",
+      "url": "https://reddit.com/r/discgolf/comments/1qn90f1/tesla_hummingbird_ace/",
+      "score": 387,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnyug8",
+      "title": "New Zealand Open 🇳🇿 — Final Round FPO Coverage | MVP Discs Tour Down Under Stop #3",
+      "text": "New Zealand Open 🇳🇿 — Final Round FPO Coverage | MVP Discs Tour Down Under Stop #3",
+      "url": "https://reddit.com/r/discgolf/comments/1qnyug8/new_zealand_open_final_round_fpo_coverage_mvp/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnj5zi",
+      "title": "Simon Line Bokeh, Eagle McMahon Engine, and more from MVP 👇",
+      "text": "Simon Line Bokeh, Eagle McMahon Engine, and more from MVP 👇",
+      "url": "https://reddit.com/r/discgolf/comments/1qnj5zi/simon_line_bokeh_eagle_mcmahon_engine_and_more/",
+      "score": 72,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnh32r",
+      "title": "An Addendum to My Lems Shoes Endorsement",
+      "text": "An Addendum to My Lems Shoes Endorsement",
+      "url": "https://reddit.com/r/discgolf/comments/1qnh32r/an_addendum_to_my_lems_shoes_endorsement/",
+      "score": 57,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qol9eo",
+      "title": "Disc id?",
+      "text": "Disc id?",
+      "url": "https://reddit.com/r/discgolf/comments/1qol9eo/disc_id/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnof30",
+      "title": "Innova Historians - Innova X Molds",
+      "text": "Innova Historians - Innova X Molds",
+      "url": "https://reddit.com/r/discgolf/comments/1qnof30/innova_historians_innova_x_molds/",
+      "score": 25,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qo5jkb",
+      "title": "Supreme Prototype EMAC Truth vs Lucid",
+      "text": "Supreme Prototype EMAC Truth vs Lucid",
+      "url": "https://reddit.com/r/discgolf/comments/1qo5jkb/supreme_prototype_emac_truth_vs_lucid/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qo9re2",
+      "title": "Form Check Weekly",
+      "text": "Form Check Weekly",
+      "url": "https://reddit.com/r/discgolf/comments/1qo9re2/form_check_weekly/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn3vh5",
+      "title": "Corey Ellis to RPM discs",
+      "text": "Corey Ellis to RPM discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qn3vh5/corey_ellis_to_rpm_discs/",
+      "score": 289,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qndmdi",
+      "title": "Saw this on Insta. Rich people and frisbees.",
+      "text": "Saw this on Insta. Rich people and frisbees.",
+      "url": "https://reddit.com/r/discgolf/comments/1qndmdi/saw_this_on_insta_rich_people_and_frisbees/",
+      "score": 52,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qoiwmq",
+      "title": "Off axis",
+      "text": "Off axis",
+      "url": "https://reddit.com/r/discgolf/comments/1qoiwmq/off_axis/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qokjlo",
+      "title": "Off axis overhead view, really shows why you lose disc speed when you are off axis",
+      "text": "Off axis overhead view, really shows why you lose disc speed when you are off axis",
+      "url": "https://reddit.com/r/discgolf/comments/1qokjlo/off_axis_overhead_view_really_shows_why_you_lose/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmwrc8",
+      "title": "Disc golfing in 5° (Central OK)",
+      "text": "Disc golfing in 5° (Central OK)",
+      "url": "https://reddit.com/r/discgolf/comments/1qmwrc8/disc_golfing_in_5_central_ok/",
+      "score": 386,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnydd2",
+      "title": "Discraft Drone runs",
+      "text": "Discraft Drone runs",
+      "url": "https://reddit.com/r/discgolf/comments/1qnydd2/discraft_drone_runs/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn06s6",
+      "title": "Aaron Gossage - La Mirada Open A-Tier",
+      "text": "Aaron Gossage - La Mirada Open A-Tier",
+      "url": "https://reddit.com/r/discgolf/comments/1qn06s6/aaron_gossage_la_mirada_open_atier/",
+      "score": 163,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnb1pr",
+      "title": "Tried to split the trees, split my disc instead 🙃",
+      "text": "Tried to split the trees, split my disc instead 🙃",
+      "url": "https://reddit.com/r/discgolf/comments/1qnb1pr/tried_to_split_the_trees_split_my_disc_instead/",
+      "score": 31,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1hhgblf",
+      "title": "The everything app, for work. Get everyone working in a single platform designed to manage any type of work.",
+      "text": "The everything app, for work. Get everyone working in a single platform designed to manage any type of work.",
+      "url": "https://reddit.com/user/ClickUp_App/comments/1hhgblf/the_everything_app_for_work_get_everyone_working/",
+      "score": 1260,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmzf1l",
+      "title": "Continuing their trend of big name signings, AGL signs Bradley Williams!",
+      "text": "Continuing their trend of big name signings, AGL signs Bradley Williams!",
+      "url": "https://reddit.com/r/discgolf/comments/1qmzf1l/continuing_their_trend_of_big_name_signings_agl/",
+      "score": 168,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qo1k56",
+      "title": "Were first run Athenas a less stable run?",
+      "text": "Were first run Athenas a less stable run?",
+      "url": "https://reddit.com/r/discgolf/comments/1qo1k56/were_first_run_athenas_a_less_stable_run/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn3ouo",
+      "title": "I didn’t realize how lucky I got with this rim/flight plate color combination. Looks gorgeous",
+      "text": "I didn’t realize how lucky I got with this rim/flight plate color combination. Looks gorgeous",
+      "url": "https://reddit.com/r/discgolf/comments/1qn3ouo/i_didnt_realize_how_lucky_i_got_with_this/",
+      "score": 78,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn47o3",
+      "title": "Rain or snow, I still suck.",
+      "text": "Rain or snow, I still suck.",
+      "url": "https://reddit.com/r/discgolf/comments/1qn47o3/rain_or_snow_i_still_suck/",
+      "score": 58,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnynuf",
+      "title": "A question for the Vegas locals.",
+      "text": "A question for the Vegas locals.",
+      "url": "https://reddit.com/r/discgolf/comments/1qnynuf/a_question_for_the_vegas_locals/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmzje0",
+      "title": "Big Jerm MVP bag?",
+      "text": "Big Jerm MVP bag?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmzje0/big_jerm_mvp_bag/",
+      "score": 99,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnxxkk",
+      "title": "Hole Mailcall Batman",
+      "text": "Hole Mailcall Batman",
+      "url": "https://reddit.com/r/discgolf/comments/1qnxxkk/hole_mailcall_batman/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnx1su",
+      "title": "Chump chalk?",
+      "text": "Chump chalk?",
+      "url": "https://reddit.com/r/discgolf/comments/1qnx1su/chump_chalk/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmr4fw",
+      "title": "Emily Weatherman announces sponsorship by AGL",
+      "text": "Emily Weatherman announces sponsorship by AGL",
+      "url": "https://reddit.com/r/discgolf/comments/1qmr4fw/emily_weatherman_announces_sponsorship_by_agl/",
+      "score": 186,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnlbyo",
+      "title": "Swenson Park Course and California.",
+      "text": "Swenson Park Course and California.",
+      "url": "https://reddit.com/r/discgolf/comments/1qnlbyo/swenson_park_course_and_california/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qms284",
+      "title": "My WhatNot scores are becoming addictive, but costing me a lot of money.",
+      "text": "My WhatNot scores are becoming addictive, but costing me a lot of money.",
+      "url": "https://reddit.com/r/discgolf/comments/1qms284/my_whatnot_scores_are_becoming_addictive_but/",
+      "score": 156,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnv6mg",
+      "title": "MVP DD",
+      "text": "MVP DD",
+      "url": "https://reddit.com/r/discgolf/comments/1qnv6mg/mvp_dd/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn4bg8",
+      "title": "Any love for wizards?",
+      "text": "Any love for wizards?",
+      "url": "https://reddit.com/r/discgolf/comments/1qn4bg8/any_love_for_wizards/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn65em",
+      "title": "What's some advice from those in the 400ft club?",
+      "text": "What's some advice from those in the 400ft club?",
+      "url": "https://reddit.com/r/discgolf/comments/1qn65em/whats_some_advice_from_those_in_the_400ft_club/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmom96",
+      "title": "Disc east was so cool!",
+      "text": "Disc east was so cool!",
+      "url": "https://reddit.com/r/discgolf/comments/1qmom96/disc_east_was_so_cool/",
+      "score": 99,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn6obi",
+      "title": "Check these stamps!",
+      "text": "Check these stamps!",
+      "url": "https://reddit.com/r/discgolf/comments/1qn6obi/check_these_stamps/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmoe5l",
+      "title": "Big shoutout to Issac Robinson",
+      "text": "Big shoutout to Issac Robinson",
+      "url": "https://reddit.com/r/discgolf/comments/1qmoe5l/big_shoutout_to_issac_robinson/",
+      "score": 89,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmvgs7",
+      "title": "Practice Target for putting and such",
+      "text": "Practice Target for putting and such",
+      "url": "https://reddit.com/r/discgolf/comments/1qmvgs7/practice_target_for_putting_and_such/",
+      "score": 35,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmx3x7",
+      "title": "Little luck on my putter",
+      "text": "Little luck on my putter",
+      "url": "https://reddit.com/r/discgolf/comments/1qmx3x7/little_luck_on_my_putter/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn3d6e",
+      "title": "Discraft plastics",
+      "text": "Discraft plastics",
+      "url": "https://reddit.com/r/discgolf/comments/1qn3d6e/discraft_plastics/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmkf3n",
+      "title": "Pure sadness",
+      "text": "Pure sadness",
+      "url": "https://reddit.com/r/discgolf/comments/1qmkf3n/pure_sadness/",
+      "score": 59,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnizi0",
+      "title": "Where am I leaking power?",
+      "text": "Where am I leaking power?",
+      "url": "https://reddit.com/r/discgolf/comments/1qnizi0/where_am_i_leaking_power/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmm723",
+      "title": "Anyone actually bagging an Ultra Luna?",
+      "text": "Anyone actually bagging an Ultra Luna?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmm723/anyone_actually_bagging_an_ultra_luna/",
+      "score": 38,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmnb30",
+      "title": "Ice Bowl Fundraiser",
+      "text": "Ice Bowl Fundraiser",
+      "url": "https://reddit.com/r/discgolf/comments/1qmnb30/ice_bowl_fundraiser/",
+      "score": 27,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmnxhi",
+      "title": "Still gotta get my reps in",
+      "text": "Still gotta get my reps in",
+      "url": "https://reddit.com/r/discgolf/comments/1qmnxhi/still_gotta_get_my_reps_in/",
+      "score": 22,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qnm825",
+      "title": "Bokeh and Engine Preorders LIVE!!!",
+      "text": "Bokeh and Engine Preorders LIVE!!!",
+      "url": "https://reddit.com/r/discgolf/comments/1qnm825/bokeh_and_engine_preorders_live/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qly4zh",
+      "title": "Is this real life?!",
+      "text": "Is this real life?!",
+      "url": "https://reddit.com/r/discgolf/comments/1qly4zh/is_this_real_life/",
+      "score": 674,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmntd9",
+      "title": "Ken Climo GRIPeq Bag - Disc East",
+      "text": "Ken Climo GRIPeq Bag - Disc East",
+      "url": "https://reddit.com/r/discgolf/comments/1qmntd9/ken_climo_gripeq_bag_disc_east/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn1paw",
+      "title": "Hazard off the tee-shot only",
+      "text": "Hazard off the tee-shot only",
+      "url": "https://reddit.com/r/discgolf/comments/1qn1paw/hazard_off_the_teeshot_only/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmqnpq",
+      "title": "random thought",
+      "text": "random thought",
+      "url": "https://reddit.com/r/discgolf/comments/1qmqnpq/random_thought/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmrng9",
+      "title": "What would you bag if you could only use discs made of recycled plastics?",
+      "text": "What would you bag if you could only use discs made of recycled plastics?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmrng9/what_would_you_bag_if_you_could_only_use_discs/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm0ash",
+      "title": "FIRST ACE!",
+      "text": "FIRST ACE!",
+      "url": "https://reddit.com/r/discgolf/comments/1qm0ash/first_ace/",
+      "score": 241,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmlos0",
+      "title": "MVP Servo Plastic Recommendation",
+      "text": "MVP Servo Plastic Recommendation",
+      "url": "https://reddit.com/r/discgolf/comments/1qmlos0/mvp_servo_plastic_recommendation/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmjhkr",
+      "title": "Best tomahawk disc?",
+      "text": "Best tomahawk disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmjhkr/best_tomahawk_disc/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlz3pg",
+      "title": "Started off my round with an ace this morning!",
+      "text": "Started off my round with an ace this morning!",
+      "url": "https://reddit.com/r/discgolf/comments/1qlz3pg/started_off_my_round_with_an_ace_this_morning/",
+      "score": 163,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm7rii",
+      "title": "New Zealand? Are these courses on go throw coverage open year round or just temp? Thinking of moving there. My country sucks right now. Bet you can't guess which one. Happy golfing!",
+      "text": "New Zealand? Are these courses on go throw coverage open year round or just temp? Thinking of moving there. My country sucks right now. Bet you can't guess which one. Happy golfing!",
+      "url": "https://reddit.com/r/discgolf/comments/1qm7rii/new_zealand_are_these_courses_on_go_throw/",
+      "score": 48,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmsvjw",
+      "title": "Infinite sphinx recommendations",
+      "text": "Infinite sphinx recommendations",
+      "url": "https://reddit.com/r/discgolf/comments/1qmsvjw/infinite_sphinx_recommendations/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm9l1y",
+      "title": "Pyro is so freaking nice",
+      "text": "Pyro is so freaking nice",
+      "url": "https://reddit.com/r/discgolf/comments/1qm9l1y/pyro_is_so_freaking_nice/",
+      "score": 32,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmw1u9",
+      "title": "Any idea what disc this is?",
+      "text": "Any idea what disc this is?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmw1u9/any_idea_what_disc_this_is/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmtq90",
+      "title": "Course record (968 rated) for junior girls at Timmons!",
+      "text": "Course record (968 rated) for junior girls at Timmons!",
+      "url": "https://reddit.com/r/discgolf/comments/1qmtq90/course_record_968_rated_for_junior_girls_at/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm5yu1",
+      "title": "Pushing-curl throw model for +spin and better power pocket (long & short ver)",
+      "text": "Pushing-curl throw model for +spin and better power pocket (long & short ver)",
+      "url": "https://reddit.com/r/discgolf/comments/1qm5yu1/pushingcurl_throw_model_for_spin_and_better_power/",
+      "score": 26,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qltzql",
+      "title": "Mario Shells Disc Dye",
+      "text": "Mario Shells Disc Dye",
+      "url": "https://reddit.com/r/discgolf/comments/1qltzql/mario_shells_disc_dye/",
+      "score": 112,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlyp7o",
+      "title": "Disc East: Mission Accomplished",
+      "text": "Disc East: Mission Accomplished",
+      "url": "https://reddit.com/r/discgolf/comments/1qlyp7o/disc_east_mission_accomplished/",
+      "score": 55,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlu74w",
+      "title": "Donate 11 Discs and Shoulder Bag to New Player in MN",
+      "text": "Donate 11 Discs and Shoulder Bag to New Player in MN",
+      "url": "https://reddit.com/r/discgolf/comments/1qlu74w/donate_11_discs_and_shoulder_bag_to_new_player_in/",
+      "score": 83,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlsexe",
+      "title": "J-Milly on Team Discmania",
+      "text": "J-Milly on Team Discmania",
+      "url": "https://reddit.com/r/discgolf/comments/1qlsexe/jmilly_on_team_discmania/",
+      "score": 90,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmafoj",
+      "title": "Whale Rock vs Heilmann Park",
+      "text": "Whale Rock vs Heilmann Park",
+      "url": "https://reddit.com/r/discgolf/comments/1qmafoj/whale_rock_vs_heilmann_park/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlznn3",
+      "title": "Replacing US brand discs in my bag",
+      "text": "Replacing US brand discs in my bag",
+      "url": "https://reddit.com/r/discgolf/comments/1qlznn3/replacing_us_brand_discs_in_my_bag/",
+      "score": 33,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmzrrb",
+      "title": "Cold weather blues",
+      "text": "Cold weather blues",
+      "url": "https://reddit.com/r/discgolf/comments/1qmzrrb/cold_weather_blues/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm09u4",
+      "title": "New Zealand Open 🇳🇿 — Round 1 Coverage | MVP Discs Tour Down Under Stop #3",
+      "text": "New Zealand Open 🇳🇿 — Round 1 Coverage | MVP Discs Tour Down Under Stop #3",
+      "url": "https://reddit.com/r/discgolf/comments/1qm09u4/new_zealand_open_round_1_coverage_mvp_discs_tour/",
+      "score": 27,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm299c",
+      "title": "Vaccum dome Neon from Loft",
+      "text": "Vaccum dome Neon from Loft",
+      "url": "https://reddit.com/r/discgolf/comments/1qm299c/vaccum_dome_neon_from_loft/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qn1rha",
+      "title": "Do you actually want to brace with your front leg?",
+      "text": "Do you actually want to brace with your front leg?",
+      "url": "https://reddit.com/r/discgolf/comments/1qn1rha/do_you_actually_want_to_brace_with_your_front_leg/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlqj9g",
+      "title": "New throwing putter",
+      "text": "New throwing putter",
+      "url": "https://reddit.com/r/discgolf/comments/1qlqj9g/new_throwing_putter/",
+      "score": 60,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1lzhv5s",
+      "title": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "text": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "url": "https://reddit.com/user/Dating-Insider/comments/1lzhv5s/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmlzvd",
+      "title": "Day 1 throw training",
+      "text": "Day 1 throw training",
+      "url": "https://reddit.com/r/discgolf/comments/1qmlzvd/day_1_throw_training/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm4qvl",
+      "title": "I got some really awesome stuff in the mail today!",
+      "text": "I got some really awesome stuff in the mail today!",
+      "url": "https://reddit.com/r/discgolf/comments/1qm4qvl/i_got_some_really_awesome_stuff_in_the_mail_today/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmbz8a",
+      "title": "Winter putting leagues…have one in your area?",
+      "text": "Winter putting leagues…have one in your area?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmbz8a/winter_putting_leagueshave_one_in_your_area/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmaeaf",
+      "title": "G Star Destroyer",
+      "text": "G Star Destroyer",
+      "url": "https://reddit.com/r/discgolf/comments/1qmaeaf/g_star_destroyer/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qluieo",
+      "title": "DGPT FPO Total Rankings",
+      "text": "DGPT FPO Total Rankings",
+      "url": "https://reddit.com/r/discgolf/comments/1qluieo/dgpt_fpo_total_rankings/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm6puf",
+      "title": "Small Bag help",
+      "text": "Small Bag help",
+      "url": "https://reddit.com/r/discgolf/comments/1qm6puf/small_bag_help/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmoq9b",
+      "title": "We underestimated this course badly — what line would you actually set here?",
+      "text": "We underestimated this course badly — what line would you actually set here?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmoq9b/we_underestimated_this_course_badly_what_line/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmzcbq",
+      "title": "What’s a disc golf YouTube title that if you saw it you’d instantly click on?",
+      "text": "What’s a disc golf YouTube title that if you saw it you’d instantly click on?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmzcbq/whats_a_disc_golf_youtube_title_that_if_you_saw/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlvxdt",
+      "title": "Favorite small catch disc?",
+      "text": "Favorite small catch disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1qlvxdt/favorite_small_catch_disc/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlpiw4",
+      "title": "2026 Asia Open • Round 3 • Front 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)",
+      "text": "2026 Asia Open • Round 3 • Front 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)",
+      "url": "https://reddit.com/r/discgolf/comments/1qlpiw4/2026_asia_open_round_3_front_9_calvin_heimburg/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm0hsr",
+      "title": "Full Prodigy Bag Suggestions",
+      "text": "Full Prodigy Bag Suggestions",
+      "url": "https://reddit.com/r/discgolf/comments/1qm0hsr/full_prodigy_bag_suggestions/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qqqv73",
+      "title": "Sign in with Steam to earn Steam Rewards",
+      "text": "Sign in with Steam to earn Steam Rewards",
+      "url": "https://reddit.com/user/ImmutablePlay/comments/1qqqv73/sign_in_with_steam_to_earn_steam_rewards/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qmn9u0",
+      "title": "Texas disc golfer here. Do I need latitude discs for this weather?",
+      "text": "Texas disc golfer here. Do I need latitude discs for this weather?",
+      "url": "https://reddit.com/r/discgolf/comments/1qmn9u0/texas_disc_golfer_here_do_i_need_latitude_discs/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qler8u",
+      "title": "Too cold?",
+      "text": "Too cold?",
+      "url": "https://reddit.com/r/discgolf/comments/1qler8u/too_cold/",
+      "score": 75,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlpndj",
+      "title": "2026 Asia Open • Round 3 • Back 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)",
+      "text": "2026 Asia Open • Round 3 • Back 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)",
+      "url": "https://reddit.com/r/discgolf/comments/1qlpndj/2026_asia_open_round_3_back_9_calvin_heimburg/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlygz6",
+      "title": "What the most you’ve paid to play disc golf?",
+      "text": "What the most you’ve paid to play disc golf?",
+      "url": "https://reddit.com/r/discgolf/comments/1qlygz6/what_the_most_youve_paid_to_play_disc_golf/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlygna",
+      "title": "Local Shop Snag",
+      "text": "Local Shop Snag",
+      "url": "https://reddit.com/r/discgolf/comments/1qlygna/local_shop_snag/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm9xqt",
+      "title": "I have 2 kastaplast Grym X bit in of them have the flight numbers, 12,5,0,3 and the other has 12,5,-1,3 and I can’t figure out which flight numbers are correct",
+      "text": "I have 2 kastaplast Grym X bit in of them have the flight numbers, 12,5,0,3 and the other has 12,5,-1,3 and I can’t figure out which flight numbers are correct",
+      "url": "https://reddit.com/r/discgolf/comments/1qm9xqt/i_have_2_kastaplast_grym_x_bit_in_of_them_have/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm50iq",
+      "title": "OB strokes",
+      "text": "OB strokes",
+      "url": "https://reddit.com/r/discgolf/comments/1qm50iq/ob_strokes/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlk5th",
+      "title": "Prediction: Best selling discs 2025",
+      "text": "Prediction: Best selling discs 2025",
+      "url": "https://reddit.com/r/discgolf/comments/1qlk5th/prediction_best_selling_discs_2025/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlr5r8",
+      "title": "Must-play courses between Palm Springs, CA and Sedona, AZ",
+      "text": "Must-play courses between Palm Springs, CA and Sedona, AZ",
+      "url": "https://reddit.com/r/discgolf/comments/1qlr5r8/mustplay_courses_between_palm_springs_ca_and/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlmixm",
+      "title": "Millennium Discs. Draco v Scorpius v Vela",
+      "text": "Millennium Discs. Draco v Scorpius v Vela",
+      "url": "https://reddit.com/r/discgolf/comments/1qlmixm/millennium_discs_draco_v_scorpius_v_vela/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql1f3t",
+      "title": "Trash Panda Signs Lucas Carmichael",
+      "text": "Trash Panda Signs Lucas Carmichael",
+      "url": "https://reddit.com/r/discgolf/comments/1ql1f3t/trash_panda_signs_lucas_carmichael/",
+      "score": 155,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkxht7",
+      "title": "Goose to MVP makes perfect sense",
+      "text": "Goose to MVP makes perfect sense",
+      "url": "https://reddit.com/r/discgolf/comments/1qkxht7/goose_to_mvp_makes_perfect_sense/",
+      "score": 202,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlebz1",
+      "title": "Bags built for different manufacturers",
+      "text": "Bags built for different manufacturers",
+      "url": "https://reddit.com/r/discgolf/comments/1qlebz1/bags_built_for_different_manufacturers/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql5165",
+      "title": "DGPT Total Rankings",
+      "text": "DGPT Total Rankings",
+      "url": "https://reddit.com/r/discgolf/comments/1ql5165/dgpt_total_rankings/",
+      "score": 44,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qm6vfa",
+      "title": "If you could put a bag together with only fantasy themed discs what would in it?",
+      "text": "If you could put a bag together with only fantasy themed discs what would in it?",
+      "url": "https://reddit.com/r/discgolf/comments/1qm6vfa/if_you_could_put_a_bag_together_with_only_fantasy/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql0ztd",
+      "title": "I decided to impulse buy the very last Gyropalooza box available from Six Sided Discs",
+      "text": "I decided to impulse buy the very last Gyropalooza box available from Six Sided Discs",
+      "url": "https://reddit.com/r/discgolf/comments/1ql0ztd/i_decided_to_impulse_buy_the_very_last/",
+      "score": 50,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlww6i",
+      "title": "2036",
+      "text": "2036",
+      "url": "https://reddit.com/r/discgolf/comments/1qlww6i/2036/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql5bvn",
+      "title": "Anyone know if these are any good?",
+      "text": "Anyone know if these are any good?",
+      "url": "https://reddit.com/r/discgolf/comments/1ql5bvn/anyone_know_if_these_are_any_good/",
+      "score": 20,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql2z0s",
+      "title": "Best used bin finds?",
+      "text": "Best used bin finds?",
+      "url": "https://reddit.com/r/discgolf/comments/1ql2z0s/best_used_bin_finds/",
+      "score": 26,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkvqix",
+      "title": "Innova F2 Friday dropped: Halo Tern",
+      "text": "Innova F2 Friday dropped: Halo Tern",
+      "url": "https://reddit.com/r/discgolf/comments/1qkvqix/innova_f2_friday_dropped_halo_tern/",
+      "score": 49,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkythi",
+      "title": "Most famous disc of all time?",
+      "text": "Most famous disc of all time?",
+      "url": "https://reddit.com/r/discgolf/comments/1qkythi/most_famous_disc_of_all_time/",
+      "score": 34,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qlz1tv",
+      "title": "Discgolf",
+      "text": "Discgolf",
+      "url": "https://reddit.com/r/discgolf/comments/1qlz1tv/discgolf/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql1ohk",
+      "title": "Westsides 2026 team video- YouTube",
+      "text": "Westsides 2026 team video- YouTube",
+      "url": "https://reddit.com/r/discgolf/comments/1ql1ohk/westsides_2026_team_video_youtube/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qla4ib",
+      "title": "Disc ID",
+      "text": "Disc ID",
+      "url": "https://reddit.com/r/discgolf/comments/1qla4ib/disc_id/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkxs6a",
+      "title": "New Disc Craft test flights.",
+      "text": "New Disc Craft test flights.",
+      "url": "https://reddit.com/r/discgolf/comments/1qkxs6a/new_disc_craft_test_flights/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk39g6",
+      "title": "HALF-LIFE & PORTAL Inspired physics-based puzzle adventure - Wishlist SECTOR ZERO on Steam! - Coming February 3, 2026",
+      "text": "HALF-LIFE & PORTAL Inspired physics-based puzzle adventure - Wishlist SECTOR ZERO on Steam! - Coming February 3, 2026",
+      "url": "https://reddit.com/user/sector-zero/comments/1qk39g6/halflife_portal_inspired_physicsbased_puzzle/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkw00l",
+      "title": "Elites Buzzz",
+      "text": "Elites Buzzz",
+      "url": "https://reddit.com/r/discgolf/comments/1qkw00l/elites_buzzz/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkms58",
+      "title": "Pleasantly surprised having to disc golf with non dominant hand after injury",
+      "text": "Pleasantly surprised having to disc golf with non dominant hand after injury",
+      "url": "https://reddit.com/r/discgolf/comments/1qkms58/pleasantly_surprised_having_to_disc_golf_with_non/",
+      "score": 35,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkwzls",
+      "title": "Zeus 2.0 - disc Paul was testing on his course record video?",
+      "text": "Zeus 2.0 - disc Paul was testing on his course record video?",
+      "url": "https://reddit.com/r/discgolf/comments/1qkwzls/zeus_20_disc_paul_was_testing_on_his_course/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qke4qo",
+      "title": "This disc and plastic type combo is really unfortunate",
+      "text": "This disc and plastic type combo is really unfortunate",
+      "url": "https://reddit.com/r/discgolf/comments/1qke4qo/this_disc_and_plastic_type_combo_is_really/",
+      "score": 88,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qktoa9",
+      "title": "Wobble/OAT on short FH approach shots…",
+      "text": "Wobble/OAT on short FH approach shots…",
+      "url": "https://reddit.com/r/discgolf/comments/1qktoa9/wobbleoat_on_short_fh_approach_shots/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qky5k0",
+      "title": "How are the new Trash Panda Inner Core baseline plastic compared to other putter plastics?",
+      "text": "How are the new Trash Panda Inner Core baseline plastic compared to other putter plastics?",
+      "url": "https://reddit.com/r/discgolf/comments/1qky5k0/how_are_the_new_trash_panda_inner_core_baseline/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkrc1e",
+      "title": "Replacement for MVP Photon (Proton plastic)",
+      "text": "Replacement for MVP Photon (Proton plastic)",
+      "url": "https://reddit.com/r/discgolf/comments/1qkrc1e/replacement_for_mvp_photon_proton_plastic/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk52e0",
+      "title": "Big Jerm",
+      "text": "Big Jerm",
+      "url": "https://reddit.com/r/discgolf/comments/1qk52e0/big_jerm/",
+      "score": 110,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql2v1k",
+      "title": "What can anyone tell me about this disc?",
+      "text": "What can anyone tell me about this disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1ql2v1k/what_can_anyone_tell_me_about_this_disc/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjvjt2",
+      "title": "Joey Tamali no longer with MVP",
+      "text": "Joey Tamali no longer with MVP",
+      "url": "https://reddit.com/r/discgolf/comments/1qjvjt2/joey_tamali_no_longer_with_mvp/",
+      "score": 229,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkozpo",
+      "title": "Unique PDGA player data",
+      "text": "Unique PDGA player data",
+      "url": "https://reddit.com/r/discgolf/comments/1qkozpo/unique_pdga_player_data/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjr4qu",
+      "title": "We just had Kristin Lätt and Niklas Anttila in the studio for Disc Golf Masters. Who should we bring in next?",
+      "text": "We just had Kristin Lätt and Niklas Anttila in the studio for Disc Golf Masters. Who should we bring in next?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjr4qu/we_just_had_kristin_lätt_and_niklas_anttila_in/",
+      "score": 306,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk22ue",
+      "title": "Winter Disc Golf in New England",
+      "text": "Winter Disc Golf in New England",
+      "url": "https://reddit.com/r/discgolf/comments/1qk22ue/winter_disc_golf_in_new_england/",
+      "score": 70,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql8a3e",
+      "title": "Anyone familiar with this disc",
+      "text": "Anyone familiar with this disc",
+      "url": "https://reddit.com/r/discgolf/comments/1ql8a3e/anyone_familiar_with_this_disc/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qklvxy",
+      "title": "I am playing Armco Park every week until Insoot under par: week 4.",
+      "text": "I am playing Armco Park every week until Insoot under par: week 4.",
+      "url": "https://reddit.com/r/discgolf/comments/1qklvxy/i_am_playing_armco_park_every_week_until_insoot/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkeumi",
+      "title": "The 7th Annual Khmer Cup Presented by Watercharity.org - Sign up now!",
+      "text": "The 7th Annual Khmer Cup Presented by Watercharity.org - Sign up now!",
+      "url": "https://reddit.com/r/discgolf/comments/1qkeumi/the_7th_annual_khmer_cup_presented_by/",
+      "score": 13,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkmvp0",
+      "title": "Mail Call Weekly",
+      "text": "Mail Call Weekly",
+      "url": "https://reddit.com/r/discgolf/comments/1qkmvp0/mail_call_weekly/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql3wns",
+      "title": "Prodigy Bag Building",
+      "text": "Prodigy Bag Building",
+      "url": "https://reddit.com/r/discgolf/comments/1ql3wns/prodigy_bag_building/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkf5uz",
+      "title": "What plastic is (was) this?",
+      "text": "What plastic is (was) this?",
+      "url": "https://reddit.com/r/discgolf/comments/1qkf5uz/what_plastic_is_was_this/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkl79y",
+      "title": "Disc golfing after cataract surgery",
+      "text": "Disc golfing after cataract surgery",
+      "url": "https://reddit.com/r/discgolf/comments/1qkl79y/disc_golfing_after_cataract_surgery/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkqs7f",
+      "title": "Where to order bag tags?",
+      "text": "Where to order bag tags?",
+      "url": "https://reddit.com/r/discgolf/comments/1qkqs7f/where_to_order_bag_tags/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkvxqt",
+      "title": "Straight putter Silva proxy vs notion vs anything",
+      "text": "Straight putter Silva proxy vs notion vs anything",
+      "url": "https://reddit.com/r/discgolf/comments/1qkvxqt/straight_putter_silva_proxy_vs_notion_vs_anything/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ql76ne",
+      "title": "Swoop - does it really matter",
+      "text": "Swoop - does it really matter",
+      "url": "https://reddit.com/r/discgolf/comments/1ql76ne/swoop_does_it_really_matter/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk5j6u",
+      "title": "Today’s PIAS snags",
+      "text": "Today’s PIAS snags",
+      "url": "https://reddit.com/r/discgolf/comments/1qk5j6u/todays_pias_snags/",
+      "score": 20,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjw46u",
+      "title": "OS Midrange Comparison: Lucid-X Verdict, Prism Neutron Pyro, Proline Quake",
+      "text": "OS Midrange Comparison: Lucid-X Verdict, Prism Neutron Pyro, Proline Quake",
+      "url": "https://reddit.com/r/discgolf/comments/1qjw46u/os_midrange_comparison_lucidx_verdict_prism/",
+      "score": 40,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjpcdd",
+      "title": "Our local Junior 11 years old is raising money for his season! Check him out. Ohio kid",
+      "text": "Our local Junior 11 years old is raising money for his season! Check him out. Ohio kid",
+      "url": "https://reddit.com/r/discgolf/comments/1qjpcdd/our_local_junior_11_years_old_is_raising_money/",
+      "score": 99,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkbmov",
+      "title": "Disc golf and feet",
+      "text": "Disc golf and feet",
+      "url": "https://reddit.com/r/discgolf/comments/1qkbmov/disc_golf_and_feet/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk3nc7",
+      "title": "Player Pack Item",
+      "text": "Player Pack Item",
+      "url": "https://reddit.com/r/discgolf/comments/1qk3nc7/player_pack_item/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk5vn3",
+      "title": "Can someone identify this disc",
+      "text": "Can someone identify this disc",
+      "url": "https://reddit.com/r/discgolf/comments/1qk5vn3/can_someone_identify_this_disc/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj9suy",
+      "title": "My favorite course (thus far)",
+      "text": "My favorite course (thus far)",
+      "url": "https://reddit.com/r/discgolf/comments/1qj9suy/my_favorite_course_thus_far/",
+      "score": 387,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj1x4z",
+      "title": "Welcome Aaron Gossage to Team MVP!",
+      "text": "Welcome Aaron Gossage to Team MVP!",
+      "url": "https://reddit.com/r/discgolf/comments/1qj1x4z/welcome_aaron_gossage_to_team_mvp/",
+      "score": 811,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qkqfkq",
+      "title": "What happen to my form. Any tips",
+      "text": "What happen to my form. Any tips",
+      "url": "https://reddit.com/r/discgolf/comments/1qkqfkq/what_happen_to_my_form_any_tips/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj2ncz",
+      "title": "New sponsor and new name. Big day for Arron.",
+      "text": "New sponsor and new name. Big day for Arron.",
+      "url": "https://reddit.com/r/discgolf/comments/1qj2ncz/new_sponsor_and_new_name_big_day_for_arron/",
+      "score": 588,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk6sop",
+      "title": "I played a full round with the PDGA membership tempo",
+      "text": "I played a full round with the PDGA membership tempo",
+      "url": "https://reddit.com/r/discgolf/comments/1qk6sop/i_played_a_full_round_with_the_pdga_membership/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj9tql",
+      "title": "2 minutes of pain",
+      "text": "2 minutes of pain",
+      "url": "https://reddit.com/r/discgolf/comments/1qj9tql/2_minutes_of_pain/",
+      "score": 236,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjlivv",
+      "title": "Bag 7 and 9 speeds?",
+      "text": "Bag 7 and 9 speeds?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjlivv/bag_7_and_9_speeds/",
+      "score": 34,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjszvn",
+      "title": "Forehand advice",
+      "text": "Forehand advice",
+      "url": "https://reddit.com/r/discgolf/comments/1qjszvn/forehand_advice/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjh0a1",
+      "title": "Paige & Kat battle the boys in OTB Skins Down Under | Ep #158",
+      "text": "Paige & Kat battle the boys in OTB Skins Down Under | Ep #158",
+      "url": "https://reddit.com/r/discgolf/comments/1qjh0a1/paige_kat_battle_the_boys_in_otb_skins_down_under/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjhbco",
+      "title": "Disc East in Jeopardy?",
+      "text": "Disc East in Jeopardy?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjhbco/disc_east_in_jeopardy/",
+      "score": 21,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj3mee",
+      "title": "A few sexy disc pics from recent years when I would enjoy taking a mail call on a photoshoot session in the backyard or even to the lake for some pics. Good memories, good times. I hope you enjoy .",
+      "text": "A few sexy disc pics from recent years when I would enjoy taking a mail call on a photoshoot session in the backyard or even to the lake for some pics. Good memories, good times. I hope you enjoy .",
+      "url": "https://reddit.com/r/discgolf/comments/1qj3mee/a_few_sexy_disc_pics_from_recent_years_when_i/",
+      "score": 43,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qixl1h",
+      "title": "2026 Asia Open • Round 2 • Front 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)",
+      "text": "2026 Asia Open • Round 2 • Front 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)",
+      "url": "https://reddit.com/r/discgolf/comments/1qixl1h/2026_asia_open_round_2_front_9_calvin_heimburg/",
+      "score": 73,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qa8tg3",
+      "title": "Conquer Empires in Age of Conquest IV",
+      "text": "Conquer Empires in Age of Conquest IV",
+      "url": "https://reddit.com/user/noblemaster/comments/1qa8tg3/conquer_empires_in_age_of_conquest_iv/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj5aox",
+      "title": "2026 Asia Open • Round 2 • Back 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)",
+      "text": "2026 Asia Open • Round 2 • Back 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)",
+      "url": "https://reddit.com/r/discgolf/comments/1qj5aox/2026_asia_open_round_2_back_9_calvin_heimburg/",
+      "score": 23,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj4o9b",
+      "title": "Range finder attachment",
+      "text": "Range finder attachment",
+      "url": "https://reddit.com/r/discgolf/comments/1qj4o9b/range_finder_attachment/",
+      "score": 19,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjos5w",
+      "title": "All my discs except the putters",
+      "text": "All my discs except the putters",
+      "url": "https://reddit.com/r/discgolf/comments/1qjos5w/all_my_discs_except_the_putters/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjytng",
+      "title": "2026 Pre-Season ITB",
+      "text": "2026 Pre-Season ITB",
+      "url": "https://reddit.com/r/discgolf/comments/1qjytng/2026_preseason_itb/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk5obf",
+      "title": "Do you guys measure throws straight, or include the side to side distance?",
+      "text": "Do you guys measure throws straight, or include the side to side distance?",
+      "url": "https://reddit.com/r/discgolf/comments/1qk5obf/do_you_guys_measure_throws_straight_or_include/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj0u9m",
+      "title": "Innova Arachnid predictions?",
+      "text": "Innova Arachnid predictions?",
+      "url": "https://reddit.com/r/discgolf/comments/1qj0u9m/innova_arachnid_predictions/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk5660",
+      "title": "Custom form feedback app",
+      "text": "Custom form feedback app",
+      "url": "https://reddit.com/r/discgolf/comments/1qk5660/custom_form_feedback_app/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjb8j3",
+      "title": "Best disc to try from the little guys?",
+      "text": "Best disc to try from the little guys?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjb8j3/best_disc_to_try_from_the_little_guys/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qii2g1",
+      "title": "The P Model S is being renamed to Good Boy in honor of Luke Humphries' dog",
+      "text": "The P Model S is being renamed to Good Boy in honor of Luke Humphries' dog",
+      "url": "https://reddit.com/r/discgolf/comments/1qii2g1/the_p_model_s_is_being_renamed_to_good_boy_in/",
+      "score": 260,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qk4c3i",
+      "title": "Would you use this?",
+      "text": "Would you use this?",
+      "url": "https://reddit.com/r/discgolf/comments/1qk4c3i/would_you_use_this/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiirga",
+      "title": "Hanna Huynh promoted to Discraft Elite Team for 2026",
+      "text": "Hanna Huynh promoted to Discraft Elite Team for 2026",
+      "url": "https://reddit.com/r/discgolf/comments/1qiirga/hanna_huynh_promoted_to_discraft_elite_team_for/",
+      "score": 198,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjkl31",
+      "title": "Disc Suggestions",
+      "text": "Disc Suggestions",
+      "url": "https://reddit.com/r/discgolf/comments/1qjkl31/disc_suggestions/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi6p2q",
+      "title": "Silas Schultz to team MVP",
+      "text": "Silas Schultz to team MVP",
+      "url": "https://reddit.com/r/discgolf/comments/1qi6p2q/silas_schultz_to_team_mvp/",
+      "score": 613,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjrvtt",
+      "title": "Another year, another ITB",
+      "text": "Another year, another ITB",
+      "url": "https://reddit.com/r/discgolf/comments/1qjrvtt/another_year_another_itb/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj8i4m",
+      "title": "Upper Park Shift fitting Retreiver Pole",
+      "text": "Upper Park Shift fitting Retreiver Pole",
+      "url": "https://reddit.com/r/discgolf/comments/1qj8i4m/upper_park_shift_fitting_retreiver_pole/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjz5yc",
+      "title": "If Simon left MVP for prodigy, would you guys actually throw prodigy and get rid of your MVP?",
+      "text": "If Simon left MVP for prodigy, would you guys actually throw prodigy and get rid of your MVP?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjz5yc/if_simon_left_mvp_for_prodigy_would_you_guys/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi94dz",
+      "title": "The Most Popular Disc Golf Course In Every U.S. State: 2025 | UDisc",
+      "text": "The Most Popular Disc Golf Course In Every U.S. State: 2025 | UDisc",
+      "url": "https://reddit.com/r/discgolf/comments/1qi94dz/the_most_popular_disc_golf_course_in_every_us/",
+      "score": 137,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiy44a",
+      "title": "So close",
+      "text": "So close",
+      "url": "https://reddit.com/r/discgolf/comments/1qiy44a/so_close/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qigvfw",
+      "title": "Mail call!",
+      "text": "Mail call!",
+      "url": "https://reddit.com/r/discgolf/comments/1qigvfw/mail_call/",
+      "score": 50,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj6she",
+      "title": "I’m now selling Custom course map wall decor!",
+      "text": "I’m now selling Custom course map wall decor!",
+      "url": "https://reddit.com/r/discgolf/comments/1qj6she/im_now_selling_custom_course_map_wall_decor/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjfvit",
+      "title": "What is this disc?",
+      "text": "What is this disc?",
+      "url": "https://reddit.com/r/discgolf/comments/1qjfvit/what_is_this_disc/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qifk9a",
+      "title": "Random disc pick, from infinite discs",
+      "text": "Random disc pick, from infinite discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qifk9a/random_disc_pick_from_infinite_discs/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi0ebo",
+      "title": "Always first available too",
+      "text": "Always first available too",
+      "url": "https://reddit.com/r/discgolf/comments/1qi0ebo/always_first_available_too/",
+      "score": 151,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi7xy0",
+      "title": "Why no love for the Invader?",
+      "text": "Why no love for the Invader?",
+      "url": "https://reddit.com/r/discgolf/comments/1qi7xy0/why_no_love_for_the_invader/",
+      "score": 53,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qikz6u",
+      "title": "I would have gone with \"Don't Go in the Kitchen\"...but if disc golf were to have a horror-thriller movie, what are the best movie titles?",
+      "text": "I would have gone with \"Don't Go in the Kitchen\"...but if disc golf were to have a horror-thriller movie, what are the best movie titles?",
+      "url": "https://reddit.com/r/discgolf/comments/1qikz6u/i_would_have_gone_with_dont_go_in_the_kitchenbut/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qibfr6",
+      "title": "2026 Innova Team Champion Series Discs",
+      "text": "2026 Innova Team Champion Series Discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qibfr6/2026_innova_team_champion_series_discs/",
+      "score": 30,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiln8g",
+      "title": "Looking to buy a basket",
+      "text": "Looking to buy a basket",
+      "url": "https://reddit.com/r/discgolf/comments/1qiln8g/looking_to_buy_a_basket/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiy167",
+      "title": "Need help identifying this disc!",
+      "text": "Need help identifying this disc!",
+      "url": "https://reddit.com/r/discgolf/comments/1qiy167/need_help_identifying_this_disc/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qjc44d",
+      "title": "Any Rare Discs??",
+      "text": "Any Rare Discs??",
+      "url": "https://reddit.com/r/discgolf/comments/1qjc44d/any_rare_discs/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi6wpp",
+      "title": "Shoutout Las Vegas Disc Golf Community!",
+      "text": "Shoutout Las Vegas Disc Golf Community!",
+      "url": "https://reddit.com/r/discgolf/comments/1qi6wpp/shoutout_las_vegas_disc_golf_community/",
+      "score": 32,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi1qrf",
+      "title": "Porto wolf",
+      "text": "Porto wolf",
+      "url": "https://reddit.com/r/discgolf/comments/1qi1qrf/porto_wolf/",
+      "score": 46,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi2xx6",
+      "title": "What Happened to uDisc Live?",
+      "text": "What Happened to uDisc Live?",
+      "url": "https://reddit.com/r/discgolf/comments/1qi2xx6/what_happened_to_udisc_live/",
+      "score": 36,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qj6y0k",
+      "title": "Disc East?",
+      "text": "Disc East?",
+      "url": "https://reddit.com/r/discgolf/comments/1qj6y0k/disc_east/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiiymq",
+      "title": "Can we talk about Corbettas?",
+      "text": "Can we talk about Corbettas?",
+      "url": "https://reddit.com/r/discgolf/comments/1qiiymq/can_we_talk_about_corbettas/",
+      "score": 4,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi3i5t",
+      "title": "Playing mid/approach only round today getting a feel for these 3",
+      "text": "Playing mid/approach only round today getting a feel for these 3",
+      "url": "https://reddit.com/r/discgolf/comments/1qi3i5t/playing_midapproach_only_round_today_getting_a/",
+      "score": 25,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qieump",
+      "title": "MVP R2 Neutron Color",
+      "text": "MVP R2 Neutron Color",
+      "url": "https://reddit.com/r/discgolf/comments/1qieump/mvp_r2_neutron_color/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qiamob",
+      "title": "Looking for slightly os midrange",
+      "text": "Looking for slightly os midrange",
+      "url": "https://reddit.com/r/discgolf/comments/1qiamob/looking_for_slightly_os_midrange/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhqm54",
+      "title": "Birdied out the round to take my first MA1 win!",
+      "text": "Birdied out the round to take my first MA1 win!",
+      "url": "https://reddit.com/r/discgolf/comments/1qhqm54/birdied_out_the_round_to_take_my_first_ma1_win/",
+      "score": 114,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi614e",
+      "title": "Springwood Skins",
+      "text": "Springwood Skins",
+      "url": "https://reddit.com/r/discgolf/comments/1qi614e/springwood_skins/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhngh8",
+      "title": "A guy walks into a store looking for a new Matrix...",
+      "text": "A guy walks into a store looking for a new Matrix...",
+      "url": "https://reddit.com/r/discgolf/comments/1qhngh8/a_guy_walks_into_a_store_looking_for_a_new_matrix/",
+      "score": 120,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi28xh",
+      "title": "Small bags that fit 32 Nalgene",
+      "text": "Small bags that fit 32 Nalgene",
+      "url": "https://reddit.com/r/discgolf/comments/1qi28xh/small_bags_that_fit_32_nalgene/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhmo7z",
+      "title": "The perfect 2 disc woods combo or : How I Learned to Stop Worrying and Love the ROC",
+      "text": "The perfect 2 disc woods combo or : How I Learned to Stop Worrying and Love the ROC",
+      "url": "https://reddit.com/r/discgolf/comments/1qhmo7z/the_perfect_2_disc_woods_combo_or_how_i_learned/",
+      "score": 81,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qh9uzp",
+      "title": "Cal Lonnquist to MVP.",
+      "text": "Cal Lonnquist to MVP.",
+      "url": "https://reddit.com/r/discgolf/comments/1qh9uzp/cal_lonnquist_to_mvp/",
+      "score": 284,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhiv91",
+      "title": "Sofia Donnecke signs with AGL Discs!",
+      "text": "Sofia Donnecke signs with AGL Discs!",
+      "url": "https://reddit.com/r/discgolf/comments/1qhiv91/sofia_donnecke_signs_with_agl_discs/",
+      "score": 100,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhnjfh",
+      "title": "Final Round: 2026 Discraft Australasian Open, presented by OTB Discs",
+      "text": "Final Round: 2026 Discraft Australasian Open, presented by OTB Discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qhnjfh/final_round_2026_discraft_australasian_open/",
+      "score": 47,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhkx1c",
+      "title": "What makes discs do this?",
+      "text": "What makes discs do this?",
+      "url": "https://reddit.com/r/discgolf/comments/1qhkx1c/what_makes_discs_do_this/",
+      "score": 58,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qipog9",
+      "title": "Cold outside, shoe recommendations?",
+      "text": "Cold outside, shoe recommendations?",
+      "url": "https://reddit.com/r/discgolf/comments/1qipog9/cold_outside_shoe_recommendations/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi09lk",
+      "title": "Latitude 64 Strive",
+      "text": "Latitude 64 Strive",
+      "url": "https://reddit.com/r/discgolf/comments/1qi09lk/latitude_64_strive/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1nwji9t",
+      "title": "Different PCI DSS 6.4.3 & 11.6.1 approaches compared in plain English",
+      "text": "Different PCI DSS 6.4.3 & 11.6.1 approaches compared in plain English",
+      "url": "https://reddit.com/user/csidedev/comments/1nwji9t/different_pci_dss_643_1161_approaches_compared_in/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhx4c8",
+      "title": "Form Check Weekly",
+      "text": "Form Check Weekly",
+      "url": "https://reddit.com/r/discgolf/comments/1qhx4c8/form_check_weekly/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhueww",
+      "title": "Deciding on a new approach disc in between Buzzz and Pyro",
+      "text": "Deciding on a new approach disc in between Buzzz and Pyro",
+      "url": "https://reddit.com/r/discgolf/comments/1qhueww/deciding_on_a_new_approach_disc_in_between_buzzz/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhrov2",
+      "title": "Disc golf mentioned on Tom Scott's Lateral quiz show",
+      "text": "Disc golf mentioned on Tom Scott's Lateral quiz show",
+      "url": "https://reddit.com/r/discgolf/comments/1qhrov2/disc_golf_mentioned_on_tom_scotts_lateral_quiz/",
+      "score": 10,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qigyqf",
+      "title": "Phoenix A",
+      "text": "Phoenix A",
+      "url": "https://reddit.com/r/discgolf/comments/1qigyqf/phoenix_a/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhmy1s",
+      "title": "Simon Line Time-Lapse Special Edition counter stamped lab second",
+      "text": "Simon Line Time-Lapse Special Edition counter stamped lab second",
+      "url": "https://reddit.com/r/discgolf/comments/1qhmy1s/simon_line_timelapse_special_edition_counter/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhog6t",
+      "title": "Mystery box :)",
+      "text": "Mystery box :)",
+      "url": "https://reddit.com/r/discgolf/comments/1qhog6t/mystery_box/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgsh0e",
+      "title": "Shoutout to Scott Stokely!",
+      "text": "Shoutout to Scott Stokely!",
+      "url": "https://reddit.com/r/discgolf/comments/1qgsh0e/shoutout_to_scott_stokely/",
+      "score": 503,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qid09q",
+      "title": "How long should I wait until sending a pestering email to a TD about winnings?",
+      "text": "How long should I wait until sending a pestering email to a TD about winnings?",
+      "url": "https://reddit.com/r/discgolf/comments/1qid09q/how_long_should_i_wait_until_sending_a_pestering/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhmwld",
+      "title": "Sidewinder",
+      "text": "Sidewinder",
+      "url": "https://reddit.com/r/discgolf/comments/1qhmwld/sidewinder/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhilms",
+      "title": "Vermont DG",
+      "text": "Vermont DG",
+      "url": "https://reddit.com/r/discgolf/comments/1qhilms/vermont_dg/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qh7jhd",
+      "title": "Considering adding Teebird to the bag",
+      "text": "Considering adding Teebird to the bag",
+      "url": "https://reddit.com/r/discgolf/comments/1qh7jhd/considering_adding_teebird_to_the_bag/",
+      "score": 31,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1ps2cxv",
+      "title": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "text": "Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark",
+      "url": "https://reddit.com/user/Dating-Insider/comments/1ps2cxv/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhof9x",
+      "title": "Cold Storage",
+      "text": "Cold Storage",
+      "url": "https://reddit.com/r/discgolf/comments/1qhof9x/cold_storage/",
+      "score": 3,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qh97y8",
+      "title": "Cursed discs",
+      "text": "Cursed discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qh97y8/cursed_discs/",
+      "score": 18,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qi6nct",
+      "title": "Disc Golf Lunch Break: Speed rounds",
+      "text": "Disc Golf Lunch Break: Speed rounds",
+      "url": "https://reddit.com/r/discgolf/comments/1qi6nct/disc_golf_lunch_break_speed_rounds/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qheoje",
+      "title": "Disc Golf Expo exclusive discs?",
+      "text": "Disc Golf Expo exclusive discs?",
+      "url": "https://reddit.com/r/discgolf/comments/1qheoje/disc_golf_expo_exclusive_discs/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgg4ir",
+      "title": "Brothers at the tunnel",
+      "text": "Brothers at the tunnel",
+      "url": "https://reddit.com/r/discgolf/comments/1qgg4ir/brothers_at_the_tunnel/",
+      "score": 474,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qib801",
+      "title": "PDGA Financial Audit Analysis: Why are we cutting benefits with $4,000,517 in liquid assets?",
+      "text": "PDGA Financial Audit Analysis: Why are we cutting benefits with $4,000,517 in liquid assets?",
+      "url": "https://reddit.com/r/discgolf/comments/1qib801/pdga_financial_audit_analysis_why_are_we_cutting/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgm27g",
+      "title": "There are a lot of pretty discs, this one remains tough to beat…",
+      "text": "There are a lot of pretty discs, this one remains tough to beat…",
+      "url": "https://reddit.com/r/discgolf/comments/1qgm27g/there_are_a_lot_of_pretty_discs_this_one_remains/",
+      "score": 80,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgf7ie",
+      "title": "Ida Emile Neese to MVP",
+      "text": "Ida Emile Neese to MVP",
+      "url": "https://reddit.com/r/discgolf/comments/1qgf7ie/ida_emile_neese_to_mvp/",
+      "score": 180,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgpauv",
+      "title": "A disc that took you by surprise",
+      "text": "A disc that took you by surprise",
+      "url": "https://reddit.com/r/discgolf/comments/1qgpauv/a_disc_that_took_you_by_surprise/",
+      "score": 44,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qh9xsj",
+      "title": "Disc recommendations",
+      "text": "Disc recommendations",
+      "url": "https://reddit.com/r/discgolf/comments/1qh9xsj/disc_recommendations/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgprxr",
+      "title": "Disc Golf Trip Recommendations?",
+      "text": "Disc Golf Trip Recommendations?",
+      "url": "https://reddit.com/r/discgolf/comments/1qgprxr/disc_golf_trip_recommendations/",
+      "score": 27,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgdogm",
+      "title": "Mail call: I-Blend Wraiths",
+      "text": "Mail call: I-Blend Wraiths",
+      "url": "https://reddit.com/r/discgolf/comments/1qgdogm/mail_call_iblend_wraiths/",
+      "score": 107,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgsd5h",
+      "title": "Disc Info",
+      "text": "Disc Info",
+      "url": "https://reddit.com/r/discgolf/comments/1qgsd5h/disc_info/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgikna",
+      "title": "Can Levi Stout hold off the American’s to win back-to-back TDU titles? Final Round: Discraft Australasian Open, presented by OTB Discs.",
+      "text": "Can Levi Stout hold off the American’s to win back-to-back TDU titles? Final Round: Discraft Australasian Open, presented by OTB Discs.",
+      "url": "https://reddit.com/r/discgolf/comments/1qgikna/can_levi_stout_hold_off_the_americans_to_win/",
+      "score": 46,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgv656",
+      "title": "Best 2025 Tournaments",
+      "text": "Best 2025 Tournaments",
+      "url": "https://reddit.com/r/discgolf/comments/1qgv656/best_2025_tournaments/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhkagv",
+      "title": "Putting Practice - Buy 3 Putters, Get 4th FREE",
+      "text": "Putting Practice - Buy 3 Putters, Get 4th FREE",
+      "url": "https://reddit.com/r/discgolf/comments/1qhkagv/putting_practice_buy_3_putters_get_4th_free/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfzsi9",
+      "title": "The local weed guy…",
+      "text": "The local weed guy…",
+      "url": "https://reddit.com/r/discgolf/comments/1qfzsi9/the_local_weed_guy/",
+      "score": 357,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgsv46",
+      "title": "Unsanctioned or xc tier ?",
+      "text": "Unsanctioned or xc tier ?",
+      "url": "https://reddit.com/r/discgolf/comments/1qgsv46/unsanctioned_or_xc_tier/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgcxhb",
+      "title": "I did an 8 ball last night",
+      "text": "I did an 8 ball last night",
+      "url": "https://reddit.com/r/discgolf/comments/1qgcxhb/i_did_an_8_ball_last_night/",
+      "score": 36,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhfrhs",
+      "title": "Returning after 10 years - reality check?",
+      "text": "Returning after 10 years - reality check?",
+      "url": "https://reddit.com/r/discgolf/comments/1qhfrhs/returning_after_10_years_reality_check/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qhgmu6",
+      "title": "The square goes in the round “hole”",
+      "text": "The square goes in the round “hole”",
+      "url": "https://reddit.com/r/discgolf/comments/1qhgmu6/the_square_goes_in_the_round_hole/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg8a76",
+      "title": "Backyard hole looking pristine this morning",
+      "text": "Backyard hole looking pristine this morning",
+      "url": "https://reddit.com/r/discgolf/comments/1qg8a76/backyard_hole_looking_pristine_this_morning/",
+      "score": 48,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg0yj9",
+      "title": "Any fans of Dustin from Smarter Every Day? He's making a new series on how disc golf discs fly",
+      "text": "Any fans of Dustin from Smarter Every Day? He's making a new series on how disc golf discs fly",
+      "url": "https://reddit.com/r/discgolf/comments/1qg0yj9/any_fans_of_dustin_from_smarter_every_day_hes/",
+      "score": 154,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg1j7a",
+      "title": "It's a constant battle",
+      "text": "It's a constant battle",
+      "url": "https://reddit.com/r/discgolf/comments/1qg1j7a/its_a_constant_battle/",
+      "score": 135,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgmsdf",
+      "title": "Innova Leopard & Gazelle",
+      "text": "Innova Leopard & Gazelle",
+      "url": "https://reddit.com/r/discgolf/comments/1qgmsdf/innova_leopard_gazelle/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgjli6",
+      "title": "Disc Storage",
+      "text": "Disc Storage",
+      "url": "https://reddit.com/r/discgolf/comments/1qgjli6/disc_storage/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qggqba",
+      "title": "Tennis elbow help",
+      "text": "Tennis elbow help",
+      "url": "https://reddit.com/r/discgolf/comments/1qggqba/tennis_elbow_help/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfvbck",
+      "title": "New Insanity",
+      "text": "New Insanity",
+      "url": "https://reddit.com/r/discgolf/comments/1qfvbck/new_insanity/",
+      "score": 178,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg2vw6",
+      "title": "Anyone else purposefully play courses you know you suck at just to \"humble\" yourself?",
+      "text": "Anyone else purposefully play courses you know you suck at just to \"humble\" yourself?",
+      "url": "https://reddit.com/r/discgolf/comments/1qg2vw6/anyone_else_purposefully_play_courses_you_know/",
+      "score": 43,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg9ggo",
+      "title": "Why do people like OS discs for forehand rollers?",
+      "text": "Why do people like OS discs for forehand rollers?",
+      "url": "https://reddit.com/r/discgolf/comments/1qg9ggo/why_do_people_like_os_discs_for_forehand_rollers/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgg4e6",
+      "title": "Too much of the same?",
+      "text": "Too much of the same?",
+      "url": "https://reddit.com/r/discgolf/comments/1qgg4e6/too_much_of_the_same/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg8415",
+      "title": "AGL maple get one with 10% off treelifeagl",
+      "text": "AGL maple get one with 10% off treelifeagl",
+      "url": "https://reddit.com/r/discgolf/comments/1qg8415/agl_maple_get_one_with_10_off_treelifeagl/",
+      "score": 11,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg2hbu",
+      "title": "Just a little appreciation for my favorite OOP disc golf bag.",
+      "text": "Just a little appreciation for my favorite OOP disc golf bag.",
+      "url": "https://reddit.com/r/discgolf/comments/1qg2hbu/just_a_little_appreciation_for_my_favorite_oop/",
+      "score": 32,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfo6bp",
+      "title": "Is That OB?",
+      "text": "Is That OB?",
+      "url": "https://reddit.com/r/discgolf/comments/1qfo6bp/is_that_ob/",
+      "score": 210,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg06g4",
+      "title": "And then there were seven",
+      "text": "And then there were seven",
+      "url": "https://reddit.com/r/discgolf/comments/1qg06g4/and_then_there_were_seven/",
+      "score": 41,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg96ga",
+      "title": "I’m a right handed backhand thrower, what discs will go to the right for me?",
+      "text": "I’m a right handed backhand thrower, what discs will go to the right for me?",
+      "url": "https://reddit.com/r/discgolf/comments/1qg96ga/im_a_right_handed_backhand_thrower_what_discs/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg12ce",
+      "title": "The MVP Open getting an AM event? Steven Dodge is the co-owner of the Maple Hill disc golf course and the tournament director of the MVP Open.",
+      "text": "The MVP Open getting an AM event? Steven Dodge is the co-owner of the Maple Hill disc golf course and the tournament director of the MVP Open.",
+      "url": "https://reddit.com/r/discgolf/comments/1qg12ce/the_mvp_open_getting_an_am_event_steven_dodge_is/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfhxnu",
+      "title": "Ezra Aderhold has signed a 2-year contract extension with Discraft!",
+      "text": "Ezra Aderhold has signed a 2-year contract extension with Discraft!",
+      "url": "https://reddit.com/r/discgolf/comments/1qfhxnu/ezra_aderhold_has_signed_a_2year_contract/",
+      "score": 256,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg6581",
+      "title": "Best drills to increase distance?",
+      "text": "Best drills to increase distance?",
+      "url": "https://reddit.com/r/discgolf/comments/1qg6581/best_drills_to_increase_distance/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qglbx2",
+      "title": "Discmania cosmic fury 2 replacement",
+      "text": "Discmania cosmic fury 2 replacement",
+      "url": "https://reddit.com/r/discgolf/comments/1qglbx2/discmania_cosmic_fury_2_replacement/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg992q",
+      "title": "Looking for throw speed/rpm to disc speed # chart",
+      "text": "Looking for throw speed/rpm to disc speed # chart",
+      "url": "https://reddit.com/r/discgolf/comments/1qg992q/looking_for_throw_speedrpm_to_disc_speed_chart/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfzur5",
+      "title": "I love misprints",
+      "text": "I love misprints",
+      "url": "https://reddit.com/r/discgolf/comments/1qfzur5/i_love_misprints/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qf69u0",
+      "title": "Found Gannon’s Disc",
+      "text": "Found Gannon’s Disc",
+      "url": "https://reddit.com/r/discgolf/comments/1qf69u0/found_gannons_disc/",
+      "score": 1123,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfxgbz",
+      "title": "Do I have to give a tag back? And is there a time limit?",
+      "text": "Do I have to give a tag back? And is there a time limit?",
+      "url": "https://reddit.com/r/discgolf/comments/1qfxgbz/do_i_have_to_give_a_tag_back_and_is_there_a_time/",
+      "score": 26,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfoslf",
+      "title": "I feel maternal toward him.",
+      "text": "I feel maternal toward him.",
+      "url": "https://reddit.com/r/discgolf/comments/1qfoslf/i_feel_maternal_toward_him/",
+      "score": 67,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfgs5r",
+      "title": "When your tired of people not calling on your pig",
+      "text": "When your tired of people not calling on your pig",
+      "url": "https://reddit.com/r/discgolf/comments/1qfgs5r/when_your_tired_of_people_not_calling_on_your_pig/",
+      "score": 150,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgg5oq",
+      "title": "Bag recommendations",
+      "text": "Bag recommendations",
+      "url": "https://reddit.com/r/discgolf/comments/1qgg5oq/bag_recommendations/",
+      "score": 1,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgn4rp",
+      "title": "the most understable Zeus I've ever thrown #discgolf #golf #discraft #zeus #understable #pdga",
+      "text": "the most understable Zeus I've ever thrown #discgolf #golf #discraft #zeus #understable #pdga",
+      "url": "https://reddit.com/r/discgolf/comments/1qgn4rp/the_most_understable_zeus_ive_ever_thrown/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfxi76",
+      "title": "Millennium Es2/Zodiac mold",
+      "text": "Millennium Es2/Zodiac mold",
+      "url": "https://reddit.com/r/discgolf/comments/1qfxi76/millennium_es2zodiac_mold/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfhvnp",
+      "title": "Friendly advice for newer players learned the hard way.",
+      "text": "Friendly advice for newer players learned the hard way.",
+      "url": "https://reddit.com/r/discgolf/comments/1qfhvnp/friendly_advice_for_newer_players_learned_the/",
+      "score": 64,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfj0jm",
+      "title": "A different type of mail call! Big shout out to Sam in Decatur, GA.",
+      "text": "A different type of mail call! Big shout out to Sam in Decatur, GA.",
+      "url": "https://reddit.com/r/discgolf/comments/1qfj0jm/a_different_type_of_mail_call_big_shout_out_to/",
+      "score": 47,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qflrwy",
+      "title": "Bradley Williams: Practice Throw rules question",
+      "text": "Bradley Williams: Practice Throw rules question",
+      "url": "https://reddit.com/r/discgolf/comments/1qflrwy/bradley_williams_practice_throw_rules_question/",
+      "score": 31,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qg2qjt",
+      "title": "Glide flight number",
+      "text": "Glide flight number",
+      "url": "https://reddit.com/r/discgolf/comments/1qg2qjt/glide_flight_number/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfwe41",
+      "title": "What is your favorite Mando sign design?",
+      "text": "What is your favorite Mando sign design?",
+      "url": "https://reddit.com/r/discgolf/comments/1qfwe41/what_is_your_favorite_mando_sign_design/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfnx8r",
+      "title": "Plans for tonal targets",
+      "text": "Plans for tonal targets",
+      "url": "https://reddit.com/r/discgolf/comments/1qfnx8r/plans_for_tonal_targets/",
+      "score": 9,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qgfaie",
+      "title": "Decide my Mid Range lineup!",
+      "text": "Decide my Mid Range lineup!",
+      "url": "https://reddit.com/r/discgolf/comments/1qgfaie/decide_my_mid_range_lineup/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfscpv",
+      "title": "Opinions on the CD1 and PD",
+      "text": "Opinions on the CD1 and PD",
+      "url": "https://reddit.com/r/discgolf/comments/1qfscpv/opinions_on_the_cd1_and_pd/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfq8l1",
+      "title": "Winter Putting Practice",
+      "text": "Winter Putting Practice",
+      "url": "https://reddit.com/r/discgolf/comments/1qfq8l1/winter_putting_practice/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qftwjk",
+      "title": "1 day to play in Oahu! Whats the best course to play?",
+      "text": "1 day to play in Oahu! Whats the best course to play?",
+      "url": "https://reddit.com/r/discgolf/comments/1qftwjk/1_day_to_play_in_oahu_whats_the_best_course_to/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfikv2",
+      "title": "1 day in LA. Best course to play?",
+      "text": "1 day in LA. Best course to play?",
+      "url": "https://reddit.com/r/discgolf/comments/1qfikv2/1_day_in_la_best_course_to_play/",
+      "score": 8,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfjzk5",
+      "title": "Cheapest way to ship discs?",
+      "text": "Cheapest way to ship discs?",
+      "url": "https://reddit.com/r/discgolf/comments/1qfjzk5/cheapest_way_to_ship_discs/",
+      "score": 5,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qei5pz",
+      "title": "Finnish pro disc golfers Silva Saarinen and Iida Lehtomäki attended the Finnish Sports Gala. Silva was nominated for the 2025 Athlete of the Year award and Iida’s second-place finish at the 2025 Pro Worlds was nominated as the most exciting sports moment.",
+      "text": "Finnish pro disc golfers Silva Saarinen and Iida Lehtomäki attended the Finnish Sports Gala. Silva was nominated for the 2025 Athlete of the Year award and Iida’s second-place finish at the 2025 Pro Worlds was nominated as the most exciting sports moment.",
+      "url": "https://reddit.com/r/discgolf/comments/1qei5pz/finnish_pro_disc_golfers_silva_saarinen_and_iida/",
+      "score": 450,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfsml8",
+      "title": "Doubles teams",
+      "text": "Doubles teams",
+      "url": "https://reddit.com/r/discgolf/comments/1qfsml8/doubles_teams/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qen5zr",
+      "title": "Disc Golf in Puerto Rico",
+      "text": "Disc Golf in Puerto Rico",
+      "url": "https://reddit.com/r/discgolf/comments/1qen5zr/disc_golf_in_puerto_rico/",
+      "score": 167,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qf1sp8",
+      "title": "Julia Fors to Latitude 64",
+      "text": "Julia Fors to Latitude 64",
+      "url": "https://reddit.com/r/discgolf/comments/1qf1sp8/julia_fors_to_latitude_64/",
+      "score": 28,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qev03o",
+      "title": "Why does old Champ plastic feel so good??",
+      "text": "Why does old Champ plastic feel so good??",
+      "url": "https://reddit.com/r/discgolf/comments/1qev03o/why_does_old_champ_plastic_feel_so_good/",
+      "score": 60,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfv63j",
+      "title": "Bag Building Time",
+      "text": "Bag Building Time",
+      "url": "https://reddit.com/r/discgolf/comments/1qfv63j/bag_building_time/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qflzwn",
+      "title": "Amazing aces",
+      "text": "Amazing aces",
+      "url": "https://reddit.com/r/discgolf/comments/1qflzwn/amazing_aces/",
+      "score": 2,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qf2epk",
+      "title": "Moving to the next level",
+      "text": "Moving to the next level",
+      "url": "https://reddit.com/r/discgolf/comments/1qf2epk/moving_to_the_next_level/",
+      "score": 16,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qf13gp",
+      "title": "Round 1 Coverage: Discraft Australasian Open, presented by OTB Discs",
+      "text": "Round 1 Coverage: Discraft Australasian Open, presented by OTB Discs",
+      "url": "https://reddit.com/r/discgolf/comments/1qf13gp/round_1_coverage_discraft_australasian_open/",
+      "score": 15,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeqbg6",
+      "title": "PDGA Majors for 2027 and 2028 announced",
+      "text": "PDGA Majors for 2027 and 2028 announced",
+      "url": "https://reddit.com/r/discgolf/comments/1qeqbg6/pdga_majors_for_2027_and_2028_announced/",
+      "score": 55,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qelquk",
+      "title": "Goose to MVP leaked",
+      "text": "Goose to MVP leaked",
+      "url": "https://reddit.com/r/discgolf/comments/1qelquk/goose_to_mvp_leaked/",
+      "score": 85,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qepms4",
+      "title": "The Allosaurus is the most understable disc I’ve ever thrown",
+      "text": "The Allosaurus is the most understable disc I’ve ever thrown",
+      "url": "https://reddit.com/r/discgolf/comments/1qepms4/the_allosaurus_is_the_most_understable_disc_ive/",
+      "score": 56,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qem10e",
+      "title": "Come be a Chump AND go to an awesome disc golf camp!",
+      "text": "Come be a Chump AND go to an awesome disc golf camp!",
+      "url": "https://reddit.com/r/discgolf/comments/1qem10e/come_be_a_chump_and_go_to_an_awesome_disc_golf/",
+      "score": 79,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qerqtr",
+      "title": "Colten Montgomery has joined Discraft with a partnership with Resistance Discs for 2026",
+      "text": "Colten Montgomery has joined Discraft with a partnership with Resistance Discs for 2026",
+      "url": "https://reddit.com/r/discgolf/comments/1qerqtr/colten_montgomery_has_joined_discraft_with_a/",
+      "score": 33,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qpce87",
+      "title": "AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.",
+      "text": "AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.",
+      "url": "https://reddit.com/user/AMDOfficial/comments/1qpce87/amd_ryzen_9_9950x3d_brings_power_and_legendary/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qenx8d",
+      "title": "Daniel Davidsson to Discraft",
+      "text": "Daniel Davidsson to Discraft",
+      "url": "https://reddit.com/r/discgolf/comments/1qenx8d/daniel_davidsson_to_discraft/",
+      "score": 50,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfgdyp",
+      "title": "Rant: be courteous of other people’s time.",
+      "text": "Rant: be courteous of other people’s time.",
+      "url": "https://reddit.com/r/discgolf/comments/1qfgdyp/rant_be_courteous_of_other_peoples_time/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qexpbq",
+      "title": "Best way to get cat piss smell out of dynamic discs combat ranger",
+      "text": "Best way to get cat piss smell out of dynamic discs combat ranger",
+      "url": "https://reddit.com/r/discgolf/comments/1qexpbq/best_way_to_get_cat_piss_smell_out_of_dynamic/",
+      "score": 17,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeuzsd",
+      "title": "I’m playing Armco Park (SW Ohio) every week until I shoot under par. Week 3",
+      "text": "I’m playing Armco Park (SW Ohio) every week until I shoot under par. Week 3",
+      "url": "https://reddit.com/r/discgolf/comments/1qeuzsd/im_playing_armco_park_sw_ohio_every_week_until_i/",
+      "score": 14,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeumlv",
+      "title": "2026 Australasian Open FPO | RD1 F9 | Paige Pierce, Taylor Chocek, Jennifer Smiley, Kat Mertsch",
+      "text": "2026 Australasian Open FPO | RD1 F9 | Paige Pierce, Taylor Chocek, Jennifer Smiley, Kat Mertsch",
+      "url": "https://reddit.com/r/discgolf/comments/1qeumlv/2026_australasian_open_fpo_rd1_f9_paige_pierce/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeucn3",
+      "title": "Transportation for Disc golf in Tallinn, Estonia",
+      "text": "Transportation for Disc golf in Tallinn, Estonia",
+      "url": "https://reddit.com/r/discgolf/comments/1qeucn3/transportation_for_disc_golf_in_tallinn_estonia/",
+      "score": 12,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeo4ke",
+      "title": "Innova F2 Friday dropped: Halo Roc3",
+      "text": "Innova F2 Friday dropped: Halo Roc3",
+      "url": "https://reddit.com/r/discgolf/comments/1qeo4ke/innova_f2_friday_dropped_halo_roc3/",
+      "score": 21,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeoa83",
+      "title": "2026 Australasian Open MPO | RD1 F9 | Jeremy Koling, Levi Stout, Corey Ellis, Aiden Scott",
+      "text": "2026 Australasian Open MPO | RD1 F9 | Jeremy Koling, Levi Stout, Corey Ellis, Aiden Scott",
+      "url": "https://reddit.com/r/discgolf/comments/1qeoa83/2026_australasian_open_mpo_rd1_f9_jeremy_koling/",
+      "score": 20,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qew0p7",
+      "title": "Around Toboggan??",
+      "text": "Around Toboggan??",
+      "url": "https://reddit.com/r/discgolf/comments/1qew0p7/around_toboggan/",
+      "score": 6,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qet29p",
+      "title": "Discraft Australasian Open, presented by OTB Discs | Round 1 MPO Coverage 🥏",
+      "text": "Discraft Australasian Open, presented by OTB Discs | Round 1 MPO Coverage 🥏",
+      "url": "https://reddit.com/r/discgolf/comments/1qet29p/discraft_australasian_open_presented_by_otb_discs/",
+      "score": 7,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qfv3io",
+      "title": "Kat Mertsch",
+      "text": "Kat Mertsch",
+      "url": "https://reddit.com/r/discgolf/comments/1qfv3io/kat_mertsch/",
+      "score": 0,
+      "source": "hot"
+    },
+    {
+      "id": "t3_1qeldae",
+      "title": "Shoulder Injury - Learn From Me",
+      "text": "Shoulder Injury - Learn From Me",
+      "url": "https://reddit.com/r/discgolf/comments/1qeldae/shoulder_injury_learn_from_me/",
+      "score": 13,
+      "source": "hot"
     }
   ]
 }

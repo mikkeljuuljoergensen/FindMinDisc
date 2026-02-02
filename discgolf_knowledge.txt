@@ -1,7 +1,7 @@
 DISC GOLF KNOWLEDGE BASE
 ================================================================================
-Scraped: 2026-02-02 20:22:19
-Total Posts: 70
+Scraped: 2026-02-02 20:30:16
+Total Posts: 500
 ================================================================================
 
 
@@ -10,417 +10,3997 @@ POST #1 | Score: 6
 ================================================================================
 TITLE: Mail Call Weekly
 
+URL: https://reddit.com/r/discgolf/comments/1qr1dkd/mail_call_weekly/
+Source: hot
 
 ================================================================================
-POST #2 | Score: 40
+POST #2 | Score: 39
 ================================================================================
 TITLE: Diavalo in the snow
 
+URL: https://reddit.com/r/discgolf/comments/1qtyuxd/diavalo_in_the_snow/
+Source: hot
 
 ================================================================================
-POST #3 | Score: 3474
+POST #3 | Score: 169
 ================================================================================
-TITLE: I made the perfect 2nd monitor game, it's an MMO that grinds when you're offline!
+TITLE: The #1 most played Idler game on Steam
 
+URL: https://reddit.com/user/IdleOn_Boii/comments/1p679x5/the_1_most_played_idler_game_on_steam/
+Source: hot
 
 ================================================================================
 POST #4 | Score: 24
 ================================================================================
 TITLE: Snow Round in East Tennessee
 
+URL: https://reddit.com/r/discgolf/comments/1qtxefk/snow_round_in_east_tennessee/
+Source: hot
 
 ================================================================================
-POST #5 | Score: 101
+POST #5 | Score: 100
 ================================================================================
 TITLE: Caught an ace on camera today!
 
+URL: https://reddit.com/r/discgolf/comments/1qtmtdl/caught_an_ace_on_camera_today/
+Source: hot
 
 ================================================================================
-POST #6 | Score: 30
+POST #6 | Score: 28
 ================================================================================
 TITLE: Thoughts on Disc Golf World?
 
+URL: https://reddit.com/r/discgolf/comments/1qttncr/thoughts_on_disc_golf_world/
+Source: hot
 
 ================================================================================
-POST #7 | Score: 126
+POST #7 | Score: 124
 ================================================================================
 TITLE: I did something dumb today
 
+URL: https://reddit.com/r/discgolf/comments/1qticat/i_did_something_dumb_today/
+Source: hot
 
 ================================================================================
-POST #8 | Score: 305
-================================================================================
-TITLE: Busted Kneecap
-
-
-================================================================================
-POST #9 | Score: 5
-================================================================================
-TITLE: Orlando in 2 weeks, Olympus or Elsewhere
-
-
-================================================================================
-POST #10 | Score: 79
-================================================================================
-TITLE: This is the best run of Envy.
-
-
-================================================================================
-POST #11 | Score: 10
-================================================================================
-TITLE: Question about a disc and painting discs (from a noob trying to get her bf a valentines gift)
-
-
-================================================================================
-POST #12 | Score: 0
-================================================================================
-TITLE: Gift Ideas for New Dads
-
-
-================================================================================
-POST #13 | Score: 0
-================================================================================
-TITLE: Switching from Star to Champion
-
-
-================================================================================
-POST #14 | Score: 18
-================================================================================
-TITLE: Made some minis
-
-
-================================================================================
-POST #15 | Score: 93
-================================================================================
-TITLE: Discraft forgot Ricky is a World Champion???
-
-
-================================================================================
-POST #16 | Score: 16
-================================================================================
-TITLE: What does this mean?
-
-
-================================================================================
-POST #17 | Score: 1268
-================================================================================
-TITLE: The everything app, for work. Get everyone working in a single platform designed to manage any type of work.
-
-
-================================================================================
-POST #18 | Score: 108
-================================================================================
-TITLE: Frozen Cheese Slices
-
-
-================================================================================
-POST #19 | Score: 8
-================================================================================
-TITLE: Classic SUPER SOFT Judge!!🤯
-
-
-================================================================================
-POST #20 | Score: 0
-================================================================================
-TITLE: Has anyone tried the Discount Disc Golf (DDG) branded discs?
-
-
-================================================================================
-POST #21 | Score: 55
-================================================================================
-TITLE: Gotta slide down on your discs at least once
-
-
-================================================================================
-POST #22 | Score: 8
-================================================================================
-TITLE: Ratings / division question
-
-
-================================================================================
-POST #23 | Score: 21
-================================================================================
-TITLE: PDGA approved “box putter”
-
-
-================================================================================
-POST #24 | Score: 0
-================================================================================
-TITLE: What was so different during Covid compared to now?
-
-
-================================================================================
-POST #25 | Score: 75
-================================================================================
-TITLE: What is golf?
-
-
-================================================================================
-POST #26 | Score: 489
-================================================================================
-TITLE: Glow in the snow
-
-
-================================================================================
-POST #27 | Score: 40
-================================================================================
-TITLE: Ice Bowl Yeti
-
-
-================================================================================
-POST #28 | Score: 172
-================================================================================
-TITLE: The #1 most played Idler game on Steam
-
-
-================================================================================
-POST #29 | Score: 0
+POST #8 | Score: 5
 ================================================================================
 TITLE: How is the stability of the Proto Glow Halo Champion Fox compared to Halo Star and Star?
 
+URL: https://reddit.com/r/discgolf/comments/1qu4q5x/how_is_the_stability_of_the_proto_glow_halo/
+Source: hot
 
 ================================================================================
-POST #30 | Score: 0
+POST #9 | Score: 307
 ================================================================================
-TITLE: Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark
+TITLE: Busted Kneecap
 
-
-================================================================================
-POST #31 | Score: 0
-================================================================================
-TITLE: "It takes two" meets "Re-Volt". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!
-
+URL: https://reddit.com/r/discgolf/comments/1qt24v7/busted_kneecap/
+Source: hot
 
 ================================================================================
-POST #32 | Score: 0
+POST #10 | Score: 4
+================================================================================
+TITLE: Orlando in 2 weeks, Olympus or Elsewhere
+
+URL: https://reddit.com/r/discgolf/comments/1qtz79c/orlando_in_2_weeks_olympus_or_elsewhere/
+Source: hot
+
+================================================================================
+POST #11 | Score: 81
+================================================================================
+TITLE: This is the best run of Envy.
+
+URL: https://reddit.com/r/discgolf/comments/1qtaxp0/this_is_the_best_run_of_envy/
+Source: hot
+
+================================================================================
+POST #12 | Score: 13
+================================================================================
+TITLE: Question about a disc and painting discs (from a noob trying to get her bf a valentines gift)
+
+URL: https://reddit.com/r/discgolf/comments/1qtnump/question_about_a_disc_and_painting_discs_from_a/
+Source: hot
+
+================================================================================
+POST #13 | Score: 1
+================================================================================
+TITLE: Disc ID
+
+URL: https://reddit.com/r/discgolf/comments/1qu4udn/disc_id/
+Source: hot
+
+================================================================================
+POST #14 | Score: 1
+================================================================================
+TITLE: Gift Ideas for New Dads
+
+URL: https://reddit.com/r/discgolf/comments/1qu4e3i/gift_ideas_for_new_dads/
+Source: hot
+
+================================================================================
+POST #15 | Score: 0
 ================================================================================
 TITLE: AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.
 
+URL: https://reddit.com/user/AMDOfficial/comments/1qpce8g/amd_ryzen_9_9950x3d_brings_power_and_legendary/
+Source: hot
 
 ================================================================================
-POST #33 | Score: 1452
+POST #16 | Score: 17
 ================================================================================
-TITLE: Horrific Comments from Innova Ambassador/Tournament Director Jason Wilder
+TITLE: Made some minis
 
-
-================================================================================
-POST #34 | Score: 1233
-================================================================================
-TITLE: Disc Golf at the South Pole
-
+URL: https://reddit.com/r/discgolf/comments/1qtjxin/made_some_minis/
+Source: hot
 
 ================================================================================
-POST #35 | Score: 1117
+POST #17 | Score: 94
 ================================================================================
-TITLE: Found Gannon’s Disc
+TITLE: Discraft forgot Ricky is a World Champion???
 
-
-================================================================================
-POST #36 | Score: 1066
-================================================================================
-TITLE: My mom found this at the thrift today and asked me if i wanted it
-
+URL: https://reddit.com/r/discgolf/comments/1qt5c0b/discraft_forgot_ricky_is_a_world_champion/
+Source: hot
 
 ================================================================================
-POST #37 | Score: 961
+POST #18 | Score: 16
 ================================================================================
-TITLE: new NC disc golf channel
+TITLE: What does this mean?
 
-
-================================================================================
-POST #38 | Score: 817
-================================================================================
-TITLE: Welcome Aaron Gossage to Team MVP!
-
+URL: https://reddit.com/r/discgolf/comments/1qtjwxh/what_does_this_mean/
+Source: hot
 
 ================================================================================
-POST #39 | Score: 741
+POST #19 | Score: 110
 ================================================================================
-TITLE: Best player Anttila
+TITLE: Frozen Cheese Slices
 
-
-================================================================================
-POST #40 | Score: 709
-================================================================================
-TITLE: 561 ft ace!!
-
+URL: https://reddit.com/r/discgolf/comments/1qt3gsh/frozen_cheese_slices/
+Source: hot
 
 ================================================================================
-POST #41 | Score: 665
+POST #20 | Score: 8
 ================================================================================
-TITLE: Is this real life?!
+TITLE: Classic SUPER SOFT Judge!!🤯
 
-
-================================================================================
-POST #42 | Score: 612
-================================================================================
-TITLE: Silas Schultz to team MVP
-
+URL: https://reddit.com/r/discgolf/comments/1qtncup/classic_super_soft_judge/
+Source: hot
 
 ================================================================================
-POST #43 | Score: 593
+POST #21 | Score: 0
 ================================================================================
-TITLE: New sponsor and new name. Big day for Arron.
+TITLE: Has anyone tried the Discount Disc Golf (DDG) branded discs?
 
-
-================================================================================
-POST #44 | Score: 554
-================================================================================
-TITLE: 1978 Spring Golf St Mary’s College New Pictures Discovered
-
+URL: https://reddit.com/r/discgolf/comments/1qu1e9w/has_anyone_tried_the_discount_disc_golf_ddg/
+Source: hot
 
 ================================================================================
-POST #45 | Score: 547
+POST #22 | Score: 57
 ================================================================================
-TITLE: Disc golf conspiracy I just stumbled into..
+TITLE: Gotta slide down on your discs at least once
 
-
-================================================================================
-POST #46 | Score: 535
-================================================================================
-TITLE: Imagine you’re just playing a tournament in Chinese Taipei and fucking Calvin Heimburg shows up.
-
+URL: https://reddit.com/r/discgolf/comments/1qt82ut/gotta_slide_down_on_your_discs_at_least_once/
+Source: hot
 
 ================================================================================
-POST #47 | Score: 535
+POST #23 | Score: 8
 ================================================================================
-TITLE: My latest oil painting: Hole 1 Maple Hill
+TITLE: Ratings / division question
 
+URL: https://reddit.com/r/discgolf/comments/1qtkbg8/ratings_division_question/
+Source: hot
+
+================================================================================
+POST #24 | Score: 22
+================================================================================
+TITLE: PDGA approved “box putter”
+
+URL: https://reddit.com/r/discgolf/comments/1qtdals/pdga_approved_box_putter/
+Source: hot
+
+================================================================================
+POST #25 | Score: 73
+================================================================================
+TITLE: What is golf?
+
+URL: https://reddit.com/r/discgolf/comments/1qt26bv/what_is_golf/
+Source: hot
+
+================================================================================
+POST #26 | Score: 0
+================================================================================
+TITLE: Switching from Star to Champion
+
+URL: https://reddit.com/r/discgolf/comments/1qu4837/switching_from_star_to_champion/
+Source: hot
+
+================================================================================
+POST #27 | Score: 0
+================================================================================
+TITLE: Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark
+
+URL: https://reddit.com/user/Dating-Insider/comments/1lzhvhw/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/
+Source: hot
+
+================================================================================
+POST #28 | Score: 0
+================================================================================
+TITLE: What was so different during Covid compared to now?
+
+URL: https://reddit.com/r/discgolf/comments/1qu4611/what_was_so_different_during_covid_compared_to_now/
+Source: hot
+
+================================================================================
+POST #29 | Score: 485
+================================================================================
+TITLE: Glow in the snow
+
+URL: https://reddit.com/r/discgolf/comments/1qskinz/glow_in_the_snow/
+Source: hot
+
+================================================================================
+POST #30 | Score: 3474
+================================================================================
+TITLE: I made the perfect 2nd monitor game, it's an MMO that grinds when you're offline!
+
+URL: https://reddit.com/user/IdleOn_Boii/comments/10pu8qn/i_made_the_perfect_2nd_monitor_game_its_an_mmo/
+Source: hot
+
+================================================================================
+POST #31 | Score: 39
+================================================================================
+TITLE: Ice Bowl Yeti
+
+URL: https://reddit.com/r/discgolf/comments/1qszq7s/ice_bowl_yeti/
+Source: hot
+
+================================================================================
+POST #32 | Score: 34
+================================================================================
+TITLE: How do we bring this stamp back?
+
+URL: https://reddit.com/r/discgolf/comments/1qt0uu7/how_do_we_bring_this_stamp_back/
+Source: hot
+
+================================================================================
+POST #33 | Score: 286
+================================================================================
+TITLE: Built a small travel bag, and decided to have some fun with discs I don't care about losing
+
+URL: https://reddit.com/r/discgolf/comments/1qsm31t/built_a_small_travel_bag_and_decided_to_have_some/
+Source: hot
+
+================================================================================
+POST #34 | Score: 11
+================================================================================
+TITLE: Why mess with a good thing?
+
+URL: https://reddit.com/r/discgolf/comments/1qt9epd/why_mess_with_a_good_thing/
+Source: hot
+
+================================================================================
+POST #35 | Score: 6
+================================================================================
+TITLE: Should I join my first pdga event in an A tier?
+
+URL: https://reddit.com/r/discgolf/comments/1qtc18v/should_i_join_my_first_pdga_event_in_an_a_tier/
+Source: hot
+
+================================================================================
+POST #36 | Score: 2
+================================================================================
+TITLE: First Haul of 2026
+
+URL: https://reddit.com/r/discgolf/comments/1qthhwd/first_haul_of_2026/
+Source: hot
+
+================================================================================
+POST #37 | Score: 3
+================================================================================
+TITLE: Hi-top recommendations?
+
+URL: https://reddit.com/r/discgolf/comments/1qtgver/hitop_recommendations/
+Source: hot
+
+================================================================================
+POST #38 | Score: 8
+================================================================================
+TITLE: MVP mid (and fairway) selection
+
+URL: https://reddit.com/r/discgolf/comments/1qt7ae5/mvp_mid_and_fairway_selection/
+Source: hot
+
+================================================================================
+POST #39 | Score: 9
+================================================================================
+TITLE: First round of 2026!❄️
+
+URL: https://reddit.com/r/discgolf/comments/1qt5iub/first_round_of_2026/
+Source: hot
+
+================================================================================
+POST #40 | Score: 108
+================================================================================
+TITLE: accidentally discovered I have a particle glow NEUTRON virus??
+
+URL: https://reddit.com/r/discgolf/comments/1qsnvx0/accidentally_discovered_i_have_a_particle_glow/
+Source: hot
+
+================================================================================
+POST #41 | Score: 4
+================================================================================
+TITLE: Going into next season
+
+URL: https://reddit.com/r/discgolf/comments/1qtb5ww/going_into_next_season/
+Source: hot
+
+================================================================================
+POST #42 | Score: 0
+================================================================================
+TITLE: Help me out
+
+URL: https://reddit.com/r/discgolf/comments/1qu3bts/help_me_out/
+Source: hot
+
+================================================================================
+POST #43 | Score: 4
+================================================================================
+TITLE: Kudzu Cove question
+
+URL: https://reddit.com/r/discgolf/comments/1qt9xpf/kudzu_cove_question/
+Source: hot
+
+================================================================================
+POST #44 | Score: 102
+================================================================================
+TITLE: Raven Klein to RPM Discs
+
+URL: https://reddit.com/r/discgolf/comments/1qsl3wx/raven_klein_to_rpm_discs/
+Source: hot
+
+================================================================================
+POST #45 | Score: 226
+================================================================================
+TITLE: Am in the only one that’s super excited to see Aaron Gossage on team MVP?
+
+URL: https://reddit.com/r/discgolf/comments/1qsdjwp/am_in_the_only_one_thats_super_excited_to_see/
+Source: hot
+
+================================================================================
+POST #46 | Score: 9
+================================================================================
+TITLE: Do older player discs stay in production?
+
+URL: https://reddit.com/r/discgolf/comments/1qsxu0s/do_older_player_discs_stay_in_production/
+Source: hot
+
+================================================================================
+POST #47 | Score: 38
+================================================================================
+TITLE: My putt switched from a throw to a swing last night. It feels great.
+
+URL: https://reddit.com/r/discgolf/comments/1qsoi96/my_putt_switched_from_a_throw_to_a_swing_last/
+Source: hot
 
 ================================================================================
 POST #48 | Score: 0
 ================================================================================
-TITLE: Can the Global Economy Survive a Real U.S.–China Economic Split?
+TITLE: How much distance will a hyzer flip add?
 
-
-================================================================================
-POST #49 | Score: 500
-================================================================================
-TITLE: Shoutout to Scott Stokely!
-
+URL: https://reddit.com/r/discgolf/comments/1qtirhm/how_much_distance_will_a_hyzer_flip_add/
+Source: hot
 
 ================================================================================
-POST #50 | Score: 477
+POST #49 | Score: 3
 ================================================================================
-TITLE: Goodwill for the win!
+TITLE: The Open at Austin attendee advice
 
-
-================================================================================
-POST #51 | Score: 467
-================================================================================
-TITLE: Brothers at the tunnel
-
+URL: https://reddit.com/r/discgolf/comments/1qt0svj/the_open_at_austin_attendee_advice/
+Source: hot
 
 ================================================================================
-POST #52 | Score: 457
+POST #50 | Score: 1
 ================================================================================
-TITLE: Four days into 2026 and I think I’ve already peaked.
+TITLE: TSA Apparel
 
-
-================================================================================
-POST #53 | Score: 453
-================================================================================
-TITLE: One of my favorite pictures that I took last year.
-
+URL: https://reddit.com/r/discgolf/comments/1qt8h9t/tsa_apparel/
+Source: hot
 
 ================================================================================
-POST #54 | Score: 451
+POST #51 | Score: 37
 ================================================================================
-TITLE: Finnish pro disc golfers Silva Saarinen and Iida Lehtomäki attended the Finnish Sports Gala. Silva was nominated for the 2025 Athlete of the Year award and Iida’s second-place finish at the 2025 Pro Worlds was nominated as the most exciting sports moment.
+TITLE: Bokeh
 
-
-================================================================================
-POST #55 | Score: 404
-================================================================================
-TITLE: TMNT Discs Dyes
-
+URL: https://reddit.com/r/discgolf/comments/1qshhom/bokeh/
+Source: hot
 
 ================================================================================
-POST #56 | Score: 395
-================================================================================
-TITLE: White on white
-
-
-================================================================================
-POST #57 | Score: 387
-================================================================================
-TITLE: Tesla hummingbird ace
-
-
-================================================================================
-POST #58 | Score: 0
-================================================================================
-TITLE: "It takes two" meets "Re-Volt". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!
-
-
-================================================================================
-POST #59 | Score: 0
-================================================================================
-TITLE: We're not just another Product Engagement Platform option; we are the new standard, and we guarantee a better price and an effortless migration for anyone ready to make the switch.
-
-
-================================================================================
-POST #60 | Score: 0
-================================================================================
-TITLE: Help me out
-
-
-================================================================================
-POST #61 | Score: 0
+POST #52 | Score: 0
 ================================================================================
 TITLE: Why is turn negative (-) to go right?
 
+URL: https://reddit.com/r/discgolf/comments/1qto803/why_is_turn_negative_to_go_right/
+Source: hot
 
 ================================================================================
-POST #62 | Score: 0
+POST #53 | Score: 45
 ================================================================================
-TITLE: Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.
+TITLE: Can it be April Yet?
 
-
-================================================================================
-POST #63 | Score: 0
-================================================================================
-TITLE: How much distance will a hyzer flip add?
-
+URL: https://reddit.com/r/discgolf/comments/1qsg8nt/can_it_be_april_yet/
+Source: hot
 
 ================================================================================
-POST #64 | Score: 3
+POST #54 | Score: 16
 ================================================================================
-TITLE: First Haul of 2026
+TITLE: I built an “In The Bag” website
 
-
-================================================================================
-POST #65 | Score: 5
-================================================================================
-TITLE: Hi-top recommendations?
-
+URL: https://reddit.com/r/discgolf/comments/1qsl8nv/i_built_an_in_the_bag_website/
+Source: hot
 
 ================================================================================
-POST #66 | Score: 0
+POST #55 | Score: 26
 ================================================================================
-TITLE: "It takes two" meets "Re-Volt". Two-player adventure with mini cars. Online & Split Screen Co-op. Wishlist on Steam!
+TITLE: Jawbreaker Z Flx plastic is awesome
 
+URL: https://reddit.com/r/discgolf/comments/1qsfcj0/jawbreaker_z_flx_plastic_is_awesome/
+Source: hot
 
 ================================================================================
-POST #67 | Score: 8
+POST #56 | Score: 0
 ================================================================================
-TITLE: Should I join my first pdga event in an A tier?
+TITLE: Have a retriever dog?
 
+URL: https://reddit.com/r/discgolf/comments/1qsztp4/have_a_retriever_dog/
+Source: hot
+
+================================================================================
+POST #57 | Score: 484
+================================================================================
+TITLE: Goodwill for the win!
+
+URL: https://reddit.com/r/discgolf/comments/1qrq0ws/goodwill_for_the_win/
+Source: hot
+
+================================================================================
+POST #58 | Score: 9
+================================================================================
+TITLE: DIY Cart progress
+
+URL: https://reddit.com/r/discgolf/comments/1qsh61q/diy_cart_progress/
+Source: hot
+
+================================================================================
+POST #59 | Score: 29
+================================================================================
+TITLE: 2 off the 1st
+
+URL: https://reddit.com/r/discgolf/comments/1qs4qff/2_off_the_1st/
+Source: hot
+
+================================================================================
+POST #60 | Score: 16
+================================================================================
+TITLE: Virgin knee high snow.
+
+URL: https://reddit.com/r/discgolf/comments/1qs9xey/virgin_knee_high_snow/
+Source: hot
+
+================================================================================
+POST #61 | Score: 10
+================================================================================
+TITLE: Chandler Reigh to Team Infinite
+
+URL: https://reddit.com/r/discgolf/comments/1qsdkc6/chandler_reigh_to_team_infinite/
+Source: hot
+
+================================================================================
+POST #62 | Score: 90
+================================================================================
+TITLE: Never heard of disc golf before doing this painting
+
+URL: https://reddit.com/r/discgolf/comments/1qrxh90/never_heard_of_disc_golf_before_doing_this/
+Source: hot
+
+================================================================================
+POST #63 | Score: 5
+================================================================================
+TITLE: Proton Detour?
+
+URL: https://reddit.com/r/discgolf/comments/1qshqot/proton_detour/
+Source: hot
+
+================================================================================
+POST #64 | Score: 12
+================================================================================
+TITLE: Giving away 2 free discs
+
+URL: https://reddit.com/r/discgolf/comments/1qscotm/giving_away_2_free_discs/
+Source: hot
+
+================================================================================
+POST #65 | Score: 0
+================================================================================
+TITLE: Team Foundation Challenge: February 2026
+
+URL: https://reddit.com/r/discgolf/comments/1qt4x3m/team_foundation_challenge_february_2026/
+Source: hot
+
+================================================================================
+POST #66 | Score: 7
+================================================================================
+TITLE: Snow round
+
+URL: https://reddit.com/r/discgolf/comments/1qsehzv/snow_round/
+Source: hot
+
+================================================================================
+POST #67 | Score: 318
+================================================================================
+TITLE: Home basket, winter night, toke and a beer.
+
+URL: https://reddit.com/r/discgolf/comments/1qrmrly/home_basket_winter_night_toke_and_a_beer/
+Source: hot
 
 ================================================================================
 POST #68 | Score: 0
 ================================================================================
 TITLE: Is this the cleanest 300’ midrange throw?
 
+URL: https://reddit.com/r/discgolf/comments/1qtbprm/is_this_the_cleanest_300_midrange_throw/
+Source: hot
 
 ================================================================================
-POST #69 | Score: 4
+POST #69 | Score: 0
 ================================================================================
-TITLE: Going into next season
+TITLE: Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.
 
+URL: https://reddit.com/user/Hjemmevaernet/comments/1ppkwqq/vi_har_alle_den_samme_mængde_tid_forskellen/
+Source: hot
 
 ================================================================================
-POST #70 | Score: 0
+POST #70 | Score: 109
 ================================================================================
-TITLE: Unlock exclusive rewards with the World of Warcraft: Midnight Epic Edition.
+TITLE: Worlds $4,500 VIP😂
 
+URL: https://reddit.com/r/discgolf/comments/1qrqsx8/worlds_4500_vip/
+Source: hot
+
+================================================================================
+POST #71 | Score: 8
+================================================================================
+TITLE: disc golf vacation - Charlotte / Raleigh
+
+URL: https://reddit.com/r/discgolf/comments/1qs6zlt/disc_golf_vacation_charlotte_raleigh/
+Source: hot
+
+================================================================================
+POST #72 | Score: 6
+================================================================================
+TITLE: Just quit after the second hole
+
+URL: https://reddit.com/r/discgolf/comments/1qs9gfs/just_quit_after_the_second_hole/
+Source: hot
+
+================================================================================
+POST #73 | Score: 8
+================================================================================
+TITLE: Innova Proto Glow aviar x3
+
+URL: https://reddit.com/r/discgolf/comments/1qs2stz/innova_proto_glow_aviar_x3/
+Source: hot
+
+================================================================================
+POST #74 | Score: 1
+================================================================================
+TITLE: In the Bag 2026???
+
+URL: https://reddit.com/r/discgolf/comments/1qsise0/in_the_bag_2026/
+Source: hot
+
+================================================================================
+POST #75 | Score: 17
+================================================================================
+TITLE: Help with gifts for boyfriend
+
+URL: https://reddit.com/r/discgolf/comments/1qrtzbm/help_with_gifts_for_boyfriend/
+Source: hot
+
+================================================================================
+POST #76 | Score: 1
+================================================================================
+TITLE: Disc Identification
+
+URL: https://reddit.com/r/discgolf/comments/1qsdjue/disc_identification/
+Source: hot
+
+================================================================================
+POST #77 | Score: 227
+================================================================================
+TITLE: Anniken K. Steen signs with Latitude 64
+
+URL: https://reddit.com/r/discgolf/comments/1qr7ouu/anniken_k_steen_signs_with_latitude_64/
+Source: hot
+
+================================================================================
+POST #78 | Score: 47
+================================================================================
+TITLE: Found my Hex
+
+URL: https://reddit.com/r/discgolf/comments/1qrld7m/found_my_hex/
+Source: hot
+
+================================================================================
+POST #79 | Score: 0
+================================================================================
+TITLE: Looking for a new disc
+
+URL: https://reddit.com/r/discgolf/comments/1qsnipj/looking_for_a_new_disc/
+Source: hot
+
+================================================================================
+POST #80 | Score: 1
+================================================================================
+TITLE: Flagstaff and Sedona disc golf
+
+URL: https://reddit.com/r/discgolf/comments/1qs91tr/flagstaff_and_sedona_disc_golf/
+Source: hot
+
+================================================================================
+POST #81 | Score: 20
+================================================================================
+TITLE: Circle Bird in Zero Pro - wonderful
+
+URL: https://reddit.com/r/discgolf/comments/1qrnhn8/circle_bird_in_zero_pro_wonderful/
+Source: hot
+
+================================================================================
+POST #82 | Score: 25
+================================================================================
+TITLE: First time on a course today
+
+URL: https://reddit.com/r/discgolf/comments/1qrl3ku/first_time_on_a_course_today/
+Source: hot
+
+================================================================================
+POST #83 | Score: 37
+================================================================================
+TITLE: Eagle McMahon and Streamline branding question
+
+URL: https://reddit.com/r/discgolf/comments/1qrhy3d/eagle_mcmahon_and_streamline_branding_question/
+Source: hot
+
+================================================================================
+POST #84 | Score: 0
+================================================================================
+TITLE: What year is this Wraith from??
+
+URL: https://reddit.com/r/discgolf/comments/1qsesz8/what_year_is_this_wraith_from/
+Source: hot
+
+================================================================================
+POST #85 | Score: 44
+================================================================================
+TITLE: Am I the only one, can Jawbreaker Z go to pasture now?
+
+URL: https://reddit.com/r/discgolf/comments/1qrego6/am_i_the_only_one_can_jawbreaker_z_go_to_pasture/
+Source: hot
+
+================================================================================
+POST #86 | Score: 0
+================================================================================
+TITLE: Anyone ever puddle topped their glitch?
+
+URL: https://reddit.com/r/discgolf/comments/1qsnksm/anyone_ever_puddle_topped_their_glitch/
+Source: hot
+
+================================================================================
+POST #87 | Score: 743
+================================================================================
+TITLE: Best player Anttila
+
+URL: https://reddit.com/r/discgolf/comments/1qqspi0/best_player_anttila/
+Source: hot
+
+================================================================================
+POST #88 | Score: 0
+================================================================================
+TITLE: Enjoyed seeing this beauty parked outside Bevel Brewing
+
+URL: https://reddit.com/r/discgolf/comments/1qsg079/enjoyed_seeing_this_beauty_parked_outside_bevel/
+Source: hot
+
+================================================================================
+POST #89 | Score: 0
+================================================================================
+TITLE: TSA Vessel vs Kastaplast Jarn
+
+URL: https://reddit.com/r/discgolf/comments/1qs4lkg/tsa_vessel_vs_kastaplast_jarn/
+Source: hot
+
+================================================================================
+POST #90 | Score: 22
+================================================================================
+TITLE: F2 Friday: Free Weekly Disc with 3 purchased: Halo Orc,
+
+URL: https://reddit.com/r/discgolf/comments/1qrcy4l/f2_friday_free_weekly_disc_with_3_purchased_halo/
+Source: hot
+
+================================================================================
+POST #91 | Score: 35
+================================================================================
+TITLE: Bright and colorful F2 Friday haul!
+
+URL: https://reddit.com/r/discgolf/comments/1qr812n/bright_and_colorful_f2_friday_haul/
+Source: hot
+
+================================================================================
+POST #92 | Score: 15
+================================================================================
+TITLE: Weather report for NorCal/SoCal Tourney at Waller Pines DGC in Santa Maria, CA tomorrow: Sunny, 79 degrees with light winds off the Pacific.
+
+URL: https://reddit.com/r/discgolf/comments/1qrerh3/weather_report_for_norcalsocal_tourney_at_waller/
+Source: hot
+
+================================================================================
+POST #93 | Score: 0
+================================================================================
+TITLE: Vi har alle den samme mængde tid. Forskellen ligger i, hvad vi bruger den på.
+
+URL: https://reddit.com/user/Hjemmevaernet/comments/1po149i/vi_har_alle_den_samme_mængde_tid_forskellen/
+Source: hot
+
+================================================================================
+POST #94 | Score: 0
+================================================================================
+TITLE: How’s it looking?
+
+URL: https://reddit.com/r/discgolf/comments/1qscxl6/hows_it_looking/
+Source: hot
+
+================================================================================
+POST #95 | Score: 0
+================================================================================
+TITLE: In case you were wondering, there are subreddits for purple, orange, pink, green and blue discs
+
+URL: https://reddit.com/r/discgolf/comments/1qsdc8h/in_case_you_were_wondering_there_are_subreddits/
+Source: hot
+
+================================================================================
+POST #96 | Score: 0
+================================================================================
+TITLE: Garage storage
+
+URL: https://reddit.com/r/discgolf/comments/1qrwld2/garage_storage/
+Source: hot
+
+================================================================================
+POST #97 | Score: 9
+================================================================================
+TITLE: Disc for school supply
+
+URL: https://reddit.com/r/discgolf/comments/1qrc9q7/disc_for_school_supply/
+Source: hot
+
+================================================================================
+POST #98 | Score: 0
+================================================================================
+TITLE: After looking at my glow craves, seems like blue and white are the least common glow colors. Is this true?
+
+URL: https://reddit.com/r/discgolf/comments/1qs5m6h/after_looking_at_my_glow_craves_seems_like_blue/
+Source: hot
+
+================================================================================
+POST #99 | Score: 8
+================================================================================
+TITLE: 2026 Siam Open • Round 3 • All • Clay Edwards • Jakub Semerád • Ben Holding • Tomi Lehtonen (Final Round)
+
+URL: https://reddit.com/r/discgolf/comments/1qrasr8/2026_siam_open_round_3_all_clay_edwards_jakub/
+Source: hot
+
+================================================================================
+POST #100 | Score: 7
+================================================================================
+TITLE: How long are tournaments?
+
+URL: https://reddit.com/r/discgolf/comments/1qrapgh/how_long_are_tournaments/
+Source: hot
+
+================================================================================
+POST #101 | Score: 87
+================================================================================
+TITLE: Still have yet to find this disc design anywhere. Is it like a 1 of 1 or something?
+
+URL: https://reddit.com/r/discgolf/comments/1qqpm22/still_have_yet_to_find_this_disc_design_anywhere/
+Source: hot
+
+================================================================================
+POST #102 | Score: 0
+================================================================================
+TITLE: McFormCheck part III
+
+URL: https://reddit.com/r/discgolf/comments/1qrw9eo/mcformcheck_part_iii/
+Source: hot
+
+================================================================================
+POST #103 | Score: 3
+================================================================================
+TITLE: Maple Hill in June
+
+URL: https://reddit.com/r/discgolf/comments/1qrbvj6/maple_hill_in_june/
+Source: hot
+
+================================================================================
+POST #104 | Score: 34
+================================================================================
+TITLE: Used bin gem
+
+URL: https://reddit.com/r/discgolf/comments/1qqs5ma/used_bin_gem/
+Source: hot
+
+================================================================================
+POST #105 | Score: 117
+================================================================================
+TITLE: Vintage discs worth using?
+
+URL: https://reddit.com/r/discgolf/comments/1qqfjgg/vintage_discs_worth_using/
+Source: hot
+
+================================================================================
+POST #106 | Score: 143
+================================================================================
+TITLE: Interesting
+
+URL: https://reddit.com/r/discgolf/comments/1qqd9wz/interesting/
+Source: hot
+
+================================================================================
+POST #107 | Score: 19
+================================================================================
+TITLE: To throw or not to throw…
+
+URL: https://reddit.com/r/discgolf/comments/1qqtt5k/to_throw_or_not_to_throw/
+Source: hot
+
+================================================================================
+POST #108 | Score: 45
+================================================================================
+TITLE: Is anyone else excited to see more open bag players on tour?
+
+URL: https://reddit.com/r/discgolf/comments/1qqjgmp/is_anyone_else_excited_to_see_more_open_bag/
+Source: hot
+
+================================================================================
+POST #109 | Score: 0
+================================================================================
+TITLE: Form check
+
+URL: https://reddit.com/r/discgolf/comments/1qrlx92/form_check/
+Source: hot
+
+================================================================================
+POST #110 | Score: 0
+================================================================================
+TITLE: 845 rated player. Hey guys, looking to tweak my form a little bit. Longest throw of 485 on flat ground.
+
+URL: https://reddit.com/r/discgolf/comments/1qruk2y/845_rated_player_hey_guys_looking_to_tweak_my/
+Source: hot
+
+================================================================================
+POST #111 | Score: 55
+================================================================================
+TITLE: What is Seppo up to?
+
+URL: https://reddit.com/r/discgolf/comments/1qqeoy4/what_is_seppo_up_to/
+Source: hot
+
+================================================================================
+POST #112 | Score: 0
+================================================================================
+TITLE: Convince/Dissuade me on a disc golf bag
+
+URL: https://reddit.com/r/discgolf/comments/1qrn3bj/convincedissuade_me_on_a_disc_golf_bag/
+Source: hot
+
+================================================================================
+POST #113 | Score: 5
+================================================================================
+TITLE: Disc Golf Lessons in Austin
+
+URL: https://reddit.com/r/discgolf/comments/1qqwu84/disc_golf_lessons_in_austin/
+Source: hot
+
+================================================================================
+POST #114 | Score: 18
+================================================================================
+TITLE: Thoughts on the Liz-atte?
+
+URL: https://reddit.com/r/discgolf/comments/1qqobf3/thoughts_on_the_lizatte/
+Source: hot
+
+================================================================================
+POST #115 | Score: 43
+================================================================================
+TITLE: Where can I get a Paul Oman disc?
+
+URL: https://reddit.com/r/discgolf/comments/1qqeipy/where_can_i_get_a_paul_oman_disc/
+Source: hot
+
+================================================================================
+POST #116 | Score: 1452
+================================================================================
+TITLE: Horrific Comments from Innova Ambassador/Tournament Director Jason Wilder
+
+URL: https://reddit.com/r/discgolf/comments/1qppatf/horrific_comments_from_innova/
+Source: hot
+
+================================================================================
+POST #117 | Score: 0
+================================================================================
+TITLE: Need a little help with my pdga membership
+
+URL: https://reddit.com/r/discgolf/comments/1qrjkh2/need_a_little_help_with_my_pdga_membership/
+Source: hot
+
+================================================================================
+POST #118 | Score: 26
+================================================================================
+TITLE: Eagle McMahon Tossing His New Team Series, The Neutron Engine!
+
+URL: https://reddit.com/r/discgolf/comments/1qqib5z/eagle_mcmahon_tossing_his_new_team_series_the/
+Source: hot
+
+================================================================================
+POST #119 | Score: 10
+================================================================================
+TITLE: Disc Recommendations for new High School Class/Club
+
+URL: https://reddit.com/r/discgolf/comments/1qqq7wh/disc_recommendations_for_new_high_school_classclub/
+Source: hot
+
+================================================================================
+POST #120 | Score: 0
+================================================================================
+TITLE: McFormCheck
+
+URL: https://reddit.com/r/discgolf/comments/1qrmxun/mcformcheck/
+Source: hot
+
+================================================================================
+POST #121 | Score: 18
+================================================================================
+TITLE: ECLIPSE DEFLECTOR! * breathes heavily*
+
+URL: https://reddit.com/r/discgolf/comments/1qqibfb/eclipse_deflector_breathes_heavily/
+Source: hot
+
+================================================================================
+POST #122 | Score: 0
+================================================================================
+TITLE: Mixed Feelings about Gossage going to MVP. (Mostly Sad)
+
+URL: https://reddit.com/r/discgolf/comments/1qrt41a/mixed_feelings_about_gossage_going_to_mvp_mostly/
+Source: hot
+
+================================================================================
+POST #123 | Score: 46
+================================================================================
+TITLE: Finally received my new disc, perfect timing for this nationwide snow storm..
+
+URL: https://reddit.com/r/discgolf/comments/1qq9ymu/finally_received_my_new_disc_perfect_timing_for/
+Source: hot
+
+================================================================================
+POST #124 | Score: 0
+================================================================================
+TITLE: McFormCheck part II
+
+URL: https://reddit.com/r/discgolf/comments/1qrn14u/mcformcheck_part_ii/
+Source: hot
+
+================================================================================
+POST #125 | Score: 24
+================================================================================
+TITLE: PDGA - Get player info from tournament page
+
+URL: https://reddit.com/r/discgolf/comments/1qqebd1/pdga_get_player_info_from_tournament_page/
+Source: hot
+
+================================================================================
+POST #126 | Score: 8
+================================================================================
+TITLE: How do you define if a disc is “beat in”?
+
+URL: https://reddit.com/r/discgolf/comments/1qqn9dm/how_do_you_define_if_a_disc_is_beat_in/
+Source: hot
+
+================================================================================
+POST #127 | Score: 15
+================================================================================
+TITLE: Top 3 most popular disc golf courses in every Canadian province & territory: 2025 + overall top 10
+
+URL: https://reddit.com/r/discgolf/comments/1qqhsgc/top_3_most_popular_disc_golf_courses_in_every/
+Source: hot
+
+================================================================================
+POST #128 | Score: 14
+================================================================================
+TITLE: What's your favorite baseline(putter) plastic? Any brand, and stiffness.
+
+URL: https://reddit.com/r/discgolf/comments/1qqg3ju/whats_your_favorite_baselineputter_plastic_any/
+Source: hot
+
+================================================================================
+POST #129 | Score: 7
+================================================================================
+TITLE: Minnesota Indoor Disc Golf?
+
+URL: https://reddit.com/r/discgolf/comments/1qqijpp/minnesota_indoor_disc_golf/
+Source: hot
+
+================================================================================
+POST #130 | Score: 137
+================================================================================
+TITLE: Finland’s Largest Retailer on Clash Discs: “Clash Disc has kind of stopped operating”
+
+URL: https://reddit.com/r/discgolf/comments/1qpv3ri/finlands_largest_retailer_on_clash_discs_clash/
+Source: hot
+
+================================================================================
+POST #131 | Score: 0
+================================================================================
+TITLE: Winter Discs? (Inspiration from shoveling a $H!T-T0N of snow
+
+URL: https://reddit.com/r/discgolf/comments/1qrb191/winter_discs_inspiration_from_shoveling_a_htt0n/
+Source: hot
+
+================================================================================
+POST #132 | Score: 10
+================================================================================
+TITLE: 2nd run Phoenix - beefcake?
+
+URL: https://reddit.com/r/discgolf/comments/1qqac1y/2nd_run_phoenix_beefcake/
+Source: hot
+
+================================================================================
+POST #133 | Score: 10
+================================================================================
+TITLE: 2026 Siam Open • All of Round 2 (of 3) • Clay Edwards • Tomi Lehtonen • Jakub Semerád • Japi Pistokoski
+
+URL: https://reddit.com/r/discgolf/comments/1qq9iyo/2026_siam_open_all_of_round_2_of_3_clay_edwards/
+Source: hot
+
+================================================================================
+POST #134 | Score: 1
+================================================================================
+TITLE: What to do?!?
+
+URL: https://reddit.com/r/discgolf/comments/1qql3v0/what_to_do/
+Source: hot
+
+================================================================================
+POST #135 | Score: 3
+================================================================================
+TITLE: Question about literal Frisbee discs
+
+URL: https://reddit.com/r/discgolf/comments/1qqhft1/question_about_literal_frisbee_discs/
+Source: hot
+
+================================================================================
+POST #136 | Score: 66
+================================================================================
+TITLE: For those of you that were stuck in the two 290– 330 range, was there an “AH-HA!” Moment when you reached 350+? Or was it very gradual?
+
+URL: https://reddit.com/r/discgolf/comments/1qpus92/for_those_of_you_that_were_stuck_in_the_two_290/
+Source: hot
+
+================================================================================
+POST #137 | Score: 49
+================================================================================
+TITLE: Best courses in Washington, Oregon or Idaho?
+
+URL: https://reddit.com/r/discgolf/comments/1qpwrbc/best_courses_in_washington_oregon_or_idaho/
+Source: hot
+
+================================================================================
+POST #138 | Score: 0
+================================================================================
+TITLE: Do better Wordle…
+
+URL: https://reddit.com/r/discgolf/comments/1qr8tcs/do_better_wordle/
+Source: hot
+
+================================================================================
+POST #139 | Score: 44
+================================================================================
+TITLE: Stumbled into this again…Simon’s influence at MVP.
+
+URL: https://reddit.com/r/discgolf/comments/1qpuys5/stumbled_into_this_againsimons_influence_at_mvp/
+Source: hot
+
+================================================================================
+POST #140 | Score: 4
+================================================================================
+TITLE: ARP | 2026 Savannah Open R3 Back | Robinson : Kiep : Frederiksen : Side...
+
+URL: https://reddit.com/r/discgolf/comments/1qqcl14/arp_2026_savannah_open_r3_back_robinson_kiep/
+Source: hot
+
+================================================================================
+POST #141 | Score: 0
+================================================================================
+TITLE: Any form coaches you would recommend?
+
+URL: https://reddit.com/r/discgolf/comments/1qqitv1/any_form_coaches_you_would_recommend/
+Source: hot
+
+================================================================================
+POST #142 | Score: 72
+================================================================================
+TITLE: Used BIN find 😍🥰
+
+URL: https://reddit.com/r/discgolf/comments/1qpl7gm/used_bin_find/
+Source: hot
+
+================================================================================
+POST #143 | Score: 160
+================================================================================
+TITLE: fish-bees
+
+URL: https://reddit.com/r/discgolf/comments/1qpc9b6/fishbees/
+Source: hot
+
+================================================================================
+POST #144 | Score: 21
+================================================================================
+TITLE: Fun Hypothetical
+
+URL: https://reddit.com/r/discgolf/comments/1qptmiv/fun_hypothetical/
+Source: hot
+
+================================================================================
+POST #145 | Score: 13
+================================================================================
+TITLE: Disc ID?
+
+URL: https://reddit.com/r/discgolf/comments/1qpuomp/disc_id/
+Source: hot
+
+================================================================================
+POST #146 | Score: 68
+================================================================================
+TITLE: What's your unpopular opinion on discs?
+
+URL: https://reddit.com/r/discgolf/comments/1qphepg/whats_your_unpopular_opinion_on_discs/
+Source: hot
+
+================================================================================
+POST #147 | Score: 15
+================================================================================
+TITLE: Use disposable handwarmers? Pro tip:
+
+URL: https://reddit.com/r/discgolf/comments/1qptepb/use_disposable_handwarmers_pro_tip/
+Source: hot
+
+================================================================================
+POST #148 | Score: 0
+================================================================================
+TITLE: TikTok and Instagram!!!
+
+URL: https://reddit.com/r/discgolf/comments/1qqvmtp/tiktok_and_instagram/
+Source: hot
+
+================================================================================
+POST #149 | Score: 33
+================================================================================
+TITLE: Any FPO players that are good YouTube follows?
+
+URL: https://reddit.com/r/discgolf/comments/1qpkh26/any_fpo_players_that_are_good_youtube_follows/
+Source: hot
+
+================================================================================
+POST #150 | Score: 6
+================================================================================
+TITLE: Tips for maintaining nose angle while increasing launch angle?
+
+URL: https://reddit.com/r/discgolf/comments/1qpxfda/tips_for_maintaining_nose_angle_while_increasing/
+Source: hot
+
+================================================================================
+POST #151 | Score: 12
+================================================================================
+TITLE: Vintage Innova ID Help
+
+URL: https://reddit.com/r/discgolf/comments/1qpqwdh/vintage_innova_id_help/
+Source: hot
+
+================================================================================
+POST #152 | Score: 0
+================================================================================
+TITLE: Anyone else find this guy to be insufferable? JustDisc
+
+URL: https://reddit.com/r/discgolf/comments/1qqspyn/anyone_else_find_this_guy_to_be_insufferable/
+Source: hot
+
+================================================================================
+POST #153 | Score: 0
+================================================================================
+TITLE: Discgolf sponsor 14 year old
+
+URL: https://reddit.com/r/discgolf/comments/1qqla99/discgolf_sponsor_14_year_old/
+Source: hot
+
+================================================================================
+POST #154 | Score: 4
+================================================================================
+TITLE: Discology Icon vs OG V3
+
+URL: https://reddit.com/r/discgolf/comments/1qpwl3f/discology_icon_vs_og_v3/
+Source: hot
+
+================================================================================
+POST #155 | Score: 0
+================================================================================
+TITLE: Ever thrown a transe?
+
+URL: https://reddit.com/r/discgolf/comments/1qqf6ka/ever_thrown_a_transe/
+Source: hot
+
+================================================================================
+POST #156 | Score: 3
+================================================================================
+TITLE: Gloves for cut fingers?
+
+URL: https://reddit.com/r/discgolf/comments/1qpth5l/gloves_for_cut_fingers/
+Source: hot
+
+================================================================================
+POST #157 | Score: 10
+================================================================================
+TITLE: Disc similar to an Infinite Pharaoh but easier to replace?
+
+URL: https://reddit.com/r/discgolf/comments/1qpibik/disc_similar_to_an_infinite_pharaoh_but_easier_to/
+Source: hot
+
+================================================================================
+POST #158 | Score: 13
+================================================================================
+TITLE: Big Z / Jawbreaker blend Zone SS
+
+URL: https://reddit.com/r/discgolf/comments/1qpeyy0/big_z_jawbreaker_blend_zone_ss/
+Source: hot
+
+================================================================================
+POST #159 | Score: 0
+================================================================================
+TITLE: Eagle's New AI Video - Wynn Dragon vs Engine
+
+URL: https://reddit.com/r/discgolf/comments/1qqk5gq/eagles_new_ai_video_wynn_dragon_vs_engine/
+Source: hot
+
+================================================================================
+POST #160 | Score: 7
+================================================================================
+TITLE: Attending The SupremeFlight Open in FL
+
+URL: https://reddit.com/r/discgolf/comments/1qpi1qc/attending_the_supremeflight_open_in_fl/
+Source: hot
+
+================================================================================
+POST #161 | Score: 7
+================================================================================
+TITLE: ARP | 2026 Savannah Open R2 Front | Robinson : Kneece : Frederiksen : Welsh | MPO Lead Card
+
+URL: https://reddit.com/r/discgolf/comments/1qpfbp5/arp_2026_savannah_open_r2_front_robinson_kneece/
+Source: hot
+
+================================================================================
+POST #162 | Score: 8
+================================================================================
+TITLE: New mid. Will it bump the Balance?
+
+URL: https://reddit.com/r/discgolf/comments/1qpbmhm/new_mid_will_it_bump_the_balance/
+Source: hot
+
+================================================================================
+POST #163 | Score: 5
+================================================================================
+TITLE: A more durable soft plastic Zone OS?
+
+URL: https://reddit.com/r/discgolf/comments/1qpf4js/a_more_durable_soft_plastic_zone_os/
+Source: hot
+
+================================================================================
+POST #164 | Score: 317
+================================================================================
+TITLE: These Reactors look amazing!
+
+URL: https://reddit.com/r/discgolf/comments/1qolv6e/these_reactors_look_amazing/
+Source: hot
+
+================================================================================
+POST #165 | Score: 2
+================================================================================
+TITLE: Twin cities mn course conditions
+
+URL: https://reddit.com/r/discgolf/comments/1qpscrd/twin_cities_mn_course_conditions/
+Source: hot
+
+================================================================================
+POST #166 | Score: 4
+================================================================================
+TITLE: Experience with the Innova Glass Clear line?
+
+URL: https://reddit.com/r/discgolf/comments/1qpgqbu/experience_with_the_innova_glass_clear_line/
+Source: hot
+
+================================================================================
+POST #167 | Score: 0
+================================================================================
+TITLE: Roast my Bag. What should I take out of the bag? I want to fit more beer.
+
+URL: https://reddit.com/r/discgolf/comments/1qpw1im/roast_my_bag_what_should_i_take_out_of_the_bag_i/
+Source: hot
+
+================================================================================
+POST #168 | Score: 25
+================================================================================
+TITLE: Rate my bag as a beginner?
+
+URL: https://reddit.com/r/discgolf/comments/1qozasz/rate_my_bag_as_a_beginner/
+Source: hot
+
+================================================================================
+POST #169 | Score: 41
+================================================================================
+TITLE: Glad I decided to pop into PIAS after work!!!
+
+URL: https://reddit.com/r/discgolf/comments/1qouykv/glad_i_decided_to_pop_into_pias_after_work/
+Source: hot
+
+================================================================================
+POST #170 | Score: 189
+================================================================================
+TITLE: Put together a disc/bag rack while I was stuck at the house this weekend
+
+URL: https://reddit.com/r/discgolf/comments/1qog839/put_together_a_discbag_rack_while_i_was_stuck_at/
+Source: hot
+
+================================================================================
+POST #171 | Score: 34
+================================================================================
+TITLE: Winter Disc Golf Appreciation Post/Thread
+
+URL: https://reddit.com/r/discgolf/comments/1qovar1/winter_disc_golf_appreciation_postthread/
+Source: hot
+
+================================================================================
+POST #172 | Score: 0
+================================================================================
+TITLE: What's missing
+
+URL: https://reddit.com/r/discgolf/comments/1qpoyaq/whats_missing/
+Source: hot
+
+================================================================================
+POST #173 | Score: 36
+================================================================================
+TITLE: The disc golfers hand lotion
+
+URL: https://reddit.com/r/discgolf/comments/1qot1uh/the_disc_golfers_hand_lotion/
+Source: hot
+
+================================================================================
+POST #174 | Score: 37
+================================================================================
+TITLE: Your Takes on Various 5-6 flippy mids
+
+URL: https://reddit.com/r/discgolf/comments/1qoqeji/your_takes_on_various_56_flippy_mids/
+Source: hot
+
+================================================================================
+POST #175 | Score: 77
+================================================================================
+TITLE: [WEIRD DISC ALERT] PDGA Approved: Cryptid from Jester Disc Golf
+
+URL: https://reddit.com/r/discgolf/comments/1qoed4o/weird_disc_alert_pdga_approved_cryptid_from/
+Source: hot
+
+================================================================================
+POST #176 | Score: 0
+================================================================================
+TITLE: Hva bruker dere for å lade glow-discer under runder?
+
+URL: https://reddit.com/r/discgolf/comments/1qpr649/hva_bruker_dere_for_å_lade_glowdiscer_under_runder/
+Source: hot
+
+================================================================================
+POST #177 | Score: 32
+================================================================================
+TITLE: Whats your favorite approach disc?
+
+URL: https://reddit.com/r/discgolf/comments/1qojrvo/whats_your_favorite_approach_disc/
+Source: hot
+
+================================================================================
+POST #178 | Score: 10
+================================================================================
+TITLE: What is a myth about winter disc golf?
+
+URL: https://reddit.com/r/discgolf/comments/1qouc9s/what_is_a_myth_about_winter_disc_golf/
+Source: hot
+
+================================================================================
+POST #179 | Score: 8
+================================================================================
+TITLE: More disc east pickups
+
+URL: https://reddit.com/r/discgolf/comments/1qoua4b/more_disc_east_pickups/
+Source: hot
+
+================================================================================
+POST #180 | Score: 18
+================================================================================
+TITLE: Floppy disc ACE!!!
+
+URL: https://reddit.com/r/discgolf/comments/1qonawh/floppy_disc_ace/
+Source: hot
+
+================================================================================
+POST #181 | Score: 0
+================================================================================
+TITLE: In the bag/flippy mid recommendations
+
+URL: https://reddit.com/r/discgolf/comments/1qpmbzh/in_the_bagflippy_mid_recommendations/
+Source: hot
+
+================================================================================
+POST #182 | Score: 5
+================================================================================
+TITLE: Advice for Announcing a Tournament
+
+URL: https://reddit.com/r/discgolf/comments/1qov3i6/advice_for_announcing_a_tournament/
+Source: hot
+
+================================================================================
+POST #183 | Score: 18
+================================================================================
+TITLE: What's your shortest and longest ace?
+
+URL: https://reddit.com/r/discgolf/comments/1qojdfo/whats_your_shortest_and_longest_ace/
+Source: hot
+
+================================================================================
+POST #184 | Score: 13
+================================================================================
+TITLE: ARP | 2026 Savannah Open R1 Front | I. Robinson : Queen : Sides : Capps | MPO Feat. Card
+
+URL: https://reddit.com/r/discgolf/comments/1qomgtj/arp_2026_savannah_open_r1_front_i_robinson_queen/
+Source: hot
+
+================================================================================
+POST #185 | Score: 13
+================================================================================
+TITLE: Gateway goodies
+
+URL: https://reddit.com/r/discgolf/comments/1qokgdr/gateway_goodies/
+Source: hot
+
+================================================================================
+POST #186 | Score: 2
+================================================================================
+TITLE: Proto Tomb
+
+URL: https://reddit.com/r/discgolf/comments/1qp0axc/proto_tomb/
+Source: hot
+
+================================================================================
+POST #187 | Score: 12
+================================================================================
+TITLE: Buying/retnting discs in Tokyo?
+
+URL: https://reddit.com/r/discgolf/comments/1qoiwmn/buyingretnting_discs_in_tokyo/
+Source: hot
+
+================================================================================
+POST #188 | Score: 13
+================================================================================
+TITLE: Did udisc get ride of the putting game & throwing game?
+
+URL: https://reddit.com/r/discgolf/comments/1qohmvk/did_udisc_get_ride_of_the_putting_game_throwing/
+Source: hot
+
+================================================================================
+POST #189 | Score: 3
+================================================================================
+TITLE: 2026 SkipAce.com Fantasy Disc Golf
+
+URL: https://reddit.com/r/discgolf/comments/1qoso9z/2026_skipacecom_fantasy_disc_golf/
+Source: hot
+
+================================================================================
+POST #190 | Score: 282
+================================================================================
+TITLE: I love how this custom dyed turned out
+
+URL: https://reddit.com/r/discgolf/comments/1qnrri1/i_love_how_this_custom_dyed_turned_out/
+Source: hot
+
+================================================================================
+POST #191 | Score: 96
+================================================================================
+TITLE: New disc duo Fox
+
+URL: https://reddit.com/r/discgolf/comments/1qnwj80/new_disc_duo_fox/
+Source: hot
+
+================================================================================
+POST #192 | Score: 532
+================================================================================
+TITLE: My latest oil painting: Hole 1 Maple Hill
+
+URL: https://reddit.com/r/discgolf/comments/1qngyuk/my_latest_oil_painting_hole_1_maple_hill/
+Source: hot
+
+================================================================================
+POST #193 | Score: 364
+================================================================================
+TITLE: First birdie!
+
+URL: https://reddit.com/r/discgolf/comments/1qnjg2a/first_birdie/
+Source: hot
+
+================================================================================
+POST #194 | Score: 3
+================================================================================
+TITLE: Team challenge lunch
+
+URL: https://reddit.com/r/discgolf/comments/1qohusg/team_challenge_lunch/
+Source: hot
+
+================================================================================
+POST #195 | Score: 0
+================================================================================
+TITLE: Adding some color to bottom of discs
+
+URL: https://reddit.com/r/discgolf/comments/1qor0ts/adding_some_color_to_bottom_of_discs/
+Source: hot
+
+================================================================================
+POST #196 | Score: 0
+================================================================================
+TITLE: POV: You booted up a cursed 90s DOS game and it wants you dead
+
+URL: https://reddit.com/user/AlawarGames/comments/1qh1k36/pov_you_booted_up_a_cursed_90s_dos_game_and_it/
+Source: hot
+
+================================================================================
+POST #197 | Score: 7
+================================================================================
+TITLE: Less baggage in winter: Discs that take varying levels of power the best?
+
+URL: https://reddit.com/r/discgolf/comments/1qo94kp/less_baggage_in_winter_discs_that_take_varying/
+Source: hot
+
+================================================================================
+POST #198 | Score: 16
+================================================================================
+TITLE: 11x Ken Climo L mold
+
+URL: https://reddit.com/r/discgolf/comments/1qo1zbv/11x_ken_climo_l_mold/
+Source: hot
+
+================================================================================
+POST #199 | Score: 2
+================================================================================
+TITLE: Prodigy A3: With or Without Dome?
+
+URL: https://reddit.com/r/discgolf/comments/1qodbmz/prodigy_a3_with_or_without_dome/
+Source: hot
+
+================================================================================
+POST #200 | Score: 46
+================================================================================
+TITLE: New Zealand Open 🇳🇿 — Final Round Coverage | MVP Discs Tour Down Under Stop #3
+
+URL: https://reddit.com/r/discgolf/comments/1qnqw4g/new_zealand_open_final_round_coverage_mvp_discs/
+Source: hot
+
+================================================================================
+POST #201 | Score: 14
+================================================================================
+TITLE: PDGA membership questions
+
+URL: https://reddit.com/r/discgolf/comments/1qnzjzs/pdga_membership_questions/
+Source: hot
+
+================================================================================
+POST #202 | Score: 387
+================================================================================
+TITLE: Tesla hummingbird ace
+
+URL: https://reddit.com/r/discgolf/comments/1qn90f1/tesla_hummingbird_ace/
+Source: hot
+
+================================================================================
+POST #203 | Score: 13
+================================================================================
+TITLE: New Zealand Open 🇳🇿 — Final Round FPO Coverage | MVP Discs Tour Down Under Stop #3
+
+URL: https://reddit.com/r/discgolf/comments/1qnyug8/new_zealand_open_final_round_fpo_coverage_mvp/
+Source: hot
+
+================================================================================
+POST #204 | Score: 72
+================================================================================
+TITLE: Simon Line Bokeh, Eagle McMahon Engine, and more from MVP 👇
+
+URL: https://reddit.com/r/discgolf/comments/1qnj5zi/simon_line_bokeh_eagle_mcmahon_engine_and_more/
+Source: hot
+
+================================================================================
+POST #205 | Score: 57
+================================================================================
+TITLE: An Addendum to My Lems Shoes Endorsement
+
+URL: https://reddit.com/r/discgolf/comments/1qnh32r/an_addendum_to_my_lems_shoes_endorsement/
+Source: hot
+
+================================================================================
+POST #206 | Score: 0
+================================================================================
+TITLE: Disc id?
+
+URL: https://reddit.com/r/discgolf/comments/1qol9eo/disc_id/
+Source: hot
+
+================================================================================
+POST #207 | Score: 25
+================================================================================
+TITLE: Innova Historians - Innova X Molds
+
+URL: https://reddit.com/r/discgolf/comments/1qnof30/innova_historians_innova_x_molds/
+Source: hot
+
+================================================================================
+POST #208 | Score: 3
+================================================================================
+TITLE: Supreme Prototype EMAC Truth vs Lucid
+
+URL: https://reddit.com/r/discgolf/comments/1qo5jkb/supreme_prototype_emac_truth_vs_lucid/
+Source: hot
+
+================================================================================
+POST #209 | Score: 0
+================================================================================
+TITLE: Form Check Weekly
+
+URL: https://reddit.com/r/discgolf/comments/1qo9re2/form_check_weekly/
+Source: hot
+
+================================================================================
+POST #210 | Score: 289
+================================================================================
+TITLE: Corey Ellis to RPM discs
+
+URL: https://reddit.com/r/discgolf/comments/1qn3vh5/corey_ellis_to_rpm_discs/
+Source: hot
+
+================================================================================
+POST #211 | Score: 52
+================================================================================
+TITLE: Saw this on Insta. Rich people and frisbees.
+
+URL: https://reddit.com/r/discgolf/comments/1qndmdi/saw_this_on_insta_rich_people_and_frisbees/
+Source: hot
+
+================================================================================
+POST #212 | Score: 0
+================================================================================
+TITLE: Off axis
+
+URL: https://reddit.com/r/discgolf/comments/1qoiwmq/off_axis/
+Source: hot
+
+================================================================================
+POST #213 | Score: 0
+================================================================================
+TITLE: Off axis overhead view, really shows why you lose disc speed when you are off axis
+
+URL: https://reddit.com/r/discgolf/comments/1qokjlo/off_axis_overhead_view_really_shows_why_you_lose/
+Source: hot
+
+================================================================================
+POST #214 | Score: 386
+================================================================================
+TITLE: Disc golfing in 5° (Central OK)
+
+URL: https://reddit.com/r/discgolf/comments/1qmwrc8/disc_golfing_in_5_central_ok/
+Source: hot
+
+================================================================================
+POST #215 | Score: 1
+================================================================================
+TITLE: Discraft Drone runs
+
+URL: https://reddit.com/r/discgolf/comments/1qnydd2/discraft_drone_runs/
+Source: hot
+
+================================================================================
+POST #216 | Score: 163
+================================================================================
+TITLE: Aaron Gossage - La Mirada Open A-Tier
+
+URL: https://reddit.com/r/discgolf/comments/1qn06s6/aaron_gossage_la_mirada_open_atier/
+Source: hot
+
+================================================================================
+POST #217 | Score: 31
+================================================================================
+TITLE: Tried to split the trees, split my disc instead 🙃
+
+URL: https://reddit.com/r/discgolf/comments/1qnb1pr/tried_to_split_the_trees_split_my_disc_instead/
+Source: hot
+
+================================================================================
+POST #218 | Score: 1260
+================================================================================
+TITLE: The everything app, for work. Get everyone working in a single platform designed to manage any type of work.
+
+URL: https://reddit.com/user/ClickUp_App/comments/1hhgblf/the_everything_app_for_work_get_everyone_working/
+Source: hot
+
+================================================================================
+POST #219 | Score: 168
+================================================================================
+TITLE: Continuing their trend of big name signings, AGL signs Bradley Williams!
+
+URL: https://reddit.com/r/discgolf/comments/1qmzf1l/continuing_their_trend_of_big_name_signings_agl/
+Source: hot
+
+================================================================================
+POST #220 | Score: 0
+================================================================================
+TITLE: Were first run Athenas a less stable run?
+
+URL: https://reddit.com/r/discgolf/comments/1qo1k56/were_first_run_athenas_a_less_stable_run/
+Source: hot
+
+================================================================================
+POST #221 | Score: 78
+================================================================================
+TITLE: I didn’t realize how lucky I got with this rim/flight plate color combination. Looks gorgeous
+
+URL: https://reddit.com/r/discgolf/comments/1qn3ouo/i_didnt_realize_how_lucky_i_got_with_this/
+Source: hot
+
+================================================================================
+POST #222 | Score: 58
+================================================================================
+TITLE: Rain or snow, I still suck.
+
+URL: https://reddit.com/r/discgolf/comments/1qn47o3/rain_or_snow_i_still_suck/
+Source: hot
+
+================================================================================
+POST #223 | Score: 0
+================================================================================
+TITLE: A question for the Vegas locals.
+
+URL: https://reddit.com/r/discgolf/comments/1qnynuf/a_question_for_the_vegas_locals/
+Source: hot
+
+================================================================================
+POST #224 | Score: 99
+================================================================================
+TITLE: Big Jerm MVP bag?
+
+URL: https://reddit.com/r/discgolf/comments/1qmzje0/big_jerm_mvp_bag/
+Source: hot
+
+================================================================================
+POST #225 | Score: 3
+================================================================================
+TITLE: Hole Mailcall Batman
+
+URL: https://reddit.com/r/discgolf/comments/1qnxxkk/hole_mailcall_batman/
+Source: hot
+
+================================================================================
+POST #226 | Score: 0
+================================================================================
+TITLE: Chump chalk?
+
+URL: https://reddit.com/r/discgolf/comments/1qnx1su/chump_chalk/
+Source: hot
+
+================================================================================
+POST #227 | Score: 186
+================================================================================
+TITLE: Emily Weatherman announces sponsorship by AGL
+
+URL: https://reddit.com/r/discgolf/comments/1qmr4fw/emily_weatherman_announces_sponsorship_by_agl/
+Source: hot
+
+================================================================================
+POST #228 | Score: 2
+================================================================================
+TITLE: Swenson Park Course and California.
+
+URL: https://reddit.com/r/discgolf/comments/1qnlbyo/swenson_park_course_and_california/
+Source: hot
+
+================================================================================
+POST #229 | Score: 156
+================================================================================
+TITLE: My WhatNot scores are becoming addictive, but costing me a lot of money.
+
+URL: https://reddit.com/r/discgolf/comments/1qms284/my_whatnot_scores_are_becoming_addictive_but/
+Source: hot
+
+================================================================================
+POST #230 | Score: 2
+================================================================================
+TITLE: MVP DD
+
+URL: https://reddit.com/r/discgolf/comments/1qnv6mg/mvp_dd/
+Source: hot
+
+================================================================================
+POST #231 | Score: 28
+================================================================================
+TITLE: Any love for wizards?
+
+URL: https://reddit.com/r/discgolf/comments/1qn4bg8/any_love_for_wizards/
+Source: hot
+
+================================================================================
+POST #232 | Score: 15
+================================================================================
+TITLE: What's some advice from those in the 400ft club?
+
+URL: https://reddit.com/r/discgolf/comments/1qn65em/whats_some_advice_from_those_in_the_400ft_club/
+Source: hot
+
+================================================================================
+POST #233 | Score: 99
+================================================================================
+TITLE: Disc east was so cool!
+
+URL: https://reddit.com/r/discgolf/comments/1qmom96/disc_east_was_so_cool/
+Source: hot
+
+================================================================================
+POST #234 | Score: 10
+================================================================================
+TITLE: Check these stamps!
+
+URL: https://reddit.com/r/discgolf/comments/1qn6obi/check_these_stamps/
+Source: hot
+
+================================================================================
+POST #235 | Score: 89
+================================================================================
+TITLE: Big shoutout to Issac Robinson
+
+URL: https://reddit.com/r/discgolf/comments/1qmoe5l/big_shoutout_to_issac_robinson/
+Source: hot
+
+================================================================================
+POST #236 | Score: 35
+================================================================================
+TITLE: Practice Target for putting and such
+
+URL: https://reddit.com/r/discgolf/comments/1qmvgs7/practice_target_for_putting_and_such/
+Source: hot
+
+================================================================================
+POST #237 | Score: 28
+================================================================================
+TITLE: Little luck on my putter
+
+URL: https://reddit.com/r/discgolf/comments/1qmx3x7/little_luck_on_my_putter/
+Source: hot
+
+================================================================================
+POST #238 | Score: 7
+================================================================================
+TITLE: Discraft plastics
+
+URL: https://reddit.com/r/discgolf/comments/1qn3d6e/discraft_plastics/
+Source: hot
+
+================================================================================
+POST #239 | Score: 59
+================================================================================
+TITLE: Pure sadness
+
+URL: https://reddit.com/r/discgolf/comments/1qmkf3n/pure_sadness/
+Source: hot
+
+================================================================================
+POST #240 | Score: 0
+================================================================================
+TITLE: Where am I leaking power?
+
+URL: https://reddit.com/r/discgolf/comments/1qnizi0/where_am_i_leaking_power/
+Source: hot
+
+================================================================================
+POST #241 | Score: 38
+================================================================================
+TITLE: Anyone actually bagging an Ultra Luna?
+
+URL: https://reddit.com/r/discgolf/comments/1qmm723/anyone_actually_bagging_an_ultra_luna/
+Source: hot
+
+================================================================================
+POST #242 | Score: 27
+================================================================================
+TITLE: Ice Bowl Fundraiser
+
+URL: https://reddit.com/r/discgolf/comments/1qmnb30/ice_bowl_fundraiser/
+Source: hot
+
+================================================================================
+POST #243 | Score: 22
+================================================================================
+TITLE: Still gotta get my reps in
+
+URL: https://reddit.com/r/discgolf/comments/1qmnxhi/still_gotta_get_my_reps_in/
+Source: hot
+
+================================================================================
+POST #244 | Score: 0
+================================================================================
+TITLE: Bokeh and Engine Preorders LIVE!!!
+
+URL: https://reddit.com/r/discgolf/comments/1qnm825/bokeh_and_engine_preorders_live/
+Source: hot
+
+================================================================================
+POST #245 | Score: 674
+================================================================================
+TITLE: Is this real life?!
+
+URL: https://reddit.com/r/discgolf/comments/1qly4zh/is_this_real_life/
+Source: hot
+
+================================================================================
+POST #246 | Score: 13
+================================================================================
+TITLE: Ken Climo GRIPeq Bag - Disc East
+
+URL: https://reddit.com/r/discgolf/comments/1qmntd9/ken_climo_gripeq_bag_disc_east/
+Source: hot
+
+================================================================================
+POST #247 | Score: 3
+================================================================================
+TITLE: Hazard off the tee-shot only
+
+URL: https://reddit.com/r/discgolf/comments/1qn1paw/hazard_off_the_teeshot_only/
+Source: hot
+
+================================================================================
+POST #248 | Score: 9
+================================================================================
+TITLE: random thought
+
+URL: https://reddit.com/r/discgolf/comments/1qmqnpq/random_thought/
+Source: hot
+
+================================================================================
+POST #249 | Score: 6
+================================================================================
+TITLE: What would you bag if you could only use discs made of recycled plastics?
+
+URL: https://reddit.com/r/discgolf/comments/1qmrng9/what_would_you_bag_if_you_could_only_use_discs/
+Source: hot
+
+================================================================================
+POST #250 | Score: 241
+================================================================================
+TITLE: FIRST ACE!
+
+URL: https://reddit.com/r/discgolf/comments/1qm0ash/first_ace/
+Source: hot
+
+================================================================================
+POST #251 | Score: 9
+================================================================================
+TITLE: MVP Servo Plastic Recommendation
+
+URL: https://reddit.com/r/discgolf/comments/1qmlos0/mvp_servo_plastic_recommendation/
+Source: hot
+
+================================================================================
+POST #252 | Score: 8
+================================================================================
+TITLE: Best tomahawk disc?
+
+URL: https://reddit.com/r/discgolf/comments/1qmjhkr/best_tomahawk_disc/
+Source: hot
+
+================================================================================
+POST #253 | Score: 163
+================================================================================
+TITLE: Started off my round with an ace this morning!
+
+URL: https://reddit.com/r/discgolf/comments/1qlz3pg/started_off_my_round_with_an_ace_this_morning/
+Source: hot
+
+================================================================================
+POST #254 | Score: 48
+================================================================================
+TITLE: New Zealand? Are these courses on go throw coverage open year round or just temp? Thinking of moving there. My country sucks right now. Bet you can't guess which one. Happy golfing!
+
+URL: https://reddit.com/r/discgolf/comments/1qm7rii/new_zealand_are_these_courses_on_go_throw/
+Source: hot
+
+================================================================================
+POST #255 | Score: 2
+================================================================================
+TITLE: Infinite sphinx recommendations
+
+URL: https://reddit.com/r/discgolf/comments/1qmsvjw/infinite_sphinx_recommendations/
+Source: hot
+
+================================================================================
+POST #256 | Score: 32
+================================================================================
+TITLE: Pyro is so freaking nice
+
+URL: https://reddit.com/r/discgolf/comments/1qm9l1y/pyro_is_so_freaking_nice/
+Source: hot
+
+================================================================================
+POST #257 | Score: 0
+================================================================================
+TITLE: Any idea what disc this is?
+
+URL: https://reddit.com/r/discgolf/comments/1qmw1u9/any_idea_what_disc_this_is/
+Source: hot
+
+================================================================================
+POST #258 | Score: 0
+================================================================================
+TITLE: Course record (968 rated) for junior girls at Timmons!
+
+URL: https://reddit.com/r/discgolf/comments/1qmtq90/course_record_968_rated_for_junior_girls_at/
+Source: hot
+
+================================================================================
+POST #259 | Score: 26
+================================================================================
+TITLE: Pushing-curl throw model for +spin and better power pocket (long & short ver)
+
+URL: https://reddit.com/r/discgolf/comments/1qm5yu1/pushingcurl_throw_model_for_spin_and_better_power/
+Source: hot
+
+================================================================================
+POST #260 | Score: 112
+================================================================================
+TITLE: Mario Shells Disc Dye
+
+URL: https://reddit.com/r/discgolf/comments/1qltzql/mario_shells_disc_dye/
+Source: hot
+
+================================================================================
+POST #261 | Score: 55
+================================================================================
+TITLE: Disc East: Mission Accomplished
+
+URL: https://reddit.com/r/discgolf/comments/1qlyp7o/disc_east_mission_accomplished/
+Source: hot
+
+================================================================================
+POST #262 | Score: 83
+================================================================================
+TITLE: Donate 11 Discs and Shoulder Bag to New Player in MN
+
+URL: https://reddit.com/r/discgolf/comments/1qlu74w/donate_11_discs_and_shoulder_bag_to_new_player_in/
+Source: hot
+
+================================================================================
+POST #263 | Score: 90
+================================================================================
+TITLE: J-Milly on Team Discmania
+
+URL: https://reddit.com/r/discgolf/comments/1qlsexe/jmilly_on_team_discmania/
+Source: hot
+
+================================================================================
+POST #264 | Score: 6
+================================================================================
+TITLE: Whale Rock vs Heilmann Park
+
+URL: https://reddit.com/r/discgolf/comments/1qmafoj/whale_rock_vs_heilmann_park/
+Source: hot
+
+================================================================================
+POST #265 | Score: 33
+================================================================================
+TITLE: Replacing US brand discs in my bag
+
+URL: https://reddit.com/r/discgolf/comments/1qlznn3/replacing_us_brand_discs_in_my_bag/
+Source: hot
+
+================================================================================
+POST #266 | Score: 0
+================================================================================
+TITLE: Cold weather blues
+
+URL: https://reddit.com/r/discgolf/comments/1qmzrrb/cold_weather_blues/
+Source: hot
+
+================================================================================
+POST #267 | Score: 27
+================================================================================
+TITLE: New Zealand Open 🇳🇿 — Round 1 Coverage | MVP Discs Tour Down Under Stop #3
+
+URL: https://reddit.com/r/discgolf/comments/1qm09u4/new_zealand_open_round_1_coverage_mvp_discs_tour/
+Source: hot
+
+================================================================================
+POST #268 | Score: 18
+================================================================================
+TITLE: Vaccum dome Neon from Loft
+
+URL: https://reddit.com/r/discgolf/comments/1qm299c/vaccum_dome_neon_from_loft/
+Source: hot
+
+================================================================================
+POST #269 | Score: 0
+================================================================================
+TITLE: Do you actually want to brace with your front leg?
+
+URL: https://reddit.com/r/discgolf/comments/1qn1rha/do_you_actually_want_to_brace_with_your_front_leg/
+Source: hot
+
+================================================================================
+POST #270 | Score: 60
+================================================================================
+TITLE: New throwing putter
+
+URL: https://reddit.com/r/discgolf/comments/1qlqj9g/new_throwing_putter/
+Source: hot
+
+================================================================================
+POST #271 | Score: 0
+================================================================================
+TITLE: Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark
+
+URL: https://reddit.com/user/Dating-Insider/comments/1lzhv5s/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/
+Source: hot
+
+================================================================================
+POST #272 | Score: 0
+================================================================================
+TITLE: Day 1 throw training
+
+URL: https://reddit.com/r/discgolf/comments/1qmlzvd/day_1_throw_training/
+Source: hot
+
+================================================================================
+POST #273 | Score: 8
+================================================================================
+TITLE: I got some really awesome stuff in the mail today!
+
+URL: https://reddit.com/r/discgolf/comments/1qm4qvl/i_got_some_really_awesome_stuff_in_the_mail_today/
+Source: hot
+
+================================================================================
+POST #274 | Score: 3
+================================================================================
+TITLE: Winter putting leagues…have one in your area?
+
+URL: https://reddit.com/r/discgolf/comments/1qmbz8a/winter_putting_leagueshave_one_in_your_area/
+Source: hot
+
+================================================================================
+POST #275 | Score: 3
+================================================================================
+TITLE: G Star Destroyer
+
+URL: https://reddit.com/r/discgolf/comments/1qmaeaf/g_star_destroyer/
+Source: hot
+
+================================================================================
+POST #276 | Score: 12
+================================================================================
+TITLE: DGPT FPO Total Rankings
+
+URL: https://reddit.com/r/discgolf/comments/1qluieo/dgpt_fpo_total_rankings/
+Source: hot
+
+================================================================================
+POST #277 | Score: 2
+================================================================================
+TITLE: Small Bag help
+
+URL: https://reddit.com/r/discgolf/comments/1qm6puf/small_bag_help/
+Source: hot
+
+================================================================================
+POST #278 | Score: 0
+================================================================================
+TITLE: We underestimated this course badly — what line would you actually set here?
+
+URL: https://reddit.com/r/discgolf/comments/1qmoq9b/we_underestimated_this_course_badly_what_line/
+Source: hot
+
+================================================================================
+POST #279 | Score: 0
+================================================================================
+TITLE: What’s a disc golf YouTube title that if you saw it you’d instantly click on?
+
+URL: https://reddit.com/r/discgolf/comments/1qmzcbq/whats_a_disc_golf_youtube_title_that_if_you_saw/
+Source: hot
+
+================================================================================
+POST #280 | Score: 8
+================================================================================
+TITLE: Favorite small catch disc?
+
+URL: https://reddit.com/r/discgolf/comments/1qlvxdt/favorite_small_catch_disc/
+Source: hot
+
+================================================================================
+POST #281 | Score: 18
+================================================================================
+TITLE: 2026 Asia Open • Round 3 • Front 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)
+
+URL: https://reddit.com/r/discgolf/comments/1qlpiw4/2026_asia_open_round_3_front_9_calvin_heimburg/
+Source: hot
+
+================================================================================
+POST #282 | Score: 6
+================================================================================
+TITLE: Full Prodigy Bag Suggestions
+
+URL: https://reddit.com/r/discgolf/comments/1qm0hsr/full_prodigy_bag_suggestions/
+Source: hot
+
+================================================================================
+POST #283 | Score: 1
+================================================================================
+TITLE: Sign in with Steam to earn Steam Rewards
+
+URL: https://reddit.com/user/ImmutablePlay/comments/1qqqv73/sign_in_with_steam_to_earn_steam_rewards/
+Source: hot
+
+================================================================================
+POST #284 | Score: 0
+================================================================================
+TITLE: Texas disc golfer here. Do I need latitude discs for this weather?
+
+URL: https://reddit.com/r/discgolf/comments/1qmn9u0/texas_disc_golfer_here_do_i_need_latitude_discs/
+Source: hot
+
+================================================================================
+POST #285 | Score: 75
+================================================================================
+TITLE: Too cold?
+
+URL: https://reddit.com/r/discgolf/comments/1qler8u/too_cold/
+Source: hot
+
+================================================================================
+POST #286 | Score: 8
+================================================================================
+TITLE: 2026 Asia Open • Round 3 • Back 9 • Calvin Heimburg • Jacky Chen • Tsz Ho Ming • Joey Bruno (Round 3 of 3)
+
+URL: https://reddit.com/r/discgolf/comments/1qlpndj/2026_asia_open_round_3_back_9_calvin_heimburg/
+Source: hot
+
+================================================================================
+POST #287 | Score: 4
+================================================================================
+TITLE: What the most you’ve paid to play disc golf?
+
+URL: https://reddit.com/r/discgolf/comments/1qlygz6/what_the_most_youve_paid_to_play_disc_golf/
+Source: hot
+
+================================================================================
+POST #288 | Score: 4
+================================================================================
+TITLE: Local Shop Snag
+
+URL: https://reddit.com/r/discgolf/comments/1qlygna/local_shop_snag/
+Source: hot
+
+================================================================================
+POST #289 | Score: 0
+================================================================================
+TITLE: I have 2 kastaplast Grym X bit in of them have the flight numbers, 12,5,0,3 and the other has 12,5,-1,3 and I can’t figure out which flight numbers are correct
+
+URL: https://reddit.com/r/discgolf/comments/1qm9xqt/i_have_2_kastaplast_grym_x_bit_in_of_them_have/
+Source: hot
+
+================================================================================
+POST #290 | Score: 0
+================================================================================
+TITLE: OB strokes
+
+URL: https://reddit.com/r/discgolf/comments/1qm50iq/ob_strokes/
+Source: hot
+
+================================================================================
+POST #291 | Score: 11
+================================================================================
+TITLE: Prediction: Best selling discs 2025
+
+URL: https://reddit.com/r/discgolf/comments/1qlk5th/prediction_best_selling_discs_2025/
+Source: hot
+
+================================================================================
+POST #292 | Score: 4
+================================================================================
+TITLE: Must-play courses between Palm Springs, CA and Sedona, AZ
+
+URL: https://reddit.com/r/discgolf/comments/1qlr5r8/mustplay_courses_between_palm_springs_ca_and/
+Source: hot
+
+================================================================================
+POST #293 | Score: 7
+================================================================================
+TITLE: Millennium Discs. Draco v Scorpius v Vela
+
+URL: https://reddit.com/r/discgolf/comments/1qlmixm/millennium_discs_draco_v_scorpius_v_vela/
+Source: hot
+
+================================================================================
+POST #294 | Score: 155
+================================================================================
+TITLE: Trash Panda Signs Lucas Carmichael
+
+URL: https://reddit.com/r/discgolf/comments/1ql1f3t/trash_panda_signs_lucas_carmichael/
+Source: hot
+
+================================================================================
+POST #295 | Score: 202
+================================================================================
+TITLE: Goose to MVP makes perfect sense
+
+URL: https://reddit.com/r/discgolf/comments/1qkxht7/goose_to_mvp_makes_perfect_sense/
+Source: hot
+
+================================================================================
+POST #296 | Score: 11
+================================================================================
+TITLE: Bags built for different manufacturers
+
+URL: https://reddit.com/r/discgolf/comments/1qlebz1/bags_built_for_different_manufacturers/
+Source: hot
+
+================================================================================
+POST #297 | Score: 44
+================================================================================
+TITLE: DGPT Total Rankings
+
+URL: https://reddit.com/r/discgolf/comments/1ql5165/dgpt_total_rankings/
+Source: hot
+
+================================================================================
+POST #298 | Score: 0
+================================================================================
+TITLE: If you could put a bag together with only fantasy themed discs what would in it?
+
+URL: https://reddit.com/r/discgolf/comments/1qm6vfa/if_you_could_put_a_bag_together_with_only_fantasy/
+Source: hot
+
+================================================================================
+POST #299 | Score: 50
+================================================================================
+TITLE: I decided to impulse buy the very last Gyropalooza box available from Six Sided Discs
+
+URL: https://reddit.com/r/discgolf/comments/1ql0ztd/i_decided_to_impulse_buy_the_very_last/
+Source: hot
+
+================================================================================
+POST #300 | Score: 0
+================================================================================
+TITLE: 2036
+
+URL: https://reddit.com/r/discgolf/comments/1qlww6i/2036/
+Source: hot
+
+================================================================================
+POST #301 | Score: 20
+================================================================================
+TITLE: Anyone know if these are any good?
+
+URL: https://reddit.com/r/discgolf/comments/1ql5bvn/anyone_know_if_these_are_any_good/
+Source: hot
+
+================================================================================
+POST #302 | Score: 26
+================================================================================
+TITLE: Best used bin finds?
+
+URL: https://reddit.com/r/discgolf/comments/1ql2z0s/best_used_bin_finds/
+Source: hot
+
+================================================================================
+POST #303 | Score: 49
+================================================================================
+TITLE: Innova F2 Friday dropped: Halo Tern
+
+URL: https://reddit.com/r/discgolf/comments/1qkvqix/innova_f2_friday_dropped_halo_tern/
+Source: hot
+
+================================================================================
+POST #304 | Score: 34
+================================================================================
+TITLE: Most famous disc of all time?
+
+URL: https://reddit.com/r/discgolf/comments/1qkythi/most_famous_disc_of_all_time/
+Source: hot
+
+================================================================================
+POST #305 | Score: 0
+================================================================================
+TITLE: Discgolf
+
+URL: https://reddit.com/r/discgolf/comments/1qlz1tv/discgolf/
+Source: hot
+
+================================================================================
+POST #306 | Score: 17
+================================================================================
+TITLE: Westsides 2026 team video- YouTube
+
+URL: https://reddit.com/r/discgolf/comments/1ql1ohk/westsides_2026_team_video_youtube/
+Source: hot
+
+================================================================================
+POST #307 | Score: 5
+================================================================================
+TITLE: Disc ID
+
+URL: https://reddit.com/r/discgolf/comments/1qla4ib/disc_id/
+Source: hot
+
+================================================================================
+POST #308 | Score: 18
+================================================================================
+TITLE: New Disc Craft test flights.
+
+URL: https://reddit.com/r/discgolf/comments/1qkxs6a/new_disc_craft_test_flights/
+Source: hot
+
+================================================================================
+POST #309 | Score: 0
+================================================================================
+TITLE: HALF-LIFE & PORTAL Inspired physics-based puzzle adventure - Wishlist SECTOR ZERO on Steam! - Coming February 3, 2026
+
+URL: https://reddit.com/user/sector-zero/comments/1qk39g6/halflife_portal_inspired_physicsbased_puzzle/
+Source: hot
+
+================================================================================
+POST #310 | Score: 15
+================================================================================
+TITLE: Elites Buzzz
+
+URL: https://reddit.com/r/discgolf/comments/1qkw00l/elites_buzzz/
+Source: hot
+
+================================================================================
+POST #311 | Score: 35
+================================================================================
+TITLE: Pleasantly surprised having to disc golf with non dominant hand after injury
+
+URL: https://reddit.com/r/discgolf/comments/1qkms58/pleasantly_surprised_having_to_disc_golf_with_non/
+Source: hot
+
+================================================================================
+POST #312 | Score: 7
+================================================================================
+TITLE: Zeus 2.0 - disc Paul was testing on his course record video?
+
+URL: https://reddit.com/r/discgolf/comments/1qkwzls/zeus_20_disc_paul_was_testing_on_his_course/
+Source: hot
+
+================================================================================
+POST #313 | Score: 88
+================================================================================
+TITLE: This disc and plastic type combo is really unfortunate
+
+URL: https://reddit.com/r/discgolf/comments/1qke4qo/this_disc_and_plastic_type_combo_is_really/
+Source: hot
+
+================================================================================
+POST #314 | Score: 7
+================================================================================
+TITLE: Wobble/OAT on short FH approach shots…
+
+URL: https://reddit.com/r/discgolf/comments/1qktoa9/wobbleoat_on_short_fh_approach_shots/
+Source: hot
+
+================================================================================
+POST #315 | Score: 2
+================================================================================
+TITLE: How are the new Trash Panda Inner Core baseline plastic compared to other putter plastics?
+
+URL: https://reddit.com/r/discgolf/comments/1qky5k0/how_are_the_new_trash_panda_inner_core_baseline/
+Source: hot
+
+================================================================================
+POST #316 | Score: 4
+================================================================================
+TITLE: Replacement for MVP Photon (Proton plastic)
+
+URL: https://reddit.com/r/discgolf/comments/1qkrc1e/replacement_for_mvp_photon_proton_plastic/
+Source: hot
+
+================================================================================
+POST #317 | Score: 110
+================================================================================
+TITLE: Big Jerm
+
+URL: https://reddit.com/r/discgolf/comments/1qk52e0/big_jerm/
+Source: hot
+
+================================================================================
+POST #318 | Score: 1
+================================================================================
+TITLE: What can anyone tell me about this disc?
+
+URL: https://reddit.com/r/discgolf/comments/1ql2v1k/what_can_anyone_tell_me_about_this_disc/
+Source: hot
+
+================================================================================
+POST #319 | Score: 229
+================================================================================
+TITLE: Joey Tamali no longer with MVP
+
+URL: https://reddit.com/r/discgolf/comments/1qjvjt2/joey_tamali_no_longer_with_mvp/
+Source: hot
+
+================================================================================
+POST #320 | Score: 4
+================================================================================
+TITLE: Unique PDGA player data
+
+URL: https://reddit.com/r/discgolf/comments/1qkozpo/unique_pdga_player_data/
+Source: hot
+
+================================================================================
+POST #321 | Score: 306
+================================================================================
+TITLE: We just had Kristin Lätt and Niklas Anttila in the studio for Disc Golf Masters. Who should we bring in next?
+
+URL: https://reddit.com/r/discgolf/comments/1qjr4qu/we_just_had_kristin_lätt_and_niklas_anttila_in/
+Source: hot
+
+================================================================================
+POST #322 | Score: 70
+================================================================================
+TITLE: Winter Disc Golf in New England
+
+URL: https://reddit.com/r/discgolf/comments/1qk22ue/winter_disc_golf_in_new_england/
+Source: hot
+
+================================================================================
+POST #323 | Score: 0
+================================================================================
+TITLE: Anyone familiar with this disc
+
+URL: https://reddit.com/r/discgolf/comments/1ql8a3e/anyone_familiar_with_this_disc/
+Source: hot
+
+================================================================================
+POST #324 | Score: 4
+================================================================================
+TITLE: I am playing Armco Park every week until Insoot under par: week 4.
+
+URL: https://reddit.com/r/discgolf/comments/1qklvxy/i_am_playing_armco_park_every_week_until_insoot/
+Source: hot
+
+================================================================================
+POST #325 | Score: 13
+================================================================================
+TITLE: The 7th Annual Khmer Cup Presented by Watercharity.org - Sign up now!
+
+URL: https://reddit.com/r/discgolf/comments/1qkeumi/the_7th_annual_khmer_cup_presented_by/
+Source: hot
+
+================================================================================
+POST #326 | Score: 2
+================================================================================
+TITLE: Mail Call Weekly
+
+URL: https://reddit.com/r/discgolf/comments/1qkmvp0/mail_call_weekly/
+Source: hot
+
+================================================================================
+POST #327 | Score: 0
+================================================================================
+TITLE: Prodigy Bag Building
+
+URL: https://reddit.com/r/discgolf/comments/1ql3wns/prodigy_bag_building/
+Source: hot
+
+================================================================================
+POST #328 | Score: 9
+================================================================================
+TITLE: What plastic is (was) this?
+
+URL: https://reddit.com/r/discgolf/comments/1qkf5uz/what_plastic_is_was_this/
+Source: hot
+
+================================================================================
+POST #329 | Score: 3
+================================================================================
+TITLE: Disc golfing after cataract surgery
+
+URL: https://reddit.com/r/discgolf/comments/1qkl79y/disc_golfing_after_cataract_surgery/
+Source: hot
+
+================================================================================
+POST #330 | Score: 1
+================================================================================
+TITLE: Where to order bag tags?
+
+URL: https://reddit.com/r/discgolf/comments/1qkqs7f/where_to_order_bag_tags/
+Source: hot
+
+================================================================================
+POST #331 | Score: 0
+================================================================================
+TITLE: Straight putter Silva proxy vs notion vs anything
+
+URL: https://reddit.com/r/discgolf/comments/1qkvxqt/straight_putter_silva_proxy_vs_notion_vs_anything/
+Source: hot
+
+================================================================================
+POST #332 | Score: 0
+================================================================================
+TITLE: Swoop - does it really matter
+
+URL: https://reddit.com/r/discgolf/comments/1ql76ne/swoop_does_it_really_matter/
+Source: hot
+
+================================================================================
+POST #333 | Score: 20
+================================================================================
+TITLE: Today’s PIAS snags
+
+URL: https://reddit.com/r/discgolf/comments/1qk5j6u/todays_pias_snags/
+Source: hot
+
+================================================================================
+POST #334 | Score: 40
+================================================================================
+TITLE: OS Midrange Comparison: Lucid-X Verdict, Prism Neutron Pyro, Proline Quake
+
+URL: https://reddit.com/r/discgolf/comments/1qjw46u/os_midrange_comparison_lucidx_verdict_prism/
+Source: hot
+
+================================================================================
+POST #335 | Score: 99
+================================================================================
+TITLE: Our local Junior 11 years old is raising money for his season! Check him out. Ohio kid
+
+URL: https://reddit.com/r/discgolf/comments/1qjpcdd/our_local_junior_11_years_old_is_raising_money/
+Source: hot
+
+================================================================================
+POST #336 | Score: 5
+================================================================================
+TITLE: Disc golf and feet
+
+URL: https://reddit.com/r/discgolf/comments/1qkbmov/disc_golf_and_feet/
+Source: hot
+
+================================================================================
+POST #337 | Score: 12
+================================================================================
+TITLE: Player Pack Item
+
+URL: https://reddit.com/r/discgolf/comments/1qk3nc7/player_pack_item/
+Source: hot
+
+================================================================================
+POST #338 | Score: 8
+================================================================================
+TITLE: Can someone identify this disc
+
+URL: https://reddit.com/r/discgolf/comments/1qk5vn3/can_someone_identify_this_disc/
+Source: hot
+
+================================================================================
+POST #339 | Score: 387
+================================================================================
+TITLE: My favorite course (thus far)
+
+URL: https://reddit.com/r/discgolf/comments/1qj9suy/my_favorite_course_thus_far/
+Source: hot
+
+================================================================================
+POST #340 | Score: 811
+================================================================================
+TITLE: Welcome Aaron Gossage to Team MVP!
+
+URL: https://reddit.com/r/discgolf/comments/1qj1x4z/welcome_aaron_gossage_to_team_mvp/
+Source: hot
+
+================================================================================
+POST #341 | Score: 0
+================================================================================
+TITLE: What happen to my form. Any tips
+
+URL: https://reddit.com/r/discgolf/comments/1qkqfkq/what_happen_to_my_form_any_tips/
+Source: hot
+
+================================================================================
+POST #342 | Score: 588
+================================================================================
+TITLE: New sponsor and new name. Big day for Arron.
+
+URL: https://reddit.com/r/discgolf/comments/1qj2ncz/new_sponsor_and_new_name_big_day_for_arron/
+Source: hot
+
+================================================================================
+POST #343 | Score: 2
+================================================================================
+TITLE: I played a full round with the PDGA membership tempo
+
+URL: https://reddit.com/r/discgolf/comments/1qk6sop/i_played_a_full_round_with_the_pdga_membership/
+Source: hot
+
+================================================================================
+POST #344 | Score: 236
+================================================================================
+TITLE: 2 minutes of pain
+
+URL: https://reddit.com/r/discgolf/comments/1qj9tql/2_minutes_of_pain/
+Source: hot
+
+================================================================================
+POST #345 | Score: 34
+================================================================================
+TITLE: Bag 7 and 9 speeds?
+
+URL: https://reddit.com/r/discgolf/comments/1qjlivv/bag_7_and_9_speeds/
+Source: hot
+
+================================================================================
+POST #346 | Score: 7
+================================================================================
+TITLE: Forehand advice
+
+URL: https://reddit.com/r/discgolf/comments/1qjszvn/forehand_advice/
+Source: hot
+
+================================================================================
+POST #347 | Score: 28
+================================================================================
+TITLE: Paige & Kat battle the boys in OTB Skins Down Under | Ep #158
+
+URL: https://reddit.com/r/discgolf/comments/1qjh0a1/paige_kat_battle_the_boys_in_otb_skins_down_under/
+Source: hot
+
+================================================================================
+POST #348 | Score: 21
+================================================================================
+TITLE: Disc East in Jeopardy?
+
+URL: https://reddit.com/r/discgolf/comments/1qjhbco/disc_east_in_jeopardy/
+Source: hot
+
+================================================================================
+POST #349 | Score: 43
+================================================================================
+TITLE: A few sexy disc pics from recent years when I would enjoy taking a mail call on a photoshoot session in the backyard or even to the lake for some pics. Good memories, good times. I hope you enjoy .
+
+URL: https://reddit.com/r/discgolf/comments/1qj3mee/a_few_sexy_disc_pics_from_recent_years_when_i/
+Source: hot
+
+================================================================================
+POST #350 | Score: 73
+================================================================================
+TITLE: 2026 Asia Open • Round 2 • Front 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)
+
+URL: https://reddit.com/r/discgolf/comments/1qixl1h/2026_asia_open_round_2_front_9_calvin_heimburg/
+Source: hot
+
+================================================================================
+POST #351 | Score: 0
+================================================================================
+TITLE: Conquer Empires in Age of Conquest IV
+
+URL: https://reddit.com/user/noblemaster/comments/1qa8tg3/conquer_empires_in_age_of_conquest_iv/
+Source: hot
+
+================================================================================
+POST #352 | Score: 23
+================================================================================
+TITLE: 2026 Asia Open • Round 2 • Back 9 • Calvin Heimburg • Jacky Chen • Terry Tang • Nils Julian Loberg (Round 2 of 3)
+
+URL: https://reddit.com/r/discgolf/comments/1qj5aox/2026_asia_open_round_2_back_9_calvin_heimburg/
+Source: hot
+
+================================================================================
+POST #353 | Score: 19
+================================================================================
+TITLE: Range finder attachment
+
+URL: https://reddit.com/r/discgolf/comments/1qj4o9b/range_finder_attachment/
+Source: hot
+
+================================================================================
+POST #354 | Score: 0
+================================================================================
+TITLE: All my discs except the putters
+
+URL: https://reddit.com/r/discgolf/comments/1qjos5w/all_my_discs_except_the_putters/
+Source: hot
+
+================================================================================
+POST #355 | Score: 0
+================================================================================
+TITLE: 2026 Pre-Season ITB
+
+URL: https://reddit.com/r/discgolf/comments/1qjytng/2026_preseason_itb/
+Source: hot
+
+================================================================================
+POST #356 | Score: 0
+================================================================================
+TITLE: Do you guys measure throws straight, or include the side to side distance?
+
+URL: https://reddit.com/r/discgolf/comments/1qk5obf/do_you_guys_measure_throws_straight_or_include/
+Source: hot
+
+================================================================================
+POST #357 | Score: 17
+================================================================================
+TITLE: Innova Arachnid predictions?
+
+URL: https://reddit.com/r/discgolf/comments/1qj0u9m/innova_arachnid_predictions/
+Source: hot
+
+================================================================================
+POST #358 | Score: 0
+================================================================================
+TITLE: Custom form feedback app
+
+URL: https://reddit.com/r/discgolf/comments/1qk5660/custom_form_feedback_app/
+Source: hot
+
+================================================================================
+POST #359 | Score: 5
+================================================================================
+TITLE: Best disc to try from the little guys?
+
+URL: https://reddit.com/r/discgolf/comments/1qjb8j3/best_disc_to_try_from_the_little_guys/
+Source: hot
+
+================================================================================
+POST #360 | Score: 260
+================================================================================
+TITLE: The P Model S is being renamed to Good Boy in honor of Luke Humphries' dog
+
+URL: https://reddit.com/r/discgolf/comments/1qii2g1/the_p_model_s_is_being_renamed_to_good_boy_in/
+Source: hot
+
+================================================================================
+POST #361 | Score: 0
+================================================================================
+TITLE: Would you use this?
+
+URL: https://reddit.com/r/discgolf/comments/1qk4c3i/would_you_use_this/
+Source: hot
+
+================================================================================
+POST #362 | Score: 198
+================================================================================
+TITLE: Hanna Huynh promoted to Discraft Elite Team for 2026
+
+URL: https://reddit.com/r/discgolf/comments/1qiirga/hanna_huynh_promoted_to_discraft_elite_team_for/
+Source: hot
+
+================================================================================
+POST #363 | Score: 0
+================================================================================
+TITLE: Disc Suggestions
+
+URL: https://reddit.com/r/discgolf/comments/1qjkl31/disc_suggestions/
+Source: hot
+
+================================================================================
+POST #364 | Score: 613
+================================================================================
+TITLE: Silas Schultz to team MVP
+
+URL: https://reddit.com/r/discgolf/comments/1qi6p2q/silas_schultz_to_team_mvp/
+Source: hot
+
+================================================================================
+POST #365 | Score: 0
+================================================================================
+TITLE: Another year, another ITB
+
+URL: https://reddit.com/r/discgolf/comments/1qjrvtt/another_year_another_itb/
+Source: hot
+
+================================================================================
+POST #366 | Score: 4
+================================================================================
+TITLE: Upper Park Shift fitting Retreiver Pole
+
+URL: https://reddit.com/r/discgolf/comments/1qj8i4m/upper_park_shift_fitting_retreiver_pole/
+Source: hot
+
+================================================================================
+POST #367 | Score: 0
+================================================================================
+TITLE: If Simon left MVP for prodigy, would you guys actually throw prodigy and get rid of your MVP?
+
+URL: https://reddit.com/r/discgolf/comments/1qjz5yc/if_simon_left_mvp_for_prodigy_would_you_guys/
+Source: hot
+
+================================================================================
+POST #368 | Score: 137
+================================================================================
+TITLE: The Most Popular Disc Golf Course In Every U.S. State: 2025 | UDisc
+
+URL: https://reddit.com/r/discgolf/comments/1qi94dz/the_most_popular_disc_golf_course_in_every_us/
+Source: hot
+
+================================================================================
+POST #369 | Score: 6
+================================================================================
+TITLE: So close
+
+URL: https://reddit.com/r/discgolf/comments/1qiy44a/so_close/
+Source: hot
+
+================================================================================
+POST #370 | Score: 50
+================================================================================
+TITLE: Mail call!
+
+URL: https://reddit.com/r/discgolf/comments/1qigvfw/mail_call/
+Source: hot
+
+================================================================================
+POST #371 | Score: 0
+================================================================================
+TITLE: I’m now selling Custom course map wall decor!
+
+URL: https://reddit.com/r/discgolf/comments/1qj6she/im_now_selling_custom_course_map_wall_decor/
+Source: hot
+
+================================================================================
+POST #372 | Score: 0
+================================================================================
+TITLE: What is this disc?
+
+URL: https://reddit.com/r/discgolf/comments/1qjfvit/what_is_this_disc/
+Source: hot
+
+================================================================================
+POST #373 | Score: 28
+================================================================================
+TITLE: Random disc pick, from infinite discs
+
+URL: https://reddit.com/r/discgolf/comments/1qifk9a/random_disc_pick_from_infinite_discs/
+Source: hot
+
+================================================================================
+POST #374 | Score: 151
+================================================================================
+TITLE: Always first available too
+
+URL: https://reddit.com/r/discgolf/comments/1qi0ebo/always_first_available_too/
+Source: hot
+
+================================================================================
+POST #375 | Score: 53
+================================================================================
+TITLE: Why no love for the Invader?
+
+URL: https://reddit.com/r/discgolf/comments/1qi7xy0/why_no_love_for_the_invader/
+Source: hot
+
+================================================================================
+POST #376 | Score: 12
+================================================================================
+TITLE: I would have gone with "Don't Go in the Kitchen"...but if disc golf were to have a horror-thriller movie, what are the best movie titles?
+
+URL: https://reddit.com/r/discgolf/comments/1qikz6u/i_would_have_gone_with_dont_go_in_the_kitchenbut/
+Source: hot
+
+================================================================================
+POST #377 | Score: 30
+================================================================================
+TITLE: 2026 Innova Team Champion Series Discs
+
+URL: https://reddit.com/r/discgolf/comments/1qibfr6/2026_innova_team_champion_series_discs/
+Source: hot
+
+================================================================================
+POST #378 | Score: 7
+================================================================================
+TITLE: Looking to buy a basket
+
+URL: https://reddit.com/r/discgolf/comments/1qiln8g/looking_to_buy_a_basket/
+Source: hot
+
+================================================================================
+POST #379 | Score: 1
+================================================================================
+TITLE: Need help identifying this disc!
+
+URL: https://reddit.com/r/discgolf/comments/1qiy167/need_help_identifying_this_disc/
+Source: hot
+
+================================================================================
+POST #380 | Score: 0
+================================================================================
+TITLE: Any Rare Discs??
+
+URL: https://reddit.com/r/discgolf/comments/1qjc44d/any_rare_discs/
+Source: hot
+
+================================================================================
+POST #381 | Score: 32
+================================================================================
+TITLE: Shoutout Las Vegas Disc Golf Community!
+
+URL: https://reddit.com/r/discgolf/comments/1qi6wpp/shoutout_las_vegas_disc_golf_community/
+Source: hot
+
+================================================================================
+POST #382 | Score: 46
+================================================================================
+TITLE: Porto wolf
+
+URL: https://reddit.com/r/discgolf/comments/1qi1qrf/porto_wolf/
+Source: hot
+
+================================================================================
+POST #383 | Score: 36
+================================================================================
+TITLE: What Happened to uDisc Live?
+
+URL: https://reddit.com/r/discgolf/comments/1qi2xx6/what_happened_to_udisc_live/
+Source: hot
+
+================================================================================
+POST #384 | Score: 0
+================================================================================
+TITLE: Disc East?
+
+URL: https://reddit.com/r/discgolf/comments/1qj6y0k/disc_east/
+Source: hot
+
+================================================================================
+POST #385 | Score: 4
+================================================================================
+TITLE: Can we talk about Corbettas?
+
+URL: https://reddit.com/r/discgolf/comments/1qiiymq/can_we_talk_about_corbettas/
+Source: hot
+
+================================================================================
+POST #386 | Score: 25
+================================================================================
+TITLE: Playing mid/approach only round today getting a feel for these 3
+
+URL: https://reddit.com/r/discgolf/comments/1qi3i5t/playing_midapproach_only_round_today_getting_a/
+Source: hot
+
+================================================================================
+POST #387 | Score: 8
+================================================================================
+TITLE: MVP R2 Neutron Color
+
+URL: https://reddit.com/r/discgolf/comments/1qieump/mvp_r2_neutron_color/
+Source: hot
+
+================================================================================
+POST #388 | Score: 7
+================================================================================
+TITLE: Looking for slightly os midrange
+
+URL: https://reddit.com/r/discgolf/comments/1qiamob/looking_for_slightly_os_midrange/
+Source: hot
+
+================================================================================
+POST #389 | Score: 114
+================================================================================
+TITLE: Birdied out the round to take my first MA1 win!
+
+URL: https://reddit.com/r/discgolf/comments/1qhqm54/birdied_out_the_round_to_take_my_first_ma1_win/
+Source: hot
+
+================================================================================
+POST #390 | Score: 9
+================================================================================
+TITLE: Springwood Skins
+
+URL: https://reddit.com/r/discgolf/comments/1qi614e/springwood_skins/
+Source: hot
+
+================================================================================
+POST #391 | Score: 120
+================================================================================
+TITLE: A guy walks into a store looking for a new Matrix...
+
+URL: https://reddit.com/r/discgolf/comments/1qhngh8/a_guy_walks_into_a_store_looking_for_a_new_matrix/
+Source: hot
+
+================================================================================
+POST #392 | Score: 10
+================================================================================
+TITLE: Small bags that fit 32 Nalgene
+
+URL: https://reddit.com/r/discgolf/comments/1qi28xh/small_bags_that_fit_32_nalgene/
+Source: hot
+
+================================================================================
+POST #393 | Score: 81
+================================================================================
+TITLE: The perfect 2 disc woods combo or : How I Learned to Stop Worrying and Love the ROC
+
+URL: https://reddit.com/r/discgolf/comments/1qhmo7z/the_perfect_2_disc_woods_combo_or_how_i_learned/
+Source: hot
+
+================================================================================
+POST #394 | Score: 284
+================================================================================
+TITLE: Cal Lonnquist to MVP.
+
+URL: https://reddit.com/r/discgolf/comments/1qh9uzp/cal_lonnquist_to_mvp/
+Source: hot
+
+================================================================================
+POST #395 | Score: 100
+================================================================================
+TITLE: Sofia Donnecke signs with AGL Discs!
+
+URL: https://reddit.com/r/discgolf/comments/1qhiv91/sofia_donnecke_signs_with_agl_discs/
+Source: hot
+
+================================================================================
+POST #396 | Score: 47
+================================================================================
+TITLE: Final Round: 2026 Discraft Australasian Open, presented by OTB Discs
+
+URL: https://reddit.com/r/discgolf/comments/1qhnjfh/final_round_2026_discraft_australasian_open/
+Source: hot
+
+================================================================================
+POST #397 | Score: 58
+================================================================================
+TITLE: What makes discs do this?
+
+URL: https://reddit.com/r/discgolf/comments/1qhkx1c/what_makes_discs_do_this/
+Source: hot
+
+================================================================================
+POST #398 | Score: 0
+================================================================================
+TITLE: Cold outside, shoe recommendations?
+
+URL: https://reddit.com/r/discgolf/comments/1qipog9/cold_outside_shoe_recommendations/
+Source: hot
+
+================================================================================
+POST #399 | Score: 2
+================================================================================
+TITLE: Latitude 64 Strive
+
+URL: https://reddit.com/r/discgolf/comments/1qi09lk/latitude_64_strive/
+Source: hot
+
+================================================================================
+POST #400 | Score: 0
+================================================================================
+TITLE: Different PCI DSS 6.4.3 & 11.6.1 approaches compared in plain English
+
+URL: https://reddit.com/user/csidedev/comments/1nwji9t/different_pci_dss_643_1161_approaches_compared_in/
+Source: hot
+
+================================================================================
+POST #401 | Score: 5
+================================================================================
+TITLE: Form Check Weekly
+
+URL: https://reddit.com/r/discgolf/comments/1qhx4c8/form_check_weekly/
+Source: hot
+
+================================================================================
+POST #402 | Score: 8
+================================================================================
+TITLE: Deciding on a new approach disc in between Buzzz and Pyro
+
+URL: https://reddit.com/r/discgolf/comments/1qhueww/deciding_on_a_new_approach_disc_in_between_buzzz/
+Source: hot
+
+================================================================================
+POST #403 | Score: 10
+================================================================================
+TITLE: Disc golf mentioned on Tom Scott's Lateral quiz show
+
+URL: https://reddit.com/r/discgolf/comments/1qhrov2/disc_golf_mentioned_on_tom_scotts_lateral_quiz/
+Source: hot
+
+================================================================================
+POST #404 | Score: 0
+================================================================================
+TITLE: Phoenix A
+
+URL: https://reddit.com/r/discgolf/comments/1qigyqf/phoenix_a/
+Source: hot
+
+================================================================================
+POST #405 | Score: 11
+================================================================================
+TITLE: Simon Line Time-Lapse Special Edition counter stamped lab second
+
+URL: https://reddit.com/r/discgolf/comments/1qhmy1s/simon_line_timelapse_special_edition_counter/
+Source: hot
+
+================================================================================
+POST #406 | Score: 7
+================================================================================
+TITLE: Mystery box :)
+
+URL: https://reddit.com/r/discgolf/comments/1qhog6t/mystery_box/
+Source: hot
+
+================================================================================
+POST #407 | Score: 503
+================================================================================
+TITLE: Shoutout to Scott Stokely!
+
+URL: https://reddit.com/r/discgolf/comments/1qgsh0e/shoutout_to_scott_stokely/
+Source: hot
+
+================================================================================
+POST #408 | Score: 0
+================================================================================
+TITLE: How long should I wait until sending a pestering email to a TD about winnings?
+
+URL: https://reddit.com/r/discgolf/comments/1qid09q/how_long_should_i_wait_until_sending_a_pestering/
+Source: hot
+
+================================================================================
+POST #409 | Score: 7
+================================================================================
+TITLE: Sidewinder
+
+URL: https://reddit.com/r/discgolf/comments/1qhmwld/sidewinder/
+Source: hot
+
+================================================================================
+POST #410 | Score: 12
+================================================================================
+TITLE: Vermont DG
+
+URL: https://reddit.com/r/discgolf/comments/1qhilms/vermont_dg/
+Source: hot
+
+================================================================================
+POST #411 | Score: 31
+================================================================================
+TITLE: Considering adding Teebird to the bag
+
+URL: https://reddit.com/r/discgolf/comments/1qh7jhd/considering_adding_teebird_to_the_bag/
+Source: hot
+
+================================================================================
+POST #412 | Score: 0
+================================================================================
+TITLE: Træt af Tinder og lignende apps? YSK: De 6 bedste alternativer i Danmark
+
+URL: https://reddit.com/user/Dating-Insider/comments/1ps2cxv/træt_af_tinder_og_lignende_apps_ysk_de_6_bedste/
+Source: hot
+
+================================================================================
+POST #413 | Score: 3
+================================================================================
+TITLE: Cold Storage
+
+URL: https://reddit.com/r/discgolf/comments/1qhof9x/cold_storage/
+Source: hot
+
+================================================================================
+POST #414 | Score: 18
+================================================================================
+TITLE: Cursed discs
+
+URL: https://reddit.com/r/discgolf/comments/1qh97y8/cursed_discs/
+Source: hot
+
+================================================================================
+POST #415 | Score: 0
+================================================================================
+TITLE: Disc Golf Lunch Break: Speed rounds
+
+URL: https://reddit.com/r/discgolf/comments/1qi6nct/disc_golf_lunch_break_speed_rounds/
+Source: hot
+
+================================================================================
+POST #416 | Score: 7
+================================================================================
+TITLE: Disc Golf Expo exclusive discs?
+
+URL: https://reddit.com/r/discgolf/comments/1qheoje/disc_golf_expo_exclusive_discs/
+Source: hot
+
+================================================================================
+POST #417 | Score: 474
+================================================================================
+TITLE: Brothers at the tunnel
+
+URL: https://reddit.com/r/discgolf/comments/1qgg4ir/brothers_at_the_tunnel/
+Source: hot
+
+================================================================================
+POST #418 | Score: 0
+================================================================================
+TITLE: PDGA Financial Audit Analysis: Why are we cutting benefits with $4,000,517 in liquid assets?
+
+URL: https://reddit.com/r/discgolf/comments/1qib801/pdga_financial_audit_analysis_why_are_we_cutting/
+Source: hot
+
+================================================================================
+POST #419 | Score: 80
+================================================================================
+TITLE: There are a lot of pretty discs, this one remains tough to beat…
+
+URL: https://reddit.com/r/discgolf/comments/1qgm27g/there_are_a_lot_of_pretty_discs_this_one_remains/
+Source: hot
+
+================================================================================
+POST #420 | Score: 180
+================================================================================
+TITLE: Ida Emile Neese to MVP
+
+URL: https://reddit.com/r/discgolf/comments/1qgf7ie/ida_emile_neese_to_mvp/
+Source: hot
+
+================================================================================
+POST #421 | Score: 44
+================================================================================
+TITLE: A disc that took you by surprise
+
+URL: https://reddit.com/r/discgolf/comments/1qgpauv/a_disc_that_took_you_by_surprise/
+Source: hot
+
+================================================================================
+POST #422 | Score: 1
+================================================================================
+TITLE: Disc recommendations
+
+URL: https://reddit.com/r/discgolf/comments/1qh9xsj/disc_recommendations/
+Source: hot
+
+================================================================================
+POST #423 | Score: 27
+================================================================================
+TITLE: Disc Golf Trip Recommendations?
+
+URL: https://reddit.com/r/discgolf/comments/1qgprxr/disc_golf_trip_recommendations/
+Source: hot
+
+================================================================================
+POST #424 | Score: 107
+================================================================================
+TITLE: Mail call: I-Blend Wraiths
+
+URL: https://reddit.com/r/discgolf/comments/1qgdogm/mail_call_iblend_wraiths/
+Source: hot
+
+================================================================================
+POST #425 | Score: 15
+================================================================================
+TITLE: Disc Info
+
+URL: https://reddit.com/r/discgolf/comments/1qgsd5h/disc_info/
+Source: hot
+
+================================================================================
+POST #426 | Score: 46
+================================================================================
+TITLE: Can Levi Stout hold off the American’s to win back-to-back TDU titles? Final Round: Discraft Australasian Open, presented by OTB Discs.
+
+URL: https://reddit.com/r/discgolf/comments/1qgikna/can_levi_stout_hold_off_the_americans_to_win/
+Source: hot
+
+================================================================================
+POST #427 | Score: 7
+================================================================================
+TITLE: Best 2025 Tournaments
+
+URL: https://reddit.com/r/discgolf/comments/1qgv656/best_2025_tournaments/
+Source: hot
+
+================================================================================
+POST #428 | Score: 0
+================================================================================
+TITLE: Putting Practice - Buy 3 Putters, Get 4th FREE
+
+URL: https://reddit.com/r/discgolf/comments/1qhkagv/putting_practice_buy_3_putters_get_4th_free/
+Source: hot
+
+================================================================================
+POST #429 | Score: 357
+================================================================================
+TITLE: The local weed guy…
+
+URL: https://reddit.com/r/discgolf/comments/1qfzsi9/the_local_weed_guy/
+Source: hot
+
+================================================================================
+POST #430 | Score: 6
+================================================================================
+TITLE: Unsanctioned or xc tier ?
+
+URL: https://reddit.com/r/discgolf/comments/1qgsv46/unsanctioned_or_xc_tier/
+Source: hot
+
+================================================================================
+POST #431 | Score: 36
+================================================================================
+TITLE: I did an 8 ball last night
+
+URL: https://reddit.com/r/discgolf/comments/1qgcxhb/i_did_an_8_ball_last_night/
+Source: hot
+
+================================================================================
+POST #432 | Score: 0
+================================================================================
+TITLE: Returning after 10 years - reality check?
+
+URL: https://reddit.com/r/discgolf/comments/1qhfrhs/returning_after_10_years_reality_check/
+Source: hot
+
+================================================================================
+POST #433 | Score: 0
+================================================================================
+TITLE: The square goes in the round “hole”
+
+URL: https://reddit.com/r/discgolf/comments/1qhgmu6/the_square_goes_in_the_round_hole/
+Source: hot
+
+================================================================================
+POST #434 | Score: 48
+================================================================================
+TITLE: Backyard hole looking pristine this morning
+
+URL: https://reddit.com/r/discgolf/comments/1qg8a76/backyard_hole_looking_pristine_this_morning/
+Source: hot
+
+================================================================================
+POST #435 | Score: 154
+================================================================================
+TITLE: Any fans of Dustin from Smarter Every Day? He's making a new series on how disc golf discs fly
+
+URL: https://reddit.com/r/discgolf/comments/1qg0yj9/any_fans_of_dustin_from_smarter_every_day_hes/
+Source: hot
+
+================================================================================
+POST #436 | Score: 135
+================================================================================
+TITLE: It's a constant battle
+
+URL: https://reddit.com/r/discgolf/comments/1qg1j7a/its_a_constant_battle/
+Source: hot
+
+================================================================================
+POST #437 | Score: 5
+================================================================================
+TITLE: Innova Leopard & Gazelle
+
+URL: https://reddit.com/r/discgolf/comments/1qgmsdf/innova_leopard_gazelle/
+Source: hot
+
+================================================================================
+POST #438 | Score: 6
+================================================================================
+TITLE: Disc Storage
+
+URL: https://reddit.com/r/discgolf/comments/1qgjli6/disc_storage/
+Source: hot
+
+================================================================================
+POST #439 | Score: 8
+================================================================================
+TITLE: Tennis elbow help
+
+URL: https://reddit.com/r/discgolf/comments/1qggqba/tennis_elbow_help/
+Source: hot
+
+================================================================================
+POST #440 | Score: 178
+================================================================================
+TITLE: New Insanity
+
+URL: https://reddit.com/r/discgolf/comments/1qfvbck/new_insanity/
+Source: hot
+
+================================================================================
+POST #441 | Score: 43
+================================================================================
+TITLE: Anyone else purposefully play courses you know you suck at just to "humble" yourself?
+
+URL: https://reddit.com/r/discgolf/comments/1qg2vw6/anyone_else_purposefully_play_courses_you_know/
+Source: hot
+
+================================================================================
+POST #442 | Score: 11
+================================================================================
+TITLE: Why do people like OS discs for forehand rollers?
+
+URL: https://reddit.com/r/discgolf/comments/1qg9ggo/why_do_people_like_os_discs_for_forehand_rollers/
+Source: hot
+
+================================================================================
+POST #443 | Score: 6
+================================================================================
+TITLE: Too much of the same?
+
+URL: https://reddit.com/r/discgolf/comments/1qgg4e6/too_much_of_the_same/
+Source: hot
+
+================================================================================
+POST #444 | Score: 11
+================================================================================
+TITLE: AGL maple get one with 10% off treelifeagl
+
+URL: https://reddit.com/r/discgolf/comments/1qg8415/agl_maple_get_one_with_10_off_treelifeagl/
+Source: hot
+
+================================================================================
+POST #445 | Score: 32
+================================================================================
+TITLE: Just a little appreciation for my favorite OOP disc golf bag.
+
+URL: https://reddit.com/r/discgolf/comments/1qg2hbu/just_a_little_appreciation_for_my_favorite_oop/
+Source: hot
+
+================================================================================
+POST #446 | Score: 210
+================================================================================
+TITLE: Is That OB?
+
+URL: https://reddit.com/r/discgolf/comments/1qfo6bp/is_that_ob/
+Source: hot
+
+================================================================================
+POST #447 | Score: 41
+================================================================================
+TITLE: And then there were seven
+
+URL: https://reddit.com/r/discgolf/comments/1qg06g4/and_then_there_were_seven/
+Source: hot
+
+================================================================================
+POST #448 | Score: 8
+================================================================================
+TITLE: I’m a right handed backhand thrower, what discs will go to the right for me?
+
+URL: https://reddit.com/r/discgolf/comments/1qg96ga/im_a_right_handed_backhand_thrower_what_discs/
+Source: hot
+
+================================================================================
+POST #449 | Score: 28
+================================================================================
+TITLE: The MVP Open getting an AM event? Steven Dodge is the co-owner of the Maple Hill disc golf course and the tournament director of the MVP Open.
+
+URL: https://reddit.com/r/discgolf/comments/1qg12ce/the_mvp_open_getting_an_am_event_steven_dodge_is/
+Source: hot
+
+================================================================================
+POST #450 | Score: 256
+================================================================================
+TITLE: Ezra Aderhold has signed a 2-year contract extension with Discraft!
+
+URL: https://reddit.com/r/discgolf/comments/1qfhxnu/ezra_aderhold_has_signed_a_2year_contract/
+Source: hot
+
+================================================================================
+POST #451 | Score: 9
+================================================================================
+TITLE: Best drills to increase distance?
+
+URL: https://reddit.com/r/discgolf/comments/1qg6581/best_drills_to_increase_distance/
+Source: hot
+
+================================================================================
+POST #452 | Score: 1
+================================================================================
+TITLE: Discmania cosmic fury 2 replacement
+
+URL: https://reddit.com/r/discgolf/comments/1qglbx2/discmania_cosmic_fury_2_replacement/
+Source: hot
+
+================================================================================
+POST #453 | Score: 5
+================================================================================
+TITLE: Looking for throw speed/rpm to disc speed # chart
+
+URL: https://reddit.com/r/discgolf/comments/1qg992q/looking_for_throw_speedrpm_to_disc_speed_chart/
+Source: hot
+
+================================================================================
+POST #454 | Score: 17
+================================================================================
+TITLE: I love misprints
+
+URL: https://reddit.com/r/discgolf/comments/1qfzur5/i_love_misprints/
+Source: hot
+
+================================================================================
+POST #455 | Score: 1123
+================================================================================
+TITLE: Found Gannon’s Disc
+
+URL: https://reddit.com/r/discgolf/comments/1qf69u0/found_gannons_disc/
+Source: hot
+
+================================================================================
+POST #456 | Score: 26
+================================================================================
+TITLE: Do I have to give a tag back? And is there a time limit?
+
+URL: https://reddit.com/r/discgolf/comments/1qfxgbz/do_i_have_to_give_a_tag_back_and_is_there_a_time/
+Source: hot
+
+================================================================================
+POST #457 | Score: 67
+================================================================================
+TITLE: I feel maternal toward him.
+
+URL: https://reddit.com/r/discgolf/comments/1qfoslf/i_feel_maternal_toward_him/
+Source: hot
+
+================================================================================
+POST #458 | Score: 150
+================================================================================
+TITLE: When your tired of people not calling on your pig
+
+URL: https://reddit.com/r/discgolf/comments/1qfgs5r/when_your_tired_of_people_not_calling_on_your_pig/
+Source: hot
+
+================================================================================
+POST #459 | Score: 1
+================================================================================
+TITLE: Bag recommendations
+
+URL: https://reddit.com/r/discgolf/comments/1qgg5oq/bag_recommendations/
+Source: hot
+
+================================================================================
+POST #460 | Score: 0
+================================================================================
+TITLE: the most understable Zeus I've ever thrown #discgolf #golf #discraft #zeus #understable #pdga
+
+URL: https://reddit.com/r/discgolf/comments/1qgn4rp/the_most_understable_zeus_ive_ever_thrown/
+Source: hot
+
+================================================================================
+POST #461 | Score: 8
+================================================================================
+TITLE: Millennium Es2/Zodiac mold
+
+URL: https://reddit.com/r/discgolf/comments/1qfxi76/millennium_es2zodiac_mold/
+Source: hot
+
+================================================================================
+POST #462 | Score: 64
+================================================================================
+TITLE: Friendly advice for newer players learned the hard way.
+
+URL: https://reddit.com/r/discgolf/comments/1qfhvnp/friendly_advice_for_newer_players_learned_the/
+Source: hot
+
+================================================================================
+POST #463 | Score: 47
+================================================================================
+TITLE: A different type of mail call! Big shout out to Sam in Decatur, GA.
+
+URL: https://reddit.com/r/discgolf/comments/1qfj0jm/a_different_type_of_mail_call_big_shout_out_to/
+Source: hot
+
+================================================================================
+POST #464 | Score: 31
+================================================================================
+TITLE: Bradley Williams: Practice Throw rules question
+
+URL: https://reddit.com/r/discgolf/comments/1qflrwy/bradley_williams_practice_throw_rules_question/
+Source: hot
+
+================================================================================
+POST #465 | Score: 2
+================================================================================
+TITLE: Glide flight number
+
+URL: https://reddit.com/r/discgolf/comments/1qg2qjt/glide_flight_number/
+Source: hot
+
+================================================================================
+POST #466 | Score: 7
+================================================================================
+TITLE: What is your favorite Mando sign design?
+
+URL: https://reddit.com/r/discgolf/comments/1qfwe41/what_is_your_favorite_mando_sign_design/
+Source: hot
+
+================================================================================
+POST #467 | Score: 9
+================================================================================
+TITLE: Plans for tonal targets
+
+URL: https://reddit.com/r/discgolf/comments/1qfnx8r/plans_for_tonal_targets/
+Source: hot
+
+================================================================================
+POST #468 | Score: 0
+================================================================================
+TITLE: Decide my Mid Range lineup!
+
+URL: https://reddit.com/r/discgolf/comments/1qgfaie/decide_my_mid_range_lineup/
+Source: hot
+
+================================================================================
+POST #469 | Score: 5
+================================================================================
+TITLE: Opinions on the CD1 and PD
+
+URL: https://reddit.com/r/discgolf/comments/1qfscpv/opinions_on_the_cd1_and_pd/
+Source: hot
+
+================================================================================
+POST #470 | Score: 7
+================================================================================
+TITLE: Winter Putting Practice
+
+URL: https://reddit.com/r/discgolf/comments/1qfq8l1/winter_putting_practice/
+Source: hot
+
+================================================================================
+POST #471 | Score: 2
+================================================================================
+TITLE: 1 day to play in Oahu! Whats the best course to play?
+
+URL: https://reddit.com/r/discgolf/comments/1qftwjk/1_day_to_play_in_oahu_whats_the_best_course_to/
+Source: hot
+
+================================================================================
+POST #472 | Score: 8
+================================================================================
+TITLE: 1 day in LA. Best course to play?
+
+URL: https://reddit.com/r/discgolf/comments/1qfikv2/1_day_in_la_best_course_to_play/
+Source: hot
+
+================================================================================
+POST #473 | Score: 5
+================================================================================
+TITLE: Cheapest way to ship discs?
+
+URL: https://reddit.com/r/discgolf/comments/1qfjzk5/cheapest_way_to_ship_discs/
+Source: hot
+
+================================================================================
+POST #474 | Score: 450
+================================================================================
+TITLE: Finnish pro disc golfers Silva Saarinen and Iida Lehtomäki attended the Finnish Sports Gala. Silva was nominated for the 2025 Athlete of the Year award and Iida’s second-place finish at the 2025 Pro Worlds was nominated as the most exciting sports moment.
+
+URL: https://reddit.com/r/discgolf/comments/1qei5pz/finnish_pro_disc_golfers_silva_saarinen_and_iida/
+Source: hot
+
+================================================================================
+POST #475 | Score: 0
+================================================================================
+TITLE: Doubles teams
+
+URL: https://reddit.com/r/discgolf/comments/1qfsml8/doubles_teams/
+Source: hot
+
+================================================================================
+POST #476 | Score: 167
+================================================================================
+TITLE: Disc Golf in Puerto Rico
+
+URL: https://reddit.com/r/discgolf/comments/1qen5zr/disc_golf_in_puerto_rico/
+Source: hot
+
+================================================================================
+POST #477 | Score: 28
+================================================================================
+TITLE: Julia Fors to Latitude 64
+
+URL: https://reddit.com/r/discgolf/comments/1qf1sp8/julia_fors_to_latitude_64/
+Source: hot
+
+================================================================================
+POST #478 | Score: 60
+================================================================================
+TITLE: Why does old Champ plastic feel so good??
+
+URL: https://reddit.com/r/discgolf/comments/1qev03o/why_does_old_champ_plastic_feel_so_good/
+Source: hot
+
+================================================================================
+POST #479 | Score: 0
+================================================================================
+TITLE: Bag Building Time
+
+URL: https://reddit.com/r/discgolf/comments/1qfv63j/bag_building_time/
+Source: hot
+
+================================================================================
+POST #480 | Score: 2
+================================================================================
+TITLE: Amazing aces
+
+URL: https://reddit.com/r/discgolf/comments/1qflzwn/amazing_aces/
+Source: hot
+
+================================================================================
+POST #481 | Score: 16
+================================================================================
+TITLE: Moving to the next level
+
+URL: https://reddit.com/r/discgolf/comments/1qf2epk/moving_to_the_next_level/
+Source: hot
+
+================================================================================
+POST #482 | Score: 15
+================================================================================
+TITLE: Round 1 Coverage: Discraft Australasian Open, presented by OTB Discs
+
+URL: https://reddit.com/r/discgolf/comments/1qf13gp/round_1_coverage_discraft_australasian_open/
+Source: hot
+
+================================================================================
+POST #483 | Score: 55
+================================================================================
+TITLE: PDGA Majors for 2027 and 2028 announced
+
+URL: https://reddit.com/r/discgolf/comments/1qeqbg6/pdga_majors_for_2027_and_2028_announced/
+Source: hot
+
+================================================================================
+POST #484 | Score: 85
+================================================================================
+TITLE: Goose to MVP leaked
+
+URL: https://reddit.com/r/discgolf/comments/1qelquk/goose_to_mvp_leaked/
+Source: hot
+
+================================================================================
+POST #485 | Score: 56
+================================================================================
+TITLE: The Allosaurus is the most understable disc I’ve ever thrown
+
+URL: https://reddit.com/r/discgolf/comments/1qepms4/the_allosaurus_is_the_most_understable_disc_ive/
+Source: hot
+
+================================================================================
+POST #486 | Score: 79
+================================================================================
+TITLE: Come be a Chump AND go to an awesome disc golf camp!
+
+URL: https://reddit.com/r/discgolf/comments/1qem10e/come_be_a_chump_and_go_to_an_awesome_disc_golf/
+Source: hot
+
+================================================================================
+POST #487 | Score: 33
+================================================================================
+TITLE: Colten Montgomery has joined Discraft with a partnership with Resistance Discs for 2026
+
+URL: https://reddit.com/r/discgolf/comments/1qerqtr/colten_montgomery_has_joined_discraft_with_a/
+Source: hot
+
+================================================================================
+POST #488 | Score: 0
+================================================================================
+TITLE: AMD Ryzen™ 9 9950X3D brings power, and legendary performance—built for gamers who create.
+
+URL: https://reddit.com/user/AMDOfficial/comments/1qpce87/amd_ryzen_9_9950x3d_brings_power_and_legendary/
+Source: hot
+
+================================================================================
+POST #489 | Score: 50
+================================================================================
+TITLE: Daniel Davidsson to Discraft
+
+URL: https://reddit.com/r/discgolf/comments/1qenx8d/daniel_davidsson_to_discraft/
+Source: hot
+
+================================================================================
+POST #490 | Score: 0
+================================================================================
+TITLE: Rant: be courteous of other people’s time.
+
+URL: https://reddit.com/r/discgolf/comments/1qfgdyp/rant_be_courteous_of_other_peoples_time/
+Source: hot
+
+================================================================================
+POST #491 | Score: 17
+================================================================================
+TITLE: Best way to get cat piss smell out of dynamic discs combat ranger
+
+URL: https://reddit.com/r/discgolf/comments/1qexpbq/best_way_to_get_cat_piss_smell_out_of_dynamic/
+Source: hot
+
+================================================================================
+POST #492 | Score: 14
+================================================================================
+TITLE: I’m playing Armco Park (SW Ohio) every week until I shoot under par. Week 3
+
+URL: https://reddit.com/r/discgolf/comments/1qeuzsd/im_playing_armco_park_sw_ohio_every_week_until_i/
+Source: hot
+
+================================================================================
+POST #493 | Score: 12
+================================================================================
+TITLE: 2026 Australasian Open FPO | RD1 F9 | Paige Pierce, Taylor Chocek, Jennifer Smiley, Kat Mertsch
+
+URL: https://reddit.com/r/discgolf/comments/1qeumlv/2026_australasian_open_fpo_rd1_f9_paige_pierce/
+Source: hot
+
+================================================================================
+POST #494 | Score: 12
+================================================================================
+TITLE: Transportation for Disc golf in Tallinn, Estonia
+
+URL: https://reddit.com/r/discgolf/comments/1qeucn3/transportation_for_disc_golf_in_tallinn_estonia/
+Source: hot
+
+================================================================================
+POST #495 | Score: 21
+================================================================================
+TITLE: Innova F2 Friday dropped: Halo Roc3
+
+URL: https://reddit.com/r/discgolf/comments/1qeo4ke/innova_f2_friday_dropped_halo_roc3/
+Source: hot
+
+================================================================================
+POST #496 | Score: 20
+================================================================================
+TITLE: 2026 Australasian Open MPO | RD1 F9 | Jeremy Koling, Levi Stout, Corey Ellis, Aiden Scott
+
+URL: https://reddit.com/r/discgolf/comments/1qeoa83/2026_australasian_open_mpo_rd1_f9_jeremy_koling/
+Source: hot
+
+================================================================================
+POST #497 | Score: 6
+================================================================================
+TITLE: Around Toboggan??
+
+URL: https://reddit.com/r/discgolf/comments/1qew0p7/around_toboggan/
+Source: hot
+
+================================================================================
+POST #498 | Score: 7
+================================================================================
+TITLE: Discraft Australasian Open, presented by OTB Discs | Round 1 MPO Coverage 🥏
+
+URL: https://reddit.com/r/discgolf/comments/1qet29p/discraft_australasian_open_presented_by_otb_discs/
+Source: hot
+
+================================================================================
+POST #499 | Score: 0
+================================================================================
+TITLE: Kat Mertsch
+
+URL: https://reddit.com/r/discgolf/comments/1qfv3io/kat_mertsch/
+Source: hot
+
+================================================================================
+POST #500 | Score: 13
+================================================================================
+TITLE: Shoulder Injury - Learn From Me
+
+URL: https://reddit.com/r/discgolf/comments/1qeldae/shoulder_injury_learn_from_me/
+Source: hot

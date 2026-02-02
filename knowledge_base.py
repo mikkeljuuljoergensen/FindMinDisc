@@ -114,16 +114,17 @@ class DiscGolfKnowledgeBase:
         
         for post in posts:
             # Create main post document
-            post_text = f"Title: {post['title']}\n\n{post['selftext']}"
+            post_text = post.get('text', post['title'])
             
             # Add post metadata
             post_meta = {
                 'type': 'post',
-                'subreddit': post['subreddit'],
-                'score': post['score'],
-                'author': post['author'],
-                'num_comments': post['num_comments'],
-                'post_id': post['id']
+                'subreddit': post.get('subreddit', 'discgolf'),
+                'score': post.get('score', 0),
+                'author': post.get('author', 'unknown'),
+                'num_comments': post.get('num_comments', 0),
+                'post_id': post.get('id', ''),
+                'source': post.get('source', 'unknown')
             }
             
             # Split long posts into chunks
@@ -140,22 +141,23 @@ class DiscGolfKnowledgeBase:
                 metadatas.append(post_meta)
                 ids.append(f"{post['id']}_post")
             
-            # Add top comments as separate documents
-            for j, comment in enumerate(post['comments'][:5]):  # Top 5 comments
-                if len(comment['body']) > 50:  # Skip very short comments
-                    comment_text = f"Comment on: {post['title']}\n\n{comment['body']}"
-                    
-                    comment_meta = {
-                        'type': 'comment',
-                        'subreddit': post['subreddit'],
-                        'score': comment['score'],
-                        'author': comment['author'],
-                        'parent_post_id': post['id']
-                    }
-                    
-                    documents.append(comment_text)
-                    metadatas.append(comment_meta)
-                    ids.append(f"{post['id']}_comment_{j}")
+            # Add top comments as separate documents (if available)
+            if 'comments' in post and post['comments']:
+                for j, comment in enumerate(post['comments'][:5]):  # Top 5 comments
+                    if len(comment.get('body', '')) > 50:  # Skip very short comments
+                        comment_text = f"Comment on: {post['title']}\n\n{comment['body']}"
+                        
+                        comment_meta = {
+                            'type': 'comment',
+                            'subreddit': post.get('subreddit', 'discgolf'),
+                            'score': comment.get('score', 0),
+                            'author': comment.get('author', 'unknown'),
+                            'parent_post_id': post.get('id', '')
+                        }
+                        
+                        documents.append(comment_text)
+                        metadatas.append(comment_meta)
+                        ids.append(f"{post['id']}_comment_{j}")
         
         # Generate embeddings in batches
         batch_size = 100
