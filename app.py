@@ -74,51 +74,58 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
         with st.spinner("Søger anmeldelser..."):
             
             # 1. Single optimized search query
-            search_query = f"best {disc_type} disc golf {flight_pref} {prompt} review recommendation"
+            search_query = f"best {disc_type} disc golf {flight_pref} {prompt} review recommendation plastic"
             
             try:
                 search_results = search.run(search_query)
-                # Truncate to avoid token limits
-                search_results = search_results[:3000]
+                search_results = search_results[:4000]
             except:
                 search_results = "Ingen søgeresultater fundet."
             
-            # 2. Ask Gemini
+            # 2. Ask LLM for recommendations
             ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, søger {disc_type}, ønsker {flight_pref}.
-Ekstra: "{prompt}"
+Ekstra info: "{prompt}"
 
 Anbefalinger fra nettet:
 {search_results}
 
-Anbefal ÉN {disc_type.lower()} på dansk. Nævn flight numbers. Skriv KUN discens navn på første linje.
-Kort og venligt svar."""
+Giv 3 disc-anbefalinger på dansk. For hver disc:
+1. Navn og mærke
+2. Flight numbers (speed/glide/turn/fade)
+3. Fordele (hvorfor den passer)
+4. Ulemper (hvornår den IKKE passer)
+5. Anbefalet plastik og hvorfor (f.eks. "Star plastic - holder længere og er god i vådt vejr")
+
+Sammenlign de 3 discs kort til sidst - hvem passer bedst til hvad?
+
+Formatér pænt med ### overskrifter og bullet points."""
             
             try:
                 ai_response = llm.invoke(ai_prompt).content
                 
-                # Parse the response
-                lines = ai_response.split('\n')
-                suggested_disc = lines[0].replace("*", "").replace(":", "").replace("#", "").strip()
-                explanation = "\n".join(lines[1:])
+                # Extract disc names for stock check (look for bold text or headers)
+                import re
+                disc_names = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', ai_response)[:3]
                 
-                # 3. Check Stock
-                stock_dt = check_stock_disctree(suggested_disc)
-                stock_nd = check_stock_newdisc(suggested_disc)
+                # Build stock info
+                stock_info = ""
+                for disc in disc_names:
+                    disc_clean = disc.strip()
+                    if disc_clean and len(disc_clean) > 2:
+                        stock_dt = check_stock_disctree(disc_clean)
+                        stock_nd = check_stock_newdisc(disc_clean)
+                        stock_info += f"**{disc_clean}:**\n* {stock_dt}\n* {stock_nd}\n\n"
                 
-                final_reply = f"""
-### Prøv en **{suggested_disc}**
-                
-{explanation}
-                
+                final_reply = f"""{ai_response}
+
 ---
-**🇩🇰 På lager i DK:**
-* {stock_dt}
-* {stock_nd}
+## 🇩🇰 På lager i Danmark:
+{stock_info if stock_info else "Kunne ikke tjekke lager for disse discs."}
 """
             except Exception as e:
                 error_msg = str(e)
-                if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                    final_reply = "⏳ Gemini har brug for en pause. Vent 1 minut og prøv igen."
+                if "429" in error_msg or "rate" in error_msg.lower():
+                    final_reply = "⏳ API'en har brug for en pause. Vent lidt og prøv igen."
                 else:
                     final_reply = f"⚠️ Ups, noget gik galt: {e}"
             
