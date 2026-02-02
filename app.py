@@ -129,6 +129,25 @@ def handle_free_form_question(prompt, user_prefs=None):
     elif 'distance' in prompt_lower or 'driver' in prompt_lower:
         disc_type = "Distance driver"
     
+    # Try to detect explicit speed range (e.g., "7-9 speed", "speed 7-9")
+    speed_range_match = re.search(r'(\d+)\s*-\s*(\d+)\s*speed|speed\s*(\d+)\s*-\s*(\d+)', prompt_lower)
+    custom_speed_range = None
+    if speed_range_match:
+        groups = speed_range_match.groups()
+        min_speed = int(groups[0] or groups[2])
+        max_speed = int(groups[1] or groups[3])
+        custom_speed_range = (min_speed, max_speed)
+        # Also infer disc_type from speed range if not already set
+        if not disc_type:
+            if max_speed <= 3:
+                disc_type = "Putter"
+            elif max_speed <= 6:
+                disc_type = "Midrange"
+            elif max_speed <= 9:
+                disc_type = "Fairway driver"
+            else:
+                disc_type = "Distance driver"
+    
     # Try to detect skill level - None if not specified
     skill_level = None
     skill_specified = False
@@ -204,24 +223,42 @@ def handle_free_form_question(prompt, user_prefs=None):
         if name in shown_disc_names:
             continue  # Skip discs already added above
         speed = data.get('speed', 0)
+        
         # Filter by skill level
         if skill_level == "beginner" and speed > 9:
             continue
-        if disc_type:
+        
+        # Filter by custom speed range if specified
+        if custom_speed_range:
+            min_s, max_s = custom_speed_range
+            if not (min_s <= speed <= max_s):
+                continue
+        # Otherwise filter by disc type
+        elif disc_type:
             speed_ranges = {"Putter": (1, 3), "Midrange": (4, 6), "Fairway driver": (7, 9), "Distance driver": (10, 14)}
             min_s, max_s = speed_ranges.get(disc_type, (1, 14))
             if not (min_s <= speed <= max_s):
                 continue
+        
         sample_discs.append(f"  • {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
         if len(sample_discs) >= 35:
             break
     
     disc_context = "\n".join(sample_discs) if sample_discs else "Ingen relevante discs fundet"
     
+    # Build speed requirement text for AI
+    speed_requirement = ""
+    if custom_speed_range:
+        speed_requirement = f"\n⚠️ VIGTIGT: Brugeren bad specifikt om speed {custom_speed_range[0]}-{custom_speed_range[1]}. Anbefal KUN discs i dette interval!"
+    elif disc_type:
+        speed_ranges_text = {"Putter": "1-3", "Midrange": "4-6", "Fairway driver": "7-9", "Distance driver": "10-14"}
+        speed_requirement = f"\n⚠️ VIGTIGT: Brugeren bad om {disc_type}s (speed {speed_ranges_text.get(disc_type, '1-14')}). Anbefal KUN discs i dette interval!"
+    
     # Build AI prompt
     ai_prompt = f"""Du er en venlig disc golf ekspert der hjælper brugere med at finde de rigtige discs.
 
 Brugerens spørgsmål: "{prompt}"
+{speed_requirement}
 
 Brugerens niveau: {"Nybegynder" if skill_level == "beginner" else "Øvet" if skill_level == "intermediate" else "Erfaren"}
 Estimeret kastelængde: ca. {max_dist}m
@@ -235,14 +272,17 @@ Discs fra vores database (med PRÆCISE flight numbers):
 
 REGLER:
 1. Svar på dansk, venligt og hjælpsomt
-2. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag
-3. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
-4. Brug flight numbers format: Speed/Glide/Turn/Fade
-5. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
-6. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
-7. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
-8. Vær ærlig om hvad der passer til brugerens niveau
-9. Hvis du beskriver discs som brugeren allerede har nævnt, brug PRÆCIS de flight numbers fra databasen
+2. ⚠️ ABSOLUT KRAV: Hvis du anbefaler discs, vælg KUN fra listen ovenfor. Opfind IKKE discs!
+3. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag FRA LISTEN OVENFOR
+4. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
+5. Brug flight numbers format: Speed/Glide/Turn/Fade
+6. Respekter brugerens speed-krav (fx hvis de siger "7-9 speed", må du KUN anbefale discs med speed 7, 8 eller 9)
+7. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
+8. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
+9. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
+10. Vær ærlig om hvad der passer til brugerens niveau
+11. Hvis du beskriver discs som brugeren allerede har nævnt, brug PRÆCIS de flight numbers fra databasen
+12. Hvis du ikke kan finde passende discs på listen, sig det ærligt i stedet for at anbefale forkerte discs
 
 Hvis du anbefaler discs, brug dette format:
 
@@ -1229,12 +1269,15 @@ UNDERSTABIL vs OVERSTABIL:
 Søgeresultater:
 {search_results}
 
-Giv 3 FORSKELLIGE {disc_type.lower()}-anbefalinger på dansk.
-PRIORITER discs fra databasen ovenfor da de har verificerede flight numbers.
+⚠️ VIGTIGT: Anbefal KUN discs fra "ANBEFALEDE DISCS TIL DIG" listen ovenfor!
+Du må IKKE anbefale discs der ikke står på listen. Hvis listen er tom, sig det til brugeren.
+
+Giv 3 FORSKELLIGE {disc_type.lower()}-anbefalinger på dansk fra listen ovenfor.
 Vær kreativ - anbefal ikke altid de samme discs!
 
 REGLER:
-- Anbefal KUN {disc_type}s
+- ⚠️ ABSOLUT KRAV: Vælg KUN discs fra "ANBEFALEDE DISCS TIL DIG" listen ovenfor
+- Anbefal KUN {disc_type}s med korrekt speed range ({speed_hint})
 - Følg brugerens mærke-præference hvis angivet
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Nævn vægt i gram
@@ -1242,6 +1285,7 @@ REGLER:
 - VARIER dine anbefalinger - der findes mange gode discs!
 - Anbefal IKKE plastik - brugeren kan spørge om hjælp til det bagefter
 - ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
+- Hvis du ikke kan finde 3 passende discs på listen, sig det og forklar hvorfor
 
 FORMAT FOR HVER DISC:
 
