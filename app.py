@@ -20,7 +20,7 @@ def parse_flight_chart_request(prompt):
     - "Flight chart for Firebird"
     - "Destroyer vs Wraith"
     - "Tilføj Wraith" (adds to existing)
-    - "Begynder arm speed" / "Pro arm speed" (changes speed)
+    - "Begynder niveau" / "Pro niveau" (changes level)
     
     Returns dict with 'discs' list and 'arm_speed'
     """
@@ -107,7 +107,7 @@ def render_flight_chart_comparison(disc_names, arm_speed='normal'):
     path_key = info['path_key']
     
     st.markdown(f"### 🥏 Flight Chart Sammenligning")
-    st.markdown(f"*Arm speed: **{info['label']}***")
+    st.markdown(f"*Niveau: **{info['label']}***")
     
     # Collect disc data from FULL database with flight paths
     discs_with_data = []
@@ -594,7 +594,7 @@ if st.session_state.step == "start":
 *"Vis flight charts for Destroyer, Mamba og Zone SS"*
 *"Sammenlign Buzzz og Roc3"*
 
-💪 Arm speed: Begynder | Øvet | Pro""")
+💪 Niveau: Begynder | Øvet | Pro""")
     st.session_state.step = "ask_type"
 
 # --- DISPLAY MESSAGES ---
@@ -626,24 +626,24 @@ if prompt := st.chat_input("Skriv dit svar..."):
                 st.session_state.arm_speed = new_arm_speed
             
             arm_speed = st.session_state.arm_speed
-            arm_speed_labels = {'slow': 'Begynder', 'normal': 'Øvet', 'fast': 'Pro'}
-            arm_label = arm_speed_labels.get(arm_speed, 'Øvet')
+            niveau_labels = {'slow': 'Begynder', 'normal': 'Øvet', 'fast': 'Pro'}
+            niveau_label = niveau_labels.get(arm_speed, 'Øvet')
             
             # Handle just speed change (no new discs)
             if is_speed_change and st.session_state.shown_discs:
                 all_discs = st.session_state.shown_discs
-                reply = f"Skiftet til **{arm_label}** arm speed:"
+                reply = f"Skiftet til **{niveau_label}** niveau:"
             # Handle adding discs
             elif is_add and st.session_state.shown_discs and new_discs:
                 all_discs = list(st.session_state.shown_discs)
                 for disc in new_discs:
                     if disc not in all_discs:
                         all_discs.append(disc)
-                reply = f"Tilføjet **{', '.join(new_discs)}** ({arm_label} arm speed):"
+                reply = f"Tilføjet **{', '.join(new_discs)}** ({niveau_label} niveau):"
             # Handle new chart request
             elif new_discs:
                 all_discs = new_discs
-                reply = f"Flight charts for **{', '.join(all_discs)}** ({arm_label} arm speed):"
+                reply = f"Flight charts for **{', '.join(all_discs)}** ({niveau_label} niveau):"
             else:
                 # No discs and no previous discs
                 reply = "Nævn mindst én disc - f.eks. 'Sammenlign Destroyer og Mamba'"
@@ -659,7 +659,7 @@ if prompt := st.chat_input("Skriv dit svar..."):
             st.session_state.shown_discs = all_discs
             st.session_state.show_chart = True
             
-            follow_up = "*Tilføj flere: 'Også Wraith'* | *Skift speed: 'Pro' eller 'Begynder'*"
+            follow_up = "*Tilføj flere: 'Også Wraith'* | *Skift niveau: 'Pro' eller 'Begynder'*"
             add_bot_message(follow_up)
             st.rerun()
         
