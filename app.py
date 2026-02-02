@@ -203,18 +203,23 @@ Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
         response = llm.invoke(ai_prompt).content
         
         # Extract recommended disc names for potential flight chart
-        # Use word boundary matching to avoid false positives like "Glide" in "Flight: 2/3/0/1"
+        # ONLY match disc names that appear in **bold** format (AI recommendation format)
+        # This avoids false positives like "Glide" in "god glide" or "Balance" in "god balance"
         disc_names = []
         
-        # Sort by length (longest first) to match "Aviar 3" before "Aviar"
-        for db_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
-            # Require word boundaries around the disc name
-            pattern = r'(?:^|[^a-zæøå0-9])' + re.escape(db_name.lower()) + r'(?:[^a-zæøå0-9]|$)'
-            if re.search(pattern, response.lower()):
-                if db_name not in disc_names:
-                    disc_names.append(db_name)
-                if len(disc_names) >= 4:
+        # Find all bold text patterns
+        bold_matches = re.findall(r'\*\*([^*]+)\*\*', response)
+        
+        for bold_text in bold_matches:
+            bold_lower = bold_text.lower().strip()
+            # Check if any disc name matches this bold text
+            for db_name in sorted(DISC_DATABASE.keys(), key=len, reverse=True):
+                if db_name.lower() == bold_lower or db_name.lower() in bold_lower:
+                    if db_name not in disc_names:
+                        disc_names.append(db_name)
                     break
+            if len(disc_names) >= 4:
+                break
         
         return {
             'response': response,
