@@ -180,17 +180,30 @@ Men okay, du bad om distance drivers, så her er nogle **letvægts understabile*
                 ai_warning = ""
                 if max_dist < 60 and disc_type == "Distance driver":
                     ai_warning = f"""KRITISK: Brugeren kaster kun {max_dist}m men vil have distance drivers.
-Anbefal KUN letvægts (150-160g) understabile distance drivers som:
-- Innova Tern (12/6/-3/2) i letvægt
-- Innova Mamba (11/6/-5/1) 
-- Latitude 64 Diamond (8/6/-3/1) - teknisk en fairway men god for begyndere
-- Discraft Avenger SS (10/5/-3/1) i letvægt
+Anbefal KUN letvægts (150-160g) understabile distance drivers.
 Forklar at de bør overveje midranges eller fairway drivers i stedet."""
                 elif max_dist < 50 and disc_type == "Fairway driver":
-                    ai_warning = f"Brugeren kaster {max_dist}m. Anbefal letvægts understabile fairways som Leopard, Diamond, eller River."
+                    ai_warning = f"Brugeren kaster {max_dist}m. Anbefal letvægts understabile fairways."
+                
+                # Handle brand preferences
+                brand_instruction = ""
+                extra_lower = extra_info.lower() if extra_info else ""
+                if "mvp" in extra_lower or "axiom" in extra_lower or "streamline" in extra_lower:
+                    brand_instruction = f"VIGTIGT: Brugeren ønsker specifikt discs fra MVP/Axiom/Streamline. Anbefal KUN discs fra disse mærker!"
+                elif "innova" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Innova discs. Anbefal KUN Innova discs!"
+                elif "discraft" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Discraft discs. Anbefal KUN Discraft discs!"
+                elif "latitude" in extra_lower or "lat64" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Latitude 64 discs. Anbefal KUN Latitude 64 discs!"
+                elif "discmania" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Discmania discs. Anbefal KUN Discmania discs!"
+                elif "kastaplast" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Kastaplast discs. Anbefal KUN Kastaplast discs!"
                 
                 ai_prompt = f"""Brugerprofil: kaster {max_dist}m, ønsker {flight} flyvning.
 {ai_warning}
+{brand_instruction}
 
 Disc-type: **{disc_type}** ({speed_hint})
 Ekstra ønsker: {extra_info if extra_info else "Ingen"}
@@ -198,23 +211,25 @@ Ekstra ønsker: {extra_info if extra_info else "Ingen"}
 Søgeresultater:
 {search_results}
 
-Giv 3 {disc_type.lower()}-anbefalinger på dansk.
+Giv 3 FORSKELLIGE {disc_type.lower()}-anbefalinger på dansk.
+Vær kreativ - anbefal ikke altid de samme discs!
 
 REGLER:
 - Anbefal KUN {disc_type}s
+- Følg brugerens mærke-præference hvis angivet
 - For kastere under 70m: anbefal letvægt (150-165g) og understabile discs
 - Nævn vægt i gram
 - Hvis valget er dårligt, sig det tydeligt
+- VARIER dine anbefalinger - der findes mange gode discs!
 
-FORMAT FOR HVER DISC (brug præcis denne struktur):
+FORMAT FOR HVER DISC:
 
-### 1. **Tern** af Innova
-- Flight: 12/6/-3/2, Vægt: 155g
-- ✅ Fordele: Meget understabil, god til begyndere
-- ❌ Ulemper: For ustabil i vind
-- 🥏 Plastik: Star eller GStar
+### 1. **[DiscNavn]** af [Mærke]
+- Flight: X/X/X/X, Vægt: XXXg
+- ✅ Fordele: ...
+- ❌ Ulemper: ...
+- 🥏 Plastik: ...
 
-Brug **fed skrift** omkring disc-navnet (ikke brackets).
 Afslut med en kort sammenligning."""
 
                 try:
