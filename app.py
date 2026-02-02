@@ -778,9 +778,19 @@ for msg in st.session_state.messages:
 
 # --- DISPLAY PERSISTENT FLIGHT CHART ---
 if st.session_state.show_chart and st.session_state.shown_discs:
-    # Throw settings selector
-    col1, col2 = st.columns(2)
+    # Settings selectors in 3 columns
+    col1, col2, col3 = st.columns(3)
     with col1:
+        niveau_option = st.radio(
+            "Niveau:",
+            ["Begynder", "Øvet", "Pro"],
+            index={"slow": 0, "normal": 1, "fast": 2}.get(st.session_state.arm_speed, 1),
+            horizontal=True,
+            key="chart_niveau"
+        )
+        niveau_map = {"Begynder": "slow", "Øvet": "normal", "Pro": "fast"}
+        st.session_state.arm_speed = niveau_map[niveau_option]
+    with col2:
         hand_option = st.radio(
             "Hånd:",
             ["Højre", "Venstre"],
@@ -789,7 +799,7 @@ if st.session_state.show_chart and st.session_state.shown_discs:
             key="chart_hand"
         )
         st.session_state.throw_hand = 'right' if hand_option == "Højre" else 'left'
-    with col2:
+    with col3:
         throw_option = st.radio(
             "Kast:",
             ["Baghånd", "Forhånd"],
@@ -1375,136 +1385,6 @@ with st.sidebar:
     if st.button("🔄 Start forfra"):
         reset_conversation()
         st.rerun()
-    
-    st.divider()
-    
-    # --- FLIGHT CHART VIEWER ---
-    st.markdown("### 📈 Flight Chart")
-    
-    # Disc search
-    disc_search = st.text_input("Søg disc:", placeholder="f.eks. Destroyer")
-    
-    if disc_search:
-        # Find matching discs from FULL database (with flight paths)
-        matches = [name for name in DISC_DATABASE_FULL.keys() 
-                   if disc_search.lower() in name.lower()][:5]
-        
-        if matches:
-            selected_disc = st.selectbox("Vælg disc:", matches)
-            
-            if selected_disc and selected_disc in DISC_DATABASE_FULL:
-                disc_data = DISC_DATABASE_FULL[selected_disc]
-                
-                # Niveau selector (same as chatbot)
-                niveau_option = st.radio(
-                    "Niveau:",
-                    ["Begynder", "Øvet", "Pro"],
-                    index=1,  # Default: Øvet
-                    horizontal=True,
-                    key="sidebar_niveau"
-                )
-                niveau_map = {"Begynder": "slow", "Øvet": "normal", "Pro": "fast"}
-                arm_speed = niveau_map[niveau_option]
-                path_key = f"flight_path_bh_{arm_speed}"
-                
-                # Hand and throw selectors
-                sb_col1, sb_col2 = st.columns(2)
-                with sb_col1:
-                    sb_hand = st.radio(
-                        "Hånd:",
-                        ["Højre", "Venstre"],
-                        index=0,
-                        horizontal=True,
-                        key="sidebar_hand"
-                    )
-                with sb_col2:
-                    sb_throw = st.radio(
-                        "Kast:",
-                        ["Baghånd", "Forhånd"],
-                        index=0,
-                        horizontal=True,
-                        key="sidebar_throw"
-                    )
-                
-                # Determine if we need to mirror
-                throw_hand = 'left' if sb_hand == "Venstre" else 'right'
-                throw_type = 'forehand' if sb_throw == "Forhånd" else 'backhand'
-                mirror_chart = (throw_hand == 'left' and throw_type == 'backhand') or \
-                               (throw_hand == 'right' and throw_type == 'forehand')
-                
-                # Get flight path from database
-                path = disc_data.get(path_key, [])
-                
-                if path:
-                    import pandas as pd
-                    import altair as alt
-                    
-                    # Build chart data - same approach as render_flight_chart_comparison
-                    speed = disc_data.get('speed', 5)
-                    glide = disc_data.get('glide', 4)
-                    turn = disc_data.get('turn', 0)
-                    fade = disc_data.get('fade', 2)
-                    disc_label = f"{selected_disc} ({speed}/{glide}/{turn}/{fade})"
-                    
-                    chart_data = []
-                    for i, p in enumerate(path):
-                        x_value = p['x'] if mirror_chart else -p['x']
-                        chart_data.append({
-                            'Disc': disc_label,
-                            'Turn/Fade': x_value,
-                            'Distance': round(p['y'] * 0.3048, 1),  # feet to meters
-                            'point_order': i
-                        })
-                    
-                    df = pd.DataFrame(chart_data)
-                    
-                    # Calculate axis ranges
-                    max_dist = df['Distance'].max()
-                    max_turn_fade = max(abs(df['Turn/Fade'].min()), abs(df['Turn/Fade'].max()), 2)
-                    
-                    # Adjust axis title based on mirror state
-                    x_title = '← Fade  |  Turn →' if mirror_chart else '← Turn  |  Fade →'
-                    
-                    chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
-                        x=alt.X('Turn/Fade:Q', 
-                                title=x_title,
-                                axis=alt.Axis(labels=False, ticks=False),
-                                scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
-                        y=alt.Y('Distance:Q', 
-                                title='Distance (m)',
-                                scale=alt.Scale(domain=[0, max_dist + 5])),
-                        order='point_order:Q',
-                        tooltip=['Disc']
-                    ).properties(
-                        width=250,
-                        height=350
-                    ).configure_axis(
-                        grid=True
-                    )
-                    
-                    st.altair_chart(chart, use_container_width=True)
-                    
-                    # Show disc info
-                    st.caption(f"**{selected_disc}** ({speed}/{glide}/{turn}/{fade})")
-                    st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
-                    
-                    # Show stock status
-                    stock_info = check_disc_tree_stock(selected_disc)
-                    if stock_info['status'] == 'in_stock':
-                        price = stock_info.get('price', '')
-                        price_text = f" ({price} kr)" if price else ""
-                        st.markdown(f"✅ [På lager{price_text}]({stock_info['url']})")
-                    elif stock_info['status'] == 'sold_out':
-                        st.markdown(f"⚠️ [Udsolgt]({stock_info['url']})")
-                    elif stock_info['status'] == 'not_found':
-                        search_url = f"https://disctree.dk/search?q={selected_disc.replace(' ', '+')}"
-                        st.markdown(f"❌ [Sælges ikke hos Disc Tree]({search_url})")
-                    else:
-                        st.markdown(f"🔍 [Søg hos Disc Tree]({stock_info.get('url', '')})")
-                else:
-                    st.warning("Ingen flight data for denne disc")
-        else:
-            st.info("Ingen discs fundet")
     
     st.divider()
     
