@@ -104,6 +104,46 @@ def parse_flight_chart_request(prompt):
     return {'is_chart_request': False}
 
 
+def fix_flight_numbers_in_response(response, database):
+    """
+    Post-process AI response to fix any incorrect flight numbers.
+    The AI often hallucinates flight numbers from its training data.
+    This function forces the correct values from our database.
+    """
+    # For each disc mentioned in the response, fix its flight numbers
+    for disc_name in sorted(database.keys(), key=len, reverse=True):
+        if disc_name.lower() in response.lower():
+            disc_data = database[disc_name]
+            speed = disc_data.get('speed', 0)
+            glide = disc_data.get('glide', 0)
+            turn = disc_data.get('turn', 0)
+            fade = disc_data.get('fade', 0)
+            correct_flight = f"{speed}/{glide}/{turn}/{fade}"
+            
+            # Fix "Flight: X/X/X/X" format (most common)
+            # This regex finds flight numbers after the disc name
+            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^0-9]*?Flight[:\s]+)(\d+)/(\d+)/(-?\d+\.?\d*)/(\d+\.?\d*)'
+            response = re.sub(pattern, rf'\1{correct_flight}', response, flags=re.IGNORECASE)
+            
+            # Fix individual "Speed: X" format
+            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Speed[:\s]+)\d+'
+            response = re.sub(pattern, rf'\g<1>{speed}', response, flags=re.IGNORECASE)
+            
+            # Fix individual "Glide: X" format  
+            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Glide[:\s]+)\d+'
+            response = re.sub(pattern, rf'\g<1>{glide}', response, flags=re.IGNORECASE)
+            
+            # Fix individual "Turn: X" format
+            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Turn[:\s]+)-?\d+\.?\d*'
+            response = re.sub(pattern, rf'\g<1>{turn}', response, flags=re.IGNORECASE)
+            
+            # Fix individual "Fade: X" format
+            pattern = rf'(\*?\*?{re.escape(disc_name)}\*?\*?[^\n]*?Fade[:\s]+)\d+\.?\d*'
+            response = re.sub(pattern, rf'\g<1>{fade}', response, flags=re.IGNORECASE)
+    
+    return response
+
+
 def handle_free_form_question(prompt, user_prefs=None):
     """
     Handle any free-form disc golf question using AI + web search.
@@ -294,6 +334,9 @@ Afslut med at spørge om brugeren vil vide mere, sammenligne discs, eller se hvo
 
     try:
         response = llm.invoke(ai_prompt).content
+        
+        # POST-PROCESS: Fix any incorrect flight numbers in the response
+        response = fix_flight_numbers_in_response(response, DISC_DATABASE)
         
         # Extract recommended disc names for potential flight chart
         # First try bold text patterns, then fall back to searching full response
@@ -1299,6 +1342,9 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 try:
                     ai_response = llm.invoke(ai_prompt).content
                     
+                    # POST-PROCESS: Fix any incorrect flight numbers
+                    ai_response = fix_flight_numbers_in_response(ai_response, DISC_DATABASE)
+                    
                     # Find disc names - look for **Name** pattern
                     bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', ai_response)
                     disc_names = []
@@ -1485,6 +1531,8 @@ REGLER:
 
                         try:
                             reply = llm.invoke(general_prompt).content
+                            # Fix any incorrect flight numbers
+                            reply = fix_flight_numbers_in_response(reply, DISC_DATABASE)
                         except Exception as e:
                             reply = f"Beklager, noget gik galt: {e}"
                         
@@ -1591,6 +1639,9 @@ Hvis du giver nye anbefalinger (KUN hvis brugeren beder om det), brug dette form
 
                         try:
                             reply = llm.invoke(follow_up_prompt).content
+                            
+                            # Fix any incorrect flight numbers
+                            reply = fix_flight_numbers_in_response(reply, DISC_DATABASE)
                             
                             # Extract disc names for stock links
                             bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', reply)
