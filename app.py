@@ -1253,61 +1253,100 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 reset_conversation()
                 st.rerun()
             else:
-                with st.spinner("Søger nye anbefalinger..."):
-                    prefs = st.session_state.user_prefs
-                    
-                    # Check if user is updating their distance
-                    numbers = re.findall(r'\d+', prompt)
-                    if numbers:
-                        new_dist = int(numbers[0])
-                        if new_dist > 200:
-                            new_dist = int(new_dist * 0.3)
-                        if new_dist < 200:  # Likely a distance update
-                            prefs["max_dist"] = new_dist
-                    
-                    # Check if user is changing disc type
-                    prompt_lower = prompt.lower()
-                    if "putter" in prompt_lower:
-                        prefs["disc_type"] = "Putter"
-                    elif "midrange" in prompt_lower or "mid-range" in prompt_lower or "mid range" in prompt_lower:
-                        prefs["disc_type"] = "Midrange"
-                    elif "fairway" in prompt_lower:
-                        prefs["disc_type"] = "Fairway driver"
-                    elif "distance" in prompt_lower:
-                        prefs["disc_type"] = "Distance driver"
-                    
-                    # Build context from conversation
-                    conversation_context = "\n".join([f"{m['role']}: {m['content'][:200]}" for m in st.session_state.messages[-6:]])
-                    
-                    # Search again
-                    disc_type = prefs.get("disc_type", "disc")
-                    max_dist = prefs.get("max_dist", 80)
-                    flight = prefs.get("flight", "")
-                    
-                    search_query = f"best {disc_type} disc golf {flight} {prompt} review"
-                    try:
-                        search_results = search.run(search_query)[:3000]
-                    except:
-                        search_results = ""
-                    
-                    speed_ranges = {
-                        "Putter": "speed 1-3",
-                        "Midrange": "speed 4-6",
-                        "Fairway driver": "speed 7-9",
-                        "Distance driver": "speed 10-14"
-                    }
-                    speed_hint = speed_ranges.get(disc_type, "")
-                    
-                    warning = ""
-                    if max_dist < 70 and disc_type == "Distance driver":
-                        warning = f"⚠️ Med {max_dist}m kastelængde anbefales distance drivers IKKE. Foreslå i stedet fairway drivers eller midranges."
-                    elif max_dist < 50 and disc_type == "Fairway driver":
-                        warning = f"⚠️ Med {max_dist}m kan en midrange være bedre."
-                    
-                    # Get filtered discs for follow-up
-                    filtered_discs = format_filtered_discs_for_ai(max_dist, disc_type, flight, None)
-                    
-                    follow_up_prompt = f"""Tidligere samtale:
+                prompt_lower = prompt.lower()
+                
+                # Check if this is a plastic question (don't need new recommendations)
+                is_plastic_question = 'plastik' in prompt_lower or 'plastic' in prompt_lower
+                
+                # Check if user wants new recommendations
+                wants_new_recs = any(kw in prompt_lower for kw in [
+                    'anbefal', 'foreslå', 'alternativ', 'andre', 'ny ', 'nye ', 
+                    'putter', 'midrange', 'fairway', 'distance', 'driver'
+                ])
+                
+                # Simple questions about plastic - answer directly without new search
+                if is_plastic_question and not wants_new_recs:
+                    with st.spinner("Finder plastik-info..."):
+                        # Get previously recommended discs
+                        prev_discs = st.session_state.get('recommended_discs', [])
+                        disc_context = ""
+                        if prev_discs:
+                            disc_context = f"De discs vi talte om: {', '.join(prev_discs)}"
+                        
+                        plastic_prompt = f"""Brugerens spørgsmål: "{prompt}"
+
+{disc_context}
+
+PLASTIK GUIDE:
+{PLASTIC_GUIDE}
+
+Svar på dansk. Giv konkrete plastik-anbefalinger baseret på de discs brugeren har fået anbefalet.
+Hvis de spurgte om specifikke discs, anbefal plastik til dem.
+Vær kort og præcis - brugeren har allerede fået disc-anbefalinger."""
+
+                        try:
+                            reply = llm.invoke(plastic_prompt).content
+                        except Exception as e:
+                            reply = f"Beklager, noget gik galt: {e}"
+                        
+                        st.markdown(reply)
+                        add_bot_message(reply)
+                else:
+                    # User wants new recommendations or has other questions
+                    with st.spinner("Søger..."):
+                        prefs = st.session_state.user_prefs
+                        
+                        # Check if user is updating their distance
+                        numbers = re.findall(r'\d+', prompt)
+                        if numbers:
+                            new_dist = int(numbers[0])
+                            if new_dist > 200:
+                                new_dist = int(new_dist * 0.3)
+                            if new_dist < 200:  # Likely a distance update
+                                prefs["max_dist"] = new_dist
+                        
+                        # Check if user is changing disc type
+                        if "putter" in prompt_lower:
+                            prefs["disc_type"] = "Putter"
+                        elif "midrange" in prompt_lower or "mid-range" in prompt_lower or "mid range" in prompt_lower:
+                            prefs["disc_type"] = "Midrange"
+                        elif "fairway" in prompt_lower:
+                            prefs["disc_type"] = "Fairway driver"
+                        elif "distance" in prompt_lower:
+                            prefs["disc_type"] = "Distance driver"
+                        
+                        # Build context from conversation
+                        conversation_context = "\n".join([f"{m['role']}: {m['content'][:200]}" for m in st.session_state.messages[-6:]])
+                        
+                        # Search again
+                        disc_type = prefs.get("disc_type", "disc")
+                        max_dist = prefs.get("max_dist", 80)
+                        flight = prefs.get("flight", "")
+                        
+                        search_query = f"best {disc_type} disc golf {flight} {prompt} review"
+                        try:
+                            search_results = search.run(search_query)[:3000]
+                        except:
+                            search_results = ""
+                        
+                        speed_ranges = {
+                            "Putter": "speed 1-3",
+                            "Midrange": "speed 4-6",
+                            "Fairway driver": "speed 7-9",
+                            "Distance driver": "speed 10-14"
+                        }
+                        speed_hint = speed_ranges.get(disc_type, "")
+                        
+                        warning = ""
+                        if max_dist < 70 and disc_type == "Distance driver":
+                            warning = f"⚠️ Med {max_dist}m kastelængde anbefales distance drivers IKKE. Foreslå i stedet fairway drivers eller midranges."
+                        elif max_dist < 50 and disc_type == "Fairway driver":
+                            warning = f"⚠️ Med {max_dist}m kan en midrange være bedre."
+                        
+                        # Get filtered discs for follow-up
+                        filtered_discs = format_filtered_discs_for_ai(max_dist, disc_type, flight, None)
+                        
+                        follow_up_prompt = f"""Tidligere samtale:
 {conversation_context}
 
 Brugerens nuværende profil: kaster {max_dist}m, søger {disc_type}, ønsker {flight} flyvning.
@@ -1345,74 +1384,74 @@ Hvis du giver nye anbefalinger, brug dette format:
 - ✅ Fordele: ...
 - ❌ Ulemper: ..."""
 
-                    try:
-                        reply = llm.invoke(follow_up_prompt).content
-                        
-                        # Extract disc names for stock links
-                        bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', reply)
-                        disc_names = []
-                        skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
-                                      'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
-                                      'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
-                                      'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
-                                      'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling', 'køb'}
-                        
-                        for match in bold_matches:
-                            words = match.strip().split()
-                            for word in reversed(words):
-                                word_clean = word.strip()
-                                if word_clean.lower() not in skip_words and len(word_clean) > 2:
-                                    if word_clean not in disc_names:
-                                        disc_names.append(word_clean)
-                                    break
-                        
-                        disc_names = disc_names[:3]
-                        
-                        # Add buy links after plastic lines
-                        modified_reply = reply
-                        for disc in disc_names:
-                            if disc and len(disc) > 2:
-                                links = get_product_links(disc)
-                                
-                                buy_link_parts = []
-                                if 'Disc Tree' in links:
-                                    buy_link_parts.append(f"[Disc Tree]({links['Disc Tree']})")
-                                if 'NewDisc' in links:
-                                    buy_link_parts.append(f"[NewDisc]({links['NewDisc']})")
-                                
-                                if buy_link_parts:
-                                    buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
-                                    
-                                    # Find the Ulemper line for this disc and add links after it
-                                    pattern = rf'(\*\*{re.escape(disc)}\*\*.*?❌ Ulemper:[^\n]*)'
-                                    match = re.search(pattern, modified_reply, re.DOTALL | re.IGNORECASE)
-                                    if match:
-                                        modified_reply = modified_reply.replace(
-                                            match.group(1), 
-                                            match.group(1) + buy_links
-                                        )
-                        
-                        reply = modified_reply
-                        
-                        # Store disc names for flight chart
-                        if disc_names:
-                            st.session_state['recommended_discs'] = disc_names
+                        try:
+                            reply = llm.invoke(follow_up_prompt).content
                             
-                    except Exception as e:
-                        reply = f"Beklager, noget gik galt: {e}"
-                    
-                    st.markdown(reply)
-                    add_bot_message(reply)
-                    
-                    # Show flight charts using database paths
-                    if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
-                        arm_speed = 'slow' if max_dist < 70 else 'normal'
-                        render_flight_chart_comparison(
-                            st.session_state['recommended_discs'],
-                            arm_speed
-                        )
-                    
-                    st.session_state.user_prefs = prefs  # Save updated prefs
+                            # Extract disc names for stock links
+                            bold_matches = re.findall(r'\*\*([A-Za-z0-9\s\-]+)\*\*', reply)
+                            disc_names = []
+                            skip_words = {'flight', 'numbers', 'fordele', 'ulemper', 'plastik', 'sammenligning', 
+                                          'disc', 'discs', 'speed', 'glide', 'turn', 'fade', 'premium', 'base', 
+                                          'distance', 'driver', 'putter', 'midrange', 'fairway', 'innova', 
+                                          'discraft', 'discmania', 'latitude', 'mvp', 'axiom', 'kastaplast', 
+                                          'westside', 'dynamic', 'navn', 'mærke', 'af', 'anbefaling', 'køb'}
+                            
+                            for match in bold_matches:
+                                words = match.strip().split()
+                                for word in reversed(words):
+                                    word_clean = word.strip()
+                                    if word_clean.lower() not in skip_words and len(word_clean) > 2:
+                                        if word_clean not in disc_names:
+                                            disc_names.append(word_clean)
+                                        break
+                            
+                            disc_names = disc_names[:3]
+                            
+                            # Add buy links after plastic lines
+                            modified_reply = reply
+                            for disc in disc_names:
+                                if disc and len(disc) > 2:
+                                    links = get_product_links(disc)
+                                    
+                                    buy_link_parts = []
+                                    if 'Disc Tree' in links:
+                                        buy_link_parts.append(f"[Disc Tree]({links['Disc Tree']})")
+                                    if 'NewDisc' in links:
+                                        buy_link_parts.append(f"[NewDisc]({links['NewDisc']})")
+                                    
+                                    if buy_link_parts:
+                                        buy_links = f"\n   🛒 **Køb:** {' | '.join(buy_link_parts)}"
+                                        
+                                        # Find the Ulemper line for this disc and add links after it
+                                        pattern = rf'(\*\*{re.escape(disc)}\*\*.*?❌ Ulemper:[^\n]*)'
+                                        match = re.search(pattern, modified_reply, re.DOTALL | re.IGNORECASE)
+                                        if match:
+                                            modified_reply = modified_reply.replace(
+                                                match.group(1), 
+                                                match.group(1) + buy_links
+                                            )
+                            
+                            reply = modified_reply
+                            
+                            # Store disc names for flight chart
+                            if disc_names:
+                                st.session_state['recommended_discs'] = disc_names
+                                
+                        except Exception as e:
+                            reply = f"Beklager, noget gik galt: {e}"
+                        
+                        st.markdown(reply)
+                        add_bot_message(reply)
+                        
+                        # Show flight charts using database paths
+                        if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
+                            arm_speed = 'slow' if max_dist < 70 else 'normal'
+                            render_flight_chart_comparison(
+                                st.session_state['recommended_discs'],
+                                arm_speed
+                            )
+                        
+                        st.session_state.user_prefs = prefs  # Save updated prefs
 
 # --- SIDEBAR INFO ---
 with st.sidebar:
