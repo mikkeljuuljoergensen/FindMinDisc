@@ -118,6 +118,8 @@ def handle_free_form_question(prompt, user_prefs=None):
     disc_type = None
     if 'putter' in prompt_lower:
         disc_type = "Putter"
+    elif 'approach' in prompt_lower:
+        disc_type = "Putter"  # Approach discs are typically putters/slow midranges
     elif 'midrange' in prompt_lower or 'mid-range' in prompt_lower:
         disc_type = "Midrange"
     elif 'fairway' in prompt_lower:
@@ -129,6 +131,8 @@ def handle_free_form_question(prompt, user_prefs=None):
     skill_level = "intermediate"
     if 'nybegynder' in prompt_lower or 'begynder' in prompt_lower or 'ny ' in prompt_lower or 'starter' in prompt_lower:
         skill_level = "beginner"
+    elif 'øvet' in prompt_lower or 'intermediate' in prompt_lower:
+        skill_level = "intermediate"
     elif 'erfaren' in prompt_lower or 'pro' in prompt_lower or 'avanceret' in prompt_lower:
         skill_level = "advanced"
     
@@ -1349,6 +1353,8 @@ Vær kort og præcis - brugeren har allerede fået disc-anbefalinger."""
                         # Check if user is changing disc type
                         if "putter" in prompt_lower:
                             prefs["disc_type"] = "Putter"
+                        elif "approach" in prompt_lower:
+                            prefs["disc_type"] = "Putter"  # Approach discs are typically putters
                         elif "midrange" in prompt_lower or "mid-range" in prompt_lower or "mid range" in prompt_lower:
                             prefs["disc_type"] = "Midrange"
                         elif "fairway" in prompt_lower:
