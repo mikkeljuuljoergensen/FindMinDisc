@@ -1590,17 +1590,6 @@ with st.sidebar:
     st.markdown("Denne bot hjælper dig med at finde den perfekte disc til din spillestil.")
     st.divider()
     
-    # Knowledge base status
-    if kb_enabled:
-        st.success("🧠 Knowledge Base: Aktiv")
-        if kb:
-            stats = kb.get_stats()
-            st.caption(f"📚 {stats['total_documents']} dokumenter fra Reddit")
-    else:
-        st.info("💡 Knowledge Base: Ikke indlæst")
-        st.caption("Kør setup for at aktivere Reddit-baserede anbefalinger")
-    
-    st.divider()
     
     if st.button("🔄 Start forfra"):
         reset_conversation()
