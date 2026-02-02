@@ -41,7 +41,6 @@ with st.sidebar:
     st.title("FindMinDisc 🥏")
     
     st.subheader("Om dig")
-    skill_level = st.selectbox("Niveau", ["Begynder", "Øvet", "Erfaren"])
     max_dist = st.slider("Maks distance (m)", 30, 150, 80)
     
     st.subheader("Hvad leder du efter?")
@@ -95,32 +94,32 @@ if prompt := st.chat_input("Beskriv hvad du leder efter..."):
             # Rule of thumb: you need ~10m per speed point
             recommended_max_speed = max(6, min(14, max_dist // 10))
             
-            # Build warning for beginners choosing wrong discs
+            # Build warning based on distance vs disc choice
             skill_warning = ""
-            if skill_level == "Begynder" and disc_type == "Distance driver":
+            if max_dist < 70 and disc_type == "Distance driver":
                 skill_warning = f"""
-⚠️ VIGTIGT RÅD TIL BEGYNDEREN:
+⚠️ VIGTIGT:
 Med en kastelængde på {max_dist}m anbefales det IKKE at bruge distance drivers (speed 10+).
 Distance drivers kræver typisk 80+ meter armhastighed for at flyve korrekt.
 For {max_dist}m anbefales max speed {recommended_max_speed} disc.
 FORESLÅ i stedet understabile fairway drivers (speed 7-9) eller midranges i LETVÆGT (150-160g).
 Hvis brugeren insisterer på distance drivers, anbefal KUN letvægts understabile modeller (under 160g).
 """
-            elif skill_level == "Begynder" and disc_type == "Fairway driver" and max_dist < 60:
+            elif max_dist < 50 and disc_type == "Fairway driver":
                 skill_warning = f"""
 ⚠️ TIP: Med {max_dist}m kastelængde kan en midrange måske være bedre end en fairway driver.
 Hvis du anbefaler fairway drivers, vælg understabile letvægts-modeller.
 """
             
             # 2. Ask LLM for recommendations
-            ai_prompt = f"""Brugerprofil: {skill_level}, kaster {max_dist}m, ønsker {flight_pref}.
+            ai_prompt = f"""Brugerprofil: kaster {max_dist}m, ønsker {flight_pref}.
 {skill_warning}
 
 Brugeren har valgt: **{disc_type}** ({speed_hint}).
 
 REGLER:
 - Anbefal KUN {disc_type}s
-- For begyndere der kaster under 70m: anbefal ALTID letvægt (150-165g) og understabile discs
+- For kastere under 70m: anbefal ALTID letvægt (150-165g) og understabile discs
 - Nævn specifik vægt i gram når relevant
 - Hvis valget er dårligt for brugeren, SIG DET TYDELIGT i starten
 
