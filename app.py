@@ -29,9 +29,9 @@ def load_discs():
 df = load_discs()
 
 # --- AI SETUP ---
-# We use Gemini 1.5 Flash (Free & Fast)
+# We use Gemini 2.0 Flash (Free & Fast)
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash", 
+    model="gemini-2.0-flash", 
     google_api_key=api_key,
     temperature=0.7
 )
@@ -40,15 +40,15 @@ search = DuckDuckGoSearchRun()
 # --- SIDEBAR ---
 with st.sidebar:
     st.title("FindMinDisc 🥏")
-    skill_level = st.selectbox("Skill Level", ["Beginner", "Intermediate", "Advanced"])
-    max_dist = st.slider("Max Distance (m)", 30, 150, 80)
-    st.info("Powered by Google Gemini (Free Tier)")
+    skill_level = st.selectbox("Niveau", ["Begynder", "Øvet", "Erfaren"])
+    max_dist = st.slider("Maks distance (m)", 30, 150, 80)
+    st.info("Drevet af Google Gemini (Gratis)")
 
 # --- CHAT INTERFACE ---
-st.header("Find Your Perfect Disc")
+st.header("Find Din Perfekte Disc")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hi! What kind of flight are you looking for?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hej! Hvilken type flyvning leder du efter?"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
@@ -58,7 +58,7 @@ if prompt := st.chat_input():
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Searching reviews & checking Danish stock..."):
+        with st.spinner("Søger anmeldelser & tjekker dansk lager..."):
             
             # 1. Search Web
             search_query = f"best disc golf disc for {skill_level} {prompt} site:reddit.com"
@@ -66,16 +66,17 @@ if prompt := st.chat_input():
             
             # 2. Ask Gemini
             ai_prompt = f"""
-            User Profile: {skill_level}, Max Distance: {max_dist}m.
-            User Request: "{prompt}"
+            Brugerprofil: {skill_level}, Maks distance: {max_dist}m.
+            Brugerens ønske: "{prompt}"
             
-            Web Search Results from Reddit:
+            Søgeresultater fra Reddit:
             {search_results}
             
-            Task:
-            1. Suggest ONE specific disc mold based on the search results.
-            2. Explain WHY it fits the user (mention flight numbers).
-            3. Return ONLY the disc name on the very first line.
+            Opgave:
+            1. Foreslå ÉN specifik disc baseret på søgeresultaterne.
+            2. Forklar HVORFOR den passer til brugeren (nævn flyvenumre).
+            3. Returner KUN discens navn på allerførste linje.
+            4. Svar på dansk.
             """
             
             try:
@@ -91,17 +92,17 @@ if prompt := st.chat_input():
                 stock_nd = check_stock_newdisc(suggested_disc)
                 
                 final_reply = f"""
-                ### I recommend the **{suggested_disc}**
+                ### Jeg anbefaler **{suggested_disc}**
                 
                 {explanation}
                 
                 ---
-                **🇩🇰 Danish Availability:**
+                **🇩🇰 Dansk tilgængelighed:**
                 * {stock_dt}
                 * {stock_nd}
                 """
             except Exception as e:
-                final_reply = f"⚠️ Gemini had a hiccup: {e}"
+                final_reply = f"⚠️ Gemini havde et problem: {e}"
             
             st.markdown(final_reply)
             st.session_state.messages.append({"role": "assistant", "content": final_reply})
