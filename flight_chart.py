@@ -7,7 +7,57 @@ Based on analysis of 1471 discs from https://flightcharts.dgputtheads.com/
 
 import math
 
-def generate_flight_path(speed, glide, turn, fade, arm_speed='normal', throw='backhand'):
+
+def calculate_arm_speed_factor(user_distance_m, speed, glide):
+    """
+    Calculate continuous arm speed factor based on user's throwing distance.
+    
+    Args:
+        user_distance_m: How far the user throws in meters
+        speed: Disc speed rating
+        glide: Disc glide rating
+    
+    Returns:
+        dict with distance_mult and turn_mult
+    """
+    # Expected distance for this disc at "normal" arm speed
+    expected_dist_ft = 180 + (speed * 18) + (glide * 8)
+    expected_dist_m = expected_dist_ft * 0.3048
+    
+    # Calculate how much of the disc's potential the user achieves
+    # This is the "arm speed factor" - ranges roughly 0.5 to 1.2
+    arm_factor = user_distance_m / expected_dist_m
+    
+    # Clamp to reasonable range (0.5 = very slow, 1.2 = pro level)
+    arm_factor = max(0.5, min(1.2, arm_factor))
+    
+    # Distance multiplier - linear relationship
+    # arm_factor 0.7 → 0.89x, 1.0 → 1.0x, 1.2 → 1.05x
+    # Based on data: slow=0.894x, fast=1.053x
+    distance_mult = 0.7 + (arm_factor * 0.3)
+    
+    # Turn multiplier - more dramatic relationship!
+    # Based on data: slow=0.62x, normal=1.0x, fast=2.15x
+    # This is non-linear - faster arm speed dramatically increases turn
+    if arm_factor <= 1.0:
+        # Below normal: linear from 0.5 to 1.0
+        # arm_factor 0.5 → 0.4, 0.7 → 0.6, 1.0 → 1.0
+        turn_mult = 0.4 + (arm_factor * 0.6)
+    else:
+        # Above normal: accelerating curve
+        # arm_factor 1.0 → 1.0, 1.2 → 1.8
+        excess = arm_factor - 1.0
+        turn_mult = 1.0 + (excess * 4.0)
+    
+    return {
+        'arm_factor': arm_factor,
+        'distance_mult': distance_mult,
+        'turn_mult': turn_mult,
+        'expected_dist_m': expected_dist_m
+    }
+
+
+def generate_flight_path(speed, glide, turn, fade, arm_speed='normal', throw='backhand', user_distance_m=None):
     """
     Generate flight path coordinates from flight numbers.
     
@@ -16,26 +66,39 @@ def generate_flight_path(speed, glide, turn, fade, arm_speed='normal', throw='ba
         glide: Disc glide rating (1-7)
         turn: Disc turn rating (-5 to +1)
         fade: Disc fade rating (0-5)
-        arm_speed: 'slow', 'normal', or 'fast'
+        arm_speed: 'slow', 'normal', 'fast' OR ignored if user_distance_m is provided
         throw: 'backhand' or 'forehand'
+        user_distance_m: User's throwing distance in meters (enables precise calculation)
     
     Returns:
         List of {x, y} coordinates where:
         - y = distance in feet (0 to max)
         - x = lateral displacement (negative = right for RHBH)
     """
-    # Base distance calculation
-    base_distance = 180 + (speed * 18) + (glide * 8)
-    
-    # Arm speed adjustments
-    arm_mults = {
-        'slow':   {'dist': 0.88, 'turn': 0.75},
-        'normal': {'dist': 1.00, 'turn': 1.00},
-        'fast':   {'dist': 1.06, 'turn': 1.32}
-    }
-    mults = arm_mults.get(arm_speed, arm_mults['normal'])
-    distance = base_distance * mults['dist']
-    turn_mult = mults['turn']
+    # Use continuous calculation if user_distance_m is provided
+    if user_distance_m is not None:
+        factors = calculate_arm_speed_factor(user_distance_m, speed, glide)
+        distance_mult = factors['distance_mult']
+        turn_mult = factors['turn_mult']
+        
+        # Scale distance to match user's actual throwing distance
+        # The path should end at approximately where the user would throw
+        base_distance_ft = 180 + (speed * 18) + (glide * 8)
+        target_distance_ft = user_distance_m / 0.3048
+        distance = target_distance_ft
+    else:
+        # Legacy: use discrete arm speed categories
+        arm_mults = {
+            'slow':   {'dist': 0.88, 'turn': 0.62},
+            'normal': {'dist': 1.00, 'turn': 1.00},
+            'fast':   {'dist': 1.05, 'turn': 1.80}
+        }
+        mults = arm_mults.get(arm_speed, arm_mults['normal'])
+        distance_mult = mults['dist']
+        turn_mult = mults['turn']
+        
+        base_distance_ft = 180 + (speed * 18) + (glide * 8)
+        distance = base_distance_ft * distance_mult
     
     # Forehand adjustment - more fade due to extra torque
     fade_mult = 1.18 if throw == 'forehand' else 1.0
@@ -71,22 +134,31 @@ def generate_flight_path(speed, glide, turn, fade, arm_speed='normal', throw='ba
     return points
 
 
-def get_flight_stats(speed, glide, turn, fade, arm_speed='normal'):
+def get_flight_stats(speed, glide, turn, fade, arm_speed='normal', user_distance_m=None):
     """Get key flight statistics."""
-    path = generate_flight_path(speed, glide, turn, fade, arm_speed)
+    path = generate_flight_path(speed, glide, turn, fade, arm_speed, user_distance_m=user_distance_m)
     
     max_distance = path[-1]['y']
     max_turn = min(p['x'] for p in path)
     final_x = path[-1]['x']
     fade_amount = final_x - max_turn
     
-    return {
+    result = {
         'max_distance_ft': max_distance,
         'max_distance_m': round(max_distance * 0.3048, 1),
         'max_turn': max_turn,
         'final_position': final_x,
         'fade_amount': fade_amount
     }
+    
+    # Add arm speed info if using continuous calculation
+    if user_distance_m is not None:
+        factors = calculate_arm_speed_factor(user_distance_m, speed, glide)
+        result['arm_factor'] = factors['arm_factor']
+        result['turn_mult'] = factors['turn_mult']
+        result['expected_dist_m'] = factors['expected_dist_m']
+    
+    return result
 
 
 def estimate_required_arm_speed(speed):

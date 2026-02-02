@@ -4,19 +4,10 @@ import json
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 from retailers import get_product_links
-from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE
+from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE, calculate_arm_speed_factor
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
-
-def get_arm_speed_from_distance(throwing_distance_m):
-    """Convert throwing distance to arm speed category."""
-    if throwing_distance_m >= 90:
-        return 'fast'
-    elif throwing_distance_m >= 60:
-        return 'normal'
-    else:
-        return 'slow'
 
 # --- LOAD DISC DATABASE ---
 # Flight data from https://flightcharts.dgputtheads.com/
@@ -30,11 +21,19 @@ def load_disc_database():
 
 DISC_DATABASE = load_disc_database()
 
-def render_flight_chart(disc_name, speed, glide, turn, fade, arm_speed='normal'):
+def render_flight_chart(disc_name, speed, glide, turn, fade, arm_speed='normal', user_distance_m=None):
     """Render a flight chart using Streamlit's native chart."""
     import pandas as pd
     
-    path = generate_flight_path(speed, glide, turn, fade, arm_speed)
+    # Use continuous calculation if distance is provided
+    if user_distance_m is not None:
+        path = generate_flight_path(speed, glide, turn, fade, user_distance_m=user_distance_m)
+        stats = get_flight_stats(speed, glide, turn, fade, user_distance_m=user_distance_m)
+        factors = calculate_arm_speed_factor(user_distance_m, speed, glide)
+    else:
+        path = generate_flight_path(speed, glide, turn, fade, arm_speed)
+        stats = get_flight_stats(speed, glide, turn, fade, arm_speed)
+        factors = None
     
     # Convert feet to meters for y-axis
     df = pd.DataFrame([
@@ -58,7 +57,15 @@ def render_flight_chart(disc_name, speed, glide, turn, fade, arm_speed='normal')
         )
     
     with col2:
-        stats = get_flight_stats(speed, glide, turn, fade, arm_speed)
+        if factors:
+            arm_pct = int(factors['arm_factor'] * 100)
+            if arm_pct >= 100:
+                st.metric("Din power", f"🚀 {arm_pct}%")
+            elif arm_pct >= 75:
+                st.metric("Din power", f"✅ {arm_pct}%")
+            else:
+                st.metric("Din power", f"⚠️ {arm_pct}%")
+            st.caption(f"Optimal: {factors['expected_dist_m']:.0f}m")
         st.metric("Max distance", f"{stats['max_distance_m']}m")
         st.metric("Max turn", f"{stats['max_turn']:.2f}")
         st.metric("Fade", f"{stats['fade_amount']:.2f}")
@@ -92,10 +99,7 @@ def render_recommendation_flight_charts(disc_names, throwing_distance, database)
     """Render flight charts for recommended discs based on user's throwing distance."""
     import pandas as pd
     
-    arm_speed = get_arm_speed_from_distance(throwing_distance)
-    arm_speed_text = {'slow': '🐢 Langsom', 'normal': '🏃 Normal', 'fast': '🚀 Hurtig'}[arm_speed]
-    
-    st.markdown(f"### 📈 Flight Charts (din armhastighed: {arm_speed_text})")
+    st.markdown(f"### 📈 Flight Charts (din kastelængde: {throwing_distance}m)")
     
     # Collect disc data
     discs_with_data = []
@@ -121,22 +125,31 @@ def render_recommendation_flight_charts(disc_names, throwing_distance, database)
     if not discs_with_data:
         return
     
-    # Generate paths for all discs
+    # Generate paths for all discs using precise calculation
     all_data = []
     stats_data = []
     
     for disc in discs_with_data:
+        # Use user_distance_m for precise calculation
         path = generate_flight_path(
             disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
-            arm_speed
+            user_distance_m=throwing_distance
         )
-        stats = get_flight_stats(disc['speed'], disc['glide'], disc['turn'], disc['fade'], arm_speed)
+        stats = get_flight_stats(
+            disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
+            user_distance_m=throwing_distance
+        )
+        
+        # Calculate arm speed factor for this specific disc
+        factors = calculate_arm_speed_factor(throwing_distance, disc['speed'], disc['glide'])
         
         stats_data.append({
             'name': disc['name'],
             'distance': stats['max_distance_m'],
             'turn': stats['max_turn'],
-            'fade': stats['fade_amount']
+            'fade': stats['fade_amount'],
+            'arm_factor': factors['arm_factor'],
+            'expected_dist': factors['expected_dist_m']
         })
         
         for p in path:
@@ -160,7 +173,19 @@ def render_recommendation_flight_charts(disc_names, throwing_distance, database)
     for i, stat in enumerate(stats_data):
         with cols[i]:
             st.markdown(f"**{stat['name']}**")
-            st.caption(f"📏 {stat['distance']}m")
+            # Show arm factor as percentage
+            arm_pct = int(stat['arm_factor'] * 100)
+            if arm_pct >= 100:
+                arm_emoji = "🚀"
+                arm_text = f"{arm_pct}% power"
+            elif arm_pct >= 75:
+                arm_emoji = "✅"
+                arm_text = f"{arm_pct}% power"
+            else:
+                arm_emoji = "⚠️"
+                arm_text = f"Kun {arm_pct}%"
+            st.caption(f"{arm_emoji} {arm_text}")
+            st.caption(f"📏 Forventet: {stat['expected_dist']:.0f}m")
             st.caption(f"↪️ Turn: {stat['turn']:.2f}")
             st.caption(f"↩️ Fade: {stat['fade']:.2f}")
 
@@ -841,22 +866,28 @@ with st.sidebar:
             if selected_disc and selected_disc in DISC_DATABASE:
                 disc_data = DISC_DATABASE[selected_disc]
                 
-                # Arm speed selector
-                arm_speed = st.select_slider(
-                    "Armhastighed:",
-                    options=['slow', 'normal', 'fast'],
-                    value='normal',
-                    format_func=lambda x: {'slow': '🐢 Langsom', 'normal': '🏃 Normal', 'fast': '🚀 Hurtig'}[x]
+                # Calculate recommended distance for this disc
+                disc_speed = disc_data.get('speed', 5)
+                recommended_dist = disc_speed * 10
+                
+                # Distance slider for precise calculation
+                user_distance = st.slider(
+                    "Din kastelængde (m):",
+                    min_value=30,
+                    max_value=150,
+                    value=min(recommended_dist, 90),
+                    step=5,
+                    help=f"Denne disc anbefales ved ca. {recommended_dist}m kastelængde"
                 )
                 
-                # Show flight chart
+                # Show flight chart with precise calculation
                 render_flight_chart(
                     selected_disc,
                     disc_data.get('speed', 5),
                     disc_data.get('glide', 4),
                     disc_data.get('turn', 0),
                     disc_data.get('fade', 2),
-                    arm_speed
+                    user_distance_m=user_distance
                 )
                 
                 st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
