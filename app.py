@@ -20,7 +20,7 @@ def load_disc_database():
 
 DISC_DATABASE = load_disc_database()
 
-def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref):
+def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref, brand=None):
     """Get disc recommendations based on throwing distance and preferences."""
     recommendations = []
     
@@ -42,9 +42,14 @@ def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref):
         speed = data.get("speed", 0)
         turn = data.get("turn", 0)
         fade = data.get("fade", 0)
+        manufacturer = data.get("manufacturer", "").lower()
         
         # Check if speed is in range for disc type
         if not (min_speed <= speed <= max_speed):
+            continue
+        
+        # Filter by brand if specified
+        if brand and brand.lower() not in manufacturer:
             continue
         
         # Filter by flight preference
@@ -76,40 +81,37 @@ def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref):
     
     # Sort by priority
     recommendations.sort(key=lambda x: x["priority"], reverse=True)
-    return recommendations[:6]
+    return recommendations[:15]  # Return top 15 matches
 
-def format_disc_database_for_ai():
-    """Format disc database for AI context."""
-    lines = []
+def format_filtered_discs_for_ai(max_dist, disc_type, flight_pref, brand=None):
+    """Format only relevant discs for AI context based on user preferences."""
+    recommendations = get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref, brand)
     
-    # Group by type
-    putters = []
-    midranges = []
-    fairways = []
-    drivers = []
-    
-    for name, data in DISC_DATABASE.items():
-        speed = data.get("speed", 0)
-        line = f"  - {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 0)}/{data.get('turn', 0)}/{data.get('fade', 0)}"
+    if not recommendations:
+        # Fallback: just get any discs of that type
+        speed_ranges = {
+            "Putter": (1, 3),
+            "Midrange": (4, 6),
+            "Fairway driver": (7, 9),
+            "Distance driver": (10, 14)
+        }
+        min_speed, max_speed = speed_ranges.get(disc_type, (1, 14))
         
-        if speed <= 3:
-            putters.append(line)
-        elif speed <= 6:
-            midranges.append(line)
-        elif speed <= 9:
-            fairways.append(line)
-        else:
-            drivers.append(line)
+        for name, data in list(DISC_DATABASE.items())[:50]:
+            speed = data.get("speed", 0)
+            if min_speed <= speed <= max_speed:
+                recommendations.append({"name": name, "data": data})
+            if len(recommendations) >= 15:
+                break
     
-    result = "DISC DATABASE (Speed/Glide/Turn/Fade):\n"
-    result += "Putters:\n" + "\n".join(putters) + "\n"
-    result += "Midranges:\n" + "\n".join(midranges) + "\n"
-    result += "Fairway Drivers:\n" + "\n".join(fairways) + "\n"
-    result += "Distance Drivers:\n" + "\n".join(drivers)
+    lines = [f"ANBEFALEDE DISCS TIL DIG (baseret på {max_dist}m kast, {disc_type}, {flight_pref}):"]
+    for rec in recommendations:
+        name = rec["name"]
+        data = rec["data"]
+        line = f"  • {name} ({data.get('manufacturer', '?')}): Speed {data.get('speed')}, Glide {data.get('glide')}, Turn {data.get('turn')}, Fade {data.get('fade')}"
+        lines.append(line)
     
-    return result
-
-DISC_DATABASE_TEXT = format_disc_database_for_ai()
+    return "\n".join(lines)
 
 # --- PLASTIC KNOWLEDGE BASE ---
 # Source: https://flightcharts.dgputtheads.com/discgolfplastics.html
@@ -341,19 +343,35 @@ Forklar at de bør overveje midranges eller fairway drivers i stedet."""
                 
                 # Handle brand preferences
                 brand_instruction = ""
+                brand_filter = None
                 extra_lower = extra_info.lower() if extra_info else ""
-                if "mvp" in extra_lower or "axiom" in extra_lower or "streamline" in extra_lower:
-                    brand_instruction = f"VIGTIGT: Brugeren ønsker specifikt discs fra MVP/Axiom/Streamline. Anbefal KUN discs fra disse mærker!"
+                if "mvp" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt MVP discs. Anbefal KUN MVP discs!"
+                    brand_filter = "MVP"
+                elif "axiom" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Axiom discs. Anbefal KUN Axiom discs!"
+                    brand_filter = "Axiom"
+                elif "streamline" in extra_lower:
+                    brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Streamline discs. Anbefal KUN Streamline discs!"
+                    brand_filter = "Streamline"
                 elif "innova" in extra_lower:
                     brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Innova discs. Anbefal KUN Innova discs!"
+                    brand_filter = "Innova"
                 elif "discraft" in extra_lower:
                     brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Discraft discs. Anbefal KUN Discraft discs!"
+                    brand_filter = "Discraft"
                 elif "latitude" in extra_lower or "lat64" in extra_lower:
                     brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Latitude 64 discs. Anbefal KUN Latitude 64 discs!"
+                    brand_filter = "Latitude 64"
                 elif "discmania" in extra_lower:
                     brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Discmania discs. Anbefal KUN Discmania discs!"
+                    brand_filter = "Discmania"
                 elif "kastaplast" in extra_lower:
                     brand_instruction = "VIGTIGT: Brugeren ønsker specifikt Kastaplast discs. Anbefal KUN Kastaplast discs!"
+                    brand_filter = "Kastaplast"
+                
+                # Get filtered disc recommendations from database
+                filtered_discs = format_filtered_discs_for_ai(max_dist, disc_type, flight, brand_filter)
                 
                 ai_prompt = f"""Brugerprofil: kaster {max_dist}m, ønsker {flight} flyvning.
 {ai_warning}
@@ -362,7 +380,7 @@ Forklar at de bør overveje midranges eller fairway drivers i stedet."""
 Disc-type: **{disc_type}** ({speed_hint})
 Ekstra ønsker: {extra_info if extra_info else "Ingen"}
 
-{DISC_DATABASE_TEXT}
+{filtered_discs}
 
 HASTIGHEDS-GUIDE (vigtig!):
 - Speed 10+ kræver 80+ meter kastelængde
@@ -529,6 +547,9 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                     elif max_dist < 50 and disc_type == "Fairway driver":
                         warning = f"⚠️ Med {max_dist}m kan en midrange være bedre."
                     
+                    # Get filtered discs for follow-up
+                    filtered_discs = format_filtered_discs_for_ai(max_dist, disc_type, flight, None)
+                    
                     follow_up_prompt = f"""Tidligere samtale:
 {conversation_context}
 
@@ -537,7 +558,7 @@ Brugerens nuværende profil: kaster {max_dist}m, søger {disc_type}, ønsker {fl
 
 Brugerens nye besked: "{prompt}"
 
-{DISC_DATABASE_TEXT}
+{filtered_discs}
 
 HASTIGHEDS-GUIDE:
 - Speed 10+ kræver 80+ meter kastelængde
