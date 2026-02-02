@@ -4,6 +4,7 @@ import json
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 from retailers import get_product_links
+from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -19,6 +20,64 @@ def load_disc_database():
         return {}
 
 DISC_DATABASE = load_disc_database()
+
+def render_flight_chart(disc_name, speed, glide, turn, fade, arm_speed='normal'):
+    """Render a flight chart using Streamlit's native chart."""
+    import pandas as pd
+    
+    path = generate_flight_path(speed, glide, turn, fade, arm_speed)
+    
+    # Convert feet to meters for y-axis
+    df = pd.DataFrame([
+        {'Fade/Turn': p['x'], 'Distance (m)': round(p['y'] * 0.3048, 1)} 
+        for p in path
+    ])
+    
+    # Create the chart
+    st.markdown(f"**{disc_name}** ({speed}/{glide}/{turn}/{fade})")
+    
+    # Use columns for layout
+    col1, col2 = st.columns([2, 1])
+    
+    with col1:
+        # Plot using st.line_chart with x and y swapped for vertical flight path
+        st.line_chart(
+            df,
+            x='Fade/Turn',
+            y='Distance (m)',
+            height=300
+        )
+    
+    with col2:
+        stats = get_flight_stats(speed, glide, turn, fade, arm_speed)
+        st.metric("Max distance", f"{stats['max_distance_m']}m")
+        st.metric("Max turn", f"{stats['max_turn']:.2f}")
+        st.metric("Fade", f"{stats['fade_amount']:.2f}")
+
+def render_comparison_chart(discs_data, arm_speed='normal'):
+    """Render comparison chart for multiple discs."""
+    import pandas as pd
+    
+    all_data = []
+    for disc in discs_data:
+        name = disc['name']
+        path = generate_flight_path(
+            disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
+            arm_speed
+        )
+        for p in path:
+            all_data.append({
+                'Disc': name,
+                'Fade/Turn': p['x'],
+                'Distance (m)': round(p['y'] * 0.3048, 1)
+            })
+    
+    df = pd.DataFrame(all_data)
+    
+    # Pivot for multi-line chart
+    pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Fade/Turn')
+    
+    st.line_chart(pivot_df, height=400)
 
 def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref, brand=None):
     """Get disc recommendations based on throwing distance and preferences."""
@@ -651,5 +710,54 @@ with st.sidebar:
     if st.button("🔄 Start forfra"):
         reset_conversation()
         st.rerun()
+    
+    st.divider()
+    
+    # --- FLIGHT CHART VIEWER ---
+    st.markdown("### 📈 Flight Chart")
+    
+    # Disc search
+    disc_search = st.text_input("Søg disc:", placeholder="f.eks. Destroyer")
+    
+    if disc_search:
+        # Find matching discs
+        matches = [name for name in DISC_DATABASE.keys() 
+                   if disc_search.lower() in name.lower()][:5]
+        
+        if matches:
+            selected_disc = st.selectbox("Vælg disc:", matches)
+            
+            if selected_disc and selected_disc in DISC_DATABASE:
+                disc_data = DISC_DATABASE[selected_disc]
+                
+                # Arm speed selector
+                arm_speed = st.select_slider(
+                    "Armhastighed:",
+                    options=['slow', 'normal', 'fast'],
+                    value='normal',
+                    format_func=lambda x: {'slow': '🐢 Langsom', 'normal': '🏃 Normal', 'fast': '🚀 Hurtig'}[x]
+                )
+                
+                # Show flight chart
+                render_flight_chart(
+                    selected_disc,
+                    disc_data.get('speed', 5),
+                    disc_data.get('glide', 4),
+                    disc_data.get('turn', 0),
+                    disc_data.get('fade', 2),
+                    arm_speed
+                )
+                
+                st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
+        else:
+            st.info("Ingen discs fundet")
+    
+    st.divider()
+    
+    # Flight number guide expander
+    with st.expander("📖 Hvad betyder flight numbers?"):
+        st.markdown(FLIGHT_NUMBER_GUIDE)
+    
     st.divider()
     st.caption("Drevet af den bedste AI Mikkel har råd til")
+    st.caption(f"Database: {len(DISC_DATABASE)} discs")
