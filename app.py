@@ -9,6 +9,15 @@ from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_G
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
+def get_arm_speed_from_distance(throwing_distance_m):
+    """Convert throwing distance to arm speed category."""
+    if throwing_distance_m >= 90:
+        return 'fast'
+    elif throwing_distance_m >= 60:
+        return 'normal'
+    else:
+        return 'slow'
+
 # --- LOAD DISC DATABASE ---
 # Flight data from https://flightcharts.dgputtheads.com/
 @st.cache_data
@@ -78,6 +87,82 @@ def render_comparison_chart(discs_data, arm_speed='normal'):
     pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Fade/Turn')
     
     st.line_chart(pivot_df, height=400)
+
+def render_recommendation_flight_charts(disc_names, throwing_distance, database):
+    """Render flight charts for recommended discs based on user's throwing distance."""
+    import pandas as pd
+    
+    arm_speed = get_arm_speed_from_distance(throwing_distance)
+    arm_speed_text = {'slow': '🐢 Langsom', 'normal': '🏃 Normal', 'fast': '🚀 Hurtig'}[arm_speed]
+    
+    st.markdown(f"### 📈 Flight Charts (din armhastighed: {arm_speed_text})")
+    
+    # Collect disc data
+    discs_with_data = []
+    for disc_name in disc_names:
+        # Try to find the disc in database (case-insensitive)
+        disc_data = None
+        for db_name, db_data in database.items():
+            if db_name.lower() == disc_name.lower():
+                disc_data = db_data
+                disc_name = db_name  # Use correct casing
+                break
+        
+        if disc_data and disc_data.get('speed'):
+            discs_with_data.append({
+                'name': disc_name,
+                'speed': disc_data.get('speed', 5),
+                'glide': disc_data.get('glide', 4),
+                'turn': disc_data.get('turn', 0),
+                'fade': disc_data.get('fade', 2),
+                'manufacturer': disc_data.get('manufacturer', 'Ukendt')
+            })
+    
+    if not discs_with_data:
+        return
+    
+    # Generate paths for all discs
+    all_data = []
+    stats_data = []
+    
+    for disc in discs_with_data:
+        path = generate_flight_path(
+            disc['speed'], disc['glide'], disc['turn'], disc['fade'], 
+            arm_speed
+        )
+        stats = get_flight_stats(disc['speed'], disc['glide'], disc['turn'], disc['fade'], arm_speed)
+        
+        stats_data.append({
+            'name': disc['name'],
+            'distance': stats['max_distance_m'],
+            'turn': stats['max_turn'],
+            'fade': stats['fade_amount']
+        })
+        
+        for p in path:
+            all_data.append({
+                'Disc': f"{disc['name']} ({disc['speed']}/{disc['glide']}/{disc['turn']}/{disc['fade']})",
+                'Turn/Fade': p['x'],
+                'Distance (m)': round(p['y'] * 0.3048, 1)
+            })
+    
+    df = pd.DataFrame(all_data)
+    
+    # Create pivot table for comparison chart
+    pivot_df = df.pivot(index='Distance (m)', columns='Disc', values='Turn/Fade')
+    
+    # Show the chart
+    st.line_chart(pivot_df, height=350)
+    
+    # Show stats table
+    st.markdown("**Sammenligning:**")
+    cols = st.columns(len(stats_data))
+    for i, stat in enumerate(stats_data):
+        with cols[i]:
+            st.markdown(f"**{stat['name']}**")
+            st.caption(f"📏 {stat['distance']}m")
+            st.caption(f"↪️ Turn: {stat['turn']:.2f}")
+            st.caption(f"↩️ Fade: {stat['fade']:.2f}")
 
 def get_disc_recommendations_by_distance(max_dist, disc_type, flight_pref, brand=None):
     """Get disc recommendations based on throwing distance and preferences."""
@@ -533,6 +618,9 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
 
 ---
 *Spørg mig om mere, eller skriv 'forfra' for at starte helt forfra.*"""
+                    
+                    # Store disc names for flight chart
+                    st.session_state['recommended_discs'] = disc_names
 
                 except Exception as e:
                     error_str = str(e).lower()
@@ -547,6 +635,15 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 
                 st.markdown(final_reply)
                 add_bot_message(final_reply)
+                
+                # Show flight charts for recommended discs
+                if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
+                    render_recommendation_flight_charts(
+                        st.session_state['recommended_discs'],
+                        max_dist,
+                        DISC_DATABASE
+                    )
+                
                 st.session_state.step = "done"
         
         # --- STEP: DONE - CONTINUE CONVERSATION ---
@@ -695,11 +792,25 @@ Hvis du giver nye anbefalinger, brug dette format:
                                         )
                         
                         reply = modified_reply
+                        
+                        # Store disc names for flight chart
+                        if disc_names:
+                            st.session_state['recommended_discs'] = disc_names
+                            
                     except Exception as e:
                         reply = f"Beklager, noget gik galt: {e}"
                     
                     st.markdown(reply)
                     add_bot_message(reply)
+                    
+                    # Show flight charts for follow-up recommendations
+                    if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
+                        render_recommendation_flight_charts(
+                            st.session_state['recommended_discs'],
+                            max_dist,
+                            DISC_DATABASE
+                        )
+                    
                     st.session_state.user_prefs = prefs  # Save updated prefs
 
 # --- SIDEBAR INFO ---
