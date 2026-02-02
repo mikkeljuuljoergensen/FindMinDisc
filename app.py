@@ -1133,41 +1133,80 @@ with st.sidebar:
     disc_search = st.text_input("Søg disc:", placeholder="f.eks. Destroyer")
     
     if disc_search:
-        # Find matching discs
-        matches = [name for name in DISC_DATABASE.keys() 
+        # Find matching discs from FULL database (with flight paths)
+        matches = [name for name in DISC_DATABASE_FULL.keys() 
                    if disc_search.lower() in name.lower()][:5]
         
         if matches:
             selected_disc = st.selectbox("Vælg disc:", matches)
             
-            if selected_disc and selected_disc in DISC_DATABASE:
-                disc_data = DISC_DATABASE[selected_disc]
+            if selected_disc and selected_disc in DISC_DATABASE_FULL:
+                disc_data = DISC_DATABASE_FULL[selected_disc]
                 
-                # Calculate recommended distance for this disc
-                disc_speed = disc_data.get('speed', 5)
-                recommended_dist = disc_speed * 10
-                
-                # Distance slider for precise calculation
-                user_distance = st.slider(
-                    "Din kastelængde (m):",
-                    min_value=30,
-                    max_value=150,
-                    value=min(recommended_dist, 90),
-                    step=5,
-                    help=f"Denne disc anbefales ved ca. {recommended_dist}m kastelængde"
+                # Niveau selector (same as chatbot)
+                niveau_option = st.radio(
+                    "Niveau:",
+                    ["Begynder", "Øvet", "Pro"],
+                    index=1,  # Default: Øvet
+                    horizontal=True
                 )
+                niveau_map = {"Begynder": "slow", "Øvet": "normal", "Pro": "fast"}
+                arm_speed = niveau_map[niveau_option]
+                path_key = f"flight_path_bh_{arm_speed}"
                 
-                # Show flight chart with precise calculation
-                render_flight_chart(
-                    selected_disc,
-                    disc_data.get('speed', 5),
-                    disc_data.get('glide', 4),
-                    disc_data.get('turn', 0),
-                    disc_data.get('fade', 2),
-                    user_distance_m=user_distance
-                )
+                # Get flight path from database
+                path = disc_data.get(path_key, [])
                 
-                st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
+                if path:
+                    import pandas as pd
+                    import altair as alt
+                    
+                    # Build chart data - same approach as render_flight_chart_comparison
+                    speed = disc_data.get('speed', 5)
+                    glide = disc_data.get('glide', 4)
+                    turn = disc_data.get('turn', 0)
+                    fade = disc_data.get('fade', 2)
+                    disc_label = f"{selected_disc} ({speed}/{glide}/{turn}/{fade})"
+                    
+                    chart_data = []
+                    for i, p in enumerate(path):
+                        chart_data.append({
+                            'Disc': disc_label,
+                            'Turn/Fade': -p['x'],  # Flip for RHBH view
+                            'Distance': round(p['y'] * 0.3048, 1),  # feet to meters
+                            'point_order': i
+                        })
+                    
+                    df = pd.DataFrame(chart_data)
+                    
+                    # Calculate axis ranges
+                    max_dist = df['Distance'].max()
+                    max_turn_fade = max(abs(df['Turn/Fade'].min()), abs(df['Turn/Fade'].max()), 2)
+                    
+                    chart = alt.Chart(df).mark_line(strokeWidth=3).encode(
+                        x=alt.X('Turn/Fade:Q', 
+                                title='← Turn  |  Fade →',
+                                axis=alt.Axis(labels=False, ticks=False),
+                                scale=alt.Scale(domain=[-max_turn_fade - 0.5, max_turn_fade + 0.5])),
+                        y=alt.Y('Distance:Q', 
+                                title=None,
+                                scale=alt.Scale(domain=[0, max_dist + 5])),
+                        order='point_order:Q',
+                        tooltip=['Disc']
+                    ).properties(
+                        width=250,
+                        height=350
+                    ).configure_axis(
+                        grid=True
+                    )
+                    
+                    st.altair_chart(chart, use_container_width=True)
+                    
+                    # Show disc info
+                    st.caption(f"**{selected_disc}** ({speed}/{glide}/{turn}/{fade})")
+                    st.caption(f"Producent: {disc_data.get('manufacturer', 'Ukendt')}")
+                else:
+                    st.warning("Ingen flight data for denne disc")
         else:
             st.info("Ingen discs fundet")
     
