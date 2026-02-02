@@ -7,3 +7,6 @@ ddgs
 beautifulsoup4
 requests
 altair
+praw
+faiss-cpu
+tiktoken

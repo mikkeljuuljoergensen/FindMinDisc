@@ -1,10 +1,12 @@
 import streamlit as st
 import re
 import json
+import os
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 from retailers import get_product_links, check_disc_tree_stock
 from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE, calculate_arm_speed_factor
+from knowledge_base import DiscGolfKnowledgeBase
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -161,6 +163,17 @@ def handle_free_form_question(prompt, user_prefs=None):
     else:
         search_query = f"disc golf recommendation {search_terms}"
     
+    # ==== KNOWLEDGE BASE CONTEXT ====
+    kb_context = ""
+    if kb_enabled and kb:
+        try:
+            kb_results = kb.get_context_for_query(prompt, max_results=3)
+            if kb_results and kb_results != "No relevant information found in knowledge base.":
+                kb_context = f"\n\nRELEVANTE REDDIT DISKUSSIONER:\n{kb_results}"
+        except Exception as e:
+            print(f"Error accessing knowledge base: {e}")
+            kb_context = ""
+    
     # Web search
     try:
         search_results = search.run(search_query)[:4000]
@@ -195,6 +208,7 @@ Estimeret kastelængde: ca. {max_dist}m
 
 Søgeresultater fra nettet:
 {search_results}
+{kb_context}
 
 Discs fra vores database:
 {disc_context}
@@ -205,7 +219,8 @@ REGLER:
 3. Brug flight numbers format: Speed/Glide/Turn/Fade
 4. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
 5. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
-6. Vær ærlig om hvad der passer til brugerens niveau
+6. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
+7. Vær ærlig om hvad der passer til brugerens niveau
 
 Hvis du anbefaler discs, brug dette format:
 
@@ -769,6 +784,18 @@ llm = ChatOpenAI(
     temperature=0.7
 )
 search = DuckDuckGoSearchRun()
+
+# --- KNOWLEDGE BASE SETUP ---
+kb = None
+try:
+    if os.path.exists('./faiss_db/index.faiss'):
+        kb = DiscGolfKnowledgeBase(openai_api_key=api_key)
+        kb_enabled = True
+    else:
+        kb_enabled = False
+except Exception as e:
+    kb_enabled = False
+    print(f"Knowledge base not available: {e}")
 
 # --- INITIALIZE SESSION STATE ---
 if "messages" not in st.session_state:
@@ -1562,6 +1589,19 @@ with st.sidebar:
     st.markdown("### Om FindMinDisc")
     st.markdown("Denne bot hjælper dig med at finde den perfekte disc til din spillestil.")
     st.divider()
+    
+    # Knowledge base status
+    if kb_enabled:
+        st.success("🧠 Knowledge Base: Aktiv")
+        if kb:
+            stats = kb.get_stats()
+            st.caption(f"📚 {stats['total_documents']} dokumenter fra Reddit")
+    else:
+        st.info("💡 Knowledge Base: Ikke indlæst")
+        st.caption("Kør setup for at aktivere Reddit-baserede anbefalinger")
+    
+    st.divider()
+    
     if st.button("🔄 Start forfra"):
         reset_conversation()
         st.rerun()
