@@ -6,3 +6,4 @@ langchain-community
 ddgs
 beautifulsoup4
 requests
+altair
