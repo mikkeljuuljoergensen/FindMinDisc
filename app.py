@@ -181,8 +181,28 @@ def handle_free_form_question(prompt, user_prefs=None):
         search_results = ""
     
     # Get sample discs from database for context
+    # First, prioritize discs that are currently shown (from chart comparison)
     sample_discs = []
+    shown_disc_names = user_prefs.get('shown_discs', [])
+    
+    # Add shown discs first with EXACT flight numbers
+    if shown_disc_names:
+        sample_discs.append("DISCS BRUGEREN LIGE HAR SET (brug PRÆCIS disse flight numbers):")
+        for disc_name in shown_disc_names:
+            if disc_name in DISC_DATABASE:
+                data = DISC_DATABASE[disc_name]
+                speed = data.get('speed', 0)
+                glide = data.get('glide', 4)
+                turn = data.get('turn', 0)
+                fade = data.get('fade', 2)
+                sample_discs.append(f"  • {disc_name} ({data.get('manufacturer', '?')}): {speed}/{glide}/{turn}/{fade}")
+        sample_discs.append("")  # Empty line separator
+    
+    # Then add other relevant discs
+    sample_discs.append("ANDRE RELEVANTE DISCS:")
     for name, data in list(DISC_DATABASE.items())[:100]:
+        if name in shown_disc_names:
+            continue  # Skip discs already added above
         speed = data.get('speed', 0)
         # Filter by skill level
         if skill_level == "beginner" and speed > 9:
@@ -192,8 +212,8 @@ def handle_free_form_question(prompt, user_prefs=None):
             min_s, max_s = speed_ranges.get(disc_type, (1, 14))
             if not (min_s <= speed <= max_s):
                 continue
-        sample_discs.append(f"{name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
-        if len(sample_discs) >= 30:
+        sample_discs.append(f"  • {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
+        if len(sample_discs) >= 35:
             break
     
     disc_context = "\n".join(sample_discs) if sample_discs else "Ingen relevante discs fundet"
@@ -210,22 +230,24 @@ Søgeresultater fra nettet:
 {search_results}
 {kb_context}
 
-Discs fra vores database:
+Discs fra vores database (med PRÆCISE flight numbers):
 {disc_context}
 
 REGLER:
 1. Svar på dansk, venligt og hjælpsomt
 2. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag
-3. Brug flight numbers format: Speed/Glide/Turn/Fade
-4. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
-5. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
-6. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
-7. Vær ærlig om hvad der passer til brugerens niveau
+3. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
+4. Brug flight numbers format: Speed/Glide/Turn/Fade
+5. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
+6. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
+7. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
+8. Vær ærlig om hvad der passer til brugerens niveau
+9. Hvis du beskriver discs som brugeren allerede har nævnt, brug PRÆCIS de flight numbers fra databasen
 
 Hvis du anbefaler discs, brug dette format:
 
 ### **[DiscNavn]** af [Mærke]
-- Flight: X/X/X/X
+- Flight: X/X/X/X (brug kun tal fra databasen ovenfor!)
 - ✅ Hvorfor: ...
 
 Afslut med at spørge om brugeren vil vide mere, sammenligne discs, eller se hvordan de flyver (flight chart)."""
@@ -1001,7 +1023,12 @@ if prompt := st.chat_input("Skriv dit svar..."):
             else:
                 # Free-form question - use AI to answer
                 with st.spinner("Søger efter svar..."):
-                    result = handle_free_form_question(prompt, st.session_state.user_prefs)
+                    # Pass shown_discs in user_prefs
+                    prefs_with_shown = st.session_state.user_prefs.copy()
+                    if st.session_state.get('shown_discs'):
+                        prefs_with_shown['shown_discs'] = st.session_state.shown_discs
+                    
+                    result = handle_free_form_question(prompt, prefs_with_shown)
                     
                     response = result['response']
                     disc_names = result.get('disc_names', [])
