@@ -197,7 +197,7 @@ Hvis du anbefaler discs, brug dette format:
 - Flight: X/X/X/X
 - ✅ Hvorfor: ...
 
-Afslut med at spørge om brugeren vil vide mere eller sammenligne discs."""
+Afslut med at spørge om brugeren vil vide mere, sammenligne discs, eller se hvordan de flyver (flight chart)."""
 
     try:
         response = llm.invoke(ai_prompt).content
@@ -982,20 +982,19 @@ if prompt := st.chat_input("Skriv dit svar..."):
                     st.markdown(response)
                     add_bot_message(response)
                     
-                    # Store recommendations for persistent flight chart display
+                    # Store recommendations for later flight chart (only shown when user asks)
                     if disc_names:
                         st.session_state['recommended_discs'] = disc_names
                         st.session_state.user_prefs['max_dist'] = result.get('max_dist', 80)
                         st.session_state.user_prefs['skill_level'] = result.get('skill_level', 'intermediate')
                         
-                        # Use persistent flight chart system
+                        # Prepare chart settings but don't show yet
                         skill = result.get('skill_level', 'intermediate')
                         st.session_state.arm_speed = 'slow' if skill == 'beginner' else 'normal'
                         st.session_state.shown_discs = disc_names
-                        st.session_state.show_chart = True
+                        # Don't show chart automatically - wait for user to ask
                     
                     st.session_state.step = "done"
-                    st.rerun()  # Rerun to show persistent chart
         
         # --- STEP: ASK DISTANCE ---
         elif st.session_state.step == "ask_distance":
@@ -1250,15 +1249,14 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 st.markdown(final_reply)
                 add_bot_message(final_reply)
                 
-                # Use persistent flight chart system
+                # Store chart settings but don't show automatically - wait for user to ask
                 if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
                     arm_speed = 'slow' if max_dist < 70 else 'normal'
                     st.session_state.arm_speed = arm_speed
                     st.session_state.shown_discs = st.session_state['recommended_discs']
-                    st.session_state.show_chart = True
+                    # Don't show chart automatically
                 
                 st.session_state.step = "done"
-                st.rerun()  # Rerun to show persistent chart
         
         # --- STEP: DONE - CONTINUE CONVERSATION ---
         elif st.session_state.step == "done":
@@ -1267,6 +1265,19 @@ Afslut med en kort sammenligning og tilbyd hjælp til valg af plastik."""
                 st.rerun()
             else:
                 prompt_lower = prompt.lower()
+                
+                # Check if user wants to see flight chart
+                wants_flight_chart = any(kw in prompt_lower for kw in [
+                    'flight', 'flyver', 'flyvning', 'chart', 'graf', 'kurve', 'bane', 'vis'
+                ]) and st.session_state.get('shown_discs')
+                
+                if wants_flight_chart:
+                    # Show the flight chart
+                    reply = "Her er flight charts for de anbefalede discs:"
+                    st.markdown(reply)
+                    add_bot_message(reply)
+                    st.session_state.show_chart = True
+                    st.rerun()
                 
                 # Check if this is a plastic question (don't need new recommendations)
                 is_plastic_question = 'plastik' in prompt_lower or 'plastic' in prompt_lower
@@ -1456,15 +1467,14 @@ Hvis du giver nye anbefalinger, brug dette format:
                         st.markdown(reply)
                         add_bot_message(reply)
                         
-                        # Use persistent flight chart system
+                        # Store chart settings but don't show automatically
                         if 'recommended_discs' in st.session_state and st.session_state['recommended_discs']:
                             arm_speed = 'slow' if max_dist < 70 else 'normal'
                             st.session_state.arm_speed = arm_speed
                             st.session_state.shown_discs = st.session_state['recommended_discs']
-                            st.session_state.show_chart = True
+                            # Don't show chart automatically
                         
                         st.session_state.user_prefs = prefs  # Save updated prefs
-                        st.rerun()  # Rerun to show persistent chart
 
 # --- SIDEBAR INFO ---
 with st.sidebar:
