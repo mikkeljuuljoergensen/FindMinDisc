@@ -2,6 +2,7 @@ import streamlit as st
 import re
 import json
 import os
+from itertools import islice
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 from retailers import get_product_links, check_disc_tree_stock
@@ -10,6 +11,24 @@ from knowledge_base import DiscGolfKnowledgeBase
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
+
+# --- CONSTANTS ---
+# Pattern keywords for detecting "tell me more" requests
+TELL_MORE_PATTERNS = ['fortæl', 'mere om', 'beskriv', 'info om', 'information om']
+
+# Popular discs prioritized in recommendations (based on Reddit discussions and community feedback)
+POPULAR_DISCS = [
+    # Distance drivers
+    'Destroyer', 'Wraith', 'Thunderbird', 'Firebird', 'Shryke', 'Tern',
+    # Fairway drivers
+    'Escape', 'Leopard', 'Leopard3', 'Roadrunner', 'Valkyrie', 'Volt', 'Tesla', 'Teebird', 'Teebird3',
+    # Midrange
+    'Buzzz', 'Roc3', 'Roc', 'Mako3', 'Hex', 'Compass', 'Emac Truth', 'Origin',
+    # Putters
+    'Aviar', 'Luna', 'Judge', 'P2', 'Envy', 'Berg', 'Maiden',
+    # MVP/Axiom popular
+    'Photon', 'Wave', 'Insanity', 'Relay', 'Crave',
+]
 
 
 def parse_flight_chart_request(prompt):
@@ -29,8 +48,7 @@ def parse_flight_chart_request(prompt):
     prompt_lower = prompt.lower()
     
     # Check if this is a "tell me more" request first (takes priority over flight charts)
-    tell_more_patterns = ['fortæl', 'mere om', 'beskriv', 'info om', 'information om']
-    is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
+    is_tell_more = any(p in prompt_lower for p in TELL_MORE_PATTERNS)
     
     # If it's a "tell me more" request, don't treat it as a chart request
     if is_tell_more:
@@ -258,8 +276,7 @@ def handle_free_form_question(prompt, user_prefs=None):
     
     # ==== HANDLE "TELL ME MORE" QUESTIONS ====
     # Detect questions like "fortæl mig mere om dem", "mere om Volt"
-    tell_more_patterns = ['fortæl', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
-    is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
+    is_tell_more = any(p in prompt_lower for p in TELL_MORE_PATTERNS)
     
     # Find which discs the user is asking about
     discs_in_prompt = []
@@ -438,19 +455,10 @@ def handle_free_form_question(prompt, user_prefs=None):
     # Then add other relevant discs, prioritizing popular/Reddit-recommended ones
     sample_discs.append("ANDRE RELEVANTE DISCS:")
     
-    # Popular discs that should be prioritized (based on Reddit discussions and common recommendations)
-    popular_discs = [
-        'Destroyer', 'Wraith', 'Thunderbird', 'Firebird', 'Shryke', 'Tern',  # Distance drivers
-        'Escape', 'Leopard', 'Leopard3', 'Roadrunner', 'Valkyrie', 'Volt', 'Tesla', 'Teebird', 'Teebird3',  # Fairway drivers
-        'Buzzz', 'Roc3', 'Roc', 'Mako3', 'Hex', 'Compass', 'Emac Truth', 'Origin',  # Midrange
-        'Aviar', 'Luna', 'Judge', 'P2', 'Envy', 'Berg', 'Maiden',  # Putters
-        'Photon', 'Wave', 'Insanity', 'Relay', 'Crave',  # MVP/Axiom popular
-    ]
-    
     added_discs = set(shown_disc_names)  # Track what we've already added
     
     # First, add popular discs that match the criteria
-    for disc_name in popular_discs:
+    for disc_name in POPULAR_DISCS:
         if disc_name in added_discs:
             continue
         if disc_name not in DISC_DATABASE:
@@ -482,7 +490,7 @@ def handle_free_form_question(prompt, user_prefs=None):
     
     # Then add other discs from database to fill up to 35 total
     if len(sample_discs) < 35:
-        for name, data in list(DISC_DATABASE.items())[:200]:
+        for name, data in islice(DISC_DATABASE.items(), 200):
             if name in added_discs:
                 continue  # Skip discs already added
             speed = data.get('speed', 0)
@@ -1046,7 +1054,7 @@ def format_filtered_discs_for_ai(max_dist, disc_type, flight_pref, brand=None):
         }
         min_speed, max_speed = speed_ranges.get(disc_type, (1, 14))
         
-        for name, data in list(DISC_DATABASE.items())[:50]:
+        for name, data in islice(DISC_DATABASE.items(), 50):
             speed = data.get("speed", 0)
             if min_speed <= speed <= max_speed:
                 recommendations.append({"name": name, "data": data})
