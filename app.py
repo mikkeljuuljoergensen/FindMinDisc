@@ -28,6 +28,14 @@ def parse_flight_chart_request(prompt):
     """
     prompt_lower = prompt.lower()
     
+    # Check if this is a "tell me more" request first (takes priority over flight charts)
+    tell_more_patterns = ['fortæl', 'mere om', 'beskriv', 'info om', 'information om']
+    is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
+    
+    # If it's a "tell me more" request, don't treat it as a chart request
+    if is_tell_more:
+        return {'is_chart_request': False}
+    
     # Check if this is a flight chart request
     flight_keywords = ['flight chart', 'flightchart', 'sammenlign', 'compare', 'vis mig', 'show me', 'chart for', ' vs ', ' mod ']
     is_chart_request = any(kw in prompt_lower for kw in flight_keywords)
@@ -427,11 +435,28 @@ def handle_free_form_question(prompt, user_prefs=None):
                 sample_discs.append(f"  • {disc_name} ({data.get('manufacturer', '?')}): {speed}/{glide}/{turn}/{fade}")
         sample_discs.append("")  # Empty line separator
     
-    # Then add other relevant discs
+    # Then add other relevant discs, prioritizing popular/Reddit-recommended ones
     sample_discs.append("ANDRE RELEVANTE DISCS:")
-    for name, data in list(DISC_DATABASE.items())[:100]:
-        if name in shown_disc_names:
-            continue  # Skip discs already added above
+    
+    # Popular discs that should be prioritized (based on Reddit discussions and common recommendations)
+    popular_discs = [
+        'Destroyer', 'Wraith', 'Thunderbird', 'Firebird', 'Shryke', 'Tern',  # Distance drivers
+        'Escape', 'Leopard', 'Leopard3', 'Roadrunner', 'Valkyrie', 'Volt', 'Tesla', 'Teebird', 'Teebird3',  # Fairway drivers
+        'Buzzz', 'Roc3', 'Roc', 'Mako3', 'Hex', 'Compass', 'Emac Truth', 'Origin',  # Midrange
+        'Aviar', 'Luna', 'Judge', 'P2', 'Envy', 'Berg', 'Maiden',  # Putters
+        'Photon', 'Wave', 'Insanity', 'Relay', 'Crave',  # MVP/Axiom popular
+    ]
+    
+    added_discs = set(shown_disc_names)  # Track what we've already added
+    
+    # First, add popular discs that match the criteria
+    for disc_name in popular_discs:
+        if disc_name in added_discs:
+            continue
+        if disc_name not in DISC_DATABASE:
+            continue
+            
+        data = DISC_DATABASE[disc_name]
         speed = data.get('speed', 0)
         
         # Filter by skill level
@@ -450,9 +475,38 @@ def handle_free_form_question(prompt, user_prefs=None):
             if not (min_s <= speed <= max_s):
                 continue
         
-        sample_discs.append(f"  • {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
+        sample_discs.append(f"  • {disc_name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
+        added_discs.add(disc_name)
         if len(sample_discs) >= 35:
             break
+    
+    # Then add other discs from database to fill up to 35 total
+    if len(sample_discs) < 35:
+        for name, data in list(DISC_DATABASE.items())[:200]:
+            if name in added_discs:
+                continue  # Skip discs already added
+            speed = data.get('speed', 0)
+            
+            # Filter by skill level
+            if skill_level == "beginner" and speed > 9:
+                continue
+            
+            # Filter by custom speed range if specified
+            if custom_speed_range:
+                min_s, max_s = custom_speed_range
+                if not (min_s <= speed <= max_s):
+                    continue
+            # Otherwise filter by disc type
+            elif disc_type:
+                speed_ranges = {"Putter": (1, 3), "Midrange": (4, 6), "Fairway driver": (7, 9), "Distance driver": (10, 14)}
+                min_s, max_s = speed_ranges.get(disc_type, (1, 14))
+                if not (min_s <= speed <= max_s):
+                    continue
+            
+            sample_discs.append(f"  • {name} ({data.get('manufacturer', '?')}): {speed}/{data.get('glide', 4)}/{data.get('turn', 0)}/{data.get('fade', 2)}")
+            added_discs.add(name)
+            if len(sample_discs) >= 35:
+                break
     
     disc_context = "\n".join(sample_discs) if sample_discs else "Ingen relevante discs fundet"
     
@@ -488,16 +542,17 @@ Discs fra vores database (med PRÆCISE flight numbers) - VÆLG KUN FRA DENNE LIS
 REGLER:
 1. Svar på dansk, venligt og hjælpsomt
 2. ⚠️ ABSOLUT KRAV: Vælg KUN discs fra listen ovenfor. Listen er allerede filtreret til at matche brugerens krav!
-3. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag FRA LISTEN OVENFOR
-4. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
-5. Brug flight numbers format: Speed/Glide/Turn/Fade
-6. Respekter brugerens speed-krav (fx hvis de siger "7-9 speed", må du KUN anbefale discs med speed 7, 8 eller 9)
-7. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
-8. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
-9. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
-10. Vær ærlig om hvad der passer til brugerens niveau
-11. Hvis du beskriver discs som brugeren allerede har nævnt, brug PRÆCIS de flight numbers fra databasen
-12. Hvis du ikke kan finde passende discs på listen, sig det ærligt i stedet for at anbefale forkerte discs
+3. ⭐ PRIORITER VELKENDTE DISCS: Discs øverst på listen er populære og anbefalet af Reddit-fællesskabet. Vælg helst disse fremfor ukendte discs længere nede på listen.
+4. Hvis brugeren spørger om specifikke anbefalinger, giv 2-4 konkrete disc-forslag FRA LISTEN OVENFOR
+5. ⚠️ KRITISK: Brug de NØJAGTIGE flight numbers fra databasen ovenfor. Opfind IKKE flight numbers!
+6. Brug flight numbers format: Speed/Glide/Turn/Fade
+7. Respekter brugerens speed-krav (fx hvis de siger "7-9 speed", må du KUN anbefale discs med speed 7, 8 eller 9)
+8. For nybegyndere: anbefal understabile discs (turn -2 eller lavere) og lavere speed
+9. Nævn vægt (begyndere: 150-165g, erfarne: 170-175g)
+10. Brug Reddit-diskussioner når de er relevante - de viser hvad rigtige spillere faktisk bruger
+11. Vær ærlig om hvad der passer til brugerens niveau
+12. Hvis du beskriver discs som brugeren allerede har nævnt, brug PRÆCIS de flight numbers fra databasen
+13. Hvis du ikke kan finde passende discs på listen, sig det ærligt i stedet for at anbefale forkerte discs
 
 Hvis du anbefaler discs, brug dette format:
 
