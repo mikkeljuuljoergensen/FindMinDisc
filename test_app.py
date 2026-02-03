@@ -339,7 +339,7 @@ def test_tell_more_detection(db):
         ('sammenlign Volt og Escape', False, []),  # Not a "tell more" request
     ]
     
-    tell_more_patterns = ['fortæl', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
+    tell_more_patterns = ['fortæl', 'forklar', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
     
     for prompt, expected_is_tell_more, expected_discs in test_cases:
         prompt_lower = prompt.lower()
