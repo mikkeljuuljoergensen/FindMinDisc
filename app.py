@@ -14,7 +14,7 @@ st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
 
 # --- CONSTANTS ---
 # Pattern keywords for detecting "tell me more" requests
-TELL_MORE_PATTERNS = ['fortæl', 'mere om', 'beskriv', 'info om', 'information om']
+TELL_MORE_PATTERNS = ['fortæl', 'forklar', 'mere om', 'beskriv', 'info om', 'information om']
 
 # Popular discs prioritized in recommendations (based on Reddit discussions and community feedback)
 POPULAR_DISCS = [

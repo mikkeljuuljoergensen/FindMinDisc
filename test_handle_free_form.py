@@ -161,7 +161,7 @@ def handle_free_form_question(prompt, user_prefs=None):
     prompt_lower = prompt.lower()
     
     # ==== HANDLE "TELL ME MORE" QUESTIONS ====
-    tell_more_patterns = ['fortæl', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
+    tell_more_patterns = ['fortæl', 'forklar', 'mere om', 'hvad med', 'beskriv', 'info om', 'information om']
     is_tell_more = any(p in prompt_lower for p in tell_more_patterns)
     
     discs_in_prompt = []
