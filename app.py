@@ -1230,8 +1230,9 @@ for idx, msg in enumerate(st.session_state.messages):
                             user_prefs=st.session_state.user_prefs,
                             disc_names=st.session_state.shown_discs
                         )
-                        # Mark feedback as given
+                        # Mark feedback as given and store rating
                         st.session_state.messages[idx]["feedback_given"] = True
+                        st.session_state.messages[idx]["rating"] = 5
                         st.success("Tak for din feedback! 👍")
                         st.rerun()
                 
@@ -1246,8 +1247,9 @@ for idx, msg in enumerate(st.session_state.messages):
                             user_prefs=st.session_state.user_prefs,
                             disc_names=st.session_state.shown_discs
                         )
-                        # Mark feedback as given and enable text feedback
+                        # Mark feedback as given, store rating, and enable text feedback
                         st.session_state.messages[idx]["feedback_given"] = True
+                        st.session_state.messages[idx]["rating"] = 1
                         st.session_state.messages[idx]["show_text_feedback"] = True
                         st.rerun()
                 
@@ -1271,7 +1273,7 @@ for idx, msg in enumerate(st.session_state.messages):
                         feedback_system.add_feedback(
                             question=question,
                             response=msg["content"],
-                            rating=msg.get("rating", 3),
+                            rating=msg.get("rating", None),  # Use None if no rating given
                             text_feedback=text_feedback,
                             user_prefs=st.session_state.user_prefs,
                             disc_names=st.session_state.shown_discs

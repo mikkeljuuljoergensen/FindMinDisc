@@ -301,7 +301,7 @@ def main():
         question="Best putter?",
         response="I recommend checking out the Berg...",
         rating=2,
-        text_feedback="I was looking forputters, not approach discs.",
+        text_feedback="I was looking for putters, not approach discs.",
         disc_names=["Berg"]
     )
     
