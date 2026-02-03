@@ -8,6 +8,7 @@ from langchain_openai import ChatOpenAI
 from retailers import get_product_links, check_disc_tree_stock
 from flight_chart import generate_flight_path, get_flight_stats, FLIGHT_NUMBER_GUIDE, calculate_arm_speed_factor
 from knowledge_base import DiscGolfKnowledgeBase
+from feedback_system import FeedbackSystem
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="FindMinDisc", page_icon="🥏")
@@ -1147,6 +1148,9 @@ except Exception as e:
     kb_enabled = False
     print(f"Knowledge base not available: {e}")
 
+# --- INITIALIZE FEEDBACK SYSTEM ---
+feedback_system = FeedbackSystem()
+
 # --- INITIALIZE SESSION STATE ---
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -1164,6 +1168,8 @@ if "throw_hand" not in st.session_state:
     st.session_state.throw_hand = 'right'  # right or left
 if "throw_type" not in st.session_state:
     st.session_state.throw_type = 'backhand'  # backhand or forehand
+if "feedback_mode" not in st.session_state:
+    st.session_state.feedback_mode = {}  # Track which messages are awaiting feedback
 
 # --- HEADER ---
 st.header("FindMinDisc 🥏")
@@ -1197,8 +1203,88 @@ if st.session_state.step == "start":
     st.session_state.step = "chat"
 
 # --- DISPLAY MESSAGES ---
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+for idx, msg in enumerate(st.session_state.messages):
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
+        
+        # Add feedback UI for assistant messages (but not the welcome message)
+        if msg["role"] == "assistant" and idx > 0:
+            # Create a unique key for this message
+            msg_key = f"msg_{idx}"
+            
+            # Check if feedback was already given
+            feedback_given = msg.get("feedback_given", False)
+            
+            if not feedback_given:
+                # Create columns for feedback buttons
+                col1, col2, col3, col4 = st.columns([1, 1, 1, 6])
+                
+                with col1:
+                    if st.button("👍", key=f"thumbs_up_{msg_key}", help="God hjælp"):
+                        # Store positive feedback
+                        question = st.session_state.messages[idx-1]["content"] if idx > 0 else ""
+                        feedback_system.add_feedback(
+                            question=question,
+                            response=msg["content"],
+                            rating=5,
+                            user_prefs=st.session_state.user_prefs,
+                            disc_names=st.session_state.shown_discs
+                        )
+                        # Mark feedback as given
+                        st.session_state.messages[idx]["feedback_given"] = True
+                        st.success("Tak for din feedback! 👍")
+                        st.rerun()
+                
+                with col2:
+                    if st.button("👎", key=f"thumbs_down_{msg_key}", help="Ikke brugbar"):
+                        # Store negative feedback
+                        question = st.session_state.messages[idx-1]["content"] if idx > 0 else ""
+                        feedback_system.add_feedback(
+                            question=question,
+                            response=msg["content"],
+                            rating=1,
+                            user_prefs=st.session_state.user_prefs,
+                            disc_names=st.session_state.shown_discs
+                        )
+                        # Mark feedback as given and enable text feedback
+                        st.session_state.messages[idx]["feedback_given"] = True
+                        st.session_state.messages[idx]["show_text_feedback"] = True
+                        st.rerun()
+                
+                with col3:
+                    if st.button("💬", key=f"feedback_{msg_key}", help="Giv detaljeret feedback"):
+                        st.session_state.messages[idx]["show_text_feedback"] = True
+                        st.rerun()
+            
+            # Show text feedback input if requested
+            if msg.get("show_text_feedback", False) and not msg.get("text_feedback_given", False):
+                text_feedback = st.text_area(
+                    "Din feedback (valgfri):",
+                    key=f"text_feedback_{msg_key}",
+                    placeholder="Hvordan kunne svaret være bedre?"
+                )
+                
+                if st.button("Send feedback", key=f"submit_feedback_{msg_key}"):
+                    if text_feedback.strip():
+                        # Store text feedback
+                        question = st.session_state.messages[idx-1]["content"] if idx > 0 else ""
+                        feedback_system.add_feedback(
+                            question=question,
+                            response=msg["content"],
+                            rating=msg.get("rating", 3),
+                            text_feedback=text_feedback,
+                            user_prefs=st.session_state.user_prefs,
+                            disc_names=st.session_state.shown_discs
+                        )
+                        st.session_state.messages[idx]["text_feedback_given"] = True
+                        st.session_state.messages[idx]["show_text_feedback"] = False
+                        st.success("Tak for din detaljerede feedback! 💬")
+                        st.rerun()
+            
+            # Show thank you message if feedback was given
+            if feedback_given and not msg.get("show_text_feedback", False):
+                st.caption("✅ Feedback modtaget - tak!")
+
 
 # --- DISPLAY PERSISTENT FLIGHT CHART BUTTON ---
 if st.session_state.shown_discs and not st.session_state.show_chart:
@@ -1977,6 +2063,22 @@ with st.sidebar:
     # Flight number guide expander
     with st.expander("📖 Hvad betyder flight numbers?"):
         st.markdown(FLIGHT_NUMBER_GUIDE)
+    
+    # Feedback statistics expander
+    with st.expander("📊 Feedback Statistik"):
+        stats = feedback_system.get_feedback_stats()
+        if stats["total_count"] > 0:
+            st.metric("Total feedback", stats["total_count"])
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("👍 Positive", stats["positive_count"])
+            with col2:
+                st.metric("👎 Negative", stats["negative_count"])
+            if stats["average_rating"]:
+                st.metric("Gennemsnit", f"{stats['average_rating']}/5")
+            st.caption(f"Med tekst: {stats['with_text']}")
+        else:
+            st.info("Ingen feedback endnu. Hjælp os med at forbedre chatbotten ved at bedømme svarene!")
     
     st.divider()
     st.caption("Drevet af den bedste AI Mikkel har råd til")
