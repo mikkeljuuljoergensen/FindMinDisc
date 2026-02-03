@@ -57,6 +57,7 @@ See [TEST_REPORT.md](TEST_REPORT.md) for the complete test report.
 - **Disc Type Detection**: Automatically identifies putters, midrange, fairway, and distance drivers
 - **Knowledge Base**: Integrated with 500+ Reddit disc golf discussions
 - **Retailer Links**: Direct links to purchase recommended discs
+- **🆕 Feedback System**: Rate chatbot responses and provide text feedback to help improve the bot
 
 ## 📝 Example Queries
 
@@ -71,6 +72,7 @@ Try asking:
 - [TESTING.md](TESTING.md) - Complete testing guide
 - [TEST_REPORT.md](TEST_REPORT.md) - Latest test results
 - [INTEGRATION_GUIDE.py](INTEGRATION_GUIDE.py) - Integration documentation
+- [FEEDBACK_GUIDE.md](FEEDBACK_GUIDE.md) - Chatbot training and feedback system
 
 ## 🗄️ Database
 
