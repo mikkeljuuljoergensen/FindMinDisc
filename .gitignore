@@ -3,3 +3,5 @@ __pycache__/
 .DS_Store
 .env
 .streamlit/secrets.toml
+chatbot_feedback.json
+training_data.json
